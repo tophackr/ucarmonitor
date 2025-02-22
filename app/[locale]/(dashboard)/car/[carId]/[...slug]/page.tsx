@@ -1,1 +1,1 @@
-export { CarSlugPage as default } from '@/pages/CarSlugPage'
+export { CarSlugPage as default, generateStaticParams } from '@/pages/car-slug'
