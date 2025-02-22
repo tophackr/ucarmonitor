@@ -8,6 +8,7 @@ export function Loader() {
                 alt={'Loading...'}
                 width={144}
                 height={144}
+                unoptimized={true}
             />
         </div>
     )
