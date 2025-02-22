@@ -1,12 +1,17 @@
 'use client'
 
 import clsx from 'clsx'
-import { type CSSProperties, type ReactElement, cloneElement } from 'react'
+import {
+    type CSSProperties,
+    type HTMLAttributes,
+    type ReactElement,
+    cloneElement
+} from 'react'
 import { useAppleClient } from '@/shared/hooks'
 import styles from './IconCell.module.css'
 
 export interface IconCellProps {
-    Icon: ReactElement<any>
+    Icon: ReactElement<HTMLAttributes<SVGElement>>
     bgColor: CSSProperties['backgroundColor']
 }
 
@@ -23,6 +28,6 @@ export function IconCell({ Icon, bgColor }: IconCellProps) {
                   backgroundColor: bgColor,
                   color: '#fff'
               }
-            : {}
+            : undefined
     })
 }
