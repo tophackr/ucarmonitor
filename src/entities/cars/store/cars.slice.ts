@@ -25,7 +25,8 @@ const carsSlice = createSlice({
     }
 })
 
-export const selectCars = (state: RootState) => state.carsSlice.value
+export const selectCars = (state: RootState) =>
+    (state['carsSlice'] as CarsState).value
 
 export const { actions: carsSliceActions, reducer: carsSliceReducer } =
     carsSlice
