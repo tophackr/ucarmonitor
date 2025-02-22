@@ -4,7 +4,7 @@ import type { ActionContentProps } from './ActionContentProps'
 
 export interface ActionButtonProps {
     icon: LucideIconName
-    name: keyof Translation['CarActionButtons']
+    name: string & keyof Translation['CarActionButtons']
     link?: string
 }
 
