@@ -12,7 +12,7 @@ export async function getLocales(
     locale: Locale = defaultLocale
 ): Promise<TranslationConfig> {
     const fetchMessages = await import(
-        `@public/locales/${isDefaultLocale(locale)}.json`
+        `@/shared/i18n/locales/${isDefaultLocale(locale)}.json`
     )
 
     return {
