@@ -1,12 +1,18 @@
 'use client'
 
 import { useMemo } from 'react'
+import type { ActionCreatorsMapObject } from 'redux'
 import { bindActionCreators } from 'redux'
-import { rootActions } from '../root-actions'
 import { useAppDispatch } from './useAppDispatch'
 
-export const useActions = () => {
+export function useActions<T extends ActionCreatorsMapObject>(
+    actionCreators: T
+): T {
     const dispatch = useAppDispatch()
+    const actions = useMemo(() => actionCreators, [actionCreators])
 
-    return useMemo(() => bindActionCreators(rootActions, dispatch), [dispatch])
+    return useMemo(
+        () => bindActionCreators(actions, dispatch),
+        [actions, dispatch]
+    )
 }
