@@ -33,7 +33,7 @@ export function Search({ onSearch, debounceTime = 444 }: SearchProps) {
                     <Icon24Close />
                 </Tappable>
             }
-            {...register('search')}
+            {...register('value')}
         />
     )
 }
