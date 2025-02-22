@@ -1,5 +1,6 @@
 import { defaultLocale, locales } from './config'
-import type { Locale, TranslationConfig } from './types'
+import type { Locale } from './types/Locale'
+import type { TranslationConfig } from './types/Translation'
 
 function isDefaultLocale(locale: Locale): Locale {
     return locale === defaultLocale || !locales.includes(locale)
