@@ -1,0 +1,1 @@
+export { pagesRoute } from './pages'
