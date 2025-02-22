@@ -1,0 +1,31 @@
+import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
+import type { WritableDraft } from 'immer'
+import type { RootState } from '@/shared/store'
+import type { ICar } from '../types/Car'
+import { defaultCars, itemName } from './cars'
+
+interface CarsState {
+    value: ICar[]
+}
+
+const initialState: CarsState = {
+    value: defaultCars
+}
+
+const carsSlice = createSlice({
+    name: itemName,
+    initialState,
+    reducers: {
+        setCars(
+            state: WritableDraft<CarsState>,
+            action: PayloadAction<ICar[]>
+        ) {
+            state.value = action.payload
+        }
+    }
+})
+
+export const selectCars = (state: RootState) => state.carsSlice.value
+
+export const { actions: carsSliceActions, reducer: carsSliceReducer } =
+    carsSlice
