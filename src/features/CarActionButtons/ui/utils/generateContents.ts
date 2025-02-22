@@ -9,7 +9,7 @@ export const generateContents = (
     id: string,
     t: NestedTranslationClient<'CarActionContents'>,
     data: ActionContentData[],
-    category: keyof Translation['CarActionContents']
+    category: string & keyof Translation['CarActionContents']
 ): ActionContentProps[] => {
     const route = actionsRoute(id)
 
