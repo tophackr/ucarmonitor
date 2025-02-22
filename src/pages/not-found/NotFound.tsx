@@ -1,6 +1,6 @@
 import { List, Placeholder } from '@telegram-apps/telegram-ui'
 import { getTranslations } from 'next-intl/server'
-import { BackButton, DuckNotFoundImage } from '@/shared/ui'
+import { BackButton, DuckNotFoundLottie } from '@/shared/ui'
 import { ReturnHomeButton } from './ReturnHomeButton'
 
 export async function NotFound() {
@@ -16,7 +16,7 @@ export async function NotFound() {
                     description={t('description')}
                     action={<ReturnHomeButton>{t('button')}</ReturnHomeButton>}
                 >
-                    <DuckNotFoundImage style={{ width: 256, height: 256 }} />
+                    <DuckNotFoundLottie style={{ width: 256, height: 256 }} />
                 </Placeholder>
             </List>
         </>
