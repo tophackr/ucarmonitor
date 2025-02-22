@@ -1,7 +1,7 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { getTranslations } from 'next-intl/server'
 import type { ReactNode } from 'react'
-import { DuckFlashbackImage } from '@/shared/ui'
+import { DuckFlashbackLottie } from '@/shared/ui'
 
 interface NothingProps {
     title?: ReactNode
@@ -16,7 +16,7 @@ export async function Nothing({ title, description }: NothingProps) {
             header={title ?? t('title')}
             description={description ?? t('description')}
         >
-            <DuckFlashbackImage />
+            <DuckFlashbackLottie />
         </Placeholder>
     )
 }
