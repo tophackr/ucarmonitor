@@ -13,6 +13,7 @@
     "allowJs": true,
     // Bundler mode
     "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
     // Best practices
@@ -36,25 +37,22 @@
       "@public/*": [
         "./public/*"
       ],
-      "@app/*": [
+      "@/app/*": [
         "./src/app/*"
       ],
-      "@processes/*": [
-        "./src/processes/*"
-      ],
-      "@pages/*": [
+      "@/pages/*": [
         "./src/pages/*"
       ],
-      "@widgets/*": [
+      "@/widgets/*": [
         "./src/widgets/*"
       ],
-      "@features/*": [
+      "@/features/*": [
         "./src/features/*"
       ],
-      "@entities/*": [
+      "@/entities/*": [
         "./src/entities/*"
       ],
-      "@shared/*": [
+      "@/shared/*": [
         "./src/shared/*"
       ],
     }
