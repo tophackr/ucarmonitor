@@ -1,1 +1,6 @@
-{}
+{
+  "Car": {
+    "default": "Default",
+    "mileage": "Mileage"
+  }
+}

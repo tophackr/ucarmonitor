@@ -1,78 +1,79 @@
 {
-    "Locale": {
-        "code": "ru",
-        "title": "Russian",
-        "subtitle": "Русский"
+  "Locale": {
+    "code": "ru",
+    "title": "Russian",
+    "subtitle": "Русский"
+  },
+  "NotFound": {
+    "title": "Страница не найдена",
+    "description": "Извините, запрашиваемая страница не найдена.",
+    "button": "На главную"
+  },
+  "Car": {
+    "default": "По умолчанию",
+    "mileage": "Пробег",
+    "odometerUnits": {
+      "kilometers": "км",
+      "miles": "м"
+    }
+  },
+  "CarActionButtons": {
+    "add": "Добавить Пробег",
+    "parking": "транспорт",
+    "wash": "мойка",
+    "fuel": "заправка",
+    "repair": "ремонт",
+    "finance": "финансы",
+    "more": "еще"
+  },
+  "CarActionContents": {
+    "parking": {
+      "parking": "Парковка",
+      "toll_road": "Платная Дорога",
+      "taxi": "Такси и Транспорт",
+      "sober_driver": "Трезвый Водитель",
+      "alarm_system": "Авто Сигнализация"
+    },
+    "repair": {
+      "maintenance": "Плановое ТО",
+      "tire_service": "Шиномонтаж",
+      "repair": "Ремонт",
+      "parts": "Запчасти и расходники",
+      "purchase_tires": "Покупка шин и дисков",
+      "tow_truck": "Эвакуатор"
+    },
+    "finance": {
+      "insurance": "Страховка",
+      "tax": "Налог",
+      "state_inspection": "Гос. Техосмотр",
+      "fine": "Штраф",
+      "car_purchase": "Покупка Автомобиля",
+      "loan_repayment": "Выплата Кредита",
+      "leasing": "Лизинг"
+    },
+    "more": {
+      "car_purchases": "Покупки для авто",
+      "tuning": "Тюнинг",
+      "driver_salary": "Зарплата Водителю"
+    }
+  },
+  "PopupError": {
+    "title": "Время сеанса истекло",
+    "description": "Пожалуйста, закройте приложение и откройте его заново."
+  },
+  "search": {
+    "placeholder": "Поиск...",
+    "Loading": {
+      "title": "Ищем...",
+      "description": "Подождите немного и вы все увидите."
     },
     "NotFound": {
-        "title": "Страница не найдена",
-        "description": "Извините, запрашиваемая страница не найдена.",
-        "button": "На главную"
+      "title": "Ничего не найдено",
+      "description": "Попробуйте изменить запрос."
     },
-    "Car": {
-        "mileage": "Пробег",
-        "odometerUnits": {
-            "kilometers": "км",
-            "miles": "м"
-        }
-    },
-    "CarActionButtons": {
-        "add": "Добавить Пробег",
-        "parking": "транспорт",
-        "wash": "мойка",
-        "fuel": "заправка",
-        "repair": "ремонт",
-        "finance": "финансы",
-        "more": "еще"
-    },
-    "CarActionContents": {
-        "parking": {
-            "parking": "Парковка",
-            "toll_road": "Платная Дорога",
-            "taxi": "Такси и Транспорт",
-            "sober_driver": "Трезвый Водитель",
-            "alarm_system": "Авто Сигнализация"
-        },
-        "repair": {
-            "maintenance": "Плановое ТО",
-            "tire_service": "Шиномонтаж",
-            "repair": "Ремонт",
-            "parts": "Запчасти и расходники",
-            "purchase_tires": "Покупка шин и дисков",
-            "tow_truck": "Эвакуатор"
-        },
-        "finance": {
-            "insurance": "Страховка",
-            "tax": "Налог",
-            "state_inspection": "Гос. Техосмотр",
-            "fine": "Штраф",
-            "car_purchase": "Покупка Автомобиля",
-            "loan_repayment": "Выплата Кредита",
-            "leasing": "Лизинг"
-        },
-        "more": {
-            "car_purchases": "Покупки для авто",
-            "tuning": "Тюнинг",
-            "driver_salary": "Зарплата Водителю"
-        }
-    },
-    "PopupError": {
-        "title": "Время сеанса истекло",
-        "description": "Пожалуйста, закройте приложение и откройте его заново."
-    },
-    "search": {
-        "placeholder": "Поиск...",
-        "Loading": {
-            "title": "Ищем...",
-            "description": "Подождите немного и вы все увидите."
-        },
-        "NotFound": {
-            "title": "Ничего не найдено",
-            "description": "Попробуйте изменить запрос."
-        },
-        "Nothing": {
-            "title": "Тут ничего нет",
-            "description": "Пора что-то придумать!"
-        }
+    "Nothing": {
+      "title": "Тут ничего нет",
+      "description": "Пора что-то придумать!"
     }
+  }
 }
