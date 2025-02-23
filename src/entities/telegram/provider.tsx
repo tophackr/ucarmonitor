@@ -8,9 +8,9 @@ import {
 import { AppRoot } from '@telegram-apps/telegram-ui'
 import { type PropsWithChildren } from 'react'
 import {
-    useAppleClient,
     useClientOnce,
     useDidMount,
+    useIsAppleClient,
     useTelegramMock
 } from '@/shared/hooks'
 import { Loader } from '@/shared/ui'
@@ -28,7 +28,7 @@ function RootInner({ children }: PropsWithChildren) {
     }
 
     const lp = retrieveLaunchParams()
-    const isApple = useAppleClient(lp)
+    const isApple = useIsAppleClient(lp)
     const debug = isDev || lp.platform === 'debug'
 
     // Initialize the library.

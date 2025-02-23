@@ -7,7 +7,7 @@ import {
     type ReactElement,
     cloneElement
 } from 'react'
-import { useAppleClient } from '@/shared/hooks'
+import { useIsAppleClient } from '@/shared/hooks'
 import styles from './IconCell.module.css'
 
 export interface IconCellProps {
@@ -16,7 +16,7 @@ export interface IconCellProps {
 }
 
 export function IconCell({ Icon, bgColor }: IconCellProps) {
-    const isApple = useAppleClient()
+    const isApple = useIsAppleClient()
 
     return cloneElement(Icon, {
         className: clsx(
