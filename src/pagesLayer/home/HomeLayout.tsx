@@ -1,10 +1,6 @@
-import { List, Section } from '@telegram-apps/telegram-ui'
 import type { PropsWithChildren } from 'react'
+import { ListSection } from '@/shared/ui'
 
 export function HomeLayout({ children }: PropsWithChildren) {
-    return (
-        <List>
-            <Section>{children}</Section>
-        </List>
-    )
+    return <ListSection>{children}</ListSection>
 }
