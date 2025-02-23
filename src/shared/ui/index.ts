@@ -1,6 +1,7 @@
 export * from './buttons'
 export * from './cells'
 export { Link } from './Link'
+export { ListSection } from './ListSection'
 export { Loader } from './Loader'
 export * from './lotties'
 export * from './lucide-icon'
