@@ -1,5 +1,5 @@
 export * from './context'
 export { cars as carsMock } from './mock'
 export * from './store'
-export * from './types/CarProps'
+export * from './types'
 export * from './ui'
