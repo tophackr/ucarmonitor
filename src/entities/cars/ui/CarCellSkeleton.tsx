@@ -7,7 +7,7 @@ export function CarCellSkeleton() {
             before={<AvatarSkeleton size={28} />}
             subtitle={<TextSkeleton className={'bg-secondary w-24'} />}
         >
-            <TextSkeleton className={'bg-hint w-32 mb-2'} />
+            <TextSkeleton className={'bg-hint mb-2'} />
         </Cell>
     )
 }
