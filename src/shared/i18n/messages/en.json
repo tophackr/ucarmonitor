@@ -9,6 +9,9 @@
     "description": "",
     "button": ""
   },
+  "Home": {
+    "add": ""
+  },
   "Car": {
     "default": "",
     "mileage": "",
