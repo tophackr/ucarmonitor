@@ -2,6 +2,7 @@
 
 import { useMemo } from 'react'
 import { CarCell, carsMock } from '@/entities/cars'
+import { HomeMainButton } from './HomeMainButton'
 
 export function HomePage() {
     const renderCars = useMemo(
@@ -15,5 +16,11 @@ export function HomePage() {
         []
     )
 
-    return renderCars
+    return (
+        <>
+            {renderCars}
+
+            <HomeMainButton />
+        </>
+    )
 }
