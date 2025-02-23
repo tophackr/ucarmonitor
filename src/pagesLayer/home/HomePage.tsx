@@ -1,6 +1,5 @@
 'use client'
 
-import { List, Section } from '@telegram-apps/telegram-ui'
 import { useMemo } from 'react'
 import { CarCell, carsMock } from '@/entities/cars'
 
@@ -16,11 +15,5 @@ export function HomePage() {
         []
     )
 
-    return (
-        <>
-            <List>
-                <Section>{renderCars}</Section>
-            </List>
-        </>
-    )
+    return renderCars
 }
