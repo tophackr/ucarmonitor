@@ -1,0 +1,78 @@
+{
+    "Locale": {
+        "code": "",
+        "title": "",
+        "subtitle": ""
+    },
+    "NotFound": {
+        "title": "",
+        "description": "",
+        "button": ""
+    },
+    "Car": {
+        "mileage": "",
+        "odometerUnits": {
+            "kilometers": "",
+            "miles": ""
+        }
+    },
+    "CarActionButtons": {
+        "add": "",
+        "parking": "",
+        "wash": "",
+        "fuel": "",
+        "repair": "",
+        "finance": "",
+        "more": ""
+    },
+    "CarActionContents": {
+        "parking": {
+            "parking": "",
+            "toll_road": "",
+            "taxi": "",
+            "sober_driver": "",
+            "alarm_system": ""
+        },
+        "repair": {
+            "maintenance": "",
+            "tire_service": "",
+            "repair": "",
+            "parts": "",
+            "purchase_tires": "",
+            "tow_truck": ""
+        },
+        "finance": {
+            "insurance": "",
+            "tax": "",
+            "state_inspection": "",
+            "fine": "",
+            "car_purchase": "",
+            "loan_repayment": "",
+            "leasing": ""
+        },
+        "more": {
+            "car_purchases": "",
+            "tuning": "",
+            "driver_salary": ""
+        }
+    },
+    "PopupError": {
+        "title": "",
+        "description": ""
+    },
+    "search": {
+        "placeholder": "",
+        "Loading": {
+            "title": "",
+            "description": ""
+        },
+        "NotFound": {
+            "title": "",
+            "description": ""
+        },
+        "Nothing": {
+            "title": "",
+            "description": ""
+        }
+    }
+}
