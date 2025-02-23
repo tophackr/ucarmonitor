@@ -5,7 +5,7 @@ export interface ICar {
     name?: string
     default?: boolean
     year?: Date
-    fuel?: CarFuel
+    fuel: CarFuel
     fuelCapacity?: number
     mileage: number
     odometerUnits: CarOdometerUnits
