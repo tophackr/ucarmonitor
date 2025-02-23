@@ -1,39 +1,23 @@
 'use client'
 
-import { type DependencyList, useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 import type { FieldValues, UseFormWatch } from 'react-hook-form'
 
 interface UseWatchFormProps<T extends FieldValues> {
     watch: UseFormWatch<T>
     callback: (formData: T) => void
-    deps?: DependencyList
 }
 
 export function useWatchForm<T extends FieldValues>({
     watch,
-    callback,
-    deps = []
+    callback
 }: UseWatchFormProps<T>) {
-    const effectDeps: DependencyList = [watch()]
-
-    if (deps.length) {
-        effectDeps.concat(...deps)
-    }
-
-    const watchCallback = useCallback(
-        (formData: T) => {
-            callback(formData)
-        },
-        [callback]
-    )
-
     return useEffect(() => {
-        const { unsubscribe } = watch(formData => {
-            watchCallback(formData as T)
-        })
+        const { unsubscribe } = watch(formData => callback(formData as T))
 
         return () => {
             unsubscribe()
         }
-    }, [watch, watchCallback])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [callback])
 }
