@@ -9,6 +9,7 @@ export function Loader() {
                 width={144}
                 height={144}
                 unoptimized={true}
+                priority={true}
             />
         </div>
     )
