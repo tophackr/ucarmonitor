@@ -5,7 +5,7 @@ import {
     retrieveLaunchParams
 } from '@telegram-apps/sdk-react'
 
-export function useAppleClient(launchParams?: LaunchParams): boolean {
+export function useIsAppleClient(launchParams?: LaunchParams): boolean {
     if (!launchParams) {
         launchParams = retrieveLaunchParams()
     }
