@@ -11,9 +11,9 @@ export async function getLocales(
     locale: Locale = defaultLocale
 ): Promise<TranslationConfig> {
     const [defaultMessages, userMessages] = await Promise.all([
-        import('./locales/ru.json').then(m => m.default),
+        import('./messages/ru.json').then(m => m.default),
         isNotDefaultLocale(locale) &&
-            import(`./locales/${locale}.json`).then(m => m.default)
+            import(`./messages/${locale}.json`).then(m => m.default)
     ])
 
     const mergedMessaged = userMessages

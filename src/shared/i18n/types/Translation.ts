@@ -1,4 +1,4 @@
-import messages from '../locales/ru.json'
+import messages from '../messages/ru.json'
 import type { Locale } from './Locale'
 
 export type Translation = typeof messages
