@@ -1,19 +1,16 @@
 'use client'
 
-import { useRouter } from '@/shared/i18n'
-import { type CellProps, Cell as TGUICell } from '@telegram-apps/telegram-ui'
+import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
 import { callMultiple } from '@telegram-apps/telegram-ui/dist/helpers/function'
 import { useCallback } from 'react'
-import { ChevronCell, type ChevronCellProps } from './ChevronCell'
-import { IconCell, type IconCellProps } from './icon-cell/IconCell'
-
-interface LinkCellProps extends IconCellProps, ChevronCellProps, CellProps {
-    href: string
-}
+import { useRouter } from '@/shared/i18n'
+import { ChevronCell } from '../ChevronCell'
+import { IconCell } from '../icon/IconCell'
+import type { LinkCellProps } from './LinkCellProps'
 
 export function LinkCell({
     children,
-    Icon,
+    icon,
     bgColor,
     href,
     text,
@@ -29,7 +26,7 @@ export function LinkCell({
             Component={'label'}
             before={
                 <IconCell
-                    Icon={Icon}
+                    icon={icon}
                     bgColor={bgColor}
                 />
             }

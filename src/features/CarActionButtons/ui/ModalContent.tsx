@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import { useIsAppleClient } from '@/shared/hooks'
-import { LinkCell, LucideIcon } from '@/shared/ui'
+import { LinkCell } from '@/shared/ui'
 import type { ActionContentProps } from '../types/ActionContentProps'
 
 interface ModalContentProps {
@@ -16,7 +16,7 @@ export function ModalContent({ content }: ModalContentProps) {
         <LinkCell
             key={index}
             href={href}
-            Icon={<LucideIcon name={icon} />}
+            icon={icon}
             bgColor={bgColor}
             className={clsx(isApple && 'bg-secondary')}
         >

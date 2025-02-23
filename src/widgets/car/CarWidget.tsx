@@ -1,9 +1,8 @@
 import { Cell, Input, List, Section } from '@telegram-apps/telegram-ui'
-import { Sigma } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import type { CarProps } from '@/entities/cars'
 import { CarPreviewSkeleton } from '@/entities/cars'
-import { IconCell, LinkCell, LucideIcon } from '@/shared/ui'
+import { IconCell, LinkCell } from '@/shared/ui'
 import { LabelsTemp } from './LabelsTemp'
 
 const DynamicCarPreview = dynamic(
@@ -32,14 +31,14 @@ export function CarWidget({ car }: CarProps) {
                         type={'number'}
                         before={
                             <IconCell
-                                Icon={<Sigma />}
+                                icon={'Sigma'}
                                 bgColor={'OrangeRed'}
                             />
                         }
                     />
                     <LinkCell
                         href={'https://tophackr.com'}
-                        Icon={<LucideIcon name={'Salad'} />}
+                        icon={'Salad'}
                         bgColor={'mediumpurple'}
                     >
                         test
