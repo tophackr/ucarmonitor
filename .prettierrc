@@ -20,5 +20,13 @@
         "(.scss)$"
     ],
     "importOrderSortSpecifiers": true,
-    "plugins": ["@trivago/prettier-plugin-sort-imports"]
+    "plugins": ["@trivago/prettier-plugin-sort-imports"],
+    "overrides": [
+        {
+            "files": "*.json",
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
