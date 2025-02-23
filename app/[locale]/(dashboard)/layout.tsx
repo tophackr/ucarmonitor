@@ -1,1 +1,1 @@
-export { HomeLayout as default } from '@/widgets/layouts'
+export { DashboardLayout as default } from '@/widgets/layouts'
