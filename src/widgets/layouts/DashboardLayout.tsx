@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react'
 import { Header } from '@/features/Header'
 
-export function HomeLayout({ children }: PropsWithChildren) {
+export function DashboardLayout({ children }: PropsWithChildren) {
     return (
         <>
             <Header />
