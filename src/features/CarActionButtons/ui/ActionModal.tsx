@@ -1,7 +1,6 @@
-import { List, Section } from '@telegram-apps/telegram-ui'
 import { Icon28Close } from '@telegram-apps/telegram-ui/dist/icons/28/close'
 import { type PropsWithChildren, type ReactNode } from 'react'
-import { Modal } from '@/shared/ui'
+import { ListSection, Modal } from '@/shared/ui'
 
 interface SubtaskModalProps {
     trigger: ReactNode
@@ -24,9 +23,7 @@ export function ActionModal({
                 />
             }
         >
-            <List>
-                <Section className={'bg-base'}>{children}</Section>
-            </List>
+            <ListSection>{children}</ListSection>
         </Modal>
     )
 }
