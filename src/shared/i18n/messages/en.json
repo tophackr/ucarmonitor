@@ -1,82 +1,82 @@
 {
   "Locale": {
-    "code": "",
-    "title": "",
-    "subtitle": ""
+    "code": "ru",
+    "title": "Russian",
+    "subtitle": "Русский"
   },
   "NotFound": {
-    "title": "",
-    "description": "",
-    "button": ""
+    "title": "Страница не найдена",
+    "description": "Извините, запрашиваемая страница не найдена.",
+    "button": "На главную"
   },
   "Home": {
-    "add": ""
+    "add": "Добавит Автомобиль"
   },
   "Car": {
-    "default": "",
-    "mileage": "",
+    "default": "По умолчанию",
+    "mileage": "Пробег",
     "odometerUnits": {
-      "kilometers": "",
-      "miles": ""
+      "kilometers": "км",
+      "miles": "м"
     }
   },
   "CarActionButtons": {
-    "add": "",
-    "parking": "",
-    "wash": "",
-    "fuel": "",
-    "repair": "",
-    "finance": "",
-    "more": ""
+    "add": "Добавить Пробег",
+    "parking": "транспорт",
+    "wash": "мойка",
+    "fuel": "заправка",
+    "repair": "ремонт",
+    "finance": "финансы",
+    "more": "еще"
   },
   "CarActionContents": {
     "parking": {
-      "parking": "",
-      "toll_road": "",
-      "taxi": "",
-      "sober_driver": "",
-      "alarm_system": ""
+      "parking": "Парковка",
+      "toll_road": "Платная Дорога",
+      "taxi": "Такси и Транспорт",
+      "sober_driver": "Трезвый Водитель",
+      "alarm_system": "Авто Сигнализация"
     },
     "repair": {
-      "maintenance": "",
-      "tire_service": "",
-      "repair": "",
-      "parts": "",
-      "purchase_tires": "",
-      "tow_truck": ""
+      "maintenance": "Плановое ТО",
+      "tire_service": "Шиномонтаж",
+      "repair": "Ремонт",
+      "parts": "Запчасти и расходники",
+      "purchase_tires": "Покупка шин и дисков",
+      "tow_truck": "Эвакуатор"
     },
     "finance": {
-      "insurance": "",
-      "tax": "",
-      "state_inspection": "",
-      "fine": "",
-      "car_purchase": "",
-      "loan_repayment": "",
-      "leasing": ""
+      "insurance": "Страховка",
+      "tax": "Налог",
+      "state_inspection": "Гос. Техосмотр",
+      "fine": "Штраф",
+      "car_purchase": "Покупка Автомобиля",
+      "loan_repayment": "Выплата Кредита",
+      "leasing": "Лизинг"
     },
     "more": {
-      "car_purchases": "",
-      "tuning": "",
-      "driver_salary": ""
+      "car_purchases": "Покупки для авто",
+      "tuning": "Тюнинг",
+      "driver_salary": "Зарплата Водителю"
     }
   },
   "PopupError": {
-    "title": "",
-    "description": ""
+    "title": "Время сеанса истекло",
+    "description": "Пожалуйста, закройте приложение и откройте его заново."
   },
   "search": {
-    "placeholder": "",
+    "placeholder": "Поиск...",
     "Loading": {
-      "title": "",
-      "description": ""
+      "title": "Ищем...",
+      "description": "Подождите немного и вы все увидите."
     },
     "NotFound": {
-      "title": "",
-      "description": ""
+      "title": "Ничего не найдено",
+      "description": "Попробуйте изменить запрос."
     },
     "Nothing": {
-      "title": "",
-      "description": ""
+      "title": "Тут ничего нет",
+      "description": "Пора что-то придумать!"
     }
   }
 }
