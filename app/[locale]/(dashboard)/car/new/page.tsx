@@ -1,1 +1,1 @@
-export { CarInfoForm as default } from '@/features/CarInfoForm'
+export { CarNewPage as default } from '@/pages/car-new'

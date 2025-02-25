@@ -1,0 +1,1 @@
+export { CarNewPage } from './CarNewPage'
