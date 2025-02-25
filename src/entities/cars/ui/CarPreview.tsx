@@ -11,7 +11,7 @@ export function CarPreview({ car, children }: PropsWithChildren<CarProps>) {
     return (
         <ListSection>
             <Placeholder
-                header={`${car.brand} ${car.model}`}
+                header={`${car.brand} ${car.model ? car.model : ''}`}
                 description={`${t('mileage')}: ${car.mileage} ${t(`odometerUnits.${car.odometerUnits}`)}`}
             >
                 {children}
