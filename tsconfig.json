@@ -40,7 +40,7 @@
         "./src/app/*"
       ],
       "@/pages/*": [
-        "./src/pagesLayer/*"
+        "./src/views/*"
       ],
       "@/widgets/*": [
         "./src/widgets/*"
