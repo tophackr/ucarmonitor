@@ -24,7 +24,6 @@ export function useDebounceForm<T extends FieldValues>({
 
     return useWatchForm({
         watch,
-        callback: debouncedSubmit,
-        deps: [debouncedSubmit]
+        callback: debouncedSubmit
     })
 }
