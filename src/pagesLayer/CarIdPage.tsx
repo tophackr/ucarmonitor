@@ -1,13 +1,16 @@
-import { type CarIdProps, carsMock } from '@/entities/cars'
-import type { ParamsProps } from '@/shared/types'
-import { CarWidget } from '@/widgets/car'
+'use client'
+
 import { notFound } from 'next/navigation'
+import { use, useMemo } from 'react'
+import { CarWidget } from '@/widgets/car'
+import { type CarIdProps, useCars } from '@/entities/cars'
+import type { ParamsProps } from '@/shared/types'
 
-export async function CarIdPage({ params }: ParamsProps<CarIdProps>) {
-    const { carId } = await params
+export function CarIdPage({ params }: ParamsProps<CarIdProps>) {
+    const { carId } = use(params)
+    const { cars } = useCars()
 
-    // TODO: replace mock
-    const car = carsMock.find(car => car.id === carId)
+    const car = useMemo(() => cars.find(car => car.id === carId), [carId, cars])
 
     if (!car) {
         notFound()

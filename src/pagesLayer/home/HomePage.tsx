@@ -1,19 +1,21 @@
 'use client'
 
 import { useMemo } from 'react'
-import { CarCell, carsMock } from '@/entities/cars'
+import { CarCell, useCars } from '@/entities/cars'
 import { HomeMainButton } from './HomeMainButton'
 
 export function HomePage() {
+    const { cars } = useCars()
+
     const renderCars = useMemo(
         () =>
-            carsMock.map(car => (
+            cars.map(car => (
                 <CarCell
                     key={car.id}
                     car={car}
                 />
             )),
-        []
+        [cars]
     )
 
     return (

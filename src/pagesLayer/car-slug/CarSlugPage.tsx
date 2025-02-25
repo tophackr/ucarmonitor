@@ -1,14 +1,17 @@
+'use client'
+
 import { notFound } from 'next/navigation'
-import { type CarIdProps, type CarSlugProps, carsMock } from '@/entities/cars'
+import { use, useMemo } from 'react'
+import { type CarIdProps, type CarSlugProps, useCars } from '@/entities/cars'
 import type { ParamsProps } from '@/shared/types'
 
-export async function CarSlugPage({
+export function CarSlugPage({
     params
 }: ParamsProps<CarIdProps & CarSlugProps>) {
-    const { carId, slug } = await params
+    const { carId, slug } = use(params)
+    const { cars } = useCars()
 
-    // TODO: replace mock
-    const car = carsMock.find(car => car.id === carId)
+    const car = useMemo(() => cars.find(car => car.id === carId), [carId, cars])
 
     if (!car) {
         notFound()
