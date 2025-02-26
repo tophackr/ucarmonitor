@@ -6,3 +6,4 @@ export type CarMileageForm = Pick<
     ICar,
     'mileage' | 'odometerUnits' | 'engineHoursEnabled' | 'engineHours'
 >
+export type CarDefaultFrom = Pick<ICar, 'default'>

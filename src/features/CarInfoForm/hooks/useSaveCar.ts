@@ -15,14 +15,24 @@ export function useSaveCar(): UseSaveCarProps {
 
     const saveCallback = useCallback(
         (data: ICar) => {
+            let structureCar = structuredClone(cars)
+
             const emptyData = removeEmptyValues(data)
 
-            if (!cars.length) {
+            if (!structureCar.length) {
                 emptyData['default'] = true
             }
 
+            if (emptyData.default) {
+                structureCar = structureCar.map(car =>
+                    car.default && car.id !== emptyData.id
+                        ? removeEmptyValues({ ...car, default: undefined })
+                        : car
+                )
+            }
+
             if ('id' in emptyData) {
-                const updatedCars = cars.map(car =>
+                const updatedCars = structureCar.map(car =>
                     car.id === emptyData.id ? emptyData : car
                 )
 
@@ -30,7 +40,7 @@ export function useSaveCar(): UseSaveCarProps {
             } else {
                 Object.assign(emptyData, { id: uuid() })
 
-                setCarsWithCloud([...cars, emptyData])
+                setCarsWithCloud([...structureCar, emptyData])
             }
 
             router.push(pagesRoute.carId(emptyData.id))
