@@ -1,7 +1,7 @@
 import { useAppSelector } from '@/shared/store'
+import { setCars as setCarsCloud } from '../store/cars'
+import { selectCars } from '../store/cars.slice'
 import type { ICar } from '../types/Car'
-import { setCars as setCarsCloud } from './cars'
-import { selectCars } from './cars.slice'
 import { useCarsActions } from './useCarsActions'
 
 export function useCars() {
