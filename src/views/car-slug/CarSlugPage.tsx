@@ -1,17 +1,15 @@
 'use client'
 
 import { notFound } from 'next/navigation'
-import { use, useMemo } from 'react'
-import { type CarIdProps, type CarSlugProps, useCars } from '@/entities/cars'
+import { use } from 'react'
+import { type CarIdProps, type CarSlugProps, useFindCar } from '@/entities/cars'
 import type { ParamsProps } from '@/shared/types'
 
 export function CarSlugPage({
     params
 }: ParamsProps<CarIdProps & CarSlugProps>) {
     const { carId, slug } = use(params)
-    const { cars } = useCars()
-
-    const car = useMemo(() => cars.find(car => car.id === carId), [carId, cars])
+    const car = useFindCar(carId)
 
     if (!car) {
         notFound()
