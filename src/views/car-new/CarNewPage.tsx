@@ -1,5 +1,12 @@
 import { CarInfoForm } from '@/features/CarInfoForm'
+import { BackButton } from '@/shared/ui'
 
 export function CarNewPage() {
-    return <CarInfoForm />
+    return (
+        <>
+            <BackButton />
+
+            <CarInfoForm />
+        </>
+    )
 }
