@@ -15,7 +15,10 @@ export function InfoSection() {
     } = useFormContext<CarInfoForm>()
 
     return (
-        <Section header={t('sections.info')}>
+        <Section
+            header={t('sections.info')}
+            className={'row-span-2'}
+        >
             <Input
                 status={errors.brand && 'error'}
                 before={

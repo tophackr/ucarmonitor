@@ -19,9 +19,11 @@ export function Form({ car }: Partial<CarProps>) {
     return (
         <List>
             <FormProvider {...methods}>
-                <InfoSection />
-                <FuelSection />
-                <MileageSection />
+                <div className={'grid md:grid-cols-2 gap-x-4'}>
+                    <InfoSection />
+                    <FuelSection />
+                    <MileageSection />
+                </div>
 
                 <FormMainButton handleSubmit={handleSubmit} />
             </FormProvider>
