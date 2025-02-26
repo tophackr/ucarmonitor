@@ -15,13 +15,21 @@ export function useSaveCar(): UseSaveCarProps {
     const saveCallback = (data: ICar) => {
         const emptyData = removeEmptyValues(data)
 
-        emptyData['id'] = uuid()
-
         if (!cars.length) {
             emptyData['default'] = true
         }
 
-        setCarsWithCloud([...cars, emptyData])
+        if ('id' in emptyData) {
+            const updatedCars = cars.map(car =>
+                car.id === emptyData.id ? emptyData : car
+            )
+
+            setCarsWithCloud(updatedCars)
+        } else {
+            Object.assign(emptyData, { id: uuid() })
+
+            setCarsWithCloud([...cars, emptyData])
+        }
 
         router.push(pagesRoute.carId(emptyData.id))
     }

@@ -2,14 +2,17 @@
 
 import { themeParams } from '@telegram-apps/sdk-react'
 import clsx from 'clsx'
+import { useParams } from 'next/navigation'
 import { usePathname } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { ListSection } from '@/shared/ui'
 import { CarsButton } from './buttons/CarsButton'
+import { EditButton } from './buttons/EditButton'
 import { SettingsButton } from './buttons/SettingsButton'
 
 export function Header() {
     const pathname = usePathname()
+    const params = useParams()
 
     const isNotSameTheme =
         themeParams.headerBackgroundColor() !==
@@ -24,7 +27,11 @@ export function Header() {
                 )}
             >
                 <SettingsButton />
-                {pagesRoute.cars !== pathname && <CarsButton />}
+
+                <div className={'space-x-2'}>
+                    {'carId' in params && <EditButton />}
+                    {pagesRoute.cars !== pathname && <CarsButton />}
+                </div>
             </div>
         </ListSection>
     )
