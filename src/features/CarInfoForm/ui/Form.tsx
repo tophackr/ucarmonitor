@@ -4,6 +4,7 @@ import { List } from '@telegram-apps/telegram-ui'
 import { FormProvider, useForm } from 'react-hook-form'
 import type { CarProps, ICar } from '@/entities/cars'
 import { initialCar } from '../constants/defaults'
+import { DeleteButton } from './DeleteButton'
 import { FormMainButton } from './FormMainButton'
 import { FuelSection } from './FuelSection'
 import { InfoSection } from './InfoSection'
@@ -24,6 +25,8 @@ export function Form({ car }: Partial<CarProps>) {
 
                 <FormMainButton handleSubmit={handleSubmit} />
             </FormProvider>
+
+            {car && <DeleteButton carId={car.id} />}
         </List>
     )
 }

@@ -8,9 +8,9 @@ export function useCars() {
     const cars = useAppSelector(selectCars)
     const { setCars } = useCarsActions()
 
-    const setCarsWithCloud = (cars: ICar[]) => {
+    const setCarsWithCloud = async (cars: ICar[]) => {
         setCars(cars)
-        setCarsCloud(cars)
+        await setCarsCloud(cars)
     }
 
     return {
