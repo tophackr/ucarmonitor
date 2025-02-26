@@ -17,6 +17,10 @@ export function useSaveCar(): UseSaveCarProps {
 
         emptyData['id'] = uuid()
 
+        if (!cars.length) {
+            emptyData['default'] = true
+        }
+
         setCarsWithCloud([...cars, emptyData])
 
         router.push(pagesRoute.carId(emptyData.id))
