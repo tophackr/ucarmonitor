@@ -5,6 +5,7 @@ import { use } from 'react'
 import { CarInfoForm } from '@/features/CarInfoForm'
 import { type CarIdProps, useFindCar } from '@/entities/cars'
 import type { ParamsProps } from '@/shared/types'
+import { BackButton } from '@/shared/ui'
 
 export function CarEditPage({ params }: ParamsProps<CarIdProps>) {
     const { carId } = use(params)
@@ -14,5 +15,11 @@ export function CarEditPage({ params }: ParamsProps<CarIdProps>) {
         notFound()
     }
 
-    return <CarInfoForm car={car} />
+    return (
+        <>
+            <BackButton />
+
+            <CarInfoForm car={car} />
+        </>
+    )
 }
