@@ -1,9 +1,9 @@
-import { callMultiple } from '@telegram-apps/telegram-ui/dist/helpers/function'
 import { useTranslations } from 'next-intl'
 import { useCallback, useState } from 'react'
 import { type UseFormHandleSubmit, useFormContext } from 'react-hook-form'
 import type { ICar } from '@/entities/cars'
 import { MainButton } from '@/shared/ui'
+import { callMultiple } from '@/shared/utils'
 import { useSaveCar } from '../hooks/useSaveCar'
 import { SnackbarError } from './SnackbarError'
 

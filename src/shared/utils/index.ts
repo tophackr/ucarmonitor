@@ -1,3 +1,4 @@
-export * from './getPopup'
-export * from './isCleanedEqual'
-export * from './removeEmptyValues'
+export { callMultiple } from './callMultiple'
+export { getPopup } from './getPopup'
+export { isCleanedEqual } from './isCleanedEqual'
+export { removeEmptyValues } from './removeEmptyValues'

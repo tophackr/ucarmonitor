@@ -1,9 +1,9 @@
 'use client'
 
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
-import { callMultiple } from '@telegram-apps/telegram-ui/dist/helpers/function'
 import { useCallback } from 'react'
 import { useRouter } from '@/shared/i18n'
+import { callMultiple } from '@/shared/utils'
 import { ChevronCell } from '../ChevronCell'
 import { IconCell } from '../icon/IconCell'
 import type { LinkCellProps } from './LinkCellProps'
