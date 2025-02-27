@@ -6,7 +6,7 @@ import { useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { MainButton } from '@/shared/ui'
 
-export function HomeMainButton() {
+export function CreateCarButton() {
     const t = useTranslations('Home')
     const router = useRouter()
 

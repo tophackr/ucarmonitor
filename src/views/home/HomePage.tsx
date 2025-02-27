@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { CarCell, useCars } from '@/entities/cars'
-import { HomeMainButton } from './HomeMainButton'
+import { CreateCarButton } from './CreateCarButton'
 
 export function HomePage() {
     const { cars } = useCars()
@@ -22,7 +22,7 @@ export function HomePage() {
         <>
             {renderCars}
 
-            <HomeMainButton />
+            <CreateCarButton />
         </>
     )
 }
