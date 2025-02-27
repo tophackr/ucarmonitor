@@ -6,7 +6,7 @@ import { useButtonClick } from '@/shared/hooks'
 import { pagesRoute } from '@/shared/routes'
 
 export function CarsButton() {
-    const props = useButtonClick(pagesRoute.cars)
+    const props = useButtonClick(pagesRoute.home)
 
     return (
         <IconButton

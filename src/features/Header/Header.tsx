@@ -32,7 +32,7 @@ export function Header() {
 
                 <div className={'space-x-2'}>
                     {isCarPage && <EditButton />}
-                    {pagesRoute.cars !== pathname && <CarsButton />}
+                    {pagesRoute.home !== pathname && <CarsButton />}
                 </div>
             </div>
         </ListSection>

@@ -10,7 +10,7 @@ export function useDeleteCar(carId: string) {
     const deleteCallback = useCallback(() => {
         const updatedCars = cars.filter(car => car.id !== carId)
 
-        setCarsWithCloud(updatedCars).then(() => router.push(pagesRoute.cars))
+        setCarsWithCloud(updatedCars).then(() => router.push(pagesRoute.home))
     }, [carId, cars, router, setCarsWithCloud])
 
     return deleteCallback

@@ -1,5 +1,5 @@
 class Pages {
-    cars = '/'
+    home = '/'
     carNew = '/car/new'
     carId = (id: string) => `/car/${id}`
     carEdit = (id: string) => `/car/${id}/edit`
