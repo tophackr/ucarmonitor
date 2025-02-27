@@ -1,9 +1,9 @@
 'use client'
 
 import { IconButton } from '@telegram-apps/telegram-ui'
-import { Settings } from 'lucide-react'
 import { useButtonClick } from '@/shared/hooks'
 import { pagesRoute } from '@/shared/routes'
+import { LucideIcon } from '@/shared/ui'
 
 export function SettingsButton() {
     const props = useButtonClick(pagesRoute.settings)
@@ -13,7 +13,7 @@ export function SettingsButton() {
             size={'m'}
             {...props}
         >
-            <Settings />
+            <LucideIcon name={'Settings'} />
         </IconButton>
     )
 }
