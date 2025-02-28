@@ -1,4 +1,4 @@
-export enum CarCategory {
+export enum CarActionCategory {
     parking = 'parking',
     tollRoad = 'toll-road',
     taxi = 'taxi',

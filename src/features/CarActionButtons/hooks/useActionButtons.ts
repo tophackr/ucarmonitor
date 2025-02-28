@@ -1,6 +1,6 @@
+import { CarActionCategory } from '@/entities/cars'
 import { actionsRoute } from '../route/actions'
 import type { ActionModalProps } from '../types/ActionButtonProps'
-import { CarCategory } from '../types/CarCategories'
 import { financeContents } from '../ui/contents/financeContents'
 import { moreContents } from '../ui/contents/moreContents'
 import { parkingContents } from '../ui/contents/parkingContents'
@@ -14,9 +14,9 @@ export function useActionButtons(carId: string): ActionModalProps[] {
         {
             name: 'wash',
             icon: 'CloudDrizzle',
-            link: route.new(CarCategory.wash)
+            link: route.new(CarActionCategory.wash)
         },
-        { name: 'fuel', icon: 'Fuel', link: route.new(CarCategory.fuel) },
+        { name: 'fuel', icon: 'Fuel', link: route.new(CarActionCategory.fuel) },
         { name: 'repair', icon: 'Wrench', content: repairContents },
         { name: 'finance', icon: 'Landmark', content: financeContents },
         { name: 'more', icon: 'Ellipsis', content: moreContents }

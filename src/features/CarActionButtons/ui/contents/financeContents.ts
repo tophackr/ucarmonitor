@@ -1,9 +1,9 @@
+import { CarActionCategory } from '@/entities/cars'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type {
     ActionContentData,
     ActionContentProps
 } from '../../types/ActionContentProps'
-import { CarCategory } from '../../types/CarCategories'
 import { generateContents } from '../utils/generateContents'
 
 export const financeContents = (
@@ -12,37 +12,37 @@ export const financeContents = (
 ): ActionContentProps[] => {
     const data: ActionContentData[] = [
         {
-            name: CarCategory.insurance,
+            name: CarActionCategory.insurance,
             icon: 'Ambulance',
             bgColor: 'OrangeRed'
         },
         {
-            name: CarCategory.tax,
+            name: CarActionCategory.tax,
             icon: 'Calculator',
             bgColor: 'MediumPurple'
         },
         {
-            name: CarCategory.stateInspection,
+            name: CarActionCategory.stateInspection,
             icon: 'LoaderPinwheel',
             bgColor: 'DodgerBlue'
         },
         {
-            name: CarCategory.fine,
+            name: CarActionCategory.fine,
             icon: 'CircleDollarSign',
             bgColor: 'Orange'
         },
         {
-            name: CarCategory.carPurchase,
+            name: CarActionCategory.carPurchase,
             icon: 'Container',
             bgColor: 'LimeGreen'
         },
         {
-            name: CarCategory.loanRepayment,
+            name: CarActionCategory.loanRepayment,
             icon: 'Captions',
             bgColor: 'DeepPink'
         },
         {
-            name: CarCategory.leasing,
+            name: CarActionCategory.leasing,
             icon: 'NotepadText',
             bgColor: 'SlateGray'
         }

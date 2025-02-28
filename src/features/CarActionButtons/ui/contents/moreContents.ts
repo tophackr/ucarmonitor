@@ -1,9 +1,9 @@
+import { CarActionCategory } from '@/entities/cars'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type {
     ActionContentData,
     ActionContentProps
 } from '../../types/ActionContentProps'
-import { CarCategory } from '../../types/CarCategories'
 import { generateContents } from '../utils/generateContents'
 
 export const moreContents = (
@@ -12,17 +12,17 @@ export const moreContents = (
 ): ActionContentProps[] => {
     const data: ActionContentData[] = [
         {
-            name: CarCategory.carPurchases,
+            name: CarActionCategory.carPurchases,
             icon: 'Gift',
             bgColor: 'LimeGreen'
         },
         {
-            name: CarCategory.tuning,
+            name: CarActionCategory.tuning,
             icon: 'CircuitBoard',
             bgColor: 'DodgerBlue'
         },
         {
-            name: CarCategory.driverSalary,
+            name: CarActionCategory.driverSalary,
             icon: 'Coins',
             bgColor: 'Orange'
         }

@@ -1,9 +1,9 @@
+import { CarActionCategory } from '@/entities/cars'
 import type { NestedTranslationClient } from '@/shared/i18n'
 import type {
     ActionContentData,
     ActionContentProps
 } from '../../types/ActionContentProps'
-import { CarCategory } from '../../types/CarCategories'
 import { generateContents } from '../utils/generateContents'
 
 export const repairContents = (
@@ -12,32 +12,32 @@ export const repairContents = (
 ): ActionContentProps[] => {
     const data: ActionContentData[] = [
         {
-            name: CarCategory.maintenance,
+            name: CarActionCategory.maintenance,
             icon: 'Bike',
             bgColor: 'MediumPurple'
         },
         {
-            name: CarCategory.tireService,
+            name: CarActionCategory.tireService,
             icon: 'Badge',
             bgColor: 'LimeGreen'
         },
         {
-            name: CarCategory.repair,
+            name: CarActionCategory.repair,
             icon: 'Orbit',
             bgColor: 'DodgerBlue'
         },
         {
-            name: CarCategory.parts,
+            name: CarActionCategory.parts,
             icon: 'PocketKnife',
             bgColor: 'SlateGray'
         },
         {
-            name: CarCategory.purchaseTires,
+            name: CarActionCategory.purchaseTires,
             icon: 'Aperture',
             bgColor: 'Orange'
         },
         {
-            name: CarCategory.towTruck,
+            name: CarActionCategory.towTruck,
             icon: 'Caravan',
             bgColor: 'OrangeRed'
         }

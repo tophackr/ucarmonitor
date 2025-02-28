@@ -1,15 +1,15 @@
+import { CarActionCategory } from '@/entities/cars'
 import { pagesRoute } from '@/shared/routes'
-import { CarCategory } from '../types/CarCategories'
 
 export const actionsRoute = (carId: string) => {
     const rootRoute = (carId: string) => pagesRoute.carId(carId)
-    const categoryRoute = (category: CarCategory) =>
+    const categoryRoute = (category: CarActionCategory) =>
         `${rootRoute(carId)}/${category}`
 
     return {
         category: categoryRoute,
-        new: (category: CarCategory) => `${categoryRoute(category)}/new`,
-        details: (category: CarCategory, id: string) =>
+        new: (category: CarActionCategory) => `${categoryRoute(category)}/new`,
+        details: (category: CarActionCategory, id: string) =>
             `${categoryRoute(category)}/${id}`
     }
 }
