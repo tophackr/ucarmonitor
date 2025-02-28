@@ -1,26 +1,19 @@
 'use client'
 
-import { notFound } from 'next/navigation'
 import { use } from 'react'
-import { type CarIdProps, type CarSlugProps, useFindCar } from '@/entities/cars'
+import { type CarSlugProps, useCarContext } from '@/entities/cars'
 import type { ParamsProps } from '@/shared/types'
 
-export function CarSlugPage({
-    params
-}: ParamsProps<CarIdProps & CarSlugProps>) {
-    const { carId, slug } = use(params)
-    const car = useFindCar(carId)
-
-    if (!car) {
-        notFound()
-    }
+export function CarSlugPage({ params }: ParamsProps<CarSlugProps>) {
+    const { slug } = use(params)
+    const { car } = useCarContext()
 
     const [category, action] = slug
 
     if (!action) {
         return (
             <h1>
-                Категория: {category} для автомобиля {carId}
+                Категория: {category} для автомобиля {car.id}
             </h1>
         )
     }
@@ -28,14 +21,14 @@ export function CarSlugPage({
     if (action === 'new') {
         return (
             <h1>
-                Создание нового {category} для автомобиля {carId}
+                Создание нового {category} для автомобиля {car.id}
             </h1>
         )
     }
 
     return (
         <h1>
-            Просмотр {category}, ID: {action} для автомобиля {carId}
+            Просмотр {category}, ID: {action} для автомобиля {car.id}
         </h1>
     )
 }

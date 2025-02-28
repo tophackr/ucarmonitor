@@ -1,18 +1,10 @@
 'use client'
 
-import { notFound } from 'next/navigation'
-import { use } from 'react'
 import { CarWidget } from '@/widgets/car'
-import { type CarIdProps, useFindCar } from '@/entities/cars'
-import type { ParamsProps } from '@/shared/types'
+import { useCarContext } from '@/entities/cars'
 
-export function CarIdPage({ params }: ParamsProps<CarIdProps>) {
-    const { carId } = use(params)
-    const car = useFindCar(carId)
-
-    if (!car) {
-        notFound()
-    }
+export function CarIdPage() {
+    const { car } = useCarContext()
 
     return <CarWidget car={car} />
 }
