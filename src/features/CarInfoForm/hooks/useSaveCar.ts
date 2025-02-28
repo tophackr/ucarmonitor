@@ -1,9 +1,8 @@
 import { useCallback } from 'react'
-import { v7 as uuid } from 'uuid'
 import { type ICar, useCars } from '@/entities/cars'
 import { useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
-import { removeEmptyValues } from '@/shared/utils'
+import { generateUniqueId, removeEmptyValues } from '@/shared/utils'
 
 interface UseSaveCarProps {
     callback: (data: ICar) => void
@@ -38,7 +37,7 @@ export function useSaveCar(): UseSaveCarProps {
 
                 setCarsWithCloud(updatedCars)
             } else {
-                Object.assign(emptyData, { id: uuid() })
+                Object.assign(emptyData, { id: generateUniqueId() })
 
                 setCarsWithCloud([...structureCar, emptyData])
             }
