@@ -1,5 +1,6 @@
 export * from './buttons'
 export * from './cells'
+export { IconInput } from './IconInput'
 export { Link } from './Link'
 export { ListSection } from './ListSection'
 export { Loader } from './Loader'
