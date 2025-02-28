@@ -24,7 +24,7 @@ export function Header() {
         <ListSection>
             <div
                 className={clsx(
-                    'flex justify-between bg-header',
+                    'flex justify-between py-4 bg-header',
                     isNotSameTheme && 'px-4'
                 )}
             >
