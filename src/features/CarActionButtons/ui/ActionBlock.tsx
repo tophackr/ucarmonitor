@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { useCarIdContext } from '@/entities/cars'
+import { useCarContext } from '@/entities/cars'
 import { useRouter } from '@/shared/i18n'
 import { useActionButtons } from '../hooks/useActionButtons'
 import { ActionButton } from './ActionButton'
@@ -10,10 +10,10 @@ import { ModalContent } from './ModalContent'
 
 export function ActionBlock() {
     const t = useTranslations('CarActionContents')
-    const { carId } = useCarIdContext()
+    const { car } = useCarContext()
     const router = useRouter()
 
-    const buttons = useActionButtons(carId)
+    const buttons = useActionButtons(car.id)
 
     return buttons.map(button =>
         'content' in button ? (
@@ -26,7 +26,7 @@ export function ActionBlock() {
                     />
                 }
             >
-                <ModalContent content={button.content(carId, t)} />
+                <ModalContent content={button.content(car.id, t)} />
             </ActionModal>
         ) : (
             <ActionButton

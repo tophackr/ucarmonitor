@@ -1,6 +1,6 @@
 'use client'
 
 import { useContext } from 'react'
-import { CarIdContext } from './CarIdContext'
+import { CarContext } from './CarContext'
 
-export const useCarIdContext = () => useContext(CarIdContext)
+export const useCarContext = () => useContext(CarContext)
