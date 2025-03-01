@@ -4,11 +4,11 @@ import { useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { generateUniqueId, removeEmptyValues } from '@/shared/utils'
 
-interface UseSaveCarProps {
-    callback: (data: ICar) => void
+interface UseSaveCarReturns {
+    saveCallback: (data: ICar) => void
 }
 
-export function useSaveCar(): UseSaveCarProps {
+export function useSaveCar(): UseSaveCarReturns {
     const { cars, setCarsWithCloud } = useCars()
     const router = useRouter()
 
@@ -47,5 +47,5 @@ export function useSaveCar(): UseSaveCarProps {
         [cars, router, setCarsWithCloud]
     )
 
-    return { callback: saveCallback }
+    return { saveCallback }
 }

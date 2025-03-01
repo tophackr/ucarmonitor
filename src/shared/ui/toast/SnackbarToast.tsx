@@ -4,15 +4,13 @@ import { callMultiple, hasReactNode } from '@/shared/utils'
 import { LucideIcon } from '../lucide-icon'
 import type { ToastProps } from './ToastProps'
 
-export function CustomToast({
+export function SnackbarToast({
     id,
     icon,
     title,
-    description,
     button,
-    link,
-    duration,
-    onClose
+    onClose,
+    ...props
 }: ToastProps) {
     return (
         <Snackbar
@@ -29,10 +27,8 @@ export function CustomToast({
                     </Snackbar.Button>
                 )
             }
-            description={description}
-            link={link}
-            duration={duration}
             onClose={callMultiple(onClose)}
+            {...props}
         >
             {title}
         </Snackbar>

@@ -5,7 +5,7 @@ export interface ToastProps {
     id: string | number
     icon?: ReactNode
     title: string
-    description: string
+    description: ReactNode
     button?: {
         label: string
         onClick: () => void

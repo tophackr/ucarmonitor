@@ -6,10 +6,10 @@ import { type CarProps, type ICar, useCars } from '@/entities/cars'
 import { initialCar } from '../constants/defaults'
 import { DefaultSection } from './DefaultSection'
 import { DeleteButton } from './DeleteButton'
-import { FormMainButton } from './FormMainButton'
 import { FuelSection } from './FuelSection'
 import { InfoSection } from './InfoSection'
 import { MileageSection } from './MileageSection'
+import { SaveButton } from './SaveButton'
 
 export function Form({ car }: Partial<CarProps>) {
     const { cars } = useCars()
@@ -17,7 +17,6 @@ export function Form({ car }: Partial<CarProps>) {
     const methods = useForm<ICar>({
         defaultValues: { ...initialCar, ...car }
     })
-    const { handleSubmit } = methods
 
     const showDefaultButton = (cars.length > 0 && !car) || cars.length > 1
 
@@ -32,7 +31,7 @@ export function Form({ car }: Partial<CarProps>) {
                     <MileageSection />
                 </div>
 
-                <FormMainButton handleSubmit={handleSubmit} />
+                <SaveButton />
             </FormProvider>
 
             {car && <DeleteButton carId={car.id} />}
