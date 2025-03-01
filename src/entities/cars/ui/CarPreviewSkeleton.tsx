@@ -11,11 +11,7 @@ export function CarPreviewSkeleton() {
         <ListSection>
             <PulseSkeletonLayout>
                 <Placeholder
-                    header={
-                        <TextSkeleton
-                            className={'justify-self-center bg-hint'}
-                        />
-                    }
+                    header={<TextSkeleton className={'bg-hint'} />}
                     description={
                         <TextSkeleton className={'bg-secondary w-40'} />
                     }
