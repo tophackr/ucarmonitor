@@ -12,11 +12,13 @@ export function PartsSection() {
     const { register } = useFormContext<PartsForm>()
 
     const messages = useMessages() as unknown as Translation
-    const keys = Object.keys(messages.CarActionForm.parts_work.options)
+    const partsOptionsKeys = Object.keys(
+        messages.CarActionForm.parts_work.options
+    ) as unknown as (keyof Translation['CarActionForm']['parts_work']['options'])[]
 
     return (
         <Section header={t('parts_work.title')}>
-            {keys.map(i => (
+            {partsOptionsKeys.map(i => (
                 <Cell
                     key={i}
                     Component={'label'}

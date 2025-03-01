@@ -14,7 +14,7 @@ export function RepairSection() {
     const messages = useMessages() as unknown as Translation
     const repairOptionsKeys = Object.keys(
         messages.CarActionForm.repair_work.options
-    )
+    ) as unknown as (keyof Translation['CarActionForm']['repair_work']['options'])[]
 
     return (
         <Section header={t('repair_work.title')}>
