@@ -2,9 +2,16 @@
 
 import { CarWidget } from '@/widgets/car'
 import { useCarContext } from '@/entities/cars'
+import { BackButton } from '@/shared/ui'
 
 export function CarIdPage() {
     const { car } = useCarContext()
 
-    return <CarWidget car={car} />
+    return (
+        <>
+            <BackButton />
+
+            <CarWidget car={car} />
+        </>
+    )
 }

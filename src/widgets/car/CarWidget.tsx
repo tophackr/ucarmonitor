@@ -1,29 +1,19 @@
 import { Cell, Input, List, Section } from '@telegram-apps/telegram-ui'
-import dynamic from 'next/dynamic'
+import { CarActionButtons } from '@/features/CarActionButtons'
 import type { CarProps } from '@/entities/cars'
-import { CarPreviewSkeleton } from '@/entities/cars'
+import { CarPreview } from '@/entities/cars'
 import { IconCell, LinkCell } from '@/shared/ui'
 import { LabelsTemp } from './LabelsTemp'
-
-const DynamicCarPreview = dynamic(
-    () => import('@/entities/cars').then(m => m.CarPreview),
-    {
-        loading: () => <CarPreviewSkeleton />
-    }
-)
-const DynamicCarActionButtons = dynamic(() =>
-    import('@/features/CarActionButtons').then(m => m.CarActionButtons)
-)
 
 export function CarWidget({ car }: CarProps) {
     return (
         <>
-            <DynamicCarPreview car={car}>
+            <CarPreview car={car}>
                 <LabelsTemp />
-            </DynamicCarPreview>
+            </CarPreview>
 
             <List>
-                <DynamicCarActionButtons />
+                <CarActionButtons />
 
                 <Section footer={'footer'}>
                     <Cell>123</Cell>
