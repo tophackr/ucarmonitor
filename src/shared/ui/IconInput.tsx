@@ -11,13 +11,7 @@ interface InputProps extends TGUIInputProps {
     bgColor: BackgroundColor
 }
 
-export function IconInput({
-    icon,
-    bgColor,
-    header,
-    placeholder,
-    ...props
-}: InputProps) {
+export function IconInput({ icon, bgColor, ...props }: InputProps) {
     return (
         <Input
             before={
@@ -26,8 +20,6 @@ export function IconInput({
                     bgColor={bgColor}
                 />
             }
-            header={header ?? placeholder}
-            placeholder={placeholder ?? String(header)}
             {...props}
         />
     )
