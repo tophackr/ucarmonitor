@@ -1,0 +1,1 @@
+export { CarCategoryNewPage } from './CarCategoryNewPage'

@@ -1,0 +1,37 @@
+'use client'
+
+import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
+import { useMessages, useTranslations } from 'next-intl'
+import { useFormContext } from 'react-hook-form'
+import type { Translation } from '@/shared/i18n'
+import type { PartsForm } from './types/PartsForm'
+
+export function PartsSection() {
+    const t = useTranslations('CarActionForm')
+
+    const { register } = useFormContext<PartsForm>()
+
+    const messages = useMessages() as unknown as Translation
+    const keys = Object.keys(messages.CarActionForm.parts_work.options)
+
+    return (
+        <Section header={t('parts_work.title')}>
+            {keys.map(i => (
+                <Cell
+                    key={i}
+                    Component={'label'}
+                    before={
+                        <Multiselectable
+                            value={i}
+                            {...register('partsList', {
+                                required: t('errors.repair_work_required')
+                            })}
+                        />
+                    }
+                >
+                    {t(`parts_work.options.${i}`)}
+                </Cell>
+            ))}
+        </Section>
+    )
+}
