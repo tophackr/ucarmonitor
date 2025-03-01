@@ -18,6 +18,5 @@ export function useWatchForm<T extends FieldValues>({
         return () => {
             unsubscribe()
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [callback])
+    }, [callback, watch])
 }
