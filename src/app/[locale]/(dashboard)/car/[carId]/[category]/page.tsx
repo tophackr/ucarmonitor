@@ -1,4 +1,4 @@
 export {
     CarCategoryPage as default,
     generateStaticParams
-} from '@/pages/car-category'
+} from '@/pages/CarCategory'

@@ -1,1 +1,1 @@
-export { CarCategoryNewPage as default } from '@/pages/car-category-new'
+export { CarCategoryNewPage as default } from '@/pages/CarCategoryNew'
