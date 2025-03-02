@@ -11,13 +11,17 @@ import type { FuelCapacityProps } from '../../types/FuelCapacity'
 export function AfterRefueling({ fuelCapacity }: FuelCapacityProps) {
     const t = useTranslations('CarActionForm')
 
-    const { register } = useFormContext<IFuel>()
+    const {
+        register,
+        formState: { errors }
+    } = useFormContext<IFuel>()
 
     const { afterRefuel, onAfterChange } = useRefuel(fuelCapacity)
 
     return (
         <Section header={t('fuel.after_refueling')}>
             <Input
+                status={errors.afterRefueling && 'error'}
                 after={
                     <Text className={'flex items-center gap-x-1 text-hint'}>
                         {afterRefuel}

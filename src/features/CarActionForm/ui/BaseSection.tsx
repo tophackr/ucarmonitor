@@ -16,7 +16,10 @@ export function BaseSection({ title }: BaseSectionProps) {
 
     const [files, setFiles] = useState<FileList | null>(null)
 
-    const { register } = useFormContext<IBaseInteraction>()
+    const {
+        register,
+        formState: { errors }
+    } = useFormContext<IBaseInteraction>()
 
     return (
         <>
@@ -25,6 +28,7 @@ export function BaseSection({ title }: BaseSectionProps) {
             >
                 <IconInput
                     type={'date'}
+                    status={errors.date && 'error'}
                     icon={'Calendar'}
                     bgColor={'OrangeRed'}
                     placeholder={t('date')}
@@ -34,6 +38,7 @@ export function BaseSection({ title }: BaseSectionProps) {
                 />
                 <IconInput
                     type={'number'}
+                    status={errors.mileage && 'error'}
                     icon={'Milestone'}
                     bgColor={'MediumPurple'}
                     placeholder={t('mileage')}
@@ -41,6 +46,7 @@ export function BaseSection({ title }: BaseSectionProps) {
                 />
                 <IconInput
                     type={'number'}
+                    status={errors.amount && 'error'}
                     icon={'LandPlot'}
                     bgColor={'Orange'}
                     placeholder={t('amount')}
