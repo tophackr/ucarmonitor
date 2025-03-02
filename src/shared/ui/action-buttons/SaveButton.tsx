@@ -7,12 +7,14 @@ import { MainButton } from '../buttons/MainButton'
 
 interface SaveButtonProps<T extends FieldValues> {
     text?: string
-    callback: (data: T) => void
+    disabled?: boolean
+    onClick: (data: T) => void
 }
 
 export function SaveButton<T extends FieldValues>({
     text,
-    callback
+    disabled,
+    onClick
 }: SaveButtonProps<T>) {
     const t = useTranslations('Common')
 
@@ -24,7 +26,8 @@ export function SaveButton<T extends FieldValues>({
         <MainButton
             isVisible={true}
             text={text ?? t('save')}
-            onClick={handleSubmit(callback, onErrorCallback)}
+            isLoaderVisible={disabled}
+            onClick={handleSubmit(onClick, onErrorCallback)}
         />
     )
 }
