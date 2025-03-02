@@ -1,31 +1,23 @@
 'use client'
 
 import { List } from '@telegram-apps/telegram-ui'
-import { FormProvider, useForm } from 'react-hook-form'
-import { type CarProps, type ICar, useCars } from '@/entities/cars'
-import { SaveButton } from '@/shared/ui'
-import { initialCar } from '../constants/defaults'
-import { useSaveCar } from '../hooks/useSaveCar'
+import { type CarProps, useCars } from '@/entities/cars'
 import { DefaultSection } from './DefaultSection'
-import { DeleteButton } from './DeleteButton'
+import { DeleteCarButton } from './DeleteCarButton'
 import { FuelSection } from './FuelSection'
+import { InfoFormProvider } from './InfoFormProvider'
 import { InfoSection } from './InfoSection'
 import { MileageSection } from './MileageSection'
+import { SaveCarButton } from './SaveCarButton'
 
 export function Form({ car }: Partial<CarProps>) {
     const { cars } = useCars()
-
-    const { saveCallback } = useSaveCar()
-
-    const methods = useForm<ICar>({
-        defaultValues: { ...initialCar, ...car }
-    })
 
     const showDefaultButton = (cars.length > 0 && !car) || cars.length > 1
 
     return (
         <List>
-            <FormProvider {...methods}>
+            <InfoFormProvider car={car}>
                 {showDefaultButton && <DefaultSection />}
 
                 <div className={'grid md:grid-cols-2 gap-x-4'}>
@@ -34,10 +26,10 @@ export function Form({ car }: Partial<CarProps>) {
                     <MileageSection />
                 </div>
 
-                <SaveButton callback={saveCallback} />
-            </FormProvider>
+                <SaveCarButton />
+            </InfoFormProvider>
 
-            {car && <DeleteButton carId={car.id} />}
+            {car && <DeleteCarButton carId={car.id} />}
         </List>
     )
 }
