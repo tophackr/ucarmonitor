@@ -1,1 +1,1 @@
-export { InteractionContextProvider as CarContextProvider } from './InteractionContext'
+export { InteractionContextProvider } from './InteractionContext'
