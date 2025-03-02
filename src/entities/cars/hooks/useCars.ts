@@ -1,12 +1,11 @@
-import { useAppSelector } from '@/shared/store'
+import { useActions, useAppSelector } from '@/shared/store'
 import { setCars as setCarsCloud } from '../store/cars'
-import { selectCars } from '../store/cars.slice'
+import { carsSliceActions, selectCars } from '../store/cars.slice'
 import type { ICar } from '../types/Car'
-import { useCarsActions } from './useCarsActions'
 
 export function useCars() {
     const cars = useAppSelector(selectCars)
-    const { setCars } = useCarsActions()
+    const { setCars } = useActions(carsSliceActions)
 
     const setCarsWithCloud = async (cars: ICar[]) => {
         setCars(cars)
