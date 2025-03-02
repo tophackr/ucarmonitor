@@ -1,4 +1,5 @@
 export { callMultiple } from './callMultiple'
+export { findById } from './findById'
 export { generateUniqueId } from './generateUniqueId'
 export { getPopup } from './getPopup'
 export { hasReactNode } from './hasReactNode'
