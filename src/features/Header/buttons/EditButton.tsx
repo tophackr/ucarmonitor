@@ -8,7 +8,8 @@ import { LucideIcon } from '@/shared/ui'
 
 export function EditButton() {
     const { carId } = useParams<{ carId: string }>()
-    const props = useButtonClick(pagesRoute.carEdit(carId))
+
+    const props = useButtonClick({ route: pagesRoute.carEdit(carId) })
 
     return (
         <IconButton

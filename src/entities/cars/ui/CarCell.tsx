@@ -7,7 +7,8 @@ import { CarAvatar } from './CarAvatar'
 
 export function CarCell({ car }: CarProps) {
     const t = useTranslations('Car')
-    const props = useButtonClick(pagesRoute.carId(car.id))
+
+    const props = useButtonClick({ route: pagesRoute.carId(car.id) })
 
     return (
         <Cell

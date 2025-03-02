@@ -6,7 +6,7 @@ import { useButtonClick } from '@/shared/hooks'
 import { pagesRoute } from '@/shared/routes'
 
 export function ReturnHomeButton({ children }: PropsWithChildren) {
-    const props = useButtonClick(pagesRoute.home)
+    const props = useButtonClick({ route: pagesRoute.home })
 
     return (
         <Button

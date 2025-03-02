@@ -6,7 +6,7 @@ import { pagesRoute } from '@/shared/routes'
 import { LucideIcon } from '@/shared/ui'
 
 export function CarsButton() {
-    const props = useButtonClick(pagesRoute.home)
+    const props = useButtonClick({ route: pagesRoute.home })
 
     return (
         <IconButton
