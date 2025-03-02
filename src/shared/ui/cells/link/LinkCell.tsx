@@ -1,8 +1,7 @@
 'use client'
 
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
-import { useCallback } from 'react'
-import { useRouter } from '@/shared/i18n'
+import { useButtonClick } from '@/shared/hooks'
 import { callMultiple } from '@/shared/utils'
 import { ChevronCell } from '../ChevronCell'
 import { IconCell } from '../icon/IconCell'
@@ -17,9 +16,7 @@ export function LinkCell({
     onClick,
     ...props
 }: LinkCellProps) {
-    const router = useRouter()
-
-    const onClickHref = useCallback(() => router.push(href), [router, href])
+    const { disabled, onClick: onClickHref } = useButtonClick({ route: href })
 
     return (
         <TGUICell
@@ -31,6 +28,7 @@ export function LinkCell({
                 />
             }
             after={<ChevronCell text={text} />}
+            disabled={disabled}
             onClick={callMultiple(onClickHref, onClick)}
             interactiveAnimation={'opacity'}
             {...props}

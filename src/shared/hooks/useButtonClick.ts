@@ -1,33 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { type MouseEvent, useCallback, useState } from 'react'
 import { useRouter } from '../i18n'
-
-interface BaseDisabledReturns {
-    disabled: boolean
-}
-
-interface UseButtonClickBaseReturns extends BaseDisabledReturns {
-    onClick: () => void
-}
-
-interface UseButtonClickPromiseReturns extends BaseDisabledReturns {
-    onClick: () => Promise<void>
-}
-
-interface UseButtonClickDataReturns<T> extends BaseDisabledReturns {
-    onClick: (data: T) => void
-}
-
-interface UseButtonClickDataPromiseReturns<T> extends BaseDisabledReturns {
-    onClick: (data: T) => Promise<void>
-}
-
-type UseButtonClickReturns<T> =
-    | UseButtonClickBaseReturns
-    | UseButtonClickPromiseReturns
-    | UseButtonClickDataReturns<T>
-    | UseButtonClickDataPromiseReturns<T>
+import type { MouseClickEvent } from '../types'
 
 type UseButtonClickProps<T> =
     | {
@@ -39,29 +14,32 @@ type UseButtonClickProps<T> =
           callback?: (data: T) => void | Promise<void>
       }
 
-export function useButtonClick<T>({
+export function useButtonClick<T = MouseEvent>({
     route,
     callback
-}: UseButtonClickProps<T>): UseButtonClickReturns<T> {
+}: UseButtonClickProps<T>): MouseClickEvent<T> {
     const router = useRouter()
 
     const [disabled, setDisabled] = useState(false)
 
-    const onClick = async (data: T) => {
-        if (disabled) {
-            return
-        }
+    const onClick = useCallback(
+        async (data?: T) => {
+            if (disabled) {
+                return
+            }
 
-        setDisabled(true)
+            setDisabled(true)
 
-        if (callback) {
-            await callback(data)
-        }
+            if (callback) {
+                await callback(data as T)
+            }
 
-        if (route) {
-            router.push(route)
-        }
-    }
+            if (route) {
+                router.push(route)
+            }
+        },
+        [callback, disabled, route, router]
+    )
 
     return { disabled, onClick }
 }

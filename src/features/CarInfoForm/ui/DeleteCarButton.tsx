@@ -1,11 +1,18 @@
 'use client'
 
 import type { CarIdProps } from '@/entities/cars'
+import { useButtonClick } from '@/shared/hooks'
+import { pagesRoute } from '@/shared/routes'
 import { DeleteButton } from '@/shared/ui'
 import { useDeleteCar } from '../hooks/useDeleteCar'
 
 export function DeleteCarButton({ carId }: CarIdProps) {
-    const deleteCallback = useDeleteCar(carId)
+    const { deleteCallback } = useDeleteCar(carId)
 
-    return <DeleteButton callback={deleteCallback} />
+    const props = useButtonClick({
+        route: pagesRoute.home,
+        callback: deleteCallback
+    })
+
+    return <DeleteButton {...props} />
 }

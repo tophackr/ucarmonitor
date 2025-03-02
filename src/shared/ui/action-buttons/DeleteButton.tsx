@@ -1,21 +1,22 @@
 'use client'
 
-import { ButtonCell, Section } from '@telegram-apps/telegram-ui'
+import {
+    ButtonCell,
+    type ButtonCellProps,
+    Section
+} from '@telegram-apps/telegram-ui'
+import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 
-interface DeleteButtonProps {
-    callback: () => void
-}
-
-export function DeleteButton({ callback }: DeleteButtonProps) {
+export function DeleteButton({ className, ...props }: ButtonCellProps) {
     const t = useTranslations('Common')
 
     return (
         <Section>
             <ButtonCell
                 mode={'destructive'}
-                className={'justify-center'}
-                onClick={callback}
+                className={clsx('justify-center', className)}
+                {...props}
             >
                 {t('delete')}
             </ButtonCell>
