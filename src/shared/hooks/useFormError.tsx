@@ -15,13 +15,9 @@ export function useFormError<T extends FieldValues>() {
             }
 
             const errorMessages = Object.values(errors)
-                .map(error => {
-                    if (
-                        error &&
-                        typeof error.message === 'string' &&
-                        typeof error.type === 'string'
-                    ) {
-                        return <p key={error.type}>{error.message}</p>
+                .map((error, index) => {
+                    if (error && typeof error.message === 'string') {
+                        return <p key={index}>{error.message}</p>
                     }
                     return null
                 })
