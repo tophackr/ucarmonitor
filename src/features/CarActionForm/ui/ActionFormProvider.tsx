@@ -18,6 +18,7 @@ export function ActionFormProvider({
     const { car } = useCarContext()
 
     const values: Omit<IInteraction, 'id'> = {
+        type: category,
         date: new Date(),
         mileage: car.mileage
     }

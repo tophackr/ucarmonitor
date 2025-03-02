@@ -5,6 +5,7 @@ import type { ITires } from './Tires'
 
 export interface IBaseInteraction {
     id: string
+    type: InteractionCategory
     date: Date
     mileage: number
     amount?: number
