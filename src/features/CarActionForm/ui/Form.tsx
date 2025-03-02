@@ -5,6 +5,7 @@ import { ActionFormProvider } from './ActionFormProvider'
 import { BaseSection } from './BaseSection'
 import { PartsSection } from './PartsSection'
 import { RepairSection } from './RepairSection'
+import { SaveActionButton } from './SaveActionButton'
 import { FuelSection } from './fuel/FuelSection'
 import { TiresSection } from './tires/TiresSection'
 
@@ -28,6 +29,8 @@ export async function Form({ category }: CategoryProps) {
                 {category === InteractionCategory.purchaseTires && (
                     <TiresSection />
                 )}
+
+                <SaveActionButton />
             </ActionFormProvider>
         </List>
     )

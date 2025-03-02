@@ -17,7 +17,7 @@ export function ActionFormProvider({
 }: PropsWithChildren<CategoryProps>) {
     const { car } = useCarContext()
 
-    const values: Omit<IInteraction, 'id'> = {
+    const values: Omit<IInteraction, 'id' | 'carId'> = {
         type: category,
         date: new Date(),
         mileage: car.mileage
