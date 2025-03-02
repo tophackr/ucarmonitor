@@ -1,10 +1,11 @@
 'use client'
 
 import { use } from 'react'
-import { type CarCategoryProps, useCarContext } from '@/entities/cars'
+import { useCarContext } from '@/entities/cars'
+import type { CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/types'
 
-export function CarCategoryPage({ params }: ParamsProps<CarCategoryProps>) {
+export function CarCategoryPage({ params }: ParamsProps<CategoryProps>) {
     const { category } = use(params)
     const { car } = useCarContext()
 

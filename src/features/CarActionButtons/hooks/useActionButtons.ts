@@ -1,4 +1,4 @@
-import { CarActionCategory } from '@/entities/cars'
+import { InteractionCategory } from '@/entities/interaction'
 import { actionsRoute } from '../route/actions'
 import type { ActionModalProps } from '../types/ActionButtonProps'
 import { financeContents } from '../ui/contents/financeContents'
@@ -14,9 +14,13 @@ export function useActionButtons(carId: string): ActionModalProps[] {
         {
             name: 'wash',
             icon: 'CloudDrizzle',
-            link: route.new(CarActionCategory.wash)
+            link: route.new(InteractionCategory.wash)
         },
-        { name: 'fuel', icon: 'Fuel', link: route.new(CarActionCategory.fuel) },
+        {
+            name: 'fuel',
+            icon: 'Fuel',
+            link: route.new(InteractionCategory.fuel)
+        },
         { name: 'repair', icon: 'Wrench', content: repairContents },
         { name: 'finance', icon: 'Landmark', content: financeContents },
         { name: 'more', icon: 'Ellipsis', content: moreContents }

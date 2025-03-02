@@ -1,15 +1,16 @@
-import { CarActionCategory } from '@/entities/cars'
+import type { InteractionCategory } from '@/entities/interaction'
 import { pagesRoute } from '@/shared/routes'
 
 export const actionsRoute = (carId: string) => {
     const rootRoute = (carId: string) => pagesRoute.carId(carId)
-    const categoryRoute = (category: CarActionCategory) =>
+    const categoryRoute = (category: InteractionCategory) =>
         `${rootRoute(carId)}/${category}`
 
     return {
         category: categoryRoute,
-        new: (category: CarActionCategory) => `${categoryRoute(category)}/new`,
-        details: (category: CarActionCategory, id: string) =>
+        new: (category: InteractionCategory) =>
+            `${categoryRoute(category)}/new`,
+        details: (category: InteractionCategory, id: string) =>
             `${categoryRoute(category)}/${id}`
     }
 }

@@ -2,7 +2,7 @@ import { Badge, Cell } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useButtonClick } from '@/shared/hooks'
 import { pagesRoute } from '@/shared/routes'
-import type { CarProps } from '../types/CarProps'
+import type { CarProps } from '../types/Props'
 import { CarAvatar } from './CarAvatar'
 
 export function CarCell({ car }: CarProps) {

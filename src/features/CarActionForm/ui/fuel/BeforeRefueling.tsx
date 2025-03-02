@@ -3,15 +3,15 @@
 import { Input, Section, Slider, Text } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
+import type { IFuel } from '@/entities/interaction'
 import { LucideIcon } from '@/shared/ui'
-import { useRefuel } from './hooks/useRefuel'
-import type { FuelCapacityProps } from './types/FuelCapacity'
-import type { FuelForm } from './types/FuelForm'
+import { useRefuel } from '../../hooks/useRefuel'
+import type { FuelCapacityProps } from '../../types/FuelCapacity'
 
 export function BeforeRefueling({ fuelCapacity }: FuelCapacityProps) {
     const t = useTranslations('CarActionForm')
 
-    const { register } = useFormContext<FuelForm>()
+    const { register } = useFormContext<IFuel>()
 
     const { beforeRefuel, onBeforeChange } = useRefuel(fuelCapacity)
 

@@ -1,26 +1,22 @@
 'use client'
 
+import { TiresFormType, TiresType, WheelsType } from '@/entities/interaction'
 import { Input, Section, Select } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
-import { useTiresForm } from './hooks/useTiresForm'
-import {
-    type TiresForm,
-    TiresFormType,
-    TiresType,
-    WheelsType
-} from './types/TiresForm'
+import { useTiresForm } from '../../hooks/useTiresForm'
+import type { TiresInfoForm } from '../../types/TiresForm'
 
 export function InfoInputs() {
     const t = useTranslations('CarActionForm.tires')
 
-    const { register } = useFormContext<TiresForm>()
+    const { register } = useFormContext<TiresInfoForm>()
 
     const { tiresType } = useTiresForm()
 
     return (
         <Section header={t('tires_n_wheels')}>
-            <Select {...register('type', { required: true })}>
+            <Select {...register('formType', { required: true })}>
                 <option value={TiresFormType.tires}>{t('tires')}</option>
                 <option value={TiresFormType.wheels}>{t('wheels')}</option>
             </Select>

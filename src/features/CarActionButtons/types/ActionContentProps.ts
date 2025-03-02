@@ -1,4 +1,4 @@
-import type { CarActionCategory } from '@/entities/cars'
+import type { InteractionCategory } from '@/entities/interaction'
 import type { BackgroundColor } from '@/shared/types'
 import type { LucideIconName } from '@/shared/ui'
 
@@ -8,7 +8,7 @@ interface BaseActionContent {
 }
 
 export interface ActionContentData extends BaseActionContent {
-    name: CarActionCategory
+    name: InteractionCategory
 }
 
 export interface ActionContentProps extends BaseActionContent {

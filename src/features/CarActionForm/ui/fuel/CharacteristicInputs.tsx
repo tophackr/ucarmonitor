@@ -3,13 +3,12 @@
 import { Input, Section, Select } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
-import { type FuelForm } from './types/FuelForm'
-import { FuelGrade } from './types/FuelGrade'
+import { FuelGrade, type IFuel } from '@/entities/interaction'
 
 export function CharacteristicInputs() {
     const t = useTranslations('CarActionForm.fuel')
 
-    const { register } = useFormContext<FuelForm>()
+    const { register } = useFormContext<IFuel>()
 
     return (
         <Section header={t('title')}>

@@ -2,7 +2,7 @@ import { Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import type { PropsWithChildren } from 'react'
 import { ListSection } from '@/shared/ui'
-import type { CarProps } from '../types/CarProps'
+import type { CarProps } from '../types/Props'
 import { CarAvatar } from './CarAvatar'
 
 export function CarPreview({ car, children }: PropsWithChildren<CarProps>) {

@@ -4,24 +4,20 @@ import { Section, Select } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { SizesForm } from './types/SizesForm'
-import { type TiresForm, TiresFormType } from './types/TiresForm'
-import { generateDiameter } from './utils/generateDiameter'
-import { generateHeight } from './utils/generateHeight'
-import { generateWheelWidth } from './utils/generateWheelWidth'
-import { generateWidth } from './utils/generateWidth'
+import { type ITires, TiresFormType } from '@/entities/interaction'
+import { generateArray } from '../../utils/generateArray'
 
 export function SizeSelects() {
     const t = useTranslations('CarActionForm.tires')
 
-    const { register, watch } = useFormContext<SizesForm & TiresForm>()
+    const { register, watch } = useFormContext<ITires>()
 
-    const watchTiresType = watch('type')
+    const watchFormType = watch('formType')
 
-    const tiresWidth = useMemo(generateWidth, [])
-    const wheelsWidth = useMemo(generateWheelWidth, [])
-    const height = useMemo(generateHeight, [])
-    const diameter = useMemo(generateDiameter, [])
+    const tiresWidth = useMemo(() => generateArray(125, 10, 29), [])
+    const wheelsWidth = useMemo(() => generateArray(4, 0.5, 17), [])
+    const height = useMemo(() => generateArray(25, 5, 15), [])
+    const diameter = useMemo(() => generateArray(12, 1, 15, x => `R${x}`), [])
 
     return (
         <Section header={t('size')}>
@@ -33,7 +29,7 @@ export function SizeSelects() {
                     {t('width')}
                 </option>
 
-                {(watchTiresType === TiresFormType.tires
+                {(watchFormType === TiresFormType.tires
                     ? tiresWidth
                     : wheelsWidth
                 ).map(i => (
@@ -46,7 +42,7 @@ export function SizeSelects() {
                 ))}
             </Select>
 
-            {watchTiresType === TiresFormType.tires && (
+            {watchFormType === TiresFormType.tires && (
                 <Select {...register('height')}>
                     <option
                         value={0}

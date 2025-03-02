@@ -3,15 +3,15 @@
 import { Cell, Section, Switch } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { Controller, useFormContext } from 'react-hook-form'
+import type { IFuel } from '@/entities/interaction'
 import { callMultiple } from '@/shared/utils'
-import { useRefuel } from './hooks/useRefuel'
-import type { FuelCapacityProps } from './types/FuelCapacity'
-import type { FuelForm } from './types/FuelForm'
+import { useRefuel } from '../../hooks/useRefuel'
+import type { FuelCapacityProps } from '../../types/FuelCapacity'
 
 export function CapacitySwitch({ fuelCapacity }: FuelCapacityProps) {
     const t = useTranslations('CarActionForm.fuel')
 
-    const { control } = useFormContext<FuelForm>()
+    const { control } = useFormContext<IFuel>()
 
     const { onFullChange } = useRefuel(fuelCapacity)
 

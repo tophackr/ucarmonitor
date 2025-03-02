@@ -2,34 +2,33 @@
 
 import type { PropsWithChildren } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
+import { useCarContext } from '@/entities/cars'
 import {
-    CarActionCategory,
-    type CarCategoryProps,
-    useCarContext
-} from '@/entities/cars'
-import type { CategoryForm } from '../types/CategoryForm'
-import type { BaseForm } from './base/types/BaseForm'
-import { FuelGrade } from './fuel/types/FuelGrade'
-import { TiresFormType } from './tires/types/TiresForm'
+    type CategoryProps,
+    FuelGrade,
+    type IInteraction,
+    InteractionCategory,
+    TiresFormType
+} from '@/entities/interaction'
 
 export function ActionFormProvider({
     children,
     category
-}: PropsWithChildren<CarCategoryProps>) {
+}: PropsWithChildren<CategoryProps>) {
     const { car } = useCarContext()
 
-    const values: BaseForm & CategoryForm = {
+    const values: Omit<IInteraction, 'id'> = {
         date: new Date(),
         mileage: car.mileage
     }
 
-    if (category === CarActionCategory.fuel) {
+    if (category === InteractionCategory.fuel) {
         Object.assign(values, {
             fuelGrade: FuelGrade.AI92,
             beforeRefueling: 0,
             afterRefueling: 0
         })
-    } else if (category === CarActionCategory.purchaseTires) {
+    } else if (category === InteractionCategory.purchaseTires) {
         Object.assign(values, {
             type: TiresFormType.tires,
             tiresType: 0,
@@ -40,7 +39,7 @@ export function ActionFormProvider({
         })
     }
 
-    const methods = useForm<BaseForm & CategoryForm>({
+    const methods = useForm<IInteraction>({
         defaultValues: values
     })
 

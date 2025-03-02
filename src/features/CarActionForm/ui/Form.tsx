@@ -1,14 +1,14 @@
 import { List } from '@telegram-apps/telegram-ui'
 import { getTranslations } from 'next-intl/server'
-import { CarActionCategory, type CarCategoryProps } from '@/entities/cars'
+import { type CategoryProps, InteractionCategory } from '@/entities/interaction'
 import { ActionFormProvider } from './ActionFormProvider'
-import { BaseSection } from './base/BaseSection'
+import { BaseSection } from './BaseSection'
+import { PartsSection } from './PartsSection'
+import { RepairSection } from './RepairSection'
 import { FuelSection } from './fuel/FuelSection'
-import { PartsSection } from './parts/PartsSection'
-import { RepairSection } from './repair/RepairSection'
 import { TiresSection } from './tires/TiresSection'
 
-export async function Form({ category }: CarCategoryProps) {
+export async function Form({ category }: CategoryProps) {
     const t = await getTranslations('CarCategoryName')
 
     return (
@@ -16,16 +16,16 @@ export async function Form({ category }: CarCategoryProps) {
             <ActionFormProvider category={category}>
                 <BaseSection title={t(category)} />
 
-                {category === CarActionCategory.fuel && <FuelSection />}
+                {category === InteractionCategory.fuel && <FuelSection />}
 
                 {[
-                    CarActionCategory.maintenance,
-                    CarActionCategory.repair
+                    InteractionCategory.maintenance,
+                    InteractionCategory.repair
                 ].includes(category) && <RepairSection />}
 
-                {category === CarActionCategory.parts && <PartsSection />}
+                {category === InteractionCategory.parts && <PartsSection />}
 
-                {category === CarActionCategory.purchaseTires && (
+                {category === InteractionCategory.purchaseTires && (
                     <TiresSection />
                 )}
             </ActionFormProvider>

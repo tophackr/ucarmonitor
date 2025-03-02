@@ -1,5 +1,5 @@
-import { CarActionCategory } from '@/entities/cars'
+import { InteractionCategory } from '@/entities/interaction'
 
 export function generateStaticParams() {
-    return Object.values(CarActionCategory).map(category => ({ category }))
+    return Object.values(InteractionCategory).map(category => ({ category }))
 }
