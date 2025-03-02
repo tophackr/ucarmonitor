@@ -1,11 +1,13 @@
-import { Cell, Input, List, Section } from '@telegram-apps/telegram-ui'
+import { Cell, List, Section } from '@telegram-apps/telegram-ui'
 import { CarActionButtons } from '@/features/CarActionButtons'
 import type { CarProps } from '@/entities/cars'
 import { CarPreview } from '@/entities/cars'
-import { IconCell, LinkCell } from '@/shared/ui'
+import { useInteractions } from '@/entities/interaction'
 import { LabelsTemp } from './LabelsTemp'
 
 export function CarWidget({ car }: CarProps) {
+    const { interactions } = useInteractions()
+
     return (
         <>
             <CarPreview car={car}>
@@ -16,23 +18,20 @@ export function CarWidget({ car }: CarProps) {
                 <CarActionButtons />
 
                 <Section footer={'footer'}>
-                    <Cell>123</Cell>
-                    <Input
-                        type={'number'}
-                        before={
-                            <IconCell
-                                icon={'Sigma'}
-                                bgColor={'OrangeRed'}
-                            />
-                        }
-                    />
-                    <LinkCell
-                        href={'https://tophackr.com'}
-                        icon={'Salad'}
-                        bgColor={'mediumpurple'}
-                    >
-                        test
-                    </LinkCell>
+                    {interactions.map(i => (
+                        <Cell
+                            key={i.id}
+                            after={String(i.date)}
+                            subhead={i.id}
+                            subtitle={i.mileage}
+                            description={
+                                '#' + i.amount + ' desc: ' + i.description
+                            }
+                            multiline
+                        >
+                            {i.type}
+                        </Cell>
+                    ))}
                 </Section>
             </List>
         </>
