@@ -1,0 +1,1 @@
+export { actionsRoute } from './actions'

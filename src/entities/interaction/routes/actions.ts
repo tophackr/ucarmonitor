@@ -1,5 +1,5 @@
-import type { InteractionCategory } from '@/entities/interaction'
 import { pagesRoute } from '@/shared/routes'
+import type { InteractionCategory } from '../types'
 
 export const actionsRoute = (carId: string) => {
     const rootRoute = (carId: string) => pagesRoute.carId(carId)
@@ -11,6 +11,8 @@ export const actionsRoute = (carId: string) => {
         new: (category: InteractionCategory) =>
             `${categoryRoute(category)}/new`,
         details: (category: InteractionCategory, id: string) =>
-            `${categoryRoute(category)}/${id}`
+            `${categoryRoute(category)}/${id}`,
+        edit: (category: InteractionCategory, id: string) =>
+            `${categoryRoute(category)}/${id}/edit`
     }
 }

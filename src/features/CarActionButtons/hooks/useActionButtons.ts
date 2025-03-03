@@ -1,5 +1,4 @@
-import { InteractionCategory } from '@/entities/interaction'
-import { actionsRoute } from '../route/actions'
+import { InteractionCategory, actionsRoute } from '@/entities/interaction'
 import type { ActionModalProps } from '../types/ActionButtonProps'
 import { financeContents } from '../ui/contents/financeContents'
 import { moreContents } from '../ui/contents/moreContents'

@@ -1,5 +1,5 @@
+import { actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient, Translation } from '@/shared/i18n'
-import { actionsRoute } from '../../route/actions'
 import type {
     ActionContentData,
     ActionContentProps
