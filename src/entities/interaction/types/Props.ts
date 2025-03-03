@@ -9,5 +9,5 @@ export interface InteractionIdProps {
 }
 
 export interface InteractionProps {
-    interaction: IInteraction | undefined
+    interaction: IInteraction
 }

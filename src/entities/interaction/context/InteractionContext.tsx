@@ -6,7 +6,7 @@ import type { ParamsProps } from '@/shared/types'
 import { useFindInteraction } from '../hooks'
 import type { InteractionIdProps, InteractionProps } from '../types/Props'
 
-export const InteractionContext = createContext<InteractionProps>({
+export const InteractionContext = createContext<Partial<InteractionProps>>({
     interaction: undefined
 })
 
