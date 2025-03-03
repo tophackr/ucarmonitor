@@ -3,6 +3,7 @@ import { CarActionButtons } from '@/features/CarActionButtons'
 import type { CarProps } from '@/entities/cars'
 import { CarPreview } from '@/entities/cars'
 import { useInteractions } from '@/entities/interaction'
+import { EditCarButton } from './EditCarButton'
 import { LabelsTemp } from './LabelsTemp'
 
 export function CarWidget({ car }: CarProps) {
@@ -10,6 +11,8 @@ export function CarWidget({ car }: CarProps) {
 
     return (
         <>
+            <EditCarButton car={car} />
+
             <CarPreview car={car}>
                 <LabelsTemp />
             </CarPreview>

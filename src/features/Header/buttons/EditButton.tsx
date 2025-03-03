@@ -1,22 +1,20 @@
 'use client'
 
 import { IconButton } from '@telegram-apps/telegram-ui'
-import { useParams } from 'next/navigation'
-import { useButtonClick } from '@/shared/hooks'
-import { pagesRoute } from '@/shared/routes'
+import { useEditValueContext } from '@/entities/edit'
 import { LucideIcon } from '@/shared/ui'
 
 export function EditButton() {
-    const { carId } = useParams<{ carId: string }>()
-
-    const props = useButtonClick({ route: pagesRoute.carEdit(carId) })
+    const { editValue } = useEditValueContext()
 
     return (
-        <IconButton
-            size={'m'}
-            {...props}
-        >
-            <LucideIcon name={'Pencil'} />
-        </IconButton>
+        editValue && (
+            <IconButton
+                size={'m'}
+                {...editValue}
+            >
+                <LucideIcon name={'Pencil'} />
+            </IconButton>
+        )
     )
 }
