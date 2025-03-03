@@ -18,7 +18,7 @@ interface MouseClickDataPromiseEvent<T> extends BaseClickEvent {
     onClick: (data: T) => Promise<void>
 }
 
-export type MouseClickEvent<T> =
+export type MouseClickEvent<T = MouseEvent> =
     | MouseClickBaseEvent
     | MouseClickPromiseEvent
     | MouseClickDataEvent<T>
