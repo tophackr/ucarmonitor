@@ -11,7 +11,7 @@ export async function getLocales(
     locale: Locale = defaultLocale
 ): Promise<TranslationConfig> {
     const [defaultMessages, userMessages] = await Promise.all([
-        import('./messages/ru.json').then(m => m.default),
+        import('./messages/ru-RU.json').then(m => m.default),
         isNotDefaultLocale(locale) &&
             import(`./messages/${locale}.json`).then(m => m.default)
     ])

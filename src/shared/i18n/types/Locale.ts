@@ -1,6 +1,6 @@
 export enum Locale {
-    ru = 'ru',
-    en = 'en'
+    ruRU = 'ru-RU',
+    enUS = 'en-US'
 }
 
 export interface LocaleProps {
