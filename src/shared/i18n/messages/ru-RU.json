@@ -2,7 +2,8 @@
   "Locale": {
     "code": "ru-RU",
     "title": "Russian",
-    "subtitle": "Русский"
+    "subtitle": "Русский",
+    "currency": "RUB"
   },
   "Common": {
     "error": "Ошибка",
