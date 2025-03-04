@@ -1,4 +1,5 @@
 export { defaultLocale, locales } from './config'
+export * from './hooks'
 export { I18nProvider } from './provider'
 export * from './routing'
 export * from './types'

@@ -1,2 +1,2 @@
-export { useIntlUnit } from '../../hooks'
+export { CarOdometerUnits } from '../../types/Car'
 export type { CarProps } from './../../types/Props'
