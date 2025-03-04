@@ -1,12 +1,12 @@
 import { Locale } from './types/Locale'
 
-export const defaultLocale = Locale.ruRU
+export const defaultLocale = Locale.ru
 
 export const defaultTimeZone = 'Europe/Moscow'
 
-export const locales = [defaultLocale, Locale.enUS] as const
+export const locales = [defaultLocale, Locale.en] as const
 
 /* export const localesMap = [
-    { key: Locale.ruRU, title: 'Russian', subtitle: 'Русский' },
-    { key: Locale.enUS, title: 'English', subtitle: 'English' }
+    { key: Locale.ru, title: 'Russian', subtitle: 'Русский' },
+    { key: Locale.en, title: 'English', subtitle: 'English' }
 ] */

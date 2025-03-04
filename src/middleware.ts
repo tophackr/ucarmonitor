@@ -9,9 +9,7 @@ export default function middleware(request: NextRequest) {
 
     const shouldHandle =
         pathname === '/' ||
-        new RegExp(`^/(${locales.join('|')})(/.*)?$`).test(
-            request.nextUrl.pathname
-        )
+        new RegExp(`^/(${locales.join('|')})(/.*)?$`).test(pathname)
 
     if (!shouldHandle) {
         return
