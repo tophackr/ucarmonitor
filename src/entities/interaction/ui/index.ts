@@ -1,0 +1,1 @@
+export { InteractionCell } from './InteractionCell'
