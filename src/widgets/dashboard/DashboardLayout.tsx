@@ -1,5 +1,6 @@
 'use client'
 
+import { Placeholder } from '@telegram-apps/telegram-ui'
 import type { PropsWithChildren } from 'react'
 import { Header } from '@/features/Header'
 import { EditContextProvider } from '@/entities/edit'
@@ -13,6 +14,8 @@ export function DashboardLayout({ children }: PropsWithChildren) {
             <Header />
 
             {children}
+
+            <Placeholder />
         </EditContextProvider>
     )
 }

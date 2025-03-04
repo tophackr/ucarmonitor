@@ -1,4 +1,3 @@
-import { Placeholder } from '@telegram-apps/telegram-ui'
 import '@telegram-apps/telegram-ui/dist/styles.css'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { setRequestLocale } from 'next-intl/server'
@@ -27,7 +26,6 @@ export async function AppLayout({
             <body>
                 <Providers>{children}</Providers>
 
-                <Placeholder />
                 <SpeedInsights />
             </body>
         </html>
