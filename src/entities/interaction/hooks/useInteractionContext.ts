@@ -1,6 +1,6 @@
 'use client'
 
 import { useContext } from 'react'
-import { InteractionContext } from '../context/InteractionContext'
+import { InteractionContext } from '../lib/context/InteractionContext'
 
 export const useInteractionContext = () => useContext(InteractionContext)

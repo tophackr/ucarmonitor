@@ -6,7 +6,7 @@ import { CarOdometerUnits, type CarProps } from '@/entities/car/@x/interactions'
 import { useButtonClick } from '@/shared/hooks'
 import { useIntlCurrency, useIntlTimeAgo, useIntlUnit } from '@/shared/i18n'
 import { daysAfterToday } from '@/shared/utils'
-import type { InteractionProps } from '../model'
+import type { InteractionProps } from '../model/Props'
 import { actionsRoute } from '../routes'
 
 export function InteractionCell({

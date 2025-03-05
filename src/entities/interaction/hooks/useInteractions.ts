@@ -4,7 +4,7 @@ import {
     interactionsSliceActions,
     selectInteractions
 } from '../lib/store/interaction.slice'
-import type { IInteraction } from '../model'
+import type { IInteraction } from '../model/Interaction'
 
 export function useInteractions() {
     const interactions = useAppSelector(selectInteractions)

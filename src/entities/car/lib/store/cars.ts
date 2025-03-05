@@ -1,5 +1,5 @@
 import { cloudStorage } from '@telegram-apps/sdk-react'
-import type { ICar } from '../types/Car'
+import type { ICar } from '../../model/Car'
 
 export const itemName = 'cars'
 

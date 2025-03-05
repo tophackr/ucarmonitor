@@ -3,13 +3,9 @@
 import { notFound } from 'next/navigation'
 import { type PropsWithChildren, createContext, use } from 'react'
 import type { ParamsProps } from '@/shared/types'
-import { useFindCar } from '../hooks'
-import {
-    CarFuel,
-    type CarIdProps,
-    CarOdometerUnits,
-    type CarProps
-} from '../types'
+import { useFindCar } from '../../hooks/useFindCar'
+import { CarFuel, CarOdometerUnits } from '../../model/Car'
+import type { CarIdProps, CarProps } from '../../model/Props'
 
 export const CarContext = createContext<CarProps>({
     car: {

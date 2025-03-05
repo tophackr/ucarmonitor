@@ -1,7 +1,7 @@
 import { type PayloadAction, createSlice } from '@reduxjs/toolkit'
 import type { WritableDraft } from 'immer'
 import type { RootState } from '@/shared/lib'
-import type { ICar } from '../types/Car'
+import type { ICar } from '../../model/Car'
 import { defaultCars, itemName } from './cars'
 
 interface CarsState {

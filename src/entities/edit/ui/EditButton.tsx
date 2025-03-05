@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import type { MouseClickEvent } from '@/shared/types'
-import { useEditSetValueContext } from '../hooks'
+import { useEditSetValueContext } from '../hooks/useEditSetValueContext'
 
 export function EditButton(
     props: MouseClickEvent<React.MouseEvent<Element, MouseEvent>>

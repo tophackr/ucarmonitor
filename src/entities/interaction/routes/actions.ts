@@ -1,5 +1,5 @@
 import { pagesRoute } from '@/shared/routes'
-import type { InteractionCategory } from '../model'
+import type { InteractionCategory } from '../model/Interaction'
 
 export const actionsRoute = (carId: string) => {
     const rootRoute = (carId: string) => pagesRoute.carId(carId)
