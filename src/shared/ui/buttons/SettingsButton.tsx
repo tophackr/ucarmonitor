@@ -1,8 +1,8 @@
 'use client'
 
 import { settingsButton, useSignal } from '@telegram-apps/sdk-react'
-import { usePathname, useRouter } from 'next/navigation'
 import { useCallback, useEffect } from 'react'
+import { usePathname, useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 
 function visibleOnSettingsPage(

@@ -1,18 +1,16 @@
 import { openLink } from '@telegram-apps/sdk-react'
 import clsx from 'clsx'
-import { default as NextLink, type LinkProps as NextLinkProps } from 'next/link'
-import { type FC, type JSX, type MouseEventHandler, useCallback } from 'react'
+import { type ComponentProps, type MouseEventHandler, useCallback } from 'react'
+import { Link as IntlLink } from '@/shared/i18n'
 
-export interface LinkProps
-    extends NextLinkProps,
-        Omit<JSX.IntrinsicElements['a'], 'href'> {}
+type IntlProps = ComponentProps<typeof IntlLink>
 
-export const Link: FC<LinkProps> = ({
+export function Link({
     className,
     onClick: propsOnClick,
     href,
     ...props
-}) => {
+}: IntlProps) {
     const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
         e => {
             propsOnClick?.(e)
@@ -42,7 +40,7 @@ export const Link: FC<LinkProps> = ({
     )
 
     return (
-        <NextLink
+        <IntlLink
             {...props}
             href={href}
             onClick={onClick}
