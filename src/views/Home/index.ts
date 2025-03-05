@@ -1,3 +1,3 @@
-export { HomeLayout } from './HomeLayout'
-export { HomeLoading } from './HomeLoading'
-export { HomePage } from './HomePage'
+export { Layout as HomeLayout } from './Layout'
+export { Loading as HomeLoading } from './Loading'
+export { Page as HomePage } from './Page'

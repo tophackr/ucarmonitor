@@ -2,15 +2,12 @@
 
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import {
-    CarOdometerUnits,
-    type CarProps
-} from '@/entities/cars/@x/interactions'
+import { CarOdometerUnits, type CarProps } from '@/entities/car/@x/interactions'
 import { useButtonClick } from '@/shared/hooks'
 import { useIntlCurrency, useIntlTimeAgo, useIntlUnit } from '@/shared/i18n'
 import { daysAfterToday } from '@/shared/utils'
+import type { InteractionProps } from '../model'
 import { actionsRoute } from '../routes'
-import type { InteractionProps } from '../types'
 
 export function InteractionCell({
     interaction: { id, type, description, amount, date, mileage },

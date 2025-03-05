@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react'
-import { CarContextProvider, type CarIdProps } from '@/entities/cars'
+import { CarContextProvider, type CarIdProps } from '@/entities/car'
 import type { ParamsProps } from '@/shared/types'
 
 export default function Layout({

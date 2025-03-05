@@ -2,7 +2,7 @@
 
 import { type PropsWithChildren, useRef } from 'react'
 import { Provider } from 'react-redux'
-import { type AppStore, makeStore } from '@/shared/store'
+import { type AppStore, makeStore } from '@/shared/lib'
 import { rootReducer } from './root-reducer'
 
 export function StoreProvider({ children }: PropsWithChildren) {

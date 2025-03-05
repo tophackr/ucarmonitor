@@ -1,1 +1,1 @@
-export { CarEditPage } from './CarEditPage'
+export { Page as CarEditPage } from './Page'

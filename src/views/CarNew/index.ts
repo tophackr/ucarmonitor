@@ -1,1 +1,1 @@
-export { CarNewPage } from './CarNewPage'
+export { Page as CarNewPage } from './Page'

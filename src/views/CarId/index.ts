@@ -1,2 +1,2 @@
-export { CarIdLoading } from './CarIdLoading'
-export { CarIdPage } from './CarIdPage'
+export { Loading as CarIdLoading } from './Loading'
+export { Page as CarIdPage } from './Page'

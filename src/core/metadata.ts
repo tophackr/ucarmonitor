@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { SITE_DESCRIPTION, SITE_NAME } from '@/shared/constants'
+import { SITE_DESCRIPTION, SITE_NAME } from '@/shared/config'
 
 export const AppMetadata: Metadata = {
     title: {

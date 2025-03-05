@@ -1,10 +1,10 @@
-import { useActions, useAppSelector } from '@/shared/store'
-import { setInteractions as setInteractionsCloud } from '../store/interaction'
+import { useActions, useAppSelector } from '@/shared/lib'
+import { setInteractions as setInteractionsCloud } from '../lib/store/interaction'
 import {
     interactionsSliceActions,
     selectInteractions
-} from '../store/interaction.slice'
-import type { IInteraction } from '../types'
+} from '../lib/store/interaction.slice'
+import type { IInteraction } from '../model'
 
 export function useInteractions() {
     const interactions = useAppSelector(selectInteractions)

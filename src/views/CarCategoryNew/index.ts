@@ -1,1 +1,1 @@
-export { CarCategoryNewPage } from './CarCategoryNewPage'
+export { Page as CarCategoryNewPage } from './Page'

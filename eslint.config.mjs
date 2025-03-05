@@ -9,15 +9,7 @@ const compat = new FlatCompat({
     baseDirectory: __dirname
 })
 
-const Layers = [
-    'app',
-    'processes',
-    'pages',
-    'widgets',
-    'features',
-    'entities',
-    'shared'
-]
+const Layers = ['core', 'views', 'widgets', 'features', 'entities', 'shared']
 
 const getLowerLayers = layer => Layers.slice(Layers.indexOf(layer) + 1)
 
@@ -39,7 +31,7 @@ const eslintConfig = [
             'boundaries/elements': [
                 {
                     type: 'cross_entities',
-                    pattern: 'entities/**/@x/**'
+                    pattern: 'entities/*/@x/**'
                 },
                 ...Layers.map(layer => ({
                     type: layer,

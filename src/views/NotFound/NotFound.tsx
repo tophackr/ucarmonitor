@@ -1,7 +1,7 @@
 import { List, Placeholder } from '@telegram-apps/telegram-ui'
 import { getTranslations } from 'next-intl/server'
 import { BackButton, DuckNotFoundLottie } from '@/shared/ui'
-import { ReturnHomeButton } from './ReturnHomeButton'
+import { ReturnHomeButton } from './ui/ReturnHomeButton'
 
 export async function NotFound() {
     const t = await getTranslations('NotFound')
