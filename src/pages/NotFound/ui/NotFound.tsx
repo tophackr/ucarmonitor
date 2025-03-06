@@ -16,7 +16,7 @@ export async function NotFound() {
                     description={t('description')}
                     action={<ReturnHomeButton>{t('button')}</ReturnHomeButton>}
                 >
-                    <DuckNotFoundLottie style={{ width: 256, height: 256 }} />
+                    <DuckNotFoundLottie className={'size-36'} />
                 </Placeholder>
             </List>
         </>
