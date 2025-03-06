@@ -8,7 +8,7 @@
     "singleAttributePerLine": true,
     "importOrder": [
         "<THIRD_PARTY_MODULES>",
-        "^@public/(.*)$",
+        "^@/public/(.*)$",
         "^@/app/(.*)$",
         "^@/pages/(.*)$",
         "^@/widgets/(.*)$",

@@ -9,7 +9,7 @@ const compat = new FlatCompat({
     baseDirectory: __dirname
 })
 
-const Layers = ['core', 'views', 'widgets', 'features', 'entities', 'shared']
+const Layers = ['app', 'pages', 'widgets', 'features', 'entities', 'shared']
 
 const getLowerLayers = layer => Layers.slice(Layers.indexOf(layer) + 1)
 
@@ -95,6 +95,10 @@ const eslintConfig = [
                         {
                             from: 'shared',
                             allow: 'shared'
+                        },
+                        {
+                            from: 'app',
+                            allow: 'app'
                         }
                     ]
                 }
