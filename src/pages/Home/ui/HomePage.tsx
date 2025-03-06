@@ -11,10 +11,12 @@ export function HomePage() {
 
     const [isLoading, setIsLoading] = useState(false)
 
-    useClientOnce(() => {
+    useClientOnce(async () => {
         setIsLoading(true)
 
-        getCars().then(setCars)
+        const cars = await getCars()
+
+        setCars(cars)
 
         setIsLoading(false)
     })
