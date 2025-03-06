@@ -4,10 +4,17 @@ import { notFound } from 'next/navigation'
 import { type PropsWithChildren, createContext, use } from 'react'
 import type { ParamsProps } from '@/shared/types'
 import { useFindInteraction } from '../../hooks/useFindInteraction'
+import { InteractionCategory } from '../../model/Interaction'
 import type { InteractionIdProps, InteractionProps } from '../../model/Props'
 
-export const InteractionContext = createContext<Partial<InteractionProps>>({
-    interaction: undefined
+export const InteractionContext = createContext<InteractionProps>({
+    interaction: {
+        id: '1',
+        carId: '1',
+        type: InteractionCategory.fuel,
+        date: new Date(),
+        mileage: 0
+    }
 })
 
 export function InteractionContextProvider({
