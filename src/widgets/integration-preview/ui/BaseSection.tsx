@@ -3,7 +3,7 @@
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useInteractionContext } from '@/entities/interaction'
-import { useIntlDateTime } from '@/shared/i18n/hooks/useIntlDateTime'
+import { useIntlDateTime } from '@/shared/i18n'
 import { IconCell } from '@/shared/ui'
 
 interface BaseSectionProps {
