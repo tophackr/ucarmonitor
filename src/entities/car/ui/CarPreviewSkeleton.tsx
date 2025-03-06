@@ -11,9 +11,9 @@ export function CarPreviewSkeleton() {
         <ListSection>
             <PulseSkeletonLayout>
                 <Placeholder
-                    header={<TextSkeleton className={'bg-hint'} />}
+                    header={<TextSkeleton className={'bg-hint m-auto'} />}
                     description={
-                        <TextSkeleton className={'bg-secondary w-40'} />
+                        <TextSkeleton className={'bg-secondary m-auto w-40'} />
                     }
                 >
                     <AvatarSkeleton size={96} />

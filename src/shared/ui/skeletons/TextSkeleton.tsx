@@ -8,7 +8,9 @@ export function TextSkeleton({
 }: HTMLAttributes<HTMLDivElement>) {
     return (
         <div
-            className={twMerge(clsx('rounded-full h-4 w-32 m-auto', className))}
+            className={twMerge(
+                clsx('bg-content rounded-full h-4 w-32', className)
+            )}
             {...props}
         />
     )
