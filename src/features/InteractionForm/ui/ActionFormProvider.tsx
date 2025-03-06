@@ -31,7 +31,7 @@ export function ActionFormProvider({
         })
     } else if (category === InteractionCategory.purchaseTires) {
         Object.assign(values, {
-            type: TiresFormType.tires,
+            formType: TiresFormType.tires,
             tiresType: 0,
             wheelsType: 0,
             width: 0,
