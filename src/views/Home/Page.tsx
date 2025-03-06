@@ -1,11 +1,14 @@
 'use client'
 
 import { useMemo } from 'react'
-import { CarCell, useCars } from '@/entities/car'
+import { CarCell, getCars, useCars } from '@/entities/car'
+import { useClientOnce } from '@/shared/hooks'
 import { CreateCarButton } from './ui/CreateCarButton'
 
 export function Page() {
-    const { cars } = useCars()
+    const { cars, setCars } = useCars()
+
+    useClientOnce(() => getCars().then(setCars))
 
     const renderCars = useMemo(
         () =>

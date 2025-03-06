@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect } from 'react'
 import type { MouseClickEvent } from '@/shared/types'
 import { useEditSetValueContext } from '../hooks/useEditSetValueContext'
