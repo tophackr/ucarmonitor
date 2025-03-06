@@ -27,24 +27,26 @@ export function FuelSection() {
                 {price && <Cell subhead={t('price')}>{price}</Cell>}
             </Section>
 
-            <Section header={t('amount_fuel_tank')}>
-                {beforeRefueling && (
-                    <Cell
-                        subhead={t('before_refueling')}
-                        after={`${toFixedNumber((beforeRefueling / fuelCapacity) * 100)} %`}
-                    >
-                        {beforeRefueling} / {fuelCapacity}
-                    </Cell>
-                )}
-                {afterRefueling && (
-                    <Cell
-                        subhead={t('after_refueling')}
-                        after={`${toFixedNumber((afterRefueling / fuelCapacity) * 100)} %`}
-                    >
-                        {afterRefueling} / {fuelCapacity}
-                    </Cell>
-                )}
-            </Section>
+            {(beforeRefueling || afterRefueling) && (
+                <Section header={t('amount_fuel_tank')}>
+                    {beforeRefueling && (
+                        <Cell
+                            subhead={t('before_refueling')}
+                            after={`${toFixedNumber((beforeRefueling / fuelCapacity) * 100)} %`}
+                        >
+                            {beforeRefueling} / {fuelCapacity}
+                        </Cell>
+                    )}
+                    {afterRefueling && (
+                        <Cell
+                            subhead={t('after_refueling')}
+                            after={`${toFixedNumber((afterRefueling / fuelCapacity) * 100)} %`}
+                        >
+                            {afterRefueling} / {fuelCapacity}
+                        </Cell>
+                    )}
+                </Section>
+            )}
         </>
     )
 }
