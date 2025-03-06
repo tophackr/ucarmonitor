@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl'
 import { type CategoryProps, InteractionCategory } from '@/entities/interaction'
 import { BaseSection } from './BaseSection'
 import { FuelSection } from './FuelSection'
+import { InterEditButton } from './InterEditButton'
 import { PartsSection } from './PartsSection'
 import { RepairSection } from './RepairSection'
 import { TiresSection } from './TiresSection'
@@ -14,6 +15,8 @@ export function Preview({ category }: CategoryProps) {
 
     return (
         <List>
+            <InterEditButton />
+
             <BaseSection title={t(category)} />
 
             {category === InteractionCategory.fuel && <FuelSection />}
