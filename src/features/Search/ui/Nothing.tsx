@@ -1,5 +1,7 @@
+'use client'
+
 import { Placeholder } from '@telegram-apps/telegram-ui'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'next-intl'
 import type { ReactNode } from 'react'
 import { DuckFlashbackLottie } from '@/shared/ui'
 
@@ -8,15 +10,15 @@ interface NothingProps {
     description?: ReactNode
 }
 
-export async function Nothing({ title, description }: NothingProps) {
-    const t = await getTranslations('search.Nothing')
+export function Nothing({ title, description }: NothingProps) {
+    const t = useTranslations('Search.Nothing')
 
     return (
         <Placeholder
             header={title ?? t('title')}
             description={description ?? t('description')}
         >
-            <DuckFlashbackLottie />
+            <DuckFlashbackLottie className={'size-36'} />
         </Placeholder>
     )
 }

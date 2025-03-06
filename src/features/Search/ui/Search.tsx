@@ -1,38 +1,41 @@
+'use client'
+
 import { Input, Tappable } from '@telegram-apps/telegram-ui'
-import { Icon24Close } from '@telegram-apps/telegram-ui/dist/icons/24/close'
 import { useTranslations } from 'next-intl'
+import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDebounceForm } from '@/shared/hooks'
+import { LucideIcon } from '@/shared/ui'
 import type { SearchForm, SearchProps } from '../model/Search'
 
 export function Search({ onSearch, debounceTime = 444 }: SearchProps) {
-    const t = useTranslations('search')
+    const t = useTranslations('Search')
 
     const { register, reset, watch } = useForm<SearchForm>()
 
-    const onClear = () => {
+    const onClear = useCallback(() => {
         reset({
             value: ''
         })
-    }
+    }, [reset])
 
     useDebounceForm({ watch, onSubmit: onSearch, debounceTime })
 
     return (
         <Input
-            type={'text'}
-            placeholder={t('placeholder')}
             after={
                 <Tappable
                     Component='div'
-                    style={{
-                        display: 'flex'
-                    }}
+                    className={'flex'}
                     onClick={onClear}
                 >
-                    <Icon24Close />
+                    <LucideIcon
+                        name={'X'}
+                        className={'text-hint'}
+                    />
                 </Tappable>
             }
+            placeholder={t('placeholder')}
             {...register('value')}
         />
     )

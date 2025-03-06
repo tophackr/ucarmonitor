@@ -1,16 +1,18 @@
+'use client'
+
 import { Placeholder } from '@telegram-apps/telegram-ui'
-import { getTranslations } from 'next-intl/server'
+import { useTranslations } from 'next-intl'
 import { DuckNotFoundLottie } from '@/shared/ui'
 
-export async function NotFound() {
-    const t = await getTranslations('search.NotFound')
+export function NotFound() {
+    const t = useTranslations('Search.NotFound')
 
     return (
         <Placeholder
             header={t('title')}
             description={t('description')}
         >
-            <DuckNotFoundLottie />
+            <DuckNotFoundLottie className={'size-36'} />
         </Placeholder>
     )
 }
