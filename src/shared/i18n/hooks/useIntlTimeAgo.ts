@@ -1,9 +1,10 @@
-import { useFormatter, useLocale } from 'next-intl'
+import { useLocale } from 'next-intl'
 import { daysAfterToday } from '../../utils/daysAfterToday'
+import { useIntlDateTime } from './useIntlDateTime'
 
 export function useIntlTimeAgo(value: Date) {
-    const format = useFormatter()
     const locale = useLocale()
+    const date = useIntlDateTime(value)
 
     const diffInDays = daysAfterToday(value) + 1
 
@@ -14,5 +15,5 @@ export function useIntlTimeAgo(value: Date) {
         )
     }
 
-    return format.dateTime(new Date(value))
+    return date
 }
