@@ -1,29 +1,27 @@
 'use client'
 
-import { useMemo } from 'react'
-import { CarCell, getCars, useCars } from '@/entities/car'
+import { useState } from 'react'
+import { getCars, useCars } from '@/entities/car'
 import { useClientOnce } from '@/shared/hooks'
 import { CreateCarButton } from './ui/CreateCarButton'
+import { HomeContent } from './ui/HomeContent'
 
 export function Page() {
-    const { cars, setCars } = useCars()
+    const { setCars } = useCars()
 
-    useClientOnce(() => getCars().then(setCars))
+    const [isLoading, setIsLoading] = useState(false)
 
-    const renderCars = useMemo(
-        () =>
-            cars.map(car => (
-                <CarCell
-                    key={car.id}
-                    car={car}
-                />
-            )),
-        [cars]
-    )
+    useClientOnce(() => {
+        setIsLoading(true)
+
+        getCars().then(setCars)
+
+        setIsLoading(false)
+    })
 
     return (
         <>
-            {renderCars}
+            <HomeContent isLoading={isLoading} />
 
             <CreateCarButton />
         </>
