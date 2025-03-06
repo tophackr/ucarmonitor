@@ -1,10 +1,11 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
 import { useWatchForm } from '@/shared/hooks'
-import { toFixedNumber } from '@/shared/utils'
+import { getCapacity } from '../model/getCapacity'
+import { getPercent } from '../model/getPercent'
 
 export function useRefuel(fuelCapacity: number = 45) {
     const { setValue, watch } = useFormContext<IFuel>()
@@ -12,24 +13,44 @@ export function useRefuel(fuelCapacity: number = 45) {
     const [beforeRefuel, setBeforeRefuel] = useState(0)
     const [afterRefuel, setAfterRefuel] = useState(0)
 
-    const onBeforeChange = (value: number) => {
-        setValue('beforeRefueling', toFixedNumber(value * 0.01 * fuelCapacity))
-    }
+    const isFirstRender = useRef(false)
 
-    const onAfterChange = (value: number) => {
-        setValue('afterRefueling', toFixedNumber(value * 0.01 * fuelCapacity))
-    }
+    const onBeforeChange = useCallback(
+        (value: number) => {
+            setValue('beforeRefueling', getCapacity(value, fuelCapacity))
+        },
+        [fuelCapacity, setValue]
+    )
 
-    const onFullChange = (value: boolean) => {
-        if (!value) {
-            setValue('afterRefueling', fuelCapacity)
+    const onAfterChange = useCallback(
+        (value: number) => {
+            setValue('afterRefueling', getCapacity(value, fuelCapacity))
+        },
+        [fuelCapacity, setValue]
+    )
+
+    const onFullChange = useCallback(
+        (value: boolean) => {
+            if (!value) {
+                setValue('afterRefueling', fuelCapacity)
+            }
+        },
+        [fuelCapacity, setValue]
+    )
+
+    const [watchBeforeRefueling, watchAfterRefueling, watchCapacityFull] =
+        watch(['beforeRefueling', 'afterRefueling', 'capacityFull'])
+
+    useEffect(() => {
+        if (isFirstRender.current) {
+            return
         }
-    }
 
-    const [watchAfterRefueling, watchCapacityFull] = watch([
-        'afterRefueling',
-        'capacityFull'
-    ])
+        isFirstRender.current = true
+
+        setBeforeRefuel(getPercent(watchBeforeRefueling, fuelCapacity))
+        setAfterRefuel(getPercent(watchAfterRefueling, fuelCapacity))
+    }, [watchBeforeRefueling, watchAfterRefueling, fuelCapacity])
 
     useEffect(() => {
         if (watchAfterRefueling !== fuelCapacity && watchCapacityFull) {
@@ -37,23 +58,18 @@ export function useRefuel(fuelCapacity: number = 45) {
         }
     }, [watchAfterRefueling, watchCapacityFull, fuelCapacity, setValue])
 
-    const onWatchCallback = ({ beforeRefueling, afterRefueling }: IFuel) => {
-        if (beforeRefuel !== beforeRefueling) {
-            const beforeNumber = +beforeRefueling
+    const onWatchCallback = useCallback(
+        ({ beforeRefueling, afterRefueling }: IFuel) => {
+            if (beforeRefuel !== beforeRefueling) {
+                setBeforeRefuel(getPercent(beforeRefueling, fuelCapacity))
+            }
 
-            setBeforeRefuel(
-                toFixedNumber(((beforeNumber || 0) / fuelCapacity) * 100, 0)
-            )
-        }
-
-        if (afterRefuel !== afterRefueling) {
-            const afterNumber = +afterRefueling
-
-            setAfterRefuel(
-                toFixedNumber(((afterNumber || 0) / fuelCapacity) * 100, 0)
-            )
-        }
-    }
+            if (afterRefuel !== afterRefueling) {
+                setAfterRefuel(getPercent(afterRefueling, fuelCapacity))
+            }
+        },
+        [afterRefuel, beforeRefuel, fuelCapacity]
+    )
 
     useWatchForm({
         watch,

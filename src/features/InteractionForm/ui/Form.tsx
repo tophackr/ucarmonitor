@@ -1,20 +1,33 @@
+'use client'
+
 import { List } from '@telegram-apps/telegram-ui'
-import { getTranslations } from 'next-intl/server'
-import { type CategoryProps, InteractionCategory } from '@/entities/interaction'
+import { useTranslations } from 'next-intl'
+import {
+    type CategoryProps,
+    InteractionCategory,
+    type InteractionProps
+} from '@/entities/interaction'
 import { ActionFormProvider } from './ActionFormProvider'
 import { BaseSection } from './BaseSection'
+import { DeleteInteractionButton } from './DeleteInteractionButton'
 import { PartsSection } from './PartsSection'
 import { RepairSection } from './RepairSection'
 import { SaveActionButton } from './SaveActionButton'
 import { FuelSection } from './fuel/FuelSection'
 import { TiresSection } from './tires/TiresSection'
 
-export async function Form({ category }: CategoryProps) {
-    const t = await getTranslations('CarCategoryName')
+export function Form({
+    category,
+    interaction
+}: CategoryProps & Partial<InteractionProps>) {
+    const t = useTranslations('CarCategoryName')
 
     return (
         <List>
-            <ActionFormProvider category={category}>
+            <ActionFormProvider
+                category={category}
+                interaction={interaction}
+            >
                 <BaseSection title={t(category)} />
 
                 {category === InteractionCategory.fuel && <FuelSection />}
@@ -32,6 +45,13 @@ export async function Form({ category }: CategoryProps) {
 
                 <SaveActionButton />
             </ActionFormProvider>
+
+            {interaction && (
+                <DeleteInteractionButton
+                    carId={interaction.carId}
+                    interactionId={interaction.id}
+                />
+            )}
         </List>
     )
 }

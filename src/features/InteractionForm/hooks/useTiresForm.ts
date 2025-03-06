@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { type ITires, TiresFormType } from '@/entities/interaction'
 import { useWatchForm } from '@/shared/hooks'
@@ -6,31 +6,48 @@ import { type TiresInfoForm, type TiresSizeForm } from '../model/TiresForm'
 
 export function useTiresForm() {
     const { watch, setValue } = useFormContext<ITires>()
+    const watchFormType = watch('formType')
+
+    const isFirstRender = useRef(true)
 
     const [tiresType, setTiresType] = useState<TiresFormType>(
         TiresFormType.tires
     )
+    const [prevFormType, setPrevFormType] = useState(watchFormType)
 
-    const watchFormType = watch('formType')
     const sizeKeys: (keyof TiresSizeForm)[] = useMemo(
         () => ['width', 'height', 'diameter'],
         []
     )
 
     useEffect(() => {
-        sizeKeys.forEach(i => setValue(i, 0))
-
-        setValue(
-            watchFormType === TiresFormType.tires ? 'tiresType' : 'wheelsType',
-            0
-        )
-    }, [setValue, sizeKeys, watchFormType])
-
-    const onWatchCallback = ({ formType }: TiresInfoForm) => {
-        if (formType !== tiresType) {
-            setTiresType(formType)
+        if (isFirstRender.current) {
+            isFirstRender.current = false
+            return
         }
-    }
+
+        if (prevFormType !== watchFormType) {
+            sizeKeys.forEach(i => setValue(i, 0))
+
+            setValue(
+                watchFormType === TiresFormType.tires
+                    ? 'tiresType'
+                    : 'wheelsType',
+                0
+            )
+
+            setPrevFormType(watchFormType)
+        }
+    }, [prevFormType, setValue, sizeKeys, watchFormType])
+
+    const onWatchCallback = useCallback(
+        ({ formType }: TiresInfoForm) => {
+            if (formType !== tiresType) {
+                setTiresType(formType)
+            }
+        },
+        [tiresType]
+    )
 
     useWatchForm({
         watch,

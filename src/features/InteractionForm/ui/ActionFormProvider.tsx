@@ -8,13 +8,15 @@ import {
     FuelGrade,
     type IInteraction,
     InteractionCategory,
+    type InteractionProps,
     TiresFormType
 } from '@/entities/interaction'
 
 export function ActionFormProvider({
     children,
-    category
-}: PropsWithChildren<CategoryProps>) {
+    category,
+    interaction
+}: PropsWithChildren<CategoryProps & Partial<InteractionProps>>) {
     const { car } = useCarContext()
 
     const values: Omit<IInteraction, 'id' | 'carId'> = {
@@ -41,7 +43,7 @@ export function ActionFormProvider({
     }
 
     const methods = useForm<IInteraction>({
-        defaultValues: values
+        defaultValues: { ...values, ...interaction }
     })
 
     return <FormProvider {...methods}>{children}</FormProvider>

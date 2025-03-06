@@ -9,8 +9,8 @@ import type { InteractionIdProps, InteractionProps } from '../../model/Props'
 
 export const InteractionContext = createContext<InteractionProps>({
     interaction: {
-        id: '1',
-        carId: '1',
+        id: '',
+        carId: '',
         type: InteractionCategory.fuel,
         date: new Date(),
         mileage: 0
