@@ -2,13 +2,16 @@
 
 import { Input, Section, Slider, Text } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
 import { LucideIcon } from '@/shared/ui'
 import { useRefuel } from '../../hooks/useRefuel'
 import type { FuelCapacityProps } from '../../model/FuelCapacity'
 
-export function AfterRefueling({ fuelCapacity }: FuelCapacityProps) {
+export const AfterRefueling = memo(function AfterRefueling({
+    fuelCapacity
+}: FuelCapacityProps) {
     const t = useTranslations('CarActionForm')
 
     const {
@@ -49,4 +52,4 @@ export function AfterRefueling({ fuelCapacity }: FuelCapacityProps) {
             />
         </Section>
     )
-}
+})

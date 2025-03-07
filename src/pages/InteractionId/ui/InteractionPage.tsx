@@ -1,9 +1,12 @@
+import { memo } from 'react'
 import { InteractionPreview } from '@/widgets/integration-preview'
 import type { CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/types'
 import { BackButton } from '@/shared/ui'
 
-export async function InteractionPage({ params }: ParamsProps<CategoryProps>) {
+export const InteractionPage = memo(async function InteractionPage({
+    params
+}: ParamsProps<CategoryProps>) {
     const { category } = await params
 
     return (
@@ -13,4 +16,4 @@ export async function InteractionPage({ params }: ParamsProps<CategoryProps>) {
             <InteractionPreview category={category} />
         </>
     )
-}
+})

@@ -1,11 +1,13 @@
-import type { PropsWithChildren } from 'react'
+import { type PropsWithChildren, memo } from 'react'
 import { Toaster } from 'sonner'
 import { I18nProvider } from '@/shared/i18n'
 import { SettingsButton } from '@/shared/ui'
 import { StoreProvider } from '../store'
 import { TelegramProvider } from '../tma'
 
-export function Providers({ children }: PropsWithChildren) {
+export const Providers = memo(function Providers({
+    children
+}: PropsWithChildren) {
     return (
         <StoreProvider>
             <TelegramProvider>
@@ -15,4 +17,4 @@ export function Providers({ children }: PropsWithChildren) {
             </TelegramProvider>
         </StoreProvider>
     )
-}
+})

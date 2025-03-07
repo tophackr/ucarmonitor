@@ -2,7 +2,7 @@
 
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import type { ReactNode } from 'react'
+import { type ReactNode, memo } from 'react'
 import { DuckFlashbackLottie } from '@/shared/ui'
 
 interface NothingProps {
@@ -10,7 +10,10 @@ interface NothingProps {
     description?: ReactNode
 }
 
-export function Nothing({ title, description }: NothingProps) {
+export const Nothing = memo(function Nothing({
+    title,
+    description
+}: NothingProps) {
     const t = useTranslations('Search.Nothing')
 
     return (
@@ -21,4 +24,4 @@ export function Nothing({ title, description }: NothingProps) {
             <DuckFlashbackLottie className={'size-36'} />
         </Placeholder>
     )
-}
+})

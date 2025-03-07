@@ -4,8 +4,9 @@ import {
     Modal as TGUIModal
 } from '@telegram-apps/telegram-ui/dist/components/Overlays/Modal/Modal'
 import { Drawer } from '@xelene/vaul-with-scroll-fix'
+import { memo } from 'react'
 
-export function Modal({ children, ...props }: ModalProps) {
+export const Modal = memo(function Modal({ children, ...props }: ModalProps) {
     return (
         <TGUIModal
             {...props}
@@ -18,8 +19,4 @@ export function Modal({ children, ...props }: ModalProps) {
             {children}
         </TGUIModal>
     )
-}
-
-Modal.Header = TGUIModal.Header
-Modal.Close = TGUIModal.Close
-Modal.Overlay = TGUIModal.Overlay
+})

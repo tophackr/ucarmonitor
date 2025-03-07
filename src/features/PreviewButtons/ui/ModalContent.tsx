@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import { memo } from 'react'
 import { useIsAppleClient } from '@/shared/hooks'
 import { LinkCell } from '@/shared/ui'
 import type { ActionContentProps } from '../model/ActionContentProps'
@@ -9,7 +10,9 @@ interface ModalContentProps {
     content: ActionContentProps[]
 }
 
-export function ModalContent({ content }: ModalContentProps) {
+export const ModalContent = memo(function ModalContent({
+    content
+}: ModalContentProps) {
     const isApple = useIsAppleClient()
 
     return content.map(({ href, icon, bgColor, name }, index) => (
@@ -23,4 +26,4 @@ export function ModalContent({ content }: ModalContentProps) {
             {name}
         </LinkCell>
     ))
-}
+})

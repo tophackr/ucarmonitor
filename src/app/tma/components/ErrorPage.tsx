@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 
-export function ErrorPage({
+export const ErrorPage = memo(function ErrorPage({
     error,
     reset
 }: {
@@ -21,4 +21,4 @@ export function ErrorPage({
             {reset && <button onClick={() => reset()}>Try again</button>}
         </div>
     )
-}
+})

@@ -2,7 +2,7 @@
 
 import { FileInput, Section, Textarea } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IBaseInteraction } from '@/entities/interaction'
 import { CheckCell, IconInput, LucideIcon } from '@/shared/ui'
@@ -11,7 +11,9 @@ interface BaseSectionProps {
     title: string
 }
 
-export function BaseSection({ title }: BaseSectionProps) {
+export const BaseSection = memo(function BaseSection({
+    title
+}: BaseSectionProps) {
     const t = useTranslations('CarActionForm')
 
     const [files, setFiles] = useState<FileList | null>(null)
@@ -90,4 +92,4 @@ export function BaseSection({ title }: BaseSectionProps) {
             </Section>
         </>
     )
-}
+})

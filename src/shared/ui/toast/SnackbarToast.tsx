@@ -1,10 +1,11 @@
 import { Snackbar } from '@telegram-apps/telegram-ui'
+import { memo } from 'react'
 import { toast as sonnerToast } from 'sonner'
 import { callMultiple, hasReactNode } from '@/shared/utils'
 import { LucideIcon } from '../lucide-icon'
 import type { ToastProps } from './ToastProps'
 
-export function SnackbarToast({
+export const SnackbarToast = memo(function SnackbarToast({
     id,
     icon,
     title,
@@ -33,4 +34,4 @@ export function SnackbarToast({
             {title}
         </Snackbar>
     )
-}
+})

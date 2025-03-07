@@ -1,13 +1,13 @@
 'use client'
 
 import { type MainButtonState, mainButton } from '@telegram-apps/sdk-react'
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 
 interface State extends MainButtonState {
     onClick: () => void
 }
 
-export function MainButton(updates: Partial<State>) {
+export const MainButton = memo(function MainButton(updates: Partial<State>) {
     const { onClick, ...params } = updates
 
     useEffect(() => {
@@ -31,4 +31,4 @@ export function MainButton(updates: Partial<State>) {
     }, [onClick])
 
     return <></>
-}
+})

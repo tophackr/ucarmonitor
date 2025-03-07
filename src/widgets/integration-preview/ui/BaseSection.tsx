@@ -2,6 +2,7 @@
 
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 import { useInteractionContext } from '@/entities/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
 import { IconCell } from '@/shared/ui'
@@ -10,7 +11,9 @@ interface BaseSectionProps {
     title: string
 }
 
-export function BaseSection({ title }: BaseSectionProps) {
+export const BaseSection = memo(function BaseSection({
+    title
+}: BaseSectionProps) {
     const t = useTranslations('CarActionForm')
 
     const {
@@ -68,4 +71,4 @@ export function BaseSection({ title }: BaseSectionProps) {
             )}
         </>
     )
-}
+})

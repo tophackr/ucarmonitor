@@ -1,7 +1,7 @@
 import clsx from 'clsx'
-import type { HTMLAttributes, PropsWithChildren } from 'react'
+import { type HTMLAttributes, type PropsWithChildren, memo } from 'react'
 
-export function PulseSkeletonLayout({
+export const PulseSkeletonLayout = memo(function PulseSkeletonLayout({
     children,
     className,
     ...props
@@ -17,4 +17,4 @@ export function PulseSkeletonLayout({
             <span className={'sr-only'}>Loading...</span>
         </div>
     )
-}
+})

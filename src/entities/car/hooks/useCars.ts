@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { useActions, useAppSelector } from '@/shared/lib'
 import { setCars as setCarsCloud } from '../lib/store/cars'
 import { carsSliceActions, selectCars } from '../lib/store/cars.slice'
@@ -7,10 +8,13 @@ export function useCars() {
     const cars = useAppSelector(selectCars)
     const { setCars } = useActions(carsSliceActions)
 
-    const setCarsWithCloud = async (cars: ICar[]) => {
-        setCars(cars)
-        await setCarsCloud(cars)
-    }
+    const setCarsWithCloud = useCallback(
+        async (cars: ICar[]) => {
+            setCars(cars)
+            await setCarsCloud(cars)
+        },
+        [setCars]
+    )
 
     return {
         cars,

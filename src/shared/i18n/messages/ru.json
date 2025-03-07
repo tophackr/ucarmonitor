@@ -20,7 +20,8 @@
   },
   "Car": {
     "default": "По умолчанию",
-    "mileage": "Пробег"
+    "mileage": "Пробег",
+    "last_activity": "Последняя активность"
   },
   "CarActionButtons": {
     "add": "Добавить Пробег",

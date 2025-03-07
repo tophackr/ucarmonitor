@@ -1,5 +1,6 @@
 import { Section } from '@telegram-apps/telegram-ui'
-import { useMemo } from 'react'
+import { useTranslations } from 'next-intl'
+import { memo, useMemo } from 'react'
 import type { CarProps } from '@/entities/car'
 import {
     InteractionCell,
@@ -8,7 +9,11 @@ import {
 } from '@/entities/interaction'
 import { useClientOnce } from '@/shared/hooks'
 
-export function ActivitySection({ car }: CarProps) {
+export const ActivitySection = memo(function ActivitySection({
+    car
+}: CarProps) {
+    const t = useTranslations('Car')
+
     const { interactions, setInteractions } = useInteractions()
 
     useClientOnce(() => getInteractions().then(setInteractions))
@@ -16,16 +21,17 @@ export function ActivitySection({ car }: CarProps) {
     const interactionsSorted = useMemo(
         () =>
             [...interactions]
+                .filter(inter => inter.carId === car.id)
                 .sort(
                     (a, b) =>
                         new Date(b.date).getTime() - new Date(a.date).getTime()
                 )
                 .slice(0, 10),
-        [interactions]
+        [car.id, interactions]
     )
 
     return (
-        <Section>
+        <Section header={t('last_activity')}>
             {interactionsSorted.map(i => (
                 <InteractionCell
                     key={i.id}
@@ -35,4 +41,4 @@ export function ActivitySection({ car }: CarProps) {
             ))}
         </Section>
     )
-}
+})

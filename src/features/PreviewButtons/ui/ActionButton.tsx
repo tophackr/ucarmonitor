@@ -1,10 +1,11 @@
 import { InlineButtons } from '@telegram-apps/telegram-ui'
 import type { InlineButtonsItemProps } from '@telegram-apps/telegram-ui/dist/components/Blocks/InlineButtons/components/InlineButtonsItem/InlineButtonsItem'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 import { LucideIcon } from '@/shared/ui'
 import type { ActionButtonProps } from '../model/ActionButtonProps'
 
-export function ActionButton({
+export const ActionButton = memo(function ActionButton({
     icon,
     name,
     ...props
@@ -19,4 +20,4 @@ export function ActionButton({
             <LucideIcon name={icon} />
         </InlineButtons.Item>
     )
-}
+})

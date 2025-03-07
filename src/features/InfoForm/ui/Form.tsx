@@ -1,6 +1,7 @@
 'use client'
 
 import { List } from '@telegram-apps/telegram-ui'
+import { memo } from 'react'
 import { type CarProps, useCars } from '@/entities/car'
 import { DefaultSection } from './DefaultSection'
 import { DeleteCarButton } from './DeleteCarButton'
@@ -10,7 +11,7 @@ import { InfoSection } from './InfoSection'
 import { MileageSection } from './MileageSection'
 import { SaveCarButton } from './SaveCarButton'
 
-export function Form({ car }: Partial<CarProps>) {
+export const Form = memo(function Form({ car }: Partial<CarProps>) {
     const { cars } = useCars()
 
     const showDefaultButton = (cars.length > 0 && !car) || cars.length > 1
@@ -32,4 +33,4 @@ export function Form({ car }: Partial<CarProps>) {
             {car && <DeleteCarButton carId={car.id} />}
         </List>
     )
-}
+})

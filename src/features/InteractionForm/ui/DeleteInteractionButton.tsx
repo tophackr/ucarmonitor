@@ -1,5 +1,6 @@
 'use client'
 
+import { memo } from 'react'
 import type { CarIdProps } from '@/entities/car'
 import type { InteractionIdProps } from '@/entities/interaction'
 import { useButtonClick } from '@/shared/hooks'
@@ -7,7 +8,7 @@ import { pagesRoute } from '@/shared/routes'
 import { DeleteButton } from '@/shared/ui'
 import { useDeleteInteraction } from '../hooks/useDeleteInteraction'
 
-export function DeleteInteractionButton({
+export const DeleteInteractionButton = memo(function DeleteInteractionButton({
     carId,
     interactionId
 }: CarIdProps & InteractionIdProps) {
@@ -19,4 +20,4 @@ export function DeleteInteractionButton({
     })
 
     return <DeleteButton {...props} />
-}
+})

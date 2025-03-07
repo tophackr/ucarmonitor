@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { memo, useCallback, useState } from 'react'
 import { type SearchForm, SearchPage } from '@/features/Search'
 import { CarCell, type ICar, useCars } from '@/entities/car'
 
@@ -8,7 +8,9 @@ interface ContentProps {
     isLoading: boolean
 }
 
-export function CarsContent({ isLoading }: ContentProps) {
+export const CarsContent = memo(function CarsContent({
+    isLoading
+}: ContentProps) {
     const { cars } = useCars()
 
     const [searchValue, setSearchValue] = useState('')
@@ -53,4 +55,4 @@ export function CarsContent({ isLoading }: ContentProps) {
             onSearch={onSearch}
         />
     )
-}
+})

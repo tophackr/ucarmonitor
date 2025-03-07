@@ -1,12 +1,13 @@
 'use client'
 
 import clsx from 'clsx'
+import { memo } from 'react'
 import { useIsAppleClient } from '@/shared/hooks'
 import { LucideIcon } from '../../lucide-icon'
 import styles from './IconCell.module.css'
 import type { IconCellProps } from './IconCellProps'
 
-export function IconCell({
+export const IconCell = memo(function IconCell({
     icon,
     bgColor,
     className,
@@ -32,4 +33,4 @@ export function IconCell({
             {...props}
         />
     )
-}
+})

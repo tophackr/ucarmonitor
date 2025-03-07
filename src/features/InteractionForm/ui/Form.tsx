@@ -2,6 +2,7 @@
 
 import { List } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 import {
     type CategoryProps,
     InteractionCategory,
@@ -16,7 +17,7 @@ import { SaveActionButton } from './SaveActionButton'
 import { FuelSection } from './fuel/FuelSection'
 import { TiresSection } from './tires/TiresSection'
 
-export function Form({
+export const Form = memo(function Form({
     category,
     interaction
 }: CategoryProps & Partial<InteractionProps>) {
@@ -54,4 +55,4 @@ export function Form({
             )}
         </List>
     )
-}
+})

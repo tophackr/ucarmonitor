@@ -1,9 +1,10 @@
+import { memo } from 'react'
 import { InteractionForm } from '@/features/InteractionForm'
 import type { CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/types'
 import { BackButton } from '@/shared/ui'
 
-export async function InteractionNewPage({
+export const InteractionNewPage = memo(async function InteractionNewPage({
     params
 }: ParamsProps<CategoryProps>) {
     const { category } = await params
@@ -15,4 +16,4 @@ export async function InteractionNewPage({
             <InteractionForm category={category} />
         </>
     )
-}
+})

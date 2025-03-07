@@ -1,11 +1,13 @@
 'use client'
 
-import { use } from 'react'
+import { memo, use } from 'react'
 import { useCarContext } from '@/entities/car'
 import type { CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/types'
 
-export function CategoryPage({ params }: ParamsProps<CategoryProps>) {
+export const CategoryPage = memo(function CategoryPage({
+    params
+}: ParamsProps<CategoryProps>) {
     const { category } = use(params)
     const { car } = useCarContext()
 
@@ -14,4 +16,4 @@ export function CategoryPage({ params }: ParamsProps<CategoryProps>) {
             Просмотр {category}, ID: для автомобиля {car.id}
         </h1>
     )
-}
+})

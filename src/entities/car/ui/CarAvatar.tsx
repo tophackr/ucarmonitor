@@ -1,10 +1,14 @@
 import { Avatar, type AvatarProps } from '@telegram-apps/telegram-ui'
+import { memo } from 'react'
 
 interface CarAvatarProps extends Omit<AvatarProps, 'src' | 'acronym'> {
     name: string
 }
 
-export function CarAvatar({ name, ...props }: CarAvatarProps) {
+export const CarAvatar = memo(function CarAvatar({
+    name,
+    ...props
+}: CarAvatarProps) {
     return (
         <Avatar
             src={`https://img.icons8.com/color/${name.toLowerCase()}.png`}
@@ -12,4 +16,4 @@ export function CarAvatar({ name, ...props }: CarAvatarProps) {
             {...props}
         />
     )
-}
+})

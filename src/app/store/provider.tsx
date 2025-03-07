@@ -1,11 +1,13 @@
 'use client'
 
-import { type PropsWithChildren, useRef } from 'react'
+import { type PropsWithChildren, memo, useRef } from 'react'
 import { Provider } from 'react-redux'
 import { type AppStore, makeStore } from '@/shared/lib'
 import { rootReducer } from './root-reducer'
 
-export function StoreProvider({ children }: PropsWithChildren) {
+export const StoreProvider = memo(function StoreProvider({
+    children
+}: PropsWithChildren) {
     const storeRef = useRef<AppStore | null>(null)
 
     if (!storeRef.current) {
@@ -14,4 +16,4 @@ export function StoreProvider({ children }: PropsWithChildren) {
     }
 
     return <Provider store={storeRef.current}>{children}</Provider>
-}
+})

@@ -1,9 +1,11 @@
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { type PropsWithChildren } from 'react'
+import { type PropsWithChildren, memo } from 'react'
 import { defaultTimeZone } from './config'
 
-export async function I18nProvider({ children }: PropsWithChildren) {
+export const I18nProvider = memo(async function I18nProvider({
+    children
+}: PropsWithChildren) {
     const messages = await getMessages()
 
     return (
@@ -14,4 +16,4 @@ export async function I18nProvider({ children }: PropsWithChildren) {
             {children}
         </NextIntlClientProvider>
     )
-}
+})

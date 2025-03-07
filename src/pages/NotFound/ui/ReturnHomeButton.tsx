@@ -1,11 +1,13 @@
 'use client'
 
 import { Button } from '@telegram-apps/telegram-ui'
-import { type PropsWithChildren } from 'react'
+import { type PropsWithChildren, memo } from 'react'
 import { useButtonClick } from '@/shared/hooks'
 import { pagesRoute } from '@/shared/routes'
 
-export function ReturnHomeButton({ children }: PropsWithChildren) {
+export const ReturnHomeButton = memo(function ReturnHomeButton({
+    children
+}: PropsWithChildren) {
     const props = useButtonClick({ route: pagesRoute.home })
 
     return (
@@ -17,4 +19,4 @@ export function ReturnHomeButton({ children }: PropsWithChildren) {
             {children}
         </Button>
     )
-}
+})

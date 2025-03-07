@@ -1,3 +1,4 @@
+import { useCallback } from 'react'
 import { useActions, useAppSelector } from '@/shared/lib'
 import { setInteractions as setInteractionsCloud } from '../lib/store/interaction'
 import {
@@ -10,10 +11,13 @@ export function useInteractions() {
     const interactions = useAppSelector(selectInteractions)
     const { setInteractions } = useActions(interactionsSliceActions)
 
-    const setInteractionWithCloud = async (items: IInteraction[]) => {
-        setInteractions(items)
-        await setInteractionsCloud(items)
-    }
+    const setInteractionWithCloud = useCallback(
+        async (items: IInteraction[]) => {
+            setInteractions(items)
+            await setInteractionsCloud(items)
+        },
+        [setInteractions]
+    )
 
     return {
         interactions,

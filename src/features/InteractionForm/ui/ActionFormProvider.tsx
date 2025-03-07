@@ -1,6 +1,6 @@
 'use client'
 
-import type { PropsWithChildren } from 'react'
+import { type PropsWithChildren, memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useCarContext } from '@/entities/car'
 import {
@@ -12,7 +12,7 @@ import {
     TiresFormType
 } from '@/entities/interaction'
 
-export function ActionFormProvider({
+export const ActionFormProvider = memo(function ActionFormProvider({
     children,
     category,
     interaction
@@ -47,4 +47,4 @@ export function ActionFormProvider({
     })
 
     return <FormProvider {...methods}>{children}</FormProvider>
-}
+})

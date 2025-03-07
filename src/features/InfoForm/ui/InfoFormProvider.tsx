@@ -1,6 +1,6 @@
 'use client'
 
-import type { PropsWithChildren } from 'react'
+import { type PropsWithChildren, memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import {
     CarFuel,
@@ -18,7 +18,7 @@ export const initialCar: InitCar = {
     engineHoursEnabled: false
 }
 
-export function InfoFormProvider({
+export const InfoFormProvider = memo(function InfoFormProvider({
     car,
     children
 }: PropsWithChildren<Partial<CarProps>>) {
@@ -27,4 +27,4 @@ export function InfoFormProvider({
     })
 
     return <FormProvider {...methods}>{children}</FormProvider>
-}
+})

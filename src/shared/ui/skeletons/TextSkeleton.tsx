@@ -1,8 +1,8 @@
 import clsx from 'clsx'
-import type { HTMLAttributes } from 'react'
+import { type HTMLAttributes, memo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-export function TextSkeleton({
+export const TextSkeleton = memo(function TextSkeleton({
     className,
     ...props
 }: HTMLAttributes<HTMLDivElement>) {
@@ -14,4 +14,4 @@ export function TextSkeleton({
             {...props}
         />
     )
-}
+})

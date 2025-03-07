@@ -1,12 +1,15 @@
 'use client'
 
 import dynamic from 'next/dynamic'
+import { memo } from 'react'
 import type { LottieProps } from '../types/LottieProps'
 import DuckNotFound from './DuckNotFound.json'
 
 const LottieLazy = dynamic(() => import('lottie-react'), { ssr: false })
 
-export function DuckNotFoundLottie(props: LottieProps) {
+export const DuckNotFoundLottie = memo(function DuckNotFoundLottie(
+    props: LottieProps
+) {
     return (
         <LottieLazy
             animationData={DuckNotFound}
@@ -14,4 +17,4 @@ export function DuckNotFoundLottie(props: LottieProps) {
             {...props}
         />
     )
-}
+})

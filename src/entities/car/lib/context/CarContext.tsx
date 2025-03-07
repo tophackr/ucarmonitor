@@ -1,7 +1,7 @@
 'use client'
 
 import { notFound } from 'next/navigation'
-import { type PropsWithChildren, createContext, use } from 'react'
+import { type PropsWithChildren, createContext, memo, use } from 'react'
 import type { ParamsProps } from '@/shared/types'
 import { useFindCar } from '../../hooks/useFindCar'
 import { CarFuel, CarOdometerUnits } from '../../model/Car'
@@ -18,7 +18,7 @@ export const CarContext = createContext<CarProps>({
     }
 })
 
-export function CarContextProvider({
+export const CarContextProvider = memo(function CarContextProvider({
     children,
     params
 }: PropsWithChildren<ParamsProps<CarIdProps>>) {
@@ -31,4 +31,4 @@ export function CarContextProvider({
     }
 
     return <CarContext.Provider value={{ car }}>{children}</CarContext.Provider>
-}
+})

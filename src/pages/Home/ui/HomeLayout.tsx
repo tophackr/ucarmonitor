@@ -1,6 +1,8 @@
-import type { PropsWithChildren } from 'react'
+import { type PropsWithChildren, memo } from 'react'
 import { ListSection } from '@/shared/ui'
 
-export function HomeLayout({ children }: PropsWithChildren) {
+export const HomeLayout = memo(function HomeLayout({
+    children
+}: PropsWithChildren) {
     return <ListSection>{children}</ListSection>
-}
+})

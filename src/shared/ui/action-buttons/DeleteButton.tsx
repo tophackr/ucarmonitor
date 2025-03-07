@@ -7,8 +7,12 @@ import {
 } from '@telegram-apps/telegram-ui'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import { memo } from 'react'
 
-export function DeleteButton({ className, ...props }: ButtonCellProps) {
+export const DeleteButton = memo(function DeleteButton({
+    className,
+    ...props
+}: ButtonCellProps) {
     const t = useTranslations('Common')
 
     return (
@@ -22,4 +26,4 @@ export function DeleteButton({ className, ...props }: ButtonCellProps) {
             </ButtonCell>
         </Section>
     )
-}
+})

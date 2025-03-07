@@ -1,13 +1,14 @@
 'use client'
 
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
+import { memo } from 'react'
 import { useButtonClick } from '@/shared/hooks'
 import { callMultiple } from '@/shared/utils'
 import { ChevronCell } from '../ChevronCell'
 import { IconCell } from '../icon/IconCell'
 import type { LinkCellProps } from './LinkCellProps'
 
-export function LinkCell({
+export const LinkCell = memo(function LinkCell({
     children,
     icon,
     bgColor,
@@ -36,4 +37,4 @@ export function LinkCell({
             {children}
         </TGUICell>
     )
-}
+})

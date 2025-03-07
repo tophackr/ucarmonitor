@@ -2,6 +2,7 @@ import {
     Input,
     type InputProps as TGUIInputProps
 } from '@telegram-apps/telegram-ui'
+import { memo } from 'react'
 import type { BackgroundColor } from '../types'
 import { IconCell } from './cells'
 import type { LucideIconName } from './lucide-icon'
@@ -11,7 +12,11 @@ interface InputProps extends TGUIInputProps {
     bgColor: BackgroundColor
 }
 
-export function IconInput({ icon, bgColor, ...props }: InputProps) {
+export const IconInput = memo(function IconInput({
+    icon,
+    bgColor,
+    ...props
+}: InputProps) {
     return (
         <Input
             before={
@@ -23,4 +28,4 @@ export function IconInput({ icon, bgColor, ...props }: InputProps) {
             {...props}
         />
     )
-}
+})
