@@ -1,14 +1,11 @@
 {
   "Locale": {
-    "code": "ru-RU",
+    "code": "ru",
     "title": "Russian",
-    "subtitle": "Русский",
-    "currency": "RUB"
+    "subtitle": "Русский"
   },
   "Common": {
-    "error": "Ошибка",
-    "save": "Сохранить",
-    "delete": "Удалить"
+    "error": "Ошибка"
   },
   "NotFound": {
     "title": "Страница не найдена",
@@ -21,7 +18,10 @@
   "Car": {
     "default": "По умолчанию",
     "mileage": "Пробег",
-    "last_activity": "Последняя активность"
+    "odometerUnits": {
+      "kilometers": "км",
+      "miles": "м"
+    }
   },
   "CarActionButtons": {
     "add": "Добавить Пробег",
@@ -67,7 +67,7 @@
     "title": "Время сеанса истекло",
     "description": "Пожалуйста, закройте приложение и откройте его заново."
   },
-  "Search": {
+  "search": {
     "placeholder": "Поиск...",
     "Loading": {
       "title": "Ищем...",
@@ -108,7 +108,7 @@
       "title": "Единицы одометра",
       "units": {
         "kilometers": "км",
-        "miles": "ми"
+        "miles": "м"
       },
       "units_full": {
         "kilometers": "километры",
@@ -119,6 +119,8 @@
       "title": "Моточасы, ч",
       "enabled": "Показывать моточасы"
     },
+    "save": "Сохранить",
+    "delete": "Удалить",
     "default": "По умолчанию",
     "errors": {
       "brand_required": "Вы не указали марку автомобиля",
