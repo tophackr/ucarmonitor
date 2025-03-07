@@ -21,10 +21,7 @@
   "Car": {
     "default": "По умолчанию",
     "mileage": "Пробег",
-    "odometerUnits": {
-      "kilometers": "км",
-      "miles": "м"
-    }
+    "last_activity": "Последняя активность"
   },
   "CarActionButtons": {
     "add": "Добавить Пробег",
@@ -111,7 +108,7 @@
       "title": "Единицы одометра",
       "units": {
         "kilometers": "км",
-        "miles": "м"
+        "miles": "ми"
       },
       "units_full": {
         "kilometers": "километры",
