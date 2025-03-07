@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { getCars, useCars } from '@/entities/car'
 import { useClientOnce } from '@/shared/hooks'
 import { CarsContent } from './CarsContent'
@@ -11,7 +11,7 @@ export function HomePage() {
 
     const [isLoading, setIsLoading] = useState(false)
 
-    useClientOnce(async () => {
+    const loadingCars = useCallback(async () => {
         setIsLoading(true)
 
         const cars = await getCars()
@@ -19,7 +19,9 @@ export function HomePage() {
         setCars(cars)
 
         setIsLoading(false)
-    })
+    }, [setCars])
+
+    useClientOnce(() => loadingCars())
 
     return (
         <>
