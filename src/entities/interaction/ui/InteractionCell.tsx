@@ -2,9 +2,9 @@
 
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { CarOdometerUnits, type CarProps } from '@/entities/car/@x/interactions'
+import { type CarProps, useIntlCarUnit } from '@/entities/car/@x/interactions'
 import { useButtonClick } from '@/shared/hooks'
-import { useIntlCurrency, useIntlTimeAgo, useIntlUnit } from '@/shared/i18n'
+import { useIntlCurrency, useIntlTimeAgo } from '@/shared/i18n'
 import { daysAfterToday } from '@/shared/utils'
 import type { InteractionProps } from '../model/Props'
 import { actionsRoute } from '../routes'
@@ -16,12 +16,7 @@ export function InteractionCell({
     const t = useTranslations('CarCategoryName')
 
     const currency = useIntlCurrency(amount)
-    const mileageFormat = useIntlUnit(
-        car.odometerUnits === CarOdometerUnits.kilometers
-            ? 'kilometer'
-            : 'mile',
-        mileage
-    )
+    const mileageFormat = useIntlCarUnit(mileage, car.odometerUnits)
     const dateTime = useIntlTimeAgo(date)
     const today = daysAfterToday(date) + 1 === 0
 
