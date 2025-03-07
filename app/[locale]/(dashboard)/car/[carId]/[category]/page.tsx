@@ -1,4 +1,1 @@
-export {
-    CarCategoryPage as default,
-    generateStaticParams
-} from '@/pages/CarCategory'
+export { CategoryPage as default, generateStaticParams } from '@/pages/Category'
