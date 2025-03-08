@@ -27,7 +27,7 @@ export function SaveButton<T extends FieldValues>({
             isVisible={true}
             text={text ?? t('save')}
             isLoaderVisible={disabled}
-            isEnabled={disabled}
+            isEnabled={!disabled}
             onClick={handleSubmit(onClick, onErrorCallback)}
         />
     )
