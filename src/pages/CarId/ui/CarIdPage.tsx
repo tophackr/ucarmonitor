@@ -4,6 +4,7 @@ import { List } from '@telegram-apps/telegram-ui'
 import dynamic from 'next/dynamic'
 import { PreviewButtons } from '@/features/PreviewButtons'
 import { CarPreview, useCarContext } from '@/entities/car'
+import { pagesRoute } from '@/shared/routes'
 import { BackButton } from '@/shared/ui/tma'
 import { EditCarButton } from './EditCarButton'
 import { LabelsTemp } from './LabelsTemp'
@@ -18,7 +19,7 @@ export function CarIdPage() {
 
     return (
         <>
-            <BackButton />
+            <BackButton route={pagesRoute.home} />
             <EditCarButton car={car} />
 
             <CarPreview car={car}>
