@@ -3,7 +3,6 @@ import {
     backButton,
     initData,
     init as initSDK,
-    mainButton,
     miniApp,
     settingsButton,
     themeParams,
@@ -23,7 +22,6 @@ export function init(debug: boolean): void {
 
     // Mount all components used in the project.
     if (backButton.isSupported()) backButton.mount()
-    if (!mainButton.setParams.isAvailable()) mainButton.mount()
     if (settingsButton.mount.isAvailable()) settingsButton.mount()
 
     if (!miniApp.isMounted()) miniApp.mount()

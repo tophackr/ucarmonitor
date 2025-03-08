@@ -3,34 +3,29 @@
 import { type MainButtonState, mainButton } from '@telegram-apps/sdk-react'
 import { memo, useEffect } from 'react'
 
-interface State extends MainButtonState {
+interface State extends Partial<MainButtonState> {
     onClick: () => void
 }
 
-export const MainButton = memo(function MainButton(updates: Partial<State>) {
+export const MainButton = memo(function MainButton(updates: State) {
     const { onClick, ...params } = updates
 
     useEffect(() => {
+        mainButton.mount()
         mainButton.setParams(params)
+        const offClick = mainButton.onClick(onClick)
 
         return () => {
             mainButton.setParams({
-                isVisible: false,
+                hasShineEffect: false,
+                isEnabled: true,
                 isLoaderVisible: false,
-                isEnabled: true
+                isVisible: false
             })
+            offClick()
+            mainButton.unmount()
         }
-    }, [params])
-
-    useEffect(() => {
-        if (onClick) {
-            const offClick = mainButton.onClick(onClick)
-
-            return () => {
-                offClick()
-            }
-        }
-    }, [onClick])
+    }, [onClick, params])
 
     return <></>
 })
