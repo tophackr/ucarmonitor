@@ -1,17 +1,11 @@
 import type { InteractionCategory } from '@/entities/interaction'
-import type { BackgroundColor } from '@/shared/lib/dom'
-import type { LucideIconName } from '@/shared/ui'
+import type { IconBeforeCellProps } from '@/shared/ui/cell'
 
-interface BaseActionContent {
-    icon: LucideIconName
-    bgColor: BackgroundColor
-}
-
-export interface ActionContentData extends BaseActionContent {
+export interface ActionContentData extends IconBeforeCellProps {
     name: InteractionCategory
 }
 
-export interface ActionContentProps extends BaseActionContent {
+export interface ActionContentProps extends IconBeforeCellProps {
     href: string
     name: string
 }

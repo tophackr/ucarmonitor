@@ -3,7 +3,7 @@
 import { IconButton } from '@telegram-apps/telegram-ui'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
-import { LucideIcon } from '@/shared/ui'
+import { Icon } from '@/shared/ui/icon'
 
 export function CarsButton() {
     const props = useButtonClick({ route: pagesRoute.home })
@@ -13,7 +13,7 @@ export function CarsButton() {
             size={'m'}
             {...props}
         >
-            <LucideIcon name={'Car'} />
+            <Icon name={'Car'} />
         </IconButton>
     )
 }

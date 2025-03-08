@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
-import { useWatchForm } from '@/shared/lib/form'
+import { useWatchForm } from '@/shared/ui/form'
 import { getCapacity } from '../../model/getCapacity'
 import { getPercent } from '../../model/getPercent'
 

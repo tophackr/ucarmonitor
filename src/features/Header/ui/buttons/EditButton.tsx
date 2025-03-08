@@ -2,7 +2,7 @@
 
 import { IconButton } from '@telegram-apps/telegram-ui'
 import { useEditValueContext } from '@/entities/edit'
-import { LucideIcon } from '@/shared/ui'
+import { Icon } from '@/shared/ui/icon'
 
 export function EditButton() {
     const { editValue } = useEditValueContext()
@@ -13,7 +13,7 @@ export function EditButton() {
                 size={'m'}
                 {...editValue}
             >
-                <LucideIcon name={'Pencil'} />
+                <Icon name={'Pencil'} />
             </IconButton>
         )
     )

@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { useCallback } from 'react'
 import type { FieldErrors, FieldValues } from 'react-hook-form'
-import { toast } from '../toast/toast'
+import { toast } from '@/shared/lib/toast'
 
 export function useFormError<T extends FieldValues>() {
     const t = useTranslations('Common')

@@ -2,7 +2,7 @@
 
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { DuckLoadingLottie } from '@/shared/ui'
+import { DuckLoadingLottie } from '@/shared/ui/lottie'
 
 export function Loading() {
     const t = useTranslations('Search.Loading')

@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { type HTMLAttributes, memo } from 'react'
 import { twMerge } from 'tailwind-merge'
 import type { BackgroundColor } from '@/shared/lib/dom'
-import { isAppleClient } from '@/shared/lib/telegram'
+import { isAppleClient } from '../tma/utils/isAppleClient'
 
 interface IconSkeletonProps extends HTMLAttributes<HTMLDivElement> {
     color?: BackgroundColor

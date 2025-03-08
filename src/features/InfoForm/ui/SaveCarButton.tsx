@@ -1,7 +1,7 @@
 'use client'
 
 import { useButtonClick } from '@/shared/lib/dom'
-import { SaveButton } from '@/shared/ui'
+import { SaveButton } from '@/shared/ui/action'
 import { useSaveCar } from './hooks/useSaveCar'
 
 export function SaveCarButton() {

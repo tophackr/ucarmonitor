@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
-import { LucideIcon } from '@/shared/ui'
+import { Icon } from '@/shared/ui/icon'
 import { useRefuel } from '../hooks/useRefuel'
 import type { FuelCapacityProps } from '../types/FuelCapacity'
 
@@ -28,7 +28,7 @@ export const AfterRefueling = memo(function AfterRefueling({
                 after={
                     <Text className={'flex items-center gap-x-1 text-hint'}>
                         {afterRefuel}
-                        <LucideIcon
+                        <Icon
                             name={'Percent'}
                             size={16}
                         />
@@ -41,7 +41,7 @@ export const AfterRefueling = memo(function AfterRefueling({
             />
             <Slider
                 after={
-                    <LucideIcon
+                    <Icon
                         name={'Percent'}
                         size={20}
                         className={'text-subtitle'}

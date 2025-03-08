@@ -1,4 +1,8 @@
-import { AvatarSkeleton, CellSkeleton, PulseSkeletonLayout } from '@/shared/ui'
+import {
+    AvatarSkeleton,
+    CellSkeleton,
+    PulseSkeletonLayout
+} from '@/shared/ui/skeleton'
 
 export function HomeLoading() {
     return (

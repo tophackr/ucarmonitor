@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 import { useInteractionContext } from '@/entities/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
-import { IconCell } from '@/shared/ui'
+import { IconBeforeCell } from '@/shared/ui/cell'
 
 interface BaseSectionProps {
     title: string
@@ -29,7 +29,7 @@ export const BaseSection = memo(function BaseSection({
             >
                 <Cell
                     before={
-                        <IconCell
+                        <IconBeforeCell
                             icon={'Calendar'}
                             bgColor={'OrangeRed'}
                         />
@@ -40,7 +40,7 @@ export const BaseSection = memo(function BaseSection({
                 </Cell>
                 <Cell
                     before={
-                        <IconCell
+                        <IconBeforeCell
                             icon={'Milestone'}
                             bgColor={'MediumPurple'}
                         />
@@ -52,7 +52,7 @@ export const BaseSection = memo(function BaseSection({
                 {amount && (
                     <Cell
                         before={
-                            <IconCell
+                            <IconBeforeCell
                                 icon={'LandPlot'}
                                 bgColor={'Orange'}
                             />

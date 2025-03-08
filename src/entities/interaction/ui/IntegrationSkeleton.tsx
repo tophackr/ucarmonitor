@@ -4,7 +4,7 @@ import {
     IconSkeleton,
     PulseSkeletonLayout,
     TextSkeleton
-} from '@/shared/ui'
+} from '@/shared/ui/skeleton'
 
 export function InteractionSkeleton() {
     return (

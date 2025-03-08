@@ -5,9 +5,9 @@ import clsx from 'clsx'
 import { usePathname } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { ListSection } from '@/shared/ui'
+import { SettingsButton } from '@/shared/ui/tma'
 import { CarsButton } from './buttons/CarsButton'
 import { EditButton } from './buttons/EditButton'
-import { SettingsButton } from './buttons/SettingsButton'
 
 export function Header() {
     const pathname = usePathname()

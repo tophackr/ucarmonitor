@@ -10,7 +10,7 @@ import {
 import { useTranslations } from 'next-intl'
 import { Controller, useFormContext } from 'react-hook-form'
 import { CarOdometerUnits } from '@/entities/car'
-import { IconCell } from '@/shared/ui'
+import { IconBeforeCell } from '@/shared/ui/cell'
 import { useEngineHours } from './hooks/useEngineHours'
 import { useOdometerUnits } from './hooks/useOdometerUnits'
 import type { CarMileageForm } from './types/FormContext'
@@ -37,7 +37,7 @@ export function MileageSection() {
                 type={'number'}
                 status={errors.mileage && 'error'}
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'MousePointer2'}
                         bgColor={'DodgerBlue'}
                     />
@@ -57,7 +57,7 @@ export function MileageSection() {
 
             <Select
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'Milestone'}
                         bgColor={'SlateGray'}
                     />
@@ -77,7 +77,7 @@ export function MileageSection() {
 
             <Cell
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'FolderClock'}
                         bgColor={'LimeGreen'}
                     />
@@ -102,7 +102,7 @@ export function MileageSection() {
             {engineEnabled && (
                 <Input
                     before={
-                        <IconCell
+                        <IconBeforeCell
                             icon={'Clock'}
                             bgColor={'MediumPurple'}
                         />

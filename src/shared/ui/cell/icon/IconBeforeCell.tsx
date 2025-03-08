@@ -2,21 +2,24 @@
 
 import clsx from 'clsx'
 import { memo } from 'react'
-import { isAppleClient } from '@/shared/lib/telegram'
-import { LucideIcon } from '../../lucide-icon'
-import styles from './IconCell.module.css'
-import type { IconCellProps } from './IconCellProps'
+import { Icon } from '@/shared/ui/icon'
+import { isAppleClient } from '@/shared/ui/tma'
+import styles from './IconBeforeCell.module.css'
+import type {
+    IconBeforeCellProps,
+    LucideIconBeforeCellProps
+} from './IconBeforeCellProps'
 
-export const IconCell = memo(function IconCell({
+export const IconBeforeCell = memo(function IconBeforeCell({
     icon,
     bgColor,
     className,
     ...props
-}: IconCellProps) {
+}: IconBeforeCellProps & LucideIconBeforeCellProps) {
     const isApple = isAppleClient()
 
     return (
-        <LucideIcon
+        <Icon
             name={icon}
             className={clsx(
                 isApple ? styles['apple-icon'] : 'text-hint',

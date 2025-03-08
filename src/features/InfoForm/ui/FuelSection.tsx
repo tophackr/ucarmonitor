@@ -4,7 +4,7 @@ import { Input, Section, Select } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import { CarFuel } from '@/entities/car'
-import { IconCell } from '@/shared/ui'
+import { IconBeforeCell } from '@/shared/ui/cell'
 import type { CarFuelForm } from './types/FormContext'
 
 export function FuelSection() {
@@ -21,7 +21,7 @@ export function FuelSection() {
                 type={'number'}
                 status={errors.fuelCapacity && 'error'}
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'Fuel'}
                         bgColor={'Orange'}
                     />
@@ -35,7 +35,7 @@ export function FuelSection() {
             />
             <Select
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'Weight'}
                         bgColor={'MediumPurple'}
                     />

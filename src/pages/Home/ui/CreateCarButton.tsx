@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
-import { MainButton } from '@/shared/ui'
+import { MainButton } from '@/shared/ui/tma'
 
 export function CreateCarButton() {
     const t = useTranslations('Home')

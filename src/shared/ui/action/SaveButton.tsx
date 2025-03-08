@@ -2,8 +2,8 @@
 
 import { useTranslations } from 'next-intl'
 import { type FieldValues, useFormContext } from 'react-hook-form'
-import { useFormError } from '@/shared/lib/form'
-import { MainButton } from '../buttons/MainButton'
+import { useFormError } from '@/shared/ui/form'
+import { MainButton } from '@/shared/ui/tma'
 
 interface SaveButtonProps<T extends FieldValues> {
     text?: string

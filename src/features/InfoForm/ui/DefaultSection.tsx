@@ -3,7 +3,7 @@
 import { Cell, Section, Switch } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { Controller, useFormContext } from 'react-hook-form'
-import { IconCell } from '@/shared/ui'
+import { IconBeforeCell } from '@/shared/ui/cell'
 import type { CarDefaultFrom } from './types/FormContext'
 
 export function DefaultSection() {
@@ -15,7 +15,7 @@ export function DefaultSection() {
         <Section>
             <Cell
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'CircleCheck'}
                         bgColor={'MediumPurple'}
                     />

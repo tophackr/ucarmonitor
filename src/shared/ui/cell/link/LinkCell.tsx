@@ -3,8 +3,8 @@
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
 import { memo } from 'react'
 import { callMultiple, useButtonClick } from '@/shared/lib/dom'
-import { ChevronCell } from '../ChevronCell'
-import { IconCell } from '../icon/IconCell'
+import { ChevronAfterCell } from '../ChevronAfterCell'
+import { IconBeforeCell } from '../icon/IconBeforeCell'
 import type { LinkCellProps } from './LinkCellProps'
 
 export const LinkCell = memo(function LinkCell({
@@ -22,15 +22,14 @@ export const LinkCell = memo(function LinkCell({
         <TGUICell
             Component={'label'}
             before={
-                <IconCell
+                <IconBeforeCell
                     icon={icon}
                     bgColor={bgColor}
                 />
             }
-            after={<ChevronCell text={text} />}
+            after={<ChevronAfterCell text={text} />}
             disabled={disabled}
             onClick={callMultiple(onClickHref, onClick)}
-            interactiveAnimation={'opacity'}
             {...props}
         >
             {children}

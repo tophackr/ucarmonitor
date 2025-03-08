@@ -5,7 +5,9 @@ import { useTranslations } from 'next-intl'
 import { memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IBaseInteraction } from '@/entities/interaction'
-import { CheckCell, IconInput, LucideIcon } from '@/shared/ui'
+import { CheckCell } from '@/shared/ui/cell'
+import { IconInput } from '@/shared/ui/form'
+import { Icon } from '@/shared/ui/icon'
 
 interface BaseSectionProps {
     title: string
@@ -79,7 +81,7 @@ export const BaseSection = memo(function BaseSection({
                         <CheckCell
                             key={file.name}
                             after={
-                                <LucideIcon
+                                <Icon
                                     name={'CircleX'}
                                     className={'text-destructive'}
                                 />

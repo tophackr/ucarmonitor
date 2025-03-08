@@ -8,20 +8,16 @@ export function BackButton() {
     const router = useRouter()
 
     useEffect(() => {
+        backButton.mount()
         backButton.show()
-
-        return () => {
-            backButton.hide()
-        }
-    }, [])
-
-    useEffect(() => {
         const offClick = backButton.onClick(() => {
             router.back()
         })
 
         return () => {
+            backButton.hide()
             offClick()
+            backButton.unmount()
         }
     }, [router])
 

@@ -3,7 +3,7 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type ReactNode, memo } from 'react'
-import { DuckFlashbackLottie } from '@/shared/ui'
+import { DuckFlashbackLottie } from '@/shared/ui/lottie'
 
 interface NothingProps {
     title?: ReactNode

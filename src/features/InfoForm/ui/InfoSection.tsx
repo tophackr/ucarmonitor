@@ -3,7 +3,7 @@
 import { Input, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
-import { IconCell } from '@/shared/ui'
+import { IconBeforeCell } from '@/shared/ui/cell'
 import type { CarInfoForm } from './types/FormContext'
 
 export function InfoSection() {
@@ -22,7 +22,7 @@ export function InfoSection() {
             <Input
                 status={errors.brand && 'error'}
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'CarFront'}
                         bgColor={'DodgerBlue'}
                     />
@@ -33,7 +33,7 @@ export function InfoSection() {
             />
             <Input
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'IdCard'}
                         bgColor={'LimeGreen'}
                     />
@@ -44,7 +44,7 @@ export function InfoSection() {
             />
             <Input
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'Pencil'}
                         bgColor={'SlateGray'}
                     />
@@ -61,7 +61,7 @@ export function InfoSection() {
                 minLength={4}
                 maxLength={4}
                 before={
-                    <IconCell
+                    <IconBeforeCell
                         icon={'Calendar'}
                         bgColor={'OrangeRed'}
                     />

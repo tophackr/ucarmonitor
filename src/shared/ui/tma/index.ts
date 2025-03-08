@@ -1,3 +1,5 @@
 export { BackButton } from './BackButton'
+export { Link } from './Link'
 export { MainButton } from './MainButton'
 export { SettingsButton } from './SettingsButton'
+export * from './utils'

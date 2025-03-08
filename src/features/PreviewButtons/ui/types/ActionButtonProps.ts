@@ -1,9 +1,9 @@
 import type { NestedTranslationClient, Translation } from '@/shared/i18n'
-import type { LucideIconName } from '@/shared/ui'
+import type { IconName } from '@/shared/ui/icon'
 import type { ActionContentProps } from './ActionContentProps'
 
 export interface ActionButtonProps {
-    icon: LucideIconName
+    icon: IconName
     name: string & keyof Translation['CarActionButtons']
     link?: string
 }

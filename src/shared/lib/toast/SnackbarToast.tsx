@@ -1,7 +1,7 @@
 import { Snackbar } from '@telegram-apps/telegram-ui'
 import { toast as sonnerToast } from 'sonner'
 import { callMultiple, hasReactNode } from '@/shared/lib/dom'
-import { LucideIcon } from '@/shared/ui'
+import { Icon } from '@/shared/ui/icon'
 import type { ToastProps } from './ToastProps'
 
 export function SnackbarToast({
@@ -15,7 +15,7 @@ export function SnackbarToast({
     return (
         <Snackbar
             key={id}
-            before={hasReactNode(icon) ? icon : <LucideIcon name={'CircleX'} />}
+            before={hasReactNode(icon) ? icon : <Icon name={'CircleX'} />}
             after={
                 button && (
                     <Snackbar.Button

@@ -1,10 +1,10 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
+import { ListSection } from '@/shared/ui'
 import {
     AvatarSkeleton,
-    ListSection,
     PulseSkeletonLayout,
     TextSkeleton
-} from '@/shared/ui'
+} from '@/shared/ui/skeleton'
 
 export function CarPreviewSkeleton() {
     return (

@@ -1,9 +1,11 @@
 'use client'
 
 import { settingsButton, useSignal } from '@telegram-apps/sdk-react'
+import { IconButton } from '@telegram-apps/telegram-ui'
 import { useCallback, useEffect } from 'react'
 import { usePathname, useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
+import { Icon } from '@/shared/ui/icon'
 
 function visibleOnSettingsPage(
     visible: boolean,
@@ -19,19 +21,21 @@ function notVisibleOnPage(visible: boolean, pathname: string | null): boolean {
 export function SettingsButton() {
     const router = useRouter()
     const pathname = usePathname()
+
     const isVisible = useSignal(settingsButton.isVisible)
 
-    const onButtonClick = useCallback(() => {
-        router.push(pagesRoute.settings)
-    }, [router])
+    const onClick = useCallback(
+        () => router.push(pagesRoute.settings),
+        [router]
+    )
 
     useEffect(() => {
-        const offClick = settingsButton.onClick(onButtonClick)
+        const offClick = settingsButton.onClick(onClick)
 
         return () => {
             offClick()
         }
-    }, [onButtonClick])
+    }, [onClick])
 
     useEffect(() => {
         if (visibleOnSettingsPage(isVisible, pathname)) {
@@ -41,5 +45,14 @@ export function SettingsButton() {
         }
     }, [isVisible, pathname])
 
-    return <></>
+    return (
+        isVisible && (
+            <IconButton
+                size={'m'}
+                onClick={onClick}
+            >
+                <Icon name={'Settings'} />
+            </IconButton>
+        )
+    )
 }
