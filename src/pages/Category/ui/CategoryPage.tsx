@@ -3,7 +3,7 @@
 import { memo, use } from 'react'
 import { useCarContext } from '@/entities/car'
 import type { CategoryProps } from '@/entities/interaction'
-import type { ParamsProps } from '@/shared/lib'
+import type { ParamsProps } from '@/shared/lib/dom'
 
 export const CategoryPage = memo(function CategoryPage({
     params

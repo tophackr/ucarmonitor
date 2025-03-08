@@ -1,7 +1,7 @@
 'use client'
 
 import React, { memo, useEffect } from 'react'
-import type { MouseClickEvent } from '@/shared/lib'
+import type { MouseClickEvent } from '@/shared/lib/dom'
 import { useEditSetValueContext } from '../lib/context/hooks/useEditSetValueContext'
 
 export const EditButton = memo(function EditButton(

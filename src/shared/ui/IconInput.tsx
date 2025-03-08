@@ -3,7 +3,7 @@ import {
     type InputProps as TGUIInputProps
 } from '@telegram-apps/telegram-ui'
 import { memo } from 'react'
-import type { BackgroundColor } from '@/shared/lib'
+import type { BackgroundColor } from '@/shared/lib/dom'
 import { IconCell } from './cells/icon/IconCell'
 import type { LucideIconName } from './lucide-icon/LucideIconName'
 

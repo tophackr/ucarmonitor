@@ -1,6 +1,6 @@
 'use client'
 
-import { useButtonClick } from '@/shared/lib'
+import { useButtonClick } from '@/shared/lib/dom'
 import { SaveButton } from '@/shared/ui'
 import { useSaveCar } from './hooks/useSaveCar'
 

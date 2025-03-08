@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { type FieldValues, useFormContext } from 'react-hook-form'
-import { useFormError } from '@/shared/lib'
+import { useFormError } from '@/shared/lib/form'
 import { MainButton } from '../buttons/MainButton'
 
 interface SaveButtonProps<T extends FieldValues> {

@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { InteractionPreview } from '@/widgets/integration-preview'
 import type { CategoryProps } from '@/entities/interaction'
-import type { ParamsProps } from '@/shared/types'
+import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui'
 
 export const InteractionPage = memo(async function InteractionPage({

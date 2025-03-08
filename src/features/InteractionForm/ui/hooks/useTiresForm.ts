@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { type ITires, TiresFormType } from '@/entities/interaction'
-import { useWatchForm } from '@/shared/lib'
+import { useWatchForm } from '@/shared/lib/form'
 import { type TiresInfoForm, type TiresSizeForm } from '../types/TiresForm'
 
 export function useTiresForm() {

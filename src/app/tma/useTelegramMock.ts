@@ -7,7 +7,7 @@ import {
     parseInitData,
     retrieveLaunchParams
 } from '@telegram-apps/sdk-react'
-import { useClientOnce } from '@/shared/lib'
+import { useClientOnce } from '@/shared/lib/dom'
 
 /**
  * Mocks Telegram environment in development mode.

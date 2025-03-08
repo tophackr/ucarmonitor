@@ -1,5 +1,5 @@
 import type { InteractionCategory } from '@/entities/interaction'
-import type { BackgroundColor } from '@/shared/lib'
+import type { BackgroundColor } from '@/shared/lib/dom'
 import type { LucideIconName } from '@/shared/ui'
 
 interface BaseActionContent {

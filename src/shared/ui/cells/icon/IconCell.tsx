@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import { memo } from 'react'
-import { isAppleClient } from '@/shared/lib'
+import { isAppleClient } from '@/shared/lib/telegram'
 import { LucideIcon } from '../../lucide-icon'
 import styles from './IconCell.module.css'
 import type { IconCellProps } from './IconCellProps'

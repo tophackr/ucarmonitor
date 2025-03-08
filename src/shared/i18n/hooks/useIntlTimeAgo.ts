@@ -1,5 +1,5 @@
 import { useLocale } from 'next-intl'
-import { daysAfterToday } from '@/shared/lib'
+import { daysAfterToday } from '@/shared/lib/date'
 import { useIntlDateTime } from './useIntlDateTime'
 
 export function useIntlTimeAgo(value: Date) {

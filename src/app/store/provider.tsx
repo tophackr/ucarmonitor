@@ -2,7 +2,7 @@
 
 import { type PropsWithChildren, memo, useRef } from 'react'
 import { Provider } from 'react-redux'
-import { type AppStore, makeStore } from '@/shared/lib'
+import { type AppStore, makeStore } from '@/shared/lib/store'
 import { rootReducer } from './root-reducer'
 
 export const StoreProvider = memo(function StoreProvider({

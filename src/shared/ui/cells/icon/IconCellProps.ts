@@ -1,5 +1,5 @@
 import type { LucideProps } from 'lucide-react'
-import type { BackgroundColor } from '@/shared/lib'
+import type { BackgroundColor } from '@/shared/lib/dom'
 import type { LucideIconName } from '@/shared/ui'
 
 type OmittedLucideIconProps = Omit<LucideProps, 'name'>

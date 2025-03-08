@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { useButtonClick } from '@/shared/lib'
+import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { MainButton } from '@/shared/ui'
 

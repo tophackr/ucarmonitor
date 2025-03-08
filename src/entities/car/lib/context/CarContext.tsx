@@ -2,7 +2,7 @@
 
 import { notFound } from 'next/navigation'
 import { type PropsWithChildren, createContext, memo, use } from 'react'
-import type { ParamsProps } from '@/shared/lib'
+import type { ParamsProps } from '@/shared/lib/dom'
 import { CarFuel, CarOdometerUnits } from '../../model/Car'
 import type { CarIdProps, CarProps } from '../../model/Props'
 import { useFindCar } from './useFindCar'

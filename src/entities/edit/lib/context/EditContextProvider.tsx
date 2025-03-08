@@ -1,7 +1,7 @@
 'use client'
 
 import React, { type PropsWithChildren, memo, useState } from 'react'
-import type { MouseClickEvent } from '@/shared/lib'
+import type { MouseClickEvent } from '@/shared/lib/dom'
 import { EditSetValueContext } from './EditSetValueContext'
 import { EditValueContext } from './EditValueContext'
 

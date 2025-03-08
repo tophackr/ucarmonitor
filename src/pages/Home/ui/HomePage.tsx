@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import { getCars, useCars } from '@/entities/car'
-import { useClientOnce } from '@/shared/lib'
+import { useClientOnce } from '@/shared/lib/dom'
 import { CarsContent } from './CarsContent'
 import { CreateCarButton } from './CreateCarButton'
 

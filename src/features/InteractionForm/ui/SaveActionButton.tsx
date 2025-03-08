@@ -1,7 +1,7 @@
 'use client'
 
 import { useCarContext } from '@/entities/car'
-import { useButtonClick } from '@/shared/lib'
+import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { SaveButton } from '@/shared/ui'
 import { useSaveAction } from './hooks/useSaveAction'

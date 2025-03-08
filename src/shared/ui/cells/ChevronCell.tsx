@@ -3,7 +3,7 @@
 import { Text } from '@telegram-apps/telegram-ui'
 import { Icon16Chevron } from '@telegram-apps/telegram-ui/dist/icons/16/chevron'
 import { memo } from 'react'
-import { isAppleClient } from '@/shared/lib'
+import { isAppleClient } from '@/shared/lib/telegram'
 
 export interface ChevronCellProps {
     text?: string

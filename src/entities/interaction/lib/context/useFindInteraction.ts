@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { findById } from '@/shared/lib'
+import { findById } from '@/shared/lib/id'
 import { useInteractions } from '../store/useInteractions'
 
 export function useFindInteraction(interactionId: string) {

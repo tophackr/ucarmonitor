@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { hasReactNode } from '@/shared/lib'
+import { hasReactNode } from '@/shared/lib/dom'
 import { Loading } from './Loading'
 import { NotFound } from './NotFound'
 import { Nothing } from './Nothing'

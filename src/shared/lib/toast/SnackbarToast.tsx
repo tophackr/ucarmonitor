@@ -1,6 +1,6 @@
 import { Snackbar } from '@telegram-apps/telegram-ui'
 import { toast as sonnerToast } from 'sonner'
-import { callMultiple, hasReactNode } from '@/shared/lib'
+import { callMultiple, hasReactNode } from '@/shared/lib/dom'
 import { LucideIcon } from '@/shared/ui'
 import type { ToastProps } from './ToastProps'
 

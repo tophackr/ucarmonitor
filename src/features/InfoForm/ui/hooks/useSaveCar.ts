@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
 import { type ICar, useCars } from '@/entities/car'
 import { useRouter } from '@/shared/i18n'
-import { generateUniqueId, removeEmptyValues } from '@/shared/lib'
+import { generateUniqueId } from '@/shared/lib/id'
+import { removeEmptyValues } from '@/shared/lib/lodash'
 import { pagesRoute } from '@/shared/routes'
 
 interface UseSaveCarReturns {

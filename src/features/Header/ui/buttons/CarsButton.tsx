@@ -1,7 +1,7 @@
 'use client'
 
 import { IconButton } from '@telegram-apps/telegram-ui'
-import { useButtonClick } from '@/shared/lib'
+import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { LucideIcon } from '@/shared/ui'
 

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useActions, useAppSelector } from '@/shared/lib'
+import { useActions, useAppSelector } from '@/shared/lib/store'
 import type { IInteraction } from '../../model/Interaction'
 import { setInteractions as setInteractionsCloud } from './interaction'
 import {

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useActions, useAppSelector } from '@/shared/lib'
+import { useActions, useAppSelector } from '@/shared/lib/store'
 import type { ICar } from '../../model/Car'
 import { setCars as setCarsCloud } from './cars'
 import { carsSliceActions, selectCars } from './cars.slice'

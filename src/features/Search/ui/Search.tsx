@@ -4,7 +4,7 @@ import { Input, Tappable } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useCallback } from 'react'
 import { useForm } from 'react-hook-form'
-import { useDebounceForm } from '@/shared/lib'
+import { useDebounceForm } from '@/shared/lib/form'
 import { LucideIcon } from '@/shared/ui'
 import type { SearchForm, SearchProps } from './types/Search'
 

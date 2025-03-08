@@ -6,7 +6,7 @@ import {
     type CategoryProps,
     useInteractionContext
 } from '@/entities/interaction'
-import type { ParamsProps } from '@/shared/lib'
+import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui'
 
 export const InteractionEditPage = memo(function InteractionEditPage({

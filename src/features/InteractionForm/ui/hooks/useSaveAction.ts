@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
 import { useCarContext } from '@/entities/car'
 import { type IInteraction, useInteractions } from '@/entities/interaction'
-import { generateUniqueId, removeEmptyValues } from '@/shared/lib'
+import { generateUniqueId } from '@/shared/lib/id'
+import { removeEmptyValues } from '@/shared/lib/lodash'
 
 export function useSaveAction() {
     const { interactions, setInteractionWithCloud } = useInteractions()

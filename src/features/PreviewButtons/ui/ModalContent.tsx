@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import { memo } from 'react'
-import { isAppleClient } from '@/shared/lib'
+import { isAppleClient } from '@/shared/lib/telegram'
 import { LinkCell } from '@/shared/ui'
 import type { ActionContentProps } from './types/ActionContentProps'
 
