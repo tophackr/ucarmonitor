@@ -17,7 +17,7 @@ export function CreateCarButton() {
             isVisible={true}
             text={t('add')}
             isLoaderVisible={disabled}
-            isEnabled={disabled}
+            isEnabled={!disabled}
             onClick={onClick}
         />
     )
