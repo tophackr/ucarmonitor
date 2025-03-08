@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 import { useInteractionContext } from '@/entities/interaction'
 import { useIntlDateTime } from '@/shared/i18n'
-import { IconBeforeCell } from '@/shared/ui/cell'
+import { IconCell } from '@/shared/ui/cell'
 
 interface BaseSectionProps {
     title: string
@@ -27,40 +27,28 @@ export const BaseSection = memo(function BaseSection({
             <Section
                 header={<Section.Header large={true}>{title}</Section.Header>}
             >
-                <Cell
-                    before={
-                        <IconBeforeCell
-                            icon={'Calendar'}
-                            bgColor={'OrangeRed'}
-                        />
-                    }
+                <IconCell
+                    icon={'Calendar'}
+                    bgColor={'OrangeRed'}
                     subhead={t('date')}
                 >
                     {intlDate}
-                </Cell>
-                <Cell
-                    before={
-                        <IconBeforeCell
-                            icon={'Milestone'}
-                            bgColor={'MediumPurple'}
-                        />
-                    }
+                </IconCell>
+                <IconCell
+                    icon={'Milestone'}
+                    bgColor={'MediumPurple'}
                     subhead={t('mileage')}
                 >
                     {mileage}
-                </Cell>
+                </IconCell>
                 {amount && (
-                    <Cell
-                        before={
-                            <IconBeforeCell
-                                icon={'LandPlot'}
-                                bgColor={'Orange'}
-                            />
-                        }
+                    <IconCell
+                        icon={'LandPlot'}
+                        bgColor={'Orange'}
                         subhead={t('amount')}
                     >
                         {amount}
-                    </Cell>
+                    </IconCell>
                 )}
             </Section>
 

@@ -1,10 +1,10 @@
 'use client'
 
-import { Input, Section, Select } from '@telegram-apps/telegram-ui'
+import { Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import { CarFuel } from '@/entities/car'
-import { IconBeforeCell } from '@/shared/ui/cell'
+import { IconInput, IconSelect } from '@/shared/ui/form'
 import type { CarFuelForm } from './types/FormContext'
 
 export function FuelSection() {
@@ -17,15 +17,11 @@ export function FuelSection() {
 
     return (
         <Section header={t('sections.fuel')}>
-            <Input
+            <IconInput
                 type={'number'}
                 status={errors.fuelCapacity && 'error'}
-                before={
-                    <IconBeforeCell
-                        icon={'Fuel'}
-                        bgColor={'Orange'}
-                    />
-                }
+                icon={'Fuel'}
+                bgColor={'Orange'}
                 header={t('fuel.capacity')}
                 placeholder={t('fuel.capacity')}
                 {...register('fuelCapacity', {
@@ -33,13 +29,9 @@ export function FuelSection() {
                     min: { value: 0, message: t('errors.negative_number') }
                 })}
             />
-            <Select
-                before={
-                    <IconBeforeCell
-                        icon={'Weight'}
-                        bgColor={'MediumPurple'}
-                    />
-                }
+            <IconSelect
+                icon={'Weight'}
+                bgColor={'MediumPurple'}
                 header={t('fuel.title')}
                 {...register('fuel', { required: true })}
             >
@@ -51,7 +43,7 @@ export function FuelSection() {
                         {t(`fuel.type.${fuel}`)}
                     </option>
                 ))}
-            </Select>
+            </IconSelect>
         </Section>
     )
 }

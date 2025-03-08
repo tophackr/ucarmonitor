@@ -1,9 +1,9 @@
 'use client'
 
-import { Input, Section } from '@telegram-apps/telegram-ui'
+import { Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
-import { IconBeforeCell } from '@/shared/ui/cell'
+import { IconInput } from '@/shared/ui/form'
 import type { CarInfoForm } from './types/FormContext'
 
 export function InfoSection() {
@@ -19,55 +19,39 @@ export function InfoSection() {
             header={t('sections.info')}
             className={'row-span-2'}
         >
-            <Input
+            <IconInput
                 status={errors.brand && 'error'}
-                before={
-                    <IconBeforeCell
-                        icon={'CarFront'}
-                        bgColor={'DodgerBlue'}
-                    />
-                }
+                icon={'CarFront'}
+                bgColor={'DodgerBlue'}
                 header={t('brand')}
                 placeholder={t('brand')}
                 {...register('brand', { required: t('errors.brand_required') })}
             />
-            <Input
-                before={
-                    <IconBeforeCell
-                        icon={'IdCard'}
-                        bgColor={'LimeGreen'}
-                    />
-                }
+            <IconInput
+                icon={'IdCard'}
+                bgColor={'LimeGreen'}
                 header={t('model')}
                 placeholder={t('model')}
                 {...register('model')}
             />
-            <Input
-                before={
-                    <IconBeforeCell
-                        icon={'Pencil'}
-                        bgColor={'SlateGray'}
-                    />
-                }
+            <IconInput
+                icon={'Pencil'}
+                bgColor={'SlateGray'}
                 header={t('name')}
                 placeholder={t('name')}
                 {...register('name')}
             />
-            <Input
+            <IconInput
                 type={'number'}
                 status={errors.year && 'error'}
+                icon={'Calendar'}
+                bgColor={'OrangeRed'}
+                header={t('year')}
+                placeholder={t('year')}
                 min={1900}
                 max={2100}
                 minLength={4}
                 maxLength={4}
-                before={
-                    <IconBeforeCell
-                        icon={'Calendar'}
-                        bgColor={'OrangeRed'}
-                    />
-                }
-                header={t('year')}
-                placeholder={t('year')}
                 {...register('year', {
                     valueAsNumber: true,
                     min: { value: 1900, message: t('errors.year_min') },

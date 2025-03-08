@@ -1,16 +1,11 @@
 'use client'
 
-import {
-    Cell,
-    Input,
-    Section,
-    Select,
-    Switch
-} from '@telegram-apps/telegram-ui'
+import { Section, Switch } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { Controller, useFormContext } from 'react-hook-form'
 import { CarOdometerUnits } from '@/entities/car'
-import { IconBeforeCell } from '@/shared/ui/cell'
+import { IconCell } from '@/shared/ui/cell'
+import { IconInput, IconSelect } from '@/shared/ui/form'
 import { useEngineHours } from './hooks/useEngineHours'
 import { useOdometerUnits } from './hooks/useOdometerUnits'
 import type { CarMileageForm } from './types/FormContext'
@@ -33,15 +28,11 @@ export function MileageSection() {
 
     return (
         <Section header={t('sections.mileage')}>
-            <Input
+            <IconInput
                 type={'number'}
                 status={errors.mileage && 'error'}
-                before={
-                    <IconBeforeCell
-                        icon={'MousePointer2'}
-                        bgColor={'DodgerBlue'}
-                    />
-                }
+                icon={'MousePointer2'}
+                bgColor={'DodgerBlue'}
                 header={t('mileage', {
                     unit: t(`odometer.units.${unit}`)
                 })}
@@ -55,13 +46,9 @@ export function MileageSection() {
                 })}
             />
 
-            <Select
-                before={
-                    <IconBeforeCell
-                        icon={'Milestone'}
-                        bgColor={'SlateGray'}
-                    />
-                }
+            <IconSelect
+                icon={'Milestone'}
+                bgColor={'SlateGray'}
                 header={t('odometer.title')}
                 {...register('odometerUnits', { required: true })}
             >
@@ -73,15 +60,11 @@ export function MileageSection() {
                         {t(`odometer.units_full.${fuel}`)}
                     </option>
                 ))}
-            </Select>
+            </IconSelect>
 
-            <Cell
-                before={
-                    <IconBeforeCell
-                        icon={'FolderClock'}
-                        bgColor={'LimeGreen'}
-                    />
-                }
+            <IconCell
+                icon={'FolderClock'}
+                bgColor={'LimeGreen'}
                 after={
                     <Controller
                         control={control}
@@ -97,16 +80,12 @@ export function MileageSection() {
                 }
             >
                 {t('engine_hours.enabled')}
-            </Cell>
+            </IconCell>
 
             {engineEnabled && (
-                <Input
-                    before={
-                        <IconBeforeCell
-                            icon={'Clock'}
-                            bgColor={'MediumPurple'}
-                        />
-                    }
+                <IconInput
+                    icon={'Clock'}
+                    bgColor={'MediumPurple'}
                     header={t('engine_hours.title')}
                     placeholder={t('engine_hours.title')}
                     {...register('engineHours')}

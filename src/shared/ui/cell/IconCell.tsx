@@ -1,8 +1,9 @@
 import { Cell, type CellProps } from '@telegram-apps/telegram-ui'
+import { memo } from 'react'
 import { IconBeforeCell } from './icon/IconBeforeCell'
 import type { IconBeforeCellProps } from './icon/IconBeforeCellProps'
 
-export function IconCell({
+export const IconCell = memo(function IconCell({
     icon,
     bgColor,
     ...props
@@ -18,4 +19,4 @@ export function IconCell({
             {...props}
         />
     )
-}
+})
