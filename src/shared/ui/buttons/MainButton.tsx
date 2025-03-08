@@ -15,7 +15,11 @@ export const MainButton = memo(function MainButton(updates: Partial<State>) {
 
         return () => {
             if (mainButton.isVisible()) {
-                mainButton.setParams({ isVisible: false })
+                mainButton.setParams({
+                    isVisible: false,
+                    isLoaderVisible: false,
+                    isEnabled: true
+                })
             }
         }
     }, [params])
