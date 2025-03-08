@@ -11,9 +11,9 @@ import { useTranslations } from 'next-intl'
 import { Controller, useFormContext } from 'react-hook-form'
 import { CarOdometerUnits } from '@/entities/car'
 import { IconCell } from '@/shared/ui'
-import { useEngineHours } from '../hooks/useEngineHours'
-import { useOdometerUnits } from '../hooks/useOdometerUnits'
-import type { CarMileageForm } from '../model/FormContext'
+import { useEngineHours } from './hooks/useEngineHours'
+import { useOdometerUnits } from './hooks/useOdometerUnits'
+import type { CarMileageForm } from './types/FormContext'
 
 export function MileageSection() {
     const t = useTranslations('CarInfo')

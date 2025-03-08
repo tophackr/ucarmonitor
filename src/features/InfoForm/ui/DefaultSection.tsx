@@ -4,7 +4,7 @@ import { Cell, Section, Switch } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { Controller, useFormContext } from 'react-hook-form'
 import { IconCell } from '@/shared/ui'
-import type { CarDefaultFrom } from '../model/FormContext'
+import type { CarDefaultFrom } from './types/FormContext'
 
 export function DefaultSection() {
     const t = useTranslations('CarInfo')

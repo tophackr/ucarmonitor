@@ -3,10 +3,10 @@
 import { useTranslations } from 'next-intl'
 import { useCarContext } from '@/entities/car'
 import { useRouter } from '@/shared/i18n'
-import { useActionButtons } from '../hooks/useActionButtons'
 import { ActionButton } from './ActionButton'
 import { ActionModal } from './ActionModal'
 import { ModalContent } from './ModalContent'
+import { useActionButtons } from './hooks/useActionButtons'
 
 export function ActionBlock() {
     const t = useTranslations('CarActionContents')

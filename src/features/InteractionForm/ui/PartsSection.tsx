@@ -5,7 +5,7 @@ import { useMessages, useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import type { IParts } from '@/entities/interaction'
 import type { Translation } from '@/shared/i18n'
-import type { PartsOptions } from '../model/TranslationOptions'
+import type { PartsOptions } from './types/TranslationOptions'
 
 export function PartsSection() {
     const t = useTranslations('CarActionForm')

@@ -3,7 +3,7 @@
 import { Text } from '@telegram-apps/telegram-ui'
 import { Icon16Chevron } from '@telegram-apps/telegram-ui/dist/icons/16/chevron'
 import { memo } from 'react'
-import { useIsAppleClient } from '@/shared/hooks'
+import { isAppleClient } from '@/shared/lib'
 
 export interface ChevronCellProps {
     text?: string
@@ -12,7 +12,7 @@ export interface ChevronCellProps {
 export const ChevronCell = memo(function ChevronCell({
     text
 }: ChevronCellProps) {
-    const isApple = useIsAppleClient()
+    const isApple = isAppleClient()
 
     return (
         <>

@@ -5,7 +5,7 @@ import { useMessages, useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { type IRepair, useInteractionContext } from '@/entities/interaction'
 import type { Translation } from '@/shared/i18n'
-import type { RepairOptions } from '../model/TranslationOptions'
+import type { RepairOptions } from './types/TranslationOptions'
 
 export function RepairSection() {
     const t = useTranslations('CarActionForm')

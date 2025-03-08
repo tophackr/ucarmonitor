@@ -13,15 +13,5 @@ export default defineConfig([
         rules: {
             'fsd/forbidden-imports': 'off'
         }
-    },
-    {
-        files: [
-            './src/**/hooks/*',
-            './src/shared/types/*',
-            './src/shared/utils/*'
-        ],
-        rules: {
-            'fsd/segments-by-purpose': 'off'
-        }
     }
 ])

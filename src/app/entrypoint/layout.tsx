@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import 'normalize.css/normalize.css'
 import { type PropsWithChildren, memo } from 'react'
 import { type LocaleProps, routing } from '@/shared/i18n'
-import type { ParamsProps } from '@/shared/types'
+import type { ParamsProps } from '@/shared/lib'
 import { Providers } from '../providers'
 import '../styles/globals.css'
 

@@ -6,8 +6,8 @@ import { memo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
 import { LucideIcon } from '@/shared/ui'
-import { useRefuel } from '../../hooks/useRefuel'
-import type { FuelCapacityProps } from '../../model/FuelCapacity'
+import { useRefuel } from '../hooks/useRefuel'
+import type { FuelCapacityProps } from '../types/FuelCapacity'
 
 export const AfterRefueling = memo(function AfterRefueling({
     fuelCapacity

@@ -3,10 +3,10 @@
 import { memo } from 'react'
 import type { CarIdProps } from '@/entities/car'
 import type { InteractionIdProps } from '@/entities/interaction'
-import { useButtonClick } from '@/shared/hooks'
+import { useButtonClick } from '@/shared/lib'
 import { pagesRoute } from '@/shared/routes'
 import { DeleteButton } from '@/shared/ui'
-import { useDeleteInteraction } from '../hooks/useDeleteInteraction'
+import { useDeleteInteraction } from './hooks/useDeleteInteraction'
 
 export const DeleteInteractionButton = memo(function DeleteInteractionButton({
     carId,

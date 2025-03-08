@@ -2,8 +2,7 @@
 
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
 import { memo } from 'react'
-import { useButtonClick } from '@/shared/hooks'
-import { callMultiple } from '@/shared/utils'
+import { callMultiple, useButtonClick } from '@/shared/lib'
 import { ChevronCell } from '../ChevronCell'
 import { IconCell } from '../icon/IconCell'
 import type { LinkCellProps } from './LinkCellProps'

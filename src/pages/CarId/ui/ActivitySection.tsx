@@ -7,7 +7,7 @@ import {
     getInteractions,
     useInteractions
 } from '@/entities/interaction'
-import { useClientOnce } from '@/shared/hooks'
+import { useClientOnce } from '@/shared/lib'
 
 export const ActivitySection = memo(function ActivitySection({
     car

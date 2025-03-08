@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import { CarFuel } from '@/entities/car'
 import { IconCell } from '@/shared/ui'
-import type { CarFuelForm } from '../model/FormContext'
+import type { CarFuelForm } from './types/FormContext'
 
 export function FuelSection() {
     const t = useTranslations('CarInfo')

@@ -7,16 +7,13 @@ import {
 } from '@telegram-apps/sdk-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
 import { type PropsWithChildren, memo } from 'react'
-import {
-    useClientOnce,
-    useDidMount,
-    useIsAppleClient,
-    useTelegramMock
-} from '@/shared/hooks'
+import { isAppleClient, useClientOnce } from '@/shared/lib'
 import { Loader } from '@/shared/ui'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { ErrorPage } from './components/ErrorPage'
-import { init } from './core/init'
+import { init } from './init'
+import { useDidMount } from './useDidMount'
+import { useTelegramMock } from './useTelegramMock'
 
 const RootInner = memo(function RootInner({ children }: PropsWithChildren) {
     const isDev = process.env.NODE_ENV === 'development'
@@ -28,7 +25,7 @@ const RootInner = memo(function RootInner({ children }: PropsWithChildren) {
     }
 
     const lp = retrieveLaunchParams()
-    const isApple = useIsAppleClient(lp)
+    const isApple = isAppleClient(lp)
     const debug = isDev || lp.platform === 'debug'
 
     // Initialize the library.

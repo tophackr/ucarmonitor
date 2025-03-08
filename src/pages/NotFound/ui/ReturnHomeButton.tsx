@@ -2,7 +2,7 @@
 
 import { Button } from '@telegram-apps/telegram-ui'
 import { type PropsWithChildren, memo } from 'react'
-import { useButtonClick } from '@/shared/hooks'
+import { useButtonClick } from '@/shared/lib'
 import { pagesRoute } from '@/shared/routes'
 
 export const ReturnHomeButton = memo(function ReturnHomeButton({

@@ -1,0 +1,14 @@
+'use client'
+
+import { useMemo } from 'react'
+import { findById } from '@/shared/lib'
+import { useInteractions } from '../store/useInteractions'
+
+export function useFindInteraction(interactionId: string) {
+    const { interactions } = useInteractions()
+
+    return useMemo(
+        () => findById(interactions, interactionId),
+        [interactionId, interactions]
+    )
+}

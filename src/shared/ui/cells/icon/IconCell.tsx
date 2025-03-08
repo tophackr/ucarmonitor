@@ -2,7 +2,7 @@
 
 import clsx from 'clsx'
 import { memo } from 'react'
-import { useIsAppleClient } from '@/shared/hooks'
+import { isAppleClient } from '@/shared/lib'
 import { LucideIcon } from '../../lucide-icon'
 import styles from './IconCell.module.css'
 import type { IconCellProps } from './IconCellProps'
@@ -13,7 +13,7 @@ export const IconCell = memo(function IconCell({
     className,
     ...props
 }: IconCellProps) {
-    const isApple = useIsAppleClient()
+    const isApple = isAppleClient()
 
     return (
         <LucideIcon

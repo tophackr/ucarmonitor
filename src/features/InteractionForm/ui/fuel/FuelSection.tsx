@@ -4,7 +4,7 @@ import { Section } from '@telegram-apps/telegram-ui'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { useCarContext } from '@/entities/car'
-import { useIsAppleClient } from '@/shared/hooks'
+import { isAppleClient } from '@/shared/lib'
 import { AfterRefueling } from './AfterRefueling'
 import { BeforeRefueling } from './BeforeRefueling'
 import { CapacitySwitch } from './CapacitySwitch'
@@ -15,7 +15,7 @@ export function FuelSection() {
 
     const { car } = useCarContext()
 
-    const isApple = useIsAppleClient()
+    const isApple = isAppleClient()
 
     return (
         <>

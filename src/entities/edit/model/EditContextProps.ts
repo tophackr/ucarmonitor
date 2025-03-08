@@ -1,5 +1,5 @@
 import React from 'react'
-import type { MouseClickEvent } from '@/shared/types'
+import type { MouseClickEvent } from '@/shared/lib'
 
 export interface EditValueContextProps {
     editValue?: MouseClickEvent<React.MouseEvent<Element, MouseEvent>>

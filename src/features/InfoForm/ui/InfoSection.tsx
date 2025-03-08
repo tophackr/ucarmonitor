@@ -4,7 +4,7 @@ import { Input, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import { IconCell } from '@/shared/ui'
-import type { CarInfoForm } from '../model/FormContext'
+import type { CarInfoForm } from './types/FormContext'
 
 export function InfoSection() {
     const t = useTranslations('CarInfo')

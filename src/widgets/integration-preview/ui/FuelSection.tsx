@@ -4,7 +4,7 @@ import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { useCarContext } from '@/entities/car'
 import { type IFuel, useInteractionContext } from '@/entities/interaction'
-import { toFixedNumber } from '@/shared/utils'
+import { toFixedNumber } from '@/shared/lib'
 
 export function FuelSection() {
     const t = useTranslations('CarActionForm.fuel')

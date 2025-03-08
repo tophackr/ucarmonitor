@@ -3,9 +3,9 @@ import {
     type InputProps as TGUIInputProps
 } from '@telegram-apps/telegram-ui'
 import { memo } from 'react'
-import type { BackgroundColor } from '../types'
-import { IconCell } from './cells'
-import type { LucideIconName } from './lucide-icon'
+import type { BackgroundColor } from '@/shared/lib'
+import { IconCell } from './cells/icon/IconCell'
+import type { LucideIconName } from './lucide-icon/LucideIconName'
 
 interface InputProps extends TGUIInputProps {
     icon: LucideIconName

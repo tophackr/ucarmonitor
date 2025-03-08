@@ -3,7 +3,7 @@ import type { NestedTranslationClient, Translation } from '@/shared/i18n'
 import type {
     ActionContentData,
     ActionContentProps
-} from '../../model/ActionContentProps'
+} from '../types/ActionContentProps'
 
 export const generateContents = (
     id: string,

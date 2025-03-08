@@ -3,8 +3,7 @@
 import clsx from 'clsx'
 import { type HTMLAttributes, memo } from 'react'
 import { twMerge } from 'tailwind-merge'
-import { useIsAppleClient } from '@/shared/hooks'
-import type { BackgroundColor } from '@/shared/types'
+import { type BackgroundColor, isAppleClient } from '@/shared/lib'
 
 interface IconSkeletonProps extends HTMLAttributes<HTMLDivElement> {
     color?: BackgroundColor
@@ -15,7 +14,7 @@ export const IconSkeleton = memo(function IconSkeleton({
     className,
     ...props
 }: IconSkeletonProps) {
-    const isApple = useIsAppleClient()
+    const isApple = isAppleClient()
 
     return (
         <div

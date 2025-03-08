@@ -1,7 +1,7 @@
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { memo } from 'react'
-import { useButtonClick } from '@/shared/hooks'
+import { useButtonClick } from '@/shared/lib'
 import { pagesRoute } from '@/shared/routes'
 import type { CarProps } from '../model/Props'
 import { CarAvatar } from './CarAvatar'

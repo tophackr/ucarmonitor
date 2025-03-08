@@ -1,12 +1,12 @@
 'use client'
 
 import { useMemo } from 'react'
-import { hasReactNode } from '@/shared/utils'
-import type { SearchPageProps } from '../model/Search'
+import { hasReactNode } from '@/shared/lib'
 import { Loading } from './Loading'
 import { NotFound } from './NotFound'
 import { Nothing } from './Nothing'
 import { Search } from './Search'
+import type { SearchPageProps } from './types/Search'
 
 export function SearchPage<T>({
     items,

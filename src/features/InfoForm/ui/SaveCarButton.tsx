@@ -1,8 +1,8 @@
 'use client'
 
-import { useButtonClick } from '@/shared/hooks'
+import { useButtonClick } from '@/shared/lib'
 import { SaveButton } from '@/shared/ui'
-import { useSaveCar } from '../hooks/useSaveCar'
+import { useSaveCar } from './hooks/useSaveCar'
 
 export function SaveCarButton() {
     const { saveCallback } = useSaveCar()

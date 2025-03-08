@@ -1,4 +1,4 @@
-import { toFixedNumber } from '@/shared/utils'
+import { toFixedNumber } from '@/shared/lib'
 
 export function getPercent(value: number, capacity: number): number {
     const valueNumber = Number(value) || 0

@@ -5,7 +5,7 @@ import { useMessages, useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import type { IRepair } from '@/entities/interaction'
 import type { Translation } from '@/shared/i18n'
-import type { RepairOptions } from '../model/TranslationOptions'
+import type { RepairOptions } from './types/TranslationOptions'
 
 export function RepairSection() {
     const t = useTranslations('CarActionForm')

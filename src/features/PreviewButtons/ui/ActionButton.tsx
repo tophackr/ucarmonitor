@@ -3,7 +3,7 @@ import type { InlineButtonsItemProps } from '@telegram-apps/telegram-ui/dist/com
 import { useTranslations } from 'next-intl'
 import { memo } from 'react'
 import { LucideIcon } from '@/shared/ui'
-import type { ActionButtonProps } from '../model/ActionButtonProps'
+import type { ActionButtonProps } from './types/ActionButtonProps'
 
 export const ActionButton = memo(function ActionButton({
     icon,

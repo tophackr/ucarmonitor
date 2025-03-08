@@ -2,10 +2,10 @@
 
 import { notFound } from 'next/navigation'
 import { type PropsWithChildren, createContext, memo, use } from 'react'
-import type { ParamsProps } from '@/shared/types'
-import { useFindInteraction } from '../../hooks/useFindInteraction'
+import type { ParamsProps } from '@/shared/lib'
 import { InteractionCategory } from '../../model/Interaction'
 import type { InteractionIdProps, InteractionProps } from '../../model/Props'
+import { useFindInteraction } from './useFindInteraction'
 
 export const InteractionContext = createContext<InteractionProps>({
     interaction: {
