@@ -68,9 +68,11 @@
     "description": "Пожалуйста, закройте приложение и откройте его заново."
   },
   "Search": {
-    "placeholder": "Поиск...",
+    "placeholder": "Поиск..."
+  },
+  "Placeholder": {
     "Loading": {
-      "title": "Ищем...",
+      "title": "Загрузка...",
       "description": "Подождите немного и вы все увидите."
     },
     "NotFound": {
