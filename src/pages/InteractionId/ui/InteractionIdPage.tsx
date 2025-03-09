@@ -4,7 +4,7 @@ import type { CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui/tma'
 
-export const InteractionPage = memo(async function InteractionPage({
+export const InteractionIdPage = memo(async function InteractionIdPage({
     params
 }: ParamsProps<CategoryProps>) {
     const { category } = await params
