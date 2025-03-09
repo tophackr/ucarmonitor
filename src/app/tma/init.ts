@@ -32,6 +32,9 @@ export function init(debug: boolean): void {
     if (!viewport.isMounted()) {
         void viewport
             .mount()
+            .catch(error => {
+                if (error.type !== 'ERR_ALREADY_MOUNTING') throw error
+            })
             .then(() => {
                 if (!viewport.isCssVarsBound()) viewport.bindCssVars()
             })
