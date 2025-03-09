@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect } from 'react'
 import { useEditSetValueContext } from '../../lib/context/hooks/useEditSetValueContext'
 import type { EditButtonProps } from '../types/EditButtonProps'
