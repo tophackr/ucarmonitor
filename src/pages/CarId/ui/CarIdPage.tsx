@@ -5,9 +5,9 @@ import dynamic from 'next/dynamic'
 import { PreviewButtons } from '@/features/PreviewButtons'
 import { CarPreview, useCarContext } from '@/entities/car'
 import { pagesRoute } from '@/shared/routes'
-import { useBackButton } from '@/shared/ui/tma'
+import { BackButton } from '@/shared/ui/tma'
+import { CarEditButton } from './CarEditButton'
 import { LabelsTemp } from './LabelsTemp'
-import { useEditCarButton } from './hooks/useEditCarButton'
 
 const DynamicActivitySection = dynamic(
     () => import('./ActivitySection').then(mod => mod.ActivitySection),
@@ -17,12 +17,11 @@ const DynamicActivitySection = dynamic(
 export function CarIdPage() {
     const { car } = useCarContext()
 
-    useBackButton({ route: pagesRoute.home })
-
-    useEditCarButton({ car })
-
     return (
         <>
+            <BackButton route={pagesRoute.home} />
+            <CarEditButton car={car} />
+
             <CarPreview car={car}>
                 <LabelsTemp />
             </CarPreview>

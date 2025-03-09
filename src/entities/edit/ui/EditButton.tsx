@@ -1,11 +1,19 @@
 'use client'
 
-import { memo } from 'react'
-import { useEditButton } from './hooks/useEditButton'
+import { memo, useEffect } from 'react'
+import { useEditSetValueContext } from '../lib/context/hooks/useEditSetValueContext'
 import type { EditButtonProps } from './types/EditButtonProps'
 
 export const EditButton = memo(function EditButton(props: EditButtonProps) {
-    useEditButton(props)
+    const { setEditValue } = useEditSetValueContext()
+
+    useEffect(() => {
+        setEditValue(props)
+
+        return () => {
+            setEditValue(undefined)
+        }
+    }, [props, setEditValue])
 
     return null
 })

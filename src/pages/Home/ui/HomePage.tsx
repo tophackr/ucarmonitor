@@ -1,16 +1,20 @@
 'use client'
 
-import { useBackButton } from '@/shared/ui/tma'
+import { BackButton } from '@/shared/ui/tma'
+import { CarCreateButton } from './CarCreateButton'
 import { CarsContent } from './CarsContent'
-import { useCarCreateButton } from './hooks/useCarCreateButton'
 import { useLoadingCars } from './hooks/useLoadingCars'
 
 export function HomePage() {
     const { isLoading } = useLoadingCars()
 
-    useBackButton({ hide: true })
+    return (
+        <>
+            <BackButton hide={true} />
 
-    useCarCreateButton()
+            <CarsContent isLoading={isLoading} />
 
-    return <CarsContent isLoading={isLoading} />
+            <CarCreateButton />
+        </>
+    )
 }

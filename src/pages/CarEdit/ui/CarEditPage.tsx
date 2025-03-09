@@ -2,12 +2,16 @@
 
 import { InfoForm } from '@/features/InfoForm'
 import { useCarContext } from '@/entities/car'
-import { useBackButton } from '@/shared/ui/tma'
+import { BackButton } from '@/shared/ui/tma'
 
 export function CarEditPage() {
     const { car } = useCarContext()
 
-    useBackButton()
+    return (
+        <>
+            <BackButton />
 
-    return <InfoForm car={car} />
+            <InfoForm car={car} />
+        </>
+    )
 }
