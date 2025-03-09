@@ -38,8 +38,13 @@ export function init(debug: boolean): void {
             .then(() => {
                 if (!viewport.isCssVarsBound()) viewport.bindCssVars()
             })
-            .catch(e => {
-                console.error('Something went wrong mounting the viewport', e)
+            .catch(error => {
+                if (error.type !== 'ERR_NOT_MOUNTED') {
+                    console.error(
+                        'Something went wrong mounting the viewport',
+                        error
+                    )
+                }
             })
     }
 
