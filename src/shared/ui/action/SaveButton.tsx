@@ -24,7 +24,6 @@ export function SaveButton<T extends FieldValues>({
 
     return (
         <MainButton
-            isVisible={true}
             text={text ?? t('save')}
             isLoaderVisible={disabled}
             isEnabled={!disabled}
