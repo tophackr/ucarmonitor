@@ -8,6 +8,7 @@ import {
     useInteractions
 } from '@/entities/interaction'
 import { useClientOnce } from '@/shared/lib/dom'
+import { NothingPlaceholder } from '@/shared/ui/placeholder'
 
 export const ActivitySection = memo(function ActivitySection({
     car
@@ -32,13 +33,17 @@ export const ActivitySection = memo(function ActivitySection({
 
     return (
         <Section header={t('last_activity')}>
-            {interactionsSorted.map(i => (
-                <InteractionCell
-                    key={i.id}
-                    interaction={i}
-                    car={car}
-                />
-            ))}
+            {interactionsSorted.length ? (
+                interactionsSorted.map(i => (
+                    <InteractionCell
+                        key={i.id}
+                        interaction={i}
+                        car={car}
+                    />
+                ))
+            ) : (
+                <NothingPlaceholder />
+            )}
         </Section>
     )
 })
