@@ -1,33 +1,16 @@
 'use client'
 
-import { useCallback, useState } from 'react'
-import { getCars, useCars } from '@/entities/car'
-import { useClientOnce } from '@/shared/lib/dom'
+import { useBackButton } from '@/shared/ui/tma'
 import { CarsContent } from './CarsContent'
-import { CreateCarButton } from './CreateCarButton'
+import { useCarCreateButton } from './hooks/useCarCreateButton'
+import { useLoadingCars } from './hooks/useLoadingCars'
 
 export function HomePage() {
-    const { setCars } = useCars()
+    const { isLoading } = useLoadingCars()
 
-    const [isLoading, setIsLoading] = useState(false)
+    useBackButton({ hide: true })
 
-    const loadingCars = useCallback(async () => {
-        setIsLoading(true)
+    useCarCreateButton()
 
-        const cars = await getCars()
-
-        setCars(cars)
-
-        setIsLoading(false)
-    }, [setCars])
-
-    useClientOnce(() => loadingCars())
-
-    return (
-        <>
-            <CarsContent isLoading={isLoading} />
-
-            <CreateCarButton />
-        </>
-    )
+    return <CarsContent isLoading={isLoading} />
 }

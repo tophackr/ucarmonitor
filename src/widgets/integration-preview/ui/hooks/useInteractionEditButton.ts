@@ -1,8 +1,8 @@
-import { EditButton } from '@/entities/edit'
+import { useEditButton } from '@/entities/edit'
 import { actionsRoute, useInteractionContext } from '@/entities/interaction'
 import { useButtonClick } from '@/shared/lib/dom'
 
-export function InterEditButton() {
+export function useInteractionEditButton() {
     const { interaction } = useInteractionContext()
 
     const props = useButtonClick({
@@ -12,5 +12,5 @@ export function InterEditButton() {
         )
     })
 
-    return <EditButton {...props} />
+    useEditButton(props)
 }

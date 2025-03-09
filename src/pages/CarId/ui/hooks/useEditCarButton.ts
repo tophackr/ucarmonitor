@@ -1,11 +1,10 @@
-import { memo } from 'react'
 import type { CarProps } from '@/entities/car'
-import { EditButton } from '@/entities/edit'
+import { useEditButton } from '@/entities/edit'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 
-export const EditCarButton = memo(function EditCarButton({ car }: CarProps) {
+export function useEditCarButton({ car }: CarProps) {
     const props = useButtonClick({ route: pagesRoute.carEdit(car.id) })
 
-    return <EditButton {...props} />
-})
+    useEditButton(props)
+}

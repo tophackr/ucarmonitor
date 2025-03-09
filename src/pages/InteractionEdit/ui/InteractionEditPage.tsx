@@ -7,7 +7,7 @@ import {
     useInteractionContext
 } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
-import { BackButton } from '@/shared/ui/tma'
+import { useBackButton } from '@/shared/ui/tma'
 
 export const InteractionEditPage = memo(function InteractionEditPage({
     params
@@ -16,14 +16,12 @@ export const InteractionEditPage = memo(function InteractionEditPage({
 
     const { interaction } = useInteractionContext()
 
-    return (
-        <>
-            <BackButton />
+    useBackButton()
 
-            <InteractionForm
-                category={category}
-                interaction={interaction}
-            />
-        </>
+    return (
+        <InteractionForm
+            category={category}
+            interaction={interaction}
+        />
     )
 })
