@@ -1,5 +1,6 @@
 import {
     $debug,
+    backButton,
     initData,
     init as initSDK,
     miniApp,
@@ -20,6 +21,7 @@ export function init(debug: boolean): void {
     initSDK()
 
     // Mount all components used in the project.
+    if (backButton.isSupported()) backButton.mount()
     if (settingsButton.mount.isAvailable()) settingsButton.mount()
 
     if (!miniApp.isMounted()) miniApp.mount()

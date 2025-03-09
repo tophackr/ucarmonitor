@@ -1,29 +1,11 @@
 'use client'
 
-import { backButton } from '@telegram-apps/sdk-react'
-import { memo, useEffect } from 'react'
-import { useRouter } from '@/shared/i18n'
+import { memo } from 'react'
+import { useBackButton } from './hooks/useBackButton'
+import type { BackButtonProps } from './types/BackButtonProps'
 
-interface BackButtonProps {
-    route?: string
-}
+export const BackButton = memo(function BackButton(props: BackButtonProps) {
+    useBackButton(props)
 
-export const BackButton = memo(function BackButton({ route }: BackButtonProps) {
-    const router = useRouter()
-
-    useEffect(() => {
-        backButton.mount()
-        backButton.show()
-        const offClick = backButton.onClick(() =>
-            route ? router.push(route) : router.back()
-        )
-
-        return () => {
-            backButton.hide()
-            offClick()
-            backButton.unmount()
-        }
-    }, [route, router])
-
-    return <></>
+    return null
 })
