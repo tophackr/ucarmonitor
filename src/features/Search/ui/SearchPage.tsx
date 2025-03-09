@@ -2,9 +2,11 @@
 
 import { useMemo } from 'react'
 import { hasReactNode } from '@/shared/lib/dom'
-import { Loading } from './Loading'
-import { NotFound } from './NotFound'
-import { Nothing } from './Nothing'
+import {
+    LoadingPlaceholder,
+    NotFoundPlaceholder,
+    NothingPlaceholder
+} from '@/shared/ui/placeholder'
 import { Search } from './Search'
 import type { SearchPageProps } from './types/Search'
 
@@ -28,22 +30,22 @@ export function SearchPage<T>({
             <Search {...props} />
 
             {isLoading ? (
-                <Loading />
+                <LoadingPlaceholder />
             ) : (
                 <>
                     {items?.length ? (
                         itemsFiltered?.length ? (
                             <>{render(itemsFiltered)}</>
                         ) : (
-                            <NotFound />
+                            <NotFoundPlaceholder />
                         )
                     ) : (
                         <>
                             {hasReactNode(nothing) ? (
                                 <>{nothing}</>
                             ) : (
-                                <Nothing
-                                    title={nothingTitle}
+                                <NothingPlaceholder
+                                    header={nothingTitle}
                                     description={nothingDescription}
                                 />
                             )}
