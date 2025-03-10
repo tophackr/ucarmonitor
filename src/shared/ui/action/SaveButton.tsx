@@ -3,10 +3,14 @@
 import { useTranslations } from 'next-intl'
 import { type FieldValues, useFormContext } from 'react-hook-form'
 import { useFormError } from '@/shared/ui/form'
-import { MainButton } from '@/shared/ui/tma'
+import { MainButton, type MainButtonProps } from '@/shared/ui/tma'
+
+type SaveMainButtonProps = Omit<
+    MainButtonProps,
+    'isLoaderVisible' | 'isEnabled' | 'onClick'
+>
 
 interface SaveButtonProps<T extends FieldValues> {
-    text?: string
     disabled?: boolean
     onClick: (data: T) => void
 }
@@ -14,8 +18,9 @@ interface SaveButtonProps<T extends FieldValues> {
 export function SaveButton<T extends FieldValues>({
     text,
     disabled,
-    onClick
-}: SaveButtonProps<T>) {
+    onClick,
+    ...props
+}: SaveButtonProps<T> & SaveMainButtonProps) {
     const t = useTranslations('Common')
 
     const { handleSubmit } = useFormContext<T>()
@@ -28,6 +33,7 @@ export function SaveButton<T extends FieldValues>({
             isLoaderVisible={disabled}
             isEnabled={!disabled}
             onClick={handleSubmit(onClick, onErrorCallback)}
+            {...props}
         />
     )
 }

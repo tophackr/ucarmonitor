@@ -1,7 +1,7 @@
 'use client'
 
 import { useButtonClick } from '@/shared/lib/dom'
-import { SaveButton } from '@/shared/ui/action'
+import { SaveButton, useVisibleSaveButton } from '@/shared/ui/action'
 import { useSaveCar } from './hooks/useSaveCar'
 
 export function SaveCarButton() {
@@ -9,5 +9,12 @@ export function SaveCarButton() {
 
     const props = useButtonClick({ callback: saveCallback })
 
-    return <SaveButton {...props} />
+    const { isVisible } = useVisibleSaveButton()
+
+    return (
+        <SaveButton
+            {...props}
+            isVisible={isVisible}
+        />
+    )
 }

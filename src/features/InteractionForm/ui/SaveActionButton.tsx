@@ -1,12 +1,13 @@
 'use client'
 
+import { memo } from 'react'
 import { useCarContext } from '@/entities/car'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
-import { SaveButton } from '@/shared/ui/action'
+import { SaveButton, useVisibleSaveButton } from '@/shared/ui/action'
 import { useSaveAction } from './hooks/useSaveAction'
 
-export function SaveActionButton() {
+export const SaveActionButton = memo(function SaveActionButton() {
     const { car } = useCarContext()
 
     const { saveCallback } = useSaveAction()
@@ -16,5 +17,12 @@ export function SaveActionButton() {
         callback: saveCallback
     })
 
-    return <SaveButton {...props} />
-}
+    const { isVisible } = useVisibleSaveButton(true)
+
+    return (
+        <SaveButton
+            {...props}
+            isVisible={isVisible}
+        />
+    )
+})
