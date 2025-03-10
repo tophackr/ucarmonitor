@@ -11,10 +11,10 @@ export function InteractionSkeleton() {
         <List>
             <PulseSkeletonLayout>
                 <Section header={<TextSkeleton className={'w-24 mb-2'} />}>
-                    {['OrangeRed', 'MediumPurple', 'Orange'].map(color => (
+                    {Array.from({ length: 3 }).map((_, index) => (
                         <CellSkeleton
-                            key={color}
-                            before={<IconSkeleton color={color} />}
+                            key={index}
+                            before={<IconSkeleton />}
                         />
                     ))}
                 </Section>

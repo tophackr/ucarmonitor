@@ -1,27 +1,15 @@
-'use client'
-
 import clsx from 'clsx'
 import { type HTMLAttributes, memo } from 'react'
 import { twMerge } from 'tailwind-merge'
-import type { BackgroundColor } from '@/shared/lib/dom'
-import { isAppleClient } from '../tma/utils/isAppleClient'
-
-interface IconSkeletonProps extends HTMLAttributes<HTMLDivElement> {
-    color?: BackgroundColor
-}
 
 export const IconSkeleton = memo(function IconSkeleton({
-    color,
     className,
     ...props
-}: IconSkeletonProps) {
-    const isApple = isAppleClient()
-
+}: HTMLAttributes<HTMLDivElement>) {
     return (
         <div
-            style={isApple && color ? { backgroundColor: color } : undefined}
             className={twMerge(
-                clsx('w-8 h-8 rounded-lg', className, !isApple && 'bg-subtitle')
+                clsx('bg-subtitle w-8 h-8 rounded-lg', className)
             )}
             {...props}
         />
