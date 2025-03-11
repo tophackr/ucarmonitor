@@ -234,5 +234,9 @@
     "car-purchases": "Покупки для авто",
     "tuning": "Тюнинг",
     "driver-salary": "Зарплата Водителю"
+  },
+  "PreviewSegment": {
+    "info": "Информация",
+    "stats": "Статистика"
   }
 }
