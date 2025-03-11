@@ -32,37 +32,6 @@
     "finance": "финансы",
     "more": "еще"
   },
-  "CarActionContents": {
-    "parking": {
-      "parking": "Парковка",
-      "toll_road": "Платная Дорога",
-      "taxi": "Такси и Транспорт",
-      "sober_driver": "Трезвый Водитель",
-      "alarm_system": "Авто Сигнализация"
-    },
-    "repair": {
-      "maintenance": "Плановое ТО",
-      "tire_service": "Шиномонтаж",
-      "repair": "Ремонт",
-      "parts": "Запчасти и расходники",
-      "purchase_tires": "Покупка шин и дисков",
-      "tow_truck": "Эвакуатор"
-    },
-    "finance": {
-      "insurance": "Страховка",
-      "tax": "Налог",
-      "state_inspection": "Гос. Техосмотр",
-      "fine": "Штраф",
-      "car_purchase": "Покупка Автомобиля",
-      "loan_repayment": "Выплата Кредита",
-      "leasing": "Лизинг"
-    },
-    "more": {
-      "car_purchases": "Покупки для авто",
-      "tuning": "Тюнинг",
-      "driver_salary": "Зарплата Водителю"
-    }
-  },
   "PopupError": {
     "title": "Время сеанса истекло",
     "description": "Пожалуйста, закройте приложение и откройте его заново."
@@ -109,12 +78,12 @@
     "odometer": {
       "title": "Единицы одометра",
       "units": {
-        "kilometers": "км",
-        "miles": "ми"
+        "kilometer": "км",
+        "mile": "ми"
       },
       "units_full": {
-        "kilometers": "километры",
-        "miles": "мили"
+        "kilometer": "километры",
+        "mile": "мили"
       }
     },
     "engine_hours": {
@@ -128,14 +97,17 @@
       "year_max": "Год не может быть старше 2100-го",
       "year_min_length": "Число года не может быть меньше 4 цифр",
       "year_max_length": "Число года не может быть больше 4 цифр",
-      "negative_number": "Число не может быть отрицательным",
-      "mileage_required": "Вы не указали пробег автомобиля"
+      "mileage_min": "Пробег не может быть отрицательным",
+      "fuel_capacity_min": "Объем бака не может быть отрицательным",
+      "mileage_required": "Вы не указали пробег автомобиля",
+      "engine_hours_min": "Моточасы не могут быть отрицательными"
     }
   },
   "CarActionForm": {
     "date": "Дата",
     "mileage": "Пробег",
     "amount": "Сумма",
+    "engine_hours": "Моточасы, ч",
     "description": "Описание",
     "files": "Файлы",
     "fuel": {
@@ -230,13 +202,15 @@
     "errors": {
       "date_required": "Вы не указали дату",
       "amount_required": "Вы не указали сумму",
-      "amount_min": "Сумма не может быть меньше 0",
-      "after_refueling_min": "После заправки не может быть меньше 0",
-      "before_refueling_min": "Перед заправкой не может быть меньше 0",
-      "repair_work_required": "Выберите хотя бы один вид работ"
+      "amount_min": "Сумма не может быть отрицательной",
+      "after_refueling_min": "Объем бака после заправки не может быть отрицательным",
+      "before_refueling_min": "Объем бака перед заправкой не может быть отрицательным",
+      "repair_work_required": "Выберите хотя бы один вид работ",
+      "engine_hours_min": "Моточасы не могут быть отрицательными"
     }
   },
   "CarCategoryName": {
+    "mileage": "Пробег",
     "parking": "Парковка",
     "toll-road": "Платная Дорога",
     "taxi": "Такси и Транспорт",
