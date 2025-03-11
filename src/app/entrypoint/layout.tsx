@@ -24,9 +24,11 @@ export const AppLayout = memo(async function AppLayout({
     return (
         <html lang={locale}>
             <body>
-                <Providers>{children}</Providers>
+                <div id={'app'}>
+                    <Providers>{children}</Providers>
 
-                <SpeedInsights />
+                    <SpeedInsights />
+                </div>
             </body>
         </html>
     )
