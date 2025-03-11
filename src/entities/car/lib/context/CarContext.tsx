@@ -13,7 +13,7 @@ export const CarContext = createContext<CarProps>({
         brand: '',
         fuel: CarFuel.Gasoline,
         mileage: 0,
-        odometerUnits: CarOdometerUnits.kilometers,
+        odometerUnits: CarOdometerUnits.kilometer,
         engineHoursEnabled: false
     }
 })

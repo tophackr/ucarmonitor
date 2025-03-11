@@ -14,7 +14,7 @@ type InitCar = Partial<Omit<ICar, 'id'>>
 export const initialCar: InitCar = {
     mileage: 0,
     fuel: CarFuel.Gasoline,
-    odometerUnits: CarOdometerUnits.kilometers,
+    odometerUnits: CarOdometerUnits.kilometer,
     engineHoursEnabled: false
 }
 

@@ -22,6 +22,6 @@ export enum CarFuel {
 }
 
 export enum CarOdometerUnits {
-    kilometers = 'kilometers',
-    miles = 'miles'
+    kilometer = 'kilometer',
+    mile = 'mile'
 }

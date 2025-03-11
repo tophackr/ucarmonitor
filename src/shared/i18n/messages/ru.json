@@ -78,12 +78,12 @@
     "odometer": {
       "title": "Единицы одометра",
       "units": {
-        "kilometers": "км",
-        "miles": "ми"
+        "kilometer": "км",
+        "mile": "ми"
       },
       "units_full": {
-        "kilometers": "километры",
-        "miles": "мили"
+        "kilometer": "километры",
+        "mile": "мили"
       }
     },
     "engine_hours": {
