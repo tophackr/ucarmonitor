@@ -10,6 +10,7 @@ export interface IBaseInteraction {
     date: Date
     mileage: number
     amount?: number
+    engineHours?: number
     description?: string
     //files: ?
 }
@@ -19,6 +20,8 @@ type SlicedType = IFuel | IRepair | IParts | ITires
 export type IInteraction = IBaseInteraction & SlicedType
 
 export enum InteractionCategory {
+    mileage = 'mileage',
+
     parking = 'parking',
     tollRoad = 'toll-road',
     taxi = 'taxi',

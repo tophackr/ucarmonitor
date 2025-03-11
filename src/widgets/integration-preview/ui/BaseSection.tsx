@@ -17,7 +17,7 @@ export const BaseSection = memo(function BaseSection({
     const t = useTranslations('CarActionForm')
 
     const {
-        interaction: { date, mileage, amount, description }
+        interaction: { date, mileage, amount, engineHours, description }
     } = useInteractionContext()
 
     const intlDate = useIntlDateTime(date)
@@ -41,6 +41,7 @@ export const BaseSection = memo(function BaseSection({
                 >
                     {mileage}
                 </IconCell>
+
                 {amount && (
                     <IconCell
                         icon={'LandPlot'}
@@ -48,6 +49,16 @@ export const BaseSection = memo(function BaseSection({
                         subhead={t('amount')}
                     >
                         {amount}
+                    </IconCell>
+                )}
+
+                {engineHours && (
+                    <IconCell
+                        icon={'Clock'}
+                        bgColor={'MediumPurple'}
+                        subhead={t('engine_hours')}
+                    >
+                        {engineHours}
                     </IconCell>
                 )}
             </Section>

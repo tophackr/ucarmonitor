@@ -4,7 +4,11 @@ import { FileInput, Section, Textarea } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IBaseInteraction } from '@/entities/interaction'
+import { useCarContext } from '@/entities/car'
+import {
+    type IBaseInteraction,
+    InteractionCategory
+} from '@/entities/interaction'
 import { CheckCell } from '@/shared/ui/cell'
 import { IconInput } from '@/shared/ui/form'
 import { Icon } from '@/shared/ui/icon'
@@ -18,11 +22,14 @@ export const BaseSection = memo(function BaseSection({
 }: BaseSectionProps) {
     const t = useTranslations('CarActionForm')
 
+    const { car } = useCarContext()
+
     const [files, setFiles] = useState<FileList | null>(null)
 
     const {
         register,
-        formState: { errors }
+        formState: { errors },
+        getValues
     } = useFormContext<IBaseInteraction>()
 
     return (
@@ -48,18 +55,41 @@ export const BaseSection = memo(function BaseSection({
                     placeholder={t('mileage')}
                     {...register('mileage', { valueAsNumber: true })}
                 />
-                <IconInput
-                    type={'number'}
-                    status={errors.amount && 'error'}
-                    icon={'LandPlot'}
-                    bgColor={'Orange'}
-                    placeholder={t('amount')}
-                    {...register('amount', {
-                        required: t('errors.amount_required'),
-                        valueAsNumber: true,
-                        min: { value: 0, message: t('errors.amount_min') }
-                    })}
-                />
+
+                {getValues('type') === InteractionCategory.mileage ? (
+                    <IconInput
+                        type={'number'}
+                        icon={'Clock'}
+                        bgColor={'MediumPurple'}
+                        header={t('engine_hours')}
+                        placeholder={t('engine_hours')}
+                        {...register('engineHours', {
+                            valueAsNumber: true,
+                            min: {
+                                value: 0,
+                                message: t('errors.engine_hours_min')
+                            }
+                        })}
+                    />
+                ) : (
+                    car.engineHoursEnabled && (
+                        <IconInput
+                            type={'number'}
+                            status={errors.amount && 'error'}
+                            icon={'LandPlot'}
+                            bgColor={'Orange'}
+                            placeholder={t('amount')}
+                            {...register('amount', {
+                                required: t('errors.amount_required'),
+                                valueAsNumber: true,
+                                min: {
+                                    value: 0,
+                                    message: t('errors.amount_min')
+                                }
+                            })}
+                        />
+                    )
+                )}
             </Section>
 
             <Section>
