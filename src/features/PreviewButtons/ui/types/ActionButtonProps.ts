@@ -1,6 +1,6 @@
 import type { NestedTranslationClient, Translation } from '@/shared/i18n'
+import type { IMenu } from '@/shared/lib/link-menu'
 import type { IconName } from '@/shared/ui/icon'
-import type { ActionContentProps } from './ActionContentProps'
 
 export interface ActionButtonProps {
     icon: IconName
@@ -12,7 +12,7 @@ export interface ActionButtonContentProps extends ActionButtonProps {
     content: (
         id: string,
         t: NestedTranslationClient<'CarCategoryName'>
-    ) => ActionContentProps[]
+    ) => IMenu[]
 }
 
 export interface ActionButtonLinkProps extends ActionButtonProps {

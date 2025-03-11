@@ -1,42 +1,40 @@
-import { InteractionCategory } from '@/entities/interaction'
+import { InteractionCategory, actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
-import type {
-    ActionContentData,
-    ActionContentProps
-} from '../types/ActionContentProps'
-import { generateContents } from '../utils/generateContents'
+import { type IMenu, type KeyMenu, generateMenu } from '@/shared/lib/link-menu'
 
-export const parkingContents = (
+const parkingData: KeyMenu<InteractionCategory>[] = [
+    {
+        name: InteractionCategory.parking,
+        icon: 'SquareParking',
+        bgColor: 'DodgerBlue'
+    },
+    {
+        name: InteractionCategory.tollRoad,
+        icon: 'TrafficCone',
+        bgColor: 'YellowGreen'
+    },
+    {
+        name: InteractionCategory.taxi,
+        icon: 'CarTaxiFront',
+        bgColor: 'Orange'
+    },
+    {
+        name: InteractionCategory.soberDriver,
+        icon: 'ContactRound',
+        bgColor: 'MediumPurple'
+    },
+    {
+        name: InteractionCategory.alarmSystem,
+        icon: 'Satellite',
+        bgColor: 'DeepPink'
+    }
+]
+
+export function parkingContents(
     id: string,
     t: NestedTranslationClient<'CarCategoryName'>
-): ActionContentProps[] => {
-    const data: ActionContentData[] = [
-        {
-            name: InteractionCategory.parking,
-            icon: 'SquareParking',
-            bgColor: 'DodgerBlue'
-        },
-        {
-            name: InteractionCategory.tollRoad,
-            icon: 'TrafficCone',
-            bgColor: 'YellowGreen'
-        },
-        {
-            name: InteractionCategory.taxi,
-            icon: 'CarTaxiFront',
-            bgColor: 'Orange'
-        },
-        {
-            name: InteractionCategory.soberDriver,
-            icon: 'ContactRound',
-            bgColor: 'MediumPurple'
-        },
-        {
-            name: InteractionCategory.alarmSystem,
-            icon: 'Satellite',
-            bgColor: 'DeepPink'
-        }
-    ]
+): IMenu[] {
+    const route = actionsRoute(id)
 
-    return generateContents(id, t, data)
+    return generateMenu(route.new, t, parkingData)
 }

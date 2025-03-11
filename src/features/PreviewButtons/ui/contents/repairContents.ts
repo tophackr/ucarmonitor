@@ -1,47 +1,45 @@
-import { InteractionCategory } from '@/entities/interaction'
+import { InteractionCategory, actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
-import type {
-    ActionContentData,
-    ActionContentProps
-} from '../types/ActionContentProps'
-import { generateContents } from '../utils/generateContents'
+import { type IMenu, type KeyMenu, generateMenu } from '@/shared/lib/link-menu'
 
-export const repairContents = (
+const repairData: KeyMenu<InteractionCategory>[] = [
+    {
+        name: InteractionCategory.maintenance,
+        icon: 'Bike',
+        bgColor: 'MediumPurple'
+    },
+    {
+        name: InteractionCategory.tireService,
+        icon: 'Badge',
+        bgColor: 'LimeGreen'
+    },
+    {
+        name: InteractionCategory.repair,
+        icon: 'Orbit',
+        bgColor: 'DodgerBlue'
+    },
+    {
+        name: InteractionCategory.parts,
+        icon: 'PocketKnife',
+        bgColor: 'SlateGray'
+    },
+    {
+        name: InteractionCategory.purchaseTires,
+        icon: 'Aperture',
+        bgColor: 'Orange'
+    },
+    {
+        name: InteractionCategory.towTruck,
+        icon: 'Caravan',
+        bgColor: 'OrangeRed'
+    }
+]
+
+export function repairContents(
     id: string,
     t: NestedTranslationClient<'CarCategoryName'>
-): ActionContentProps[] => {
-    const data: ActionContentData[] = [
-        {
-            name: InteractionCategory.maintenance,
-            icon: 'Bike',
-            bgColor: 'MediumPurple'
-        },
-        {
-            name: InteractionCategory.tireService,
-            icon: 'Badge',
-            bgColor: 'LimeGreen'
-        },
-        {
-            name: InteractionCategory.repair,
-            icon: 'Orbit',
-            bgColor: 'DodgerBlue'
-        },
-        {
-            name: InteractionCategory.parts,
-            icon: 'PocketKnife',
-            bgColor: 'SlateGray'
-        },
-        {
-            name: InteractionCategory.purchaseTires,
-            icon: 'Aperture',
-            bgColor: 'Orange'
-        },
-        {
-            name: InteractionCategory.towTruck,
-            icon: 'Caravan',
-            bgColor: 'OrangeRed'
-        }
-    ]
+): IMenu[] {
+    const route = actionsRoute(id)
 
-    return generateContents(id, t, data)
+    return generateMenu(route.new, t, repairData)
 }

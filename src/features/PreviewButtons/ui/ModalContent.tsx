@@ -2,12 +2,12 @@
 
 import clsx from 'clsx'
 import { memo } from 'react'
+import type { IMenu } from '@/shared/lib/link-menu'
 import { LinkCell } from '@/shared/ui/cell'
 import { isAppleClient } from '@/shared/ui/tma'
-import type { ActionContentProps } from './types/ActionContentProps'
 
 interface ModalContentProps {
-    content: ActionContentProps[]
+    content: IMenu[]
 }
 
 export const ModalContent = memo(function ModalContent({

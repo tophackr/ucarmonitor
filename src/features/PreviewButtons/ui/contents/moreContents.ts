@@ -1,32 +1,30 @@
-import { InteractionCategory } from '@/entities/interaction'
+import { InteractionCategory, actionsRoute } from '@/entities/interaction'
 import type { NestedTranslationClient } from '@/shared/i18n'
-import type {
-    ActionContentData,
-    ActionContentProps
-} from '../types/ActionContentProps'
-import { generateContents } from '../utils/generateContents'
+import { type IMenu, type KeyMenu, generateMenu } from '@/shared/lib/link-menu'
 
-export const moreContents = (
+const moreData: KeyMenu<InteractionCategory>[] = [
+    {
+        name: InteractionCategory.carPurchases,
+        icon: 'Gift',
+        bgColor: 'LimeGreen'
+    },
+    {
+        name: InteractionCategory.tuning,
+        icon: 'CircuitBoard',
+        bgColor: 'DodgerBlue'
+    },
+    {
+        name: InteractionCategory.driverSalary,
+        icon: 'Coins',
+        bgColor: 'Orange'
+    }
+]
+
+export function moreContents(
     id: string,
     t: NestedTranslationClient<'CarCategoryName'>
-): ActionContentProps[] => {
-    const data: ActionContentData[] = [
-        {
-            name: InteractionCategory.carPurchases,
-            icon: 'Gift',
-            bgColor: 'LimeGreen'
-        },
-        {
-            name: InteractionCategory.tuning,
-            icon: 'CircuitBoard',
-            bgColor: 'DodgerBlue'
-        },
-        {
-            name: InteractionCategory.driverSalary,
-            icon: 'Coins',
-            bgColor: 'Orange'
-        }
-    ]
+): IMenu[] {
+    const route = actionsRoute(id)
 
-    return generateContents(id, t, data)
+    return generateMenu(route.new, t, moreData)
 }
