@@ -32,37 +32,6 @@
     "finance": "финансы",
     "more": "еще"
   },
-  "CarActionContents": {
-    "parking": {
-      "parking": "Парковка",
-      "toll_road": "Платная Дорога",
-      "taxi": "Такси и Транспорт",
-      "sober_driver": "Трезвый Водитель",
-      "alarm_system": "Авто Сигнализация"
-    },
-    "repair": {
-      "maintenance": "Плановое ТО",
-      "tire_service": "Шиномонтаж",
-      "repair": "Ремонт",
-      "parts": "Запчасти и расходники",
-      "purchase_tires": "Покупка шин и дисков",
-      "tow_truck": "Эвакуатор"
-    },
-    "finance": {
-      "insurance": "Страховка",
-      "tax": "Налог",
-      "state_inspection": "Гос. Техосмотр",
-      "fine": "Штраф",
-      "car_purchase": "Покупка Автомобиля",
-      "loan_repayment": "Выплата Кредита",
-      "leasing": "Лизинг"
-    },
-    "more": {
-      "car_purchases": "Покупки для авто",
-      "tuning": "Тюнинг",
-      "driver_salary": "Зарплата Водителю"
-    }
-  },
   "PopupError": {
     "title": "Время сеанса истекло",
     "description": "Пожалуйста, закройте приложение и откройте его заново."

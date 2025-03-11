@@ -8,7 +8,7 @@ import { generateContents } from '../utils/generateContents'
 
 export const parkingContents = (
     id: string,
-    t: NestedTranslationClient<'CarActionContents'>
+    t: NestedTranslationClient<'CarCategoryName'>
 ): ActionContentProps[] => {
     const data: ActionContentData[] = [
         {
@@ -38,5 +38,5 @@ export const parkingContents = (
         }
     ]
 
-    return generateContents(id, t, data, 'parking')
+    return generateContents(id, t, data)
 }

@@ -9,7 +9,7 @@ import { ModalContent } from './ModalContent'
 import { useActionButtons } from './hooks/useActionButtons'
 
 export function ActionBlock() {
-    const t = useTranslations('CarActionContents')
+    const t = useTranslations('CarCategoryName')
     const { car } = useCarContext()
     const router = useRouter()
 

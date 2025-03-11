@@ -11,7 +11,7 @@ export interface ActionButtonProps {
 export interface ActionButtonContentProps extends ActionButtonProps {
     content: (
         id: string,
-        t: NestedTranslationClient<'CarActionContents'>
+        t: NestedTranslationClient<'CarCategoryName'>
     ) => ActionContentProps[]
 }
 

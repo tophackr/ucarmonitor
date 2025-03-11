@@ -1,5 +1,5 @@
 import { actionsRoute } from '@/entities/interaction'
-import type { NestedTranslationClient, Translation } from '@/shared/i18n'
+import type { NestedTranslationClient } from '@/shared/i18n'
 import type {
     ActionContentData,
     ActionContentProps
@@ -7,17 +7,14 @@ import type {
 
 export const generateContents = (
     id: string,
-    t: NestedTranslationClient<'CarActionContents'>,
-    data: ActionContentData[],
-    category: string & keyof Translation['CarActionContents']
+    t: NestedTranslationClient<'CarCategoryName'>,
+    data: ActionContentData[]
 ): ActionContentProps[] => {
     const route = actionsRoute(id)
 
     return data.map(item => ({
         ...item,
         href: route.new(item.name),
-        name: t(
-            `${category}.${item.name.replace('-', '_')}` as keyof Translation['CarActionContents'][typeof category]
-        )
+        name: t(item.name)
     }))
 }
