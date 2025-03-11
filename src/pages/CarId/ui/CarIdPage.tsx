@@ -1,36 +1,33 @@
 'use client'
 
-import { List } from '@telegram-apps/telegram-ui'
-import dynamic from 'next/dynamic'
-import { PreviewButtons } from '@/features/PreviewButtons'
-import { CarPreview, useCarContext } from '@/entities/car'
-import { pagesRoute } from '@/shared/routes'
-import { BackButton } from '@/shared/ui/tma'
-import { CarEditButton } from './CarEditButton'
-import { LabelsTemp } from './LabelsTemp'
-
-const DynamicActivitySection = dynamic(
-    () => import('./ActivitySection').then(mod => mod.ActivitySection),
-    { ssr: false }
-)
+import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+import { type ISegment } from '@/features/PreviewSegment'
+import { Info } from './info/Info'
+import { Stats } from './stats/Stats'
+import { SegmentKey } from './types/SegmentKey'
 
 export function CarIdPage() {
-    const { car } = useCarContext()
+    const t = useTranslations('PreviewSegment')
 
-    return (
-        <>
-            <BackButton route={pagesRoute.home} />
-            <CarEditButton car={car} />
+    const segments: ISegment[] = [
+        { key: SegmentKey.info, label: t('info') },
+        { key: SegmentKey.stats, label: t('stats') }
+    ]
 
-            <CarPreview car={car}>
-                <LabelsTemp />
-            </CarPreview>
+    const [segment, setSegment] = useState<string>(SegmentKey.info)
 
-            <List>
-                <PreviewButtons />
-
-                <DynamicActivitySection car={car} />
-            </List>
-        </>
+    return segment === SegmentKey.info ? (
+        <Info
+            segment={segment}
+            setSegment={setSegment}
+            segments={segments}
+        />
+    ) : (
+        <Stats
+            segment={segment}
+            setSegment={setSegment}
+            segments={segments}
+        />
     )
 }
