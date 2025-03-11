@@ -42,7 +42,7 @@ export function MileageSection() {
                 {...register('mileage', {
                     required: t('errors.mileage_required'),
                     valueAsNumber: true,
-                    min: t('errors.negative_number')
+                    min: { value: 0, message: t('errors.mileage_min') }
                 })}
             />
 
@@ -88,7 +88,10 @@ export function MileageSection() {
                     bgColor={'MediumPurple'}
                     header={t('engine_hours.title')}
                     placeholder={t('engine_hours.title')}
-                    {...register('engineHours')}
+                    {...register('engineHours', {
+                        valueAsNumber: true,
+                        min: { value: 0, message: t('errors.engine_hours_min') }
+                    })}
                 />
             )}
         </Section>

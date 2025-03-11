@@ -26,7 +26,7 @@ export function FuelSection() {
                 placeholder={t('fuel.capacity')}
                 {...register('fuelCapacity', {
                     valueAsNumber: true,
-                    min: { value: 0, message: t('errors.negative_number') }
+                    min: { value: 0, message: t('errors.fuel_capacity_min') }
                 })}
             />
             <IconSelect
