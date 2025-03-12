@@ -1,15 +1,14 @@
 'use client'
 
-import React, { type PropsWithChildren, memo, useState } from 'react'
-import type { MouseClickEvent } from '@/shared/lib/dom'
+import { type PropsWithChildren, memo, useState } from 'react'
+import type { EditButtonProps } from '../../model/EditButtonProps'
 import { EditSetValueContext } from './EditSetValueContext'
 import { EditValueContext } from './EditValueContext'
 
 export const EditContextProvider = memo(function EditContextProvider({
     children
 }: PropsWithChildren) {
-    const [editValue, setEditValue] =
-        useState<MouseClickEvent<React.MouseEvent<Element, MouseEvent>>>()
+    const [editValue, setEditValue] = useState<EditButtonProps>()
 
     return (
         <EditSetValueContext.Provider value={{ setEditValue }}>

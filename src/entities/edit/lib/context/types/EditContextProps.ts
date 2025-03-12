@@ -1,12 +1,9 @@
-import React from 'react'
-import type { MouseClickEvent } from '@/shared/lib/dom'
+import type { EditButtonProps } from '../../../model/EditButtonProps'
 
 export interface EditValueContextProps {
-    editValue?: MouseClickEvent<React.MouseEvent<Element, MouseEvent>>
+    editValue?: EditButtonProps
 }
 
 export interface EditSetValueContextProps {
-    setEditValue: (
-        value?: MouseClickEvent<React.MouseEvent<Element, MouseEvent>>
-    ) => void
+    setEditValue: (value?: EditButtonProps) => void
 }

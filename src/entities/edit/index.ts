@@ -1,2 +1,2 @@
 export * from './lib'
-export * from './ui'
+export { EditButton } from './ui/EditButton'

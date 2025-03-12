@@ -13,7 +13,7 @@ export function EditButton() {
                 size={'m'}
                 {...editValue}
             >
-                <Icon name={'Pencil'} />
+                <Icon name={editValue?.icon ?? 'Pencil'} />
             </IconButton>
         )
     )

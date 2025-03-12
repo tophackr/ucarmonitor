@@ -2,7 +2,7 @@
 
 import { memo, useEffect } from 'react'
 import { useEditSetValueContext } from '../lib/context/hooks/useEditSetValueContext'
-import type { EditButtonProps } from './types/EditButtonProps'
+import type { EditButtonProps } from '../model/EditButtonProps'
 
 export const EditButton = memo(function EditButton(props: EditButtonProps) {
     const { setEditValue } = useEditSetValueContext()
