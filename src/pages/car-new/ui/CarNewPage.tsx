@@ -1,4 +1,4 @@
-import { InfoForm } from '@/features/InfoForm'
+import { InfoForm } from '@/features/info-form'
 import { BackButton } from '@/shared/ui/tma'
 
 export function CarNewPage() {

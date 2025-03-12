@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, use } from 'react'
-import { InteractionForm } from '@/features/InteractionForm'
+import { InteractionForm } from '@/features/interaction-form'
 import {
     type CategoryProps,
     useInteractionContext

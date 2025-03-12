@@ -1,7 +1,7 @@
 import { List, Placeholder, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { memo } from 'react'
-import { type SegmentProps, Segments } from '@/features/PreviewSegment'
+import { type SegmentProps, Segments } from '@/features/preview-segment'
 import { useCarContext } from '@/entities/car'
 import { StatsCategory, statsRoute } from '@/entities/stat'
 import { generateMenu } from '@/shared/lib/link-menu'

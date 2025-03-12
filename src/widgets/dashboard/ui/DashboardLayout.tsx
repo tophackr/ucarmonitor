@@ -1,6 +1,6 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { type PropsWithChildren, memo } from 'react'
-import { Header } from '@/features/Header'
+import { Header } from '@/features/header1'
 import { EditContextProvider } from '@/entities/edit'
 
 export const DashboardLayout = memo(function DashboardLayout({

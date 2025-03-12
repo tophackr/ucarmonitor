@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
-import { type ISegment } from '@/features/PreviewSegment'
+import { type ISegment } from '@/features/preview-segment'
 import { pagesRoute } from '@/shared/routes'
 import { BackButton } from '@/shared/ui/tma'
 import { Info } from './info/Info'

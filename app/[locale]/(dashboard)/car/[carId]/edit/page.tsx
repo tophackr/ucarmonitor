@@ -1,1 +1,1 @@
-export { CarEditPage as default } from '@/pages/CarEdit'
+export { CarEditPage as default } from '@/pages/car-edit'

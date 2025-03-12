@@ -1,1 +1,1 @@
-export { InteractionIdLoading as default } from '@/pages/InteractionId'
+export { InteractionIdLoading as default } from '@/pages/interaction-id'

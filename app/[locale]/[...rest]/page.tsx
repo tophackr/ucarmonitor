@@ -1,1 +1,1 @@
-export { CatchAllPage as default } from '@/pages/NotFound'
+export { CatchAllPage as default } from '@/pages/not-found'

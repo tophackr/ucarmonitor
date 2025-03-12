@@ -1,1 +1,1 @@
-export { CarIdPage as default } from '@/pages/CarId'
+export { CarIdPage as default } from '@/pages/car-id'

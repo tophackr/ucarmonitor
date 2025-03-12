@@ -1,6 +1,6 @@
 'use client'
 
-import { InfoForm } from '@/features/InfoForm'
+import { InfoForm } from '@/features/info-form'
 import { useCarContext } from '@/entities/car'
 import { BackButton } from '@/shared/ui/tma'
 
