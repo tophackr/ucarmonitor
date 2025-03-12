@@ -1,4 +1,1 @@
-export {
-    CategoryPage as default,
-    generateStaticParams
-} from '@/pages/category1'
+export { CategoryPage as default, generateStaticParams } from '@/pages/category'

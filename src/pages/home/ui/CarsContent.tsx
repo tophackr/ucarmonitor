@@ -1,7 +1,7 @@
 'use client'
 
 import { memo, useCallback, useState } from 'react'
-import { type SearchForm, SearchPage } from '@/features/search1'
+import { type SearchForm, SearchPage } from '@/features/search'
 import { CarCell, type ICar, useCars } from '@/entities/car'
 
 interface ContentProps {
