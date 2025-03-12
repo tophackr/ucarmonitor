@@ -1,33 +1,38 @@
+import { StatsCategory } from '@/entities/stats'
 import type { KeyMenu } from '@/shared/lib/link-menu'
-import { StatsGroup, StatsMenu } from './types/StatsMenu'
 
-export const menuData: KeyMenu<StatsMenu>[] = [
+enum StatsGroup {
+    stats = 'stats',
+    calculated = 'calculated'
+}
+
+export const menuData: KeyMenu<StatsCategory>[] = [
     {
-        name: StatsMenu.cost,
+        name: StatsCategory.cost,
         icon: 'ChartPie',
         bgColor: 'Orange',
         group: StatsGroup.stats
     },
     {
-        name: StatsMenu.list,
+        name: StatsCategory.list,
         icon: 'ListTodo',
         bgColor: 'MediumPurple',
         group: StatsGroup.stats
     },
     {
-        name: StatsMenu.fuel,
+        name: StatsCategory.fuel,
         icon: 'ChartNoAxesCombined',
         bgColor: 'DodgerBlue',
         group: StatsGroup.stats
     },
     {
-        name: StatsMenu.parts,
+        name: StatsCategory.parts,
         icon: 'Bolt',
         bgColor: 'LimeGreen',
         group: StatsGroup.calculated
     },
     {
-        name: StatsMenu.tripCost,
+        name: StatsCategory.tripCost,
         icon: 'Caravan',
         bgColor: 'DeepPink',
         group: StatsGroup.calculated

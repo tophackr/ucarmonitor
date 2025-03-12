@@ -1,12 +1,7 @@
-export enum StatsMenu {
+export enum StatsCategory {
     cost = 'cost',
     list = 'list',
     fuel = 'fuel',
     parts = 'parts',
     tripCost = 'trip-cost'
-}
-
-export enum StatsGroup {
-    stats = 'stats',
-    calculated = 'calculated'
 }
