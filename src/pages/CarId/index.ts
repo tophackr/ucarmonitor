@@ -1,1 +1,2 @@
-export * from './ui'
+export { CarIdLoading } from './ui/CarIdLoading'
+export { CarIdPage } from './ui/CarIdPage'

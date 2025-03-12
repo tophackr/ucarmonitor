@@ -1,2 +1,3 @@
 export { NotFoundMetadata } from './model/metadata'
-export * from './ui'
+export { CatchAllPage } from './ui/CatchAllPage'
+export { NotFound } from './ui/NotFound'

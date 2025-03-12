@@ -2,8 +2,8 @@ import { type PropsWithChildren, memo } from 'react'
 import { Toaster } from 'sonner'
 import { DefaultCarContextProvider } from '@/entities/default-car'
 import { I18nProvider } from '@/shared/i18n'
-import { StoreProvider } from '../store'
-import { TelegramProvider } from '../tma'
+import { StoreProvider } from '../store/provider'
+import { TelegramProvider } from '../tma/provider'
 
 export const Providers = memo(function Providers({
     children

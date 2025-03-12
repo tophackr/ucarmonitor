@@ -1,1 +1,1 @@
-export * from './seo'
+export { NO_INDEX_PAGE, SITE_DESCRIPTION, SITE_NAME } from './seo'

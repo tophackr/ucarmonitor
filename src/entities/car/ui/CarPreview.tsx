@@ -4,7 +4,7 @@ import { type PropsWithChildren, memo } from 'react'
 import { ListSection } from '@/shared/ui'
 import type { CarProps } from '../model/Props'
 import { CarAvatar } from './CarAvatar'
-import { useIntlCarUnit } from './useIntlCarUnit'
+import { useIntlCarUnit } from './hooks/useIntlCarUnit'
 
 export const CarPreview = memo(function CarPreview({
     car,

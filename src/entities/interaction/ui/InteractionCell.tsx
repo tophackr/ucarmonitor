@@ -7,9 +7,9 @@ import { type CarProps, useIntlCarUnit } from '@/entities/car/@x/interactions'
 import { useIntlCurrency, useIntlTimeAgo } from '@/shared/i18n'
 import { daysAfterToday } from '@/shared/lib/date'
 import { useButtonClick } from '@/shared/lib/dom'
-import { InteractionCategory } from '../model'
+import { InteractionCategory } from '../model/Interaction'
 import type { InteractionProps } from '../model/Props'
-import { actionsRoute } from '../routes'
+import { actionsRoute } from '../routes/actions'
 
 export const InteractionCell = memo(function InteractionCell({
     interaction: { id, type, description, amount, engineHours, date, mileage },

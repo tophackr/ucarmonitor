@@ -1,4 +1,5 @@
 export { CheckCell } from './CheckCell'
-export * from './icon'
+export { IconBeforeCell } from './icon/IconBeforeCell'
+export type { IconBeforeCellProps } from './icon/IconBeforeCellProps'
 export { IconCell } from './IconCell'
 export { LinkCell } from './link/LinkCell'

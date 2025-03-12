@@ -6,7 +6,7 @@ import 'normalize.css/normalize.css'
 import { type PropsWithChildren, memo } from 'react'
 import { type LocaleProps, routing } from '@/shared/i18n'
 import type { ParamsProps } from '@/shared/lib/dom'
-import { Providers } from '../providers'
+import { Providers } from '../providers/Providers'
 import '../styles/globals.css'
 
 export const AppLayout = memo(async function AppLayout({

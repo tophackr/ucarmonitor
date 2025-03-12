@@ -1,1 +1,1 @@
-export { useCars } from '../lib'
+export { useCars } from '../lib/store/useCars'
