@@ -1,16 +1,11 @@
 'use client'
 
-import { memo, useCallback, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { type SearchForm, SearchPage } from '@/features/search'
-import { CarCell, type ICar, useCars } from '@/entities/car'
+import { CarCell, type ICar, useCars, useCarsInitContext } from '@/entities/car'
 
-interface ContentProps {
-    isLoading: boolean
-}
-
-export const CarsContent = memo(function CarsContent({
-    isLoading
-}: ContentProps) {
+export function CarsContent() {
+    const { isLoading } = useCarsInitContext()
     const { cars } = useCars()
 
     const [searchValue, setSearchValue] = useState('')
@@ -55,4 +50,4 @@ export const CarsContent = memo(function CarsContent({
             onSearch={onSearch}
         />
     )
-})
+}

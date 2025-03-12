@@ -6,8 +6,8 @@ import { type SegmentProps, Segments } from '@/features/preview-segment'
 import { CarPreview, useCarContext } from '@/entities/car'
 import { CarEditButton } from './CarEditButton'
 
-const DynamicActivitySection = dynamic(
-    () => import('./ActivitySection').then(mod => mod.ActivitySection),
+const DynamicInteractionList = dynamic(
+    () => import('@/entities/interaction').then(mod => mod.InteractionList),
     { ssr: false }
 )
 
@@ -25,7 +25,10 @@ export const Info = memo(function Info(segmentProps: SegmentProps) {
             <List>
                 <PreviewButtons />
 
-                <DynamicActivitySection car={car} />
+                <DynamicInteractionList
+                    car={car}
+                    slice={10}
+                />
             </List>
         </>
     )

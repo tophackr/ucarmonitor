@@ -1,8 +1,9 @@
 'use client'
 
 import { useCallback, useState } from 'react'
-import { getCars, useCars } from '@/entities/car'
 import { useEffectOnce } from '@/shared/lib/dom'
+import { getCars } from './cars'
+import { useCars } from './useCars'
 
 export function useLoadingCars() {
     const { setCars } = useCars()

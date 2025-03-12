@@ -1,1 +1,1 @@
-export { CarContextProvider as default } from '@/entities/car'
+export { CarIdLayout as default } from '@/pages/car-id'

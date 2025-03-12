@@ -1,2 +1,2 @@
-export { DefaultCarContextProvider } from './lib/context/DefaultCarContext'
+export { DefaultCarContextProvider } from './lib/context/DefaultCarContextProvider'
 export { useDefaultCarContext } from './lib/context/hooks/useDefaultCarContext'

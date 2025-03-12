@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { findById } from '@/shared/lib/id'
-import { useCars } from '../store/useCars'
+import { useCars } from '../../store/useCars'
 
 export function useFindCar(carId: string) {
     const { cars } = useCars()

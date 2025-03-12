@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { findById } from '@/shared/lib/id'
-import { useInteractions } from '../store/useInteractions'
+import { useInteractions } from '../../store/useInteractions'
 
 export function useFindInteraction(interactionId: string) {
     const { interactions } = useInteractions()

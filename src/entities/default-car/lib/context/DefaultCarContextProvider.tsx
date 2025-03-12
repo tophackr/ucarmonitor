@@ -2,7 +2,6 @@
 
 import {
     type PropsWithChildren,
-    createContext,
     memo,
     useCallback,
     useEffect,
@@ -11,11 +10,7 @@ import {
 import { useCars } from '@/entities/car/@x/default-car'
 import { useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
-import type { DefaultCarState } from './types/DefaultCarState'
-
-export const DefaultCarContext = createContext<DefaultCarState>({
-    isInit: false
-})
+import { DefaultCarContext } from './DefaultCarContext'
 
 export const DefaultCarContextProvider = memo(
     function DefaultCarContextProvider({ children }: PropsWithChildren) {
