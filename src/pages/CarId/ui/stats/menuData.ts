@@ -1,4 +1,4 @@
-import { StatsCategory } from '@/entities/stats'
+import { StatsCategory } from '@/entities/stat'
 import type { KeyMenu } from '@/shared/lib/link-menu'
 
 enum StatsGroup {
