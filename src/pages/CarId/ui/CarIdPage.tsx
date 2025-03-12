@@ -3,6 +3,8 @@
 import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { type ISegment } from '@/features/PreviewSegment'
+import { pagesRoute } from '@/shared/routes'
+import { BackButton } from '@/shared/ui/tma'
 import { Info } from './info/Info'
 import { Stats } from './stats/Stats'
 import { SegmentKey } from './types/SegmentKey'
@@ -17,17 +19,23 @@ export function CarIdPage() {
 
     const [segment, setSegment] = useState<string>(SegmentKey.info)
 
-    return segment === SegmentKey.info ? (
-        <Info
-            segment={segment}
-            setSegment={setSegment}
-            segments={segments}
-        />
-    ) : (
-        <Stats
-            segment={segment}
-            setSegment={setSegment}
-            segments={segments}
-        />
+    return (
+        <>
+            <BackButton route={pagesRoute.home} />
+
+            {segment === SegmentKey.info ? (
+                <Info
+                    segment={segment}
+                    setSegment={setSegment}
+                    segments={segments}
+                />
+            ) : (
+                <Stats
+                    segment={segment}
+                    setSegment={setSegment}
+                    segments={segments}
+                />
+            )}
+        </>
     )
 }
