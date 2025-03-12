@@ -57,38 +57,38 @@ export const BaseSection = memo(function BaseSection({
                 />
 
                 {getValues('type') === InteractionCategory.mileage ? (
-                    <IconInput
-                        type={'number'}
-                        icon={'Clock'}
-                        bgColor={'MediumPurple'}
-                        header={t('engine_hours')}
-                        placeholder={t('engine_hours')}
-                        {...register('engineHours', {
-                            valueAsNumber: true,
-                            min: {
-                                value: 0,
-                                message: t('errors.engine_hours_min')
-                            }
-                        })}
-                    />
-                ) : (
                     car.engineHoursEnabled && (
                         <IconInput
                             type={'number'}
-                            status={errors.amount && 'error'}
-                            icon={'LandPlot'}
-                            bgColor={'Orange'}
-                            placeholder={t('amount')}
-                            {...register('amount', {
-                                required: t('errors.amount_required'),
+                            icon={'Clock'}
+                            bgColor={'MediumPurple'}
+                            header={t('engine_hours')}
+                            placeholder={t('engine_hours')}
+                            {...register('engineHours', {
                                 valueAsNumber: true,
                                 min: {
                                     value: 0,
-                                    message: t('errors.amount_min')
+                                    message: t('errors.engine_hours_min')
                                 }
                             })}
                         />
                     )
+                ) : (
+                    <IconInput
+                        type={'number'}
+                        status={errors.amount && 'error'}
+                        icon={'LandPlot'}
+                        bgColor={'Orange'}
+                        placeholder={t('amount')}
+                        {...register('amount', {
+                            required: t('errors.amount_required'),
+                            valueAsNumber: true,
+                            min: {
+                                value: 0,
+                                message: t('errors.amount_min')
+                            }
+                        })}
+                    />
                 )}
             </Section>
 
