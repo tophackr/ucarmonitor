@@ -2,8 +2,9 @@ export { useInteractionContext } from './lib/context/hooks/useInteractionContext
 export { useInteractionsInitContext } from './lib/context/hooks/useInteractionsInitContext'
 export { InteractionContextProvider } from './lib/context/InteractionContextProvider'
 export { InteractionsInitContextProvider } from './lib/context/InteractionsInitContextProvider'
+export { useInteractions } from './lib/store/hooks/useInteractions'
+export { useSortedInteractions } from './lib/store/hooks/useSortedInteractions'
 export { interactionsSliceReducer } from './lib/store/interaction.slice'
-export { useInteractions } from './lib/store/useInteractions'
 export { FuelGrade, type IFuel } from './model/Fuel'
 export {
     InteractionCategory,

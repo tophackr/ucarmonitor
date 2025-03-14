@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import { useEffectOnce } from '@/shared/lib/dom'
-import { getInteractions } from './interaction'
+import { getInteractions } from '../interaction'
 import { useInteractions } from './useInteractions'
 
 export function useLoadingInteractions() {

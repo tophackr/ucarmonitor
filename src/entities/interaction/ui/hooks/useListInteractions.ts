@@ -1,5 +1,5 @@
-import { useCallback } from 'react'
-import { useInteractions } from '../../lib/store/useInteractions'
+import { useMemo } from 'react'
+import { useSortedInteractions } from '../../lib/store/hooks/useSortedInteractions'
 import type { IInteraction } from '../../model/Interaction'
 
 interface GroupedInteractions {
@@ -10,20 +10,13 @@ export function useListInteractions(
     carId: string,
     slice?: number
 ): GroupedInteractions | IInteraction[] {
-    const { interactions } = useInteractions()
+    const sortedInteractions = useSortedInteractions({ carId })
 
-    const callback = useCallback(
-        (slice?: number) => {
-            const filterSortInteractions = [...interactions]
-                .filter(inter => inter.carId === carId)
-                .sort(
-                    (a, b) =>
-                        new Date(b.date).getTime() - new Date(a.date).getTime()
-                )
-
-            return slice
-                ? filterSortInteractions.slice(0, slice)
-                : filterSortInteractions.reduce<GroupedInteractions>(
+    return useMemo(
+        () =>
+            slice
+                ? sortedInteractions.slice(0, slice)
+                : sortedInteractions.reduce<GroupedInteractions>(
                       (acc, item) => {
                           const date = new Date(item.date)
                           const monthKey = `${date.getFullYear()}-${(
@@ -41,10 +34,7 @@ export function useListInteractions(
                           return acc
                       },
                       {}
-                  )
-        },
-        [carId, interactions]
+                  ),
+        [sortedInteractions, slice]
     )
-
-    return callback(slice)
 }

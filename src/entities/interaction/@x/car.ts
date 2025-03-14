@@ -1,2 +1,2 @@
-export { useSortedInteractions } from '../lib/context/hooks/useSortedInteractions'
+export { useSortedInteractions } from '../lib/store/hooks/useSortedInteractions'
 export { InteractionCategory } from '../model/Interaction'

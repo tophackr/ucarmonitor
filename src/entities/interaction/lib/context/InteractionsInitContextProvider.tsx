@@ -1,7 +1,7 @@
 'use client'
 
 import { type PropsWithChildren, memo } from 'react'
-import { useLoadingInteractions } from '../store/useLoadingInteractions'
+import { useLoadingInteractions } from '../store/hooks/useLoadingInteractions'
 import { InteractionsInitContext } from './InteractionsInitContext'
 
 export const InteractionsInitContextProvider = memo(

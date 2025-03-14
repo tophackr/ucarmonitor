@@ -23,9 +23,9 @@ export const CarContextProvider = memo(function CarContextProvider({
         notFound()
     }
 
-    const sortedInteractions = useSortedInteractions()
+    const sortedInteractions = useSortedInteractions({ carId: car.id })
     const lastMileage = sortedInteractions.find(
-        i => i.carId === car.id && i.type === InteractionCategory.mileage
+        i => i.type === InteractionCategory.mileage
     )
 
     const mileage = lastMileage ? lastMileage.mileage : car.mileage

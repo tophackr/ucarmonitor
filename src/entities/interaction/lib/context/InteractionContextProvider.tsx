@@ -4,8 +4,8 @@ import { notFound } from 'next/navigation'
 import { type PropsWithChildren, memo, use } from 'react'
 import type { ParamsProps } from '@/shared/lib/dom'
 import type { InteractionIdProps } from '../../model/Props'
+import { useFindInteraction } from '../store/hooks/useFindInteraction'
 import { InteractionContext } from './InteractionContext'
-import { useFindInteraction } from './hooks/useFindInteraction'
 
 export const InteractionContextProvider = memo(
     function InteractionContextProvider({
