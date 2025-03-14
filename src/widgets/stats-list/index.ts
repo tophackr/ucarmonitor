@@ -1,2 +1,2 @@
-export { StatsParts } from './ui/parts/StatsParts'
 export { StatsList } from './ui/StatsList'
+export { StatsParts } from './ui/StatsParts'
