@@ -3,6 +3,7 @@ export { useIntlCurrency } from './hooks/useIntlCurrency'
 export { useIntlDateTime } from './hooks/useIntlDateTime'
 export { useIntlTimeAgo } from './hooks/useIntlTimeAgo'
 export { useIntlUnit } from './hooks/useIntlUnit'
+export { useMessagesKeys } from './hooks/useMessageKeys'
 export { I18nProvider } from './provider'
 export {
     getPathname,

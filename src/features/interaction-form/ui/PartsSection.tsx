@@ -1,21 +1,21 @@
 'use client'
 
 import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
-import { useMessages, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useFormContext } from 'react-hook-form'
 import type { IParts } from '@/entities/interaction'
-import type { Translation } from '@/shared/i18n'
-import type { PartsOptions } from './types/TranslationOptions'
+import { useMessagesKeys } from '@/shared/i18n'
 
 export function PartsSection() {
     const t = useTranslations('CarActionForm')
 
     const { register } = useFormContext<IParts>()
 
-    const messages = useMessages() as unknown as Translation
-    const partsOptionsKeys = Object.keys(
-        messages.CarActionForm.parts_work.options
-    ) as unknown as PartsOptions[]
+    const partsOptionsKeys = useMessagesKeys(
+        'CarActionForm',
+        'parts_work',
+        'options'
+    )
 
     return (
         <Section header={t('parts_work.title')}>

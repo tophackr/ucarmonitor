@@ -1,11 +1,10 @@
 'use client'
 
 import { Cell, Section } from '@telegram-apps/telegram-ui'
-import { useMessages, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { type IParts, useInteractionContext } from '@/entities/interaction'
-import type { Translation } from '@/shared/i18n'
-import type { PartsOptions } from './types/TranslationOptions'
+import { useMessagesKeys } from '@/shared/i18n'
 
 export function PartsSection() {
     const t = useTranslations('CarActionForm')
@@ -13,10 +12,11 @@ export function PartsSection() {
     const { interaction } = useInteractionContext()
     const { partsList } = interaction as IParts
 
-    const messages = useMessages() as unknown as Translation
-    const partsOptionsKeys = Object.keys(
-        messages.CarActionForm.parts_work.options
-    ) as unknown as PartsOptions[]
+    const partsOptionsKeys = useMessagesKeys(
+        'CarActionForm',
+        'parts_work',
+        'options'
+    )
 
     const partsListFiltered = useMemo(
         () => partsOptionsKeys.filter(i => partsList?.includes(i)),

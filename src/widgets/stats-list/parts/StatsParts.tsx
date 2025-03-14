@@ -1,19 +1,20 @@
 'use client'
 
 import { Cell, List, Progress, Section } from '@telegram-apps/telegram-ui'
-import { useMessages, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useCarContext } from '@/entities/car'
-import type { Translation } from '@/shared/i18n'
+import { useMessagesKeys } from '@/shared/i18n'
 
 export function StatsParts() {
     const t = useTranslations('CarActionForm')
 
     const { mileage } = useCarContext()
 
-    const messages = useMessages() as unknown as Translation
-    const repairOptionsKeys = Object.keys(
-        messages.CarActionForm.repair_work.options
-    ) as unknown as (keyof Translation['CarActionForm']['repair_work']['options'])[]
+    const repairOptionsKeys = useMessagesKeys(
+        'CarActionForm',
+        'repair_work',
+        'options'
+    )
 
     return (
         <List>
