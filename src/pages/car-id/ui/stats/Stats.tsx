@@ -9,7 +9,7 @@ import { LinkCell } from '@/shared/ui/cell'
 import { menuData } from './menuData'
 
 export const Stats = memo(function Stats(segmentProps: SegmentProps) {
-    const t = useTranslations('PreviewStatsSegment')
+    const t = useTranslations('StatsCategoryName')
     const { car } = useCarContext()
 
     const data = generateMenu(

@@ -239,11 +239,14 @@
     "info": "Информация",
     "stats": "Статистика"
   },
-  "PreviewStatsSegment": {
+  "StatsCategoryName": {
     "cost": "Статистика расходов",
     "list": "Список расходов",
     "fuel": "Расход топлива",
     "parts": "Расходники",
     "trip-cost": "Стоимость поездки"
+  },
+  "Stats": {
+    "total": "Итого"
   }
 }

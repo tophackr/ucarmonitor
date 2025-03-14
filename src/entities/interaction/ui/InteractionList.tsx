@@ -1,42 +1,28 @@
 import { Section } from '@telegram-apps/telegram-ui'
-import clsx from 'clsx'
 import { useFormatter, useTranslations } from 'next-intl'
 import { memo } from 'react'
 import type { CarProps } from '@/entities/car/@x/interactions'
 import { NothingPlaceholder } from '@/shared/ui/placeholder'
-import { isAppleClient } from '@/shared/ui/tma'
 import { InteractionCell } from './InteractionCell'
+import { InteractionSumFooter } from './InteractionSumFooter'
 import { useListInteractions } from './hooks/useListInteractions'
 
 interface InteractionListProps {
     slice?: number
-    title?: string
 }
 
 export const InteractionList = memo(function InteractionList({
     car,
-    slice,
-    title
+    slice
 }: CarProps & InteractionListProps) {
     const t = useTranslations('Car')
 
     const formatter = useFormatter()
 
-    const isApple = isAppleClient()
-
     const interactions = useListInteractions(car.id, slice)
 
     return (
         <>
-            {title && (
-                <Section.Header
-                    large
-                    className={clsx(isApple && '!pb-0 !pt-4 !mb-0')}
-                >
-                    {title}
-                </Section.Header>
-            )}
-
             {interactions instanceof Array ? (
                 <Section header={t('last_activity')}>
                     {interactions.length ? (
@@ -59,6 +45,11 @@ export const InteractionList = memo(function InteractionList({
                             year: 'numeric',
                             month: 'long'
                         })}
+                        footer={
+                            <InteractionSumFooter
+                                interactions={interactions[date]}
+                            />
+                        }
                     >
                         {interactions[date].map(i => (
                             <InteractionCell
@@ -70,7 +61,9 @@ export const InteractionList = memo(function InteractionList({
                     </Section>
                 ))
             ) : (
-                <NothingPlaceholder />
+                <Section>
+                    <NothingPlaceholder />
+                </Section>
             )}
         </>
     )
