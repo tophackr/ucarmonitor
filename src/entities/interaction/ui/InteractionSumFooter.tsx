@@ -9,7 +9,7 @@ interface InteractionSumFooterProps {
 
 export function InteractionSumFooter({
     interactions
-}: InteractionSumFooterProps) {
+}: InteractionSumFooterProps): string {
     const t = useTranslations('Stats')
 
     const sumAmount = reduceSumItems([...interactions], 'amount')

@@ -5,7 +5,11 @@ import { useEffectOnce } from '@/shared/lib/dom'
 import { getCars } from './cars'
 import { useCars } from './useCars'
 
-export function useLoadingCars() {
+interface UseLoadingCarsReturn {
+    isLoading: boolean
+}
+
+export function useLoadingCars(): UseLoadingCarsReturn {
     const { setCars } = useCars()
 
     const [isLoading, setIsLoading] = useState(false)

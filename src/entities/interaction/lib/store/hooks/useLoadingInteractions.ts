@@ -5,7 +5,11 @@ import { useEffectOnce } from '@/shared/lib/dom'
 import { getInteractions } from '../interaction'
 import { useInteractions } from './useInteractions'
 
-export function useLoadingInteractions() {
+interface UseLoadingInteractionsReturn {
+    isLoading: boolean
+}
+
+export function useLoadingInteractions(): UseLoadingInteractionsReturn {
     const { setInteractions } = useInteractions()
 
     const [isLoading, setIsLoading] = useState(false)

@@ -1,7 +1,14 @@
 import { useCallback } from 'react'
 import { useInteractions } from '@/entities/interaction'
 
-export function useDeleteInteraction(id: string, carId: string) {
+interface UseDeleteInteractionReturn {
+    callback: () => Promise<void>
+}
+
+export function useDeleteInteraction(
+    id: string,
+    carId: string
+): UseDeleteInteractionReturn {
     const { interactions, setInteractionWithCloud } = useInteractions()
 
     const callback = useCallback(() => {

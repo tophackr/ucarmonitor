@@ -1,13 +1,13 @@
 'use client'
 
-import { type PropsWithChildren, memo, useState } from 'react'
+import { type JSX, type PropsWithChildren, memo, useState } from 'react'
 import type { EditButtonProps } from '../../model/EditButtonProps'
 import { EditSetValueContext } from './EditSetValueContext'
 import { EditValueContext } from './EditValueContext'
 
 export const EditContextProvider = memo(function EditContextProvider({
     children
-}: PropsWithChildren) {
+}: PropsWithChildren): JSX.Element {
     const [editValue, setEditValue] = useState<EditButtonProps>()
 
     return (

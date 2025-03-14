@@ -5,7 +5,7 @@ export function isCleanedEqual(
     before: object,
     after: object,
     removeZero?: boolean
-) {
+): boolean {
     const cleanedBefore = removeEmptyValues(before, removeZero)
     const cleanedAfter = removeEmptyValues(after, removeZero)
 

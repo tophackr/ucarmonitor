@@ -1,7 +1,7 @@
 'use client'
 
 import { Cell as TGUICell } from '@telegram-apps/telegram-ui'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { callMultiple, useButtonClick } from '@/shared/lib/dom'
 import { ChevronAfterCell } from '../ChevronAfterCell'
 import { IconBeforeCell } from '../icon/IconBeforeCell'
@@ -15,7 +15,7 @@ export const LinkCell = memo(function LinkCell({
     text,
     onClick,
     ...props
-}: LinkCellProps) {
+}: LinkCellProps): JSX.Element {
     const { disabled, onClick: onClickHref } = useButtonClick({ route: href })
 
     return (

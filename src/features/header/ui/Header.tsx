@@ -2,6 +2,7 @@
 
 import { themeParams } from '@telegram-apps/sdk-react'
 import clsx from 'clsx'
+import type { JSX } from 'react'
 import { usePathname } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { ListSection } from '@/shared/ui'
@@ -9,7 +10,7 @@ import { SettingsButton } from '@/shared/ui/tma'
 import { CarsButton } from './buttons/CarsButton'
 import { EditButton } from './buttons/EditButton'
 
-export function Header() {
+export function Header(): JSX.Element {
     const pathname = usePathname()
 
     const isNotSameTheme =

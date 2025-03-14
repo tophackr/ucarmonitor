@@ -2,7 +2,7 @@
 
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
 import { useFormatter, useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { type CarProps, useIntlCarUnit } from '@/entities/car/@x/interactions'
 import { useIntlCurrency, useIntlTimeAgo } from '@/shared/i18n'
 import { daysAfterToday } from '@/shared/lib/date'
@@ -14,7 +14,7 @@ import { actionsRoute } from '../routes/actions'
 export const InteractionCell = memo(function InteractionCell({
     interaction: { id, type, description, amount, engineHours, date, mileage },
     car
-}: InteractionProps & CarProps) {
+}: InteractionProps & CarProps): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
     const currency = useIntlCurrency(amount)

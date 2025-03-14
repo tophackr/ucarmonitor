@@ -1,6 +1,6 @@
 import { List } from '@telegram-apps/telegram-ui'
 import dynamic from 'next/dynamic'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { PreviewButtons } from '@/features/preview-buttons'
 import { type SegmentProps, Segments } from '@/features/preview-segment'
 import { CarPreview, useCarContext } from '@/entities/car'
@@ -11,7 +11,9 @@ const DynamicInteractionList = dynamic(
     { ssr: false }
 )
 
-export const Info = memo(function Info(segmentProps: SegmentProps) {
+export const Info = memo(function Info(
+    segmentProps: SegmentProps
+): JSX.Element {
     const { car, mileage } = useCarContext()
 
     return (

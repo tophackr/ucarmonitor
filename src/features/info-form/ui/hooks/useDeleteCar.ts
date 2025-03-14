@@ -1,7 +1,11 @@
 import { useCallback } from 'react'
 import { useCars } from '@/entities/car'
 
-export function useDeleteCar(carId: string) {
+interface UseDeleteCarReturn {
+    deleteCallback: () => Promise<void>
+}
+
+export function useDeleteCar(carId: string): UseDeleteCarReturn {
     const { cars, setCarsWithCloud } = useCars()
 
     const deleteCallback = useCallback(() => {

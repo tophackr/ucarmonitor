@@ -19,7 +19,7 @@ const interactionsSlice = createSlice({
         setInteractions(
             state: WritableDraft<InteractionState>,
             action: PayloadAction<IInteraction[]>
-        ) {
+        ): void {
             state.value = action.payload
         }
     }

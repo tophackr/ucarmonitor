@@ -1,6 +1,6 @@
 'use client'
 
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import type { CarIdProps } from '@/entities/car'
 import type { InteractionIdProps } from '@/entities/interaction'
 import { useButtonClick } from '@/shared/lib/dom'
@@ -11,7 +11,7 @@ import { useDeleteInteraction } from './hooks/useDeleteInteraction'
 export const DeleteInteractionButton = memo(function DeleteInteractionButton({
     carId,
     interactionId
-}: CarIdProps & InteractionIdProps) {
+}: CarIdProps & InteractionIdProps): JSX.Element {
     const { callback } = useDeleteInteraction(interactionId, carId)
 
     const props = useButtonClick({

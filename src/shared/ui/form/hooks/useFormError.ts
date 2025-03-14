@@ -5,7 +5,11 @@ import { useCallback } from 'react'
 import type { FieldErrors, FieldValues } from 'react-hook-form'
 import { toast } from '@/shared/lib/toast'
 
-export function useFormError<T extends FieldValues>() {
+interface UseFormErrorReturn<T extends FieldValues> {
+    onErrorCallback: (errors: FieldErrors<T>) => void
+}
+
+export function useFormError<T extends FieldValues>(): UseFormErrorReturn<T> {
     const t = useTranslations('Common')
 
     const onErrorCallback = useCallback(

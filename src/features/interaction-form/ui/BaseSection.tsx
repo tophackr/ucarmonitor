@@ -2,7 +2,7 @@
 
 import { FileInput, Section, Textarea } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo, useState } from 'react'
+import { type JSX, memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useCarContext } from '@/entities/car'
 import {
@@ -19,7 +19,7 @@ interface BaseSectionProps {
 
 export const BaseSection = memo(function BaseSection({
     title
-}: BaseSectionProps) {
+}: BaseSectionProps): JSX.Element {
     const t = useTranslations('CarActionForm')
 
     const { car } = useCarContext()

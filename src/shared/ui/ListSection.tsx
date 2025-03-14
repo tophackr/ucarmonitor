@@ -4,7 +4,7 @@ import {
     Section,
     type SectionProps
 } from '@telegram-apps/telegram-ui'
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 
 interface ListSectionProps {
     listProps?: ListProps
@@ -15,7 +15,7 @@ export const ListSection = memo(function ListSection({
     children,
     listProps,
     sectionProps
-}: PropsWithChildren<ListSectionProps>) {
+}: PropsWithChildren<ListSectionProps>): JSX.Element {
     return (
         <List {...listProps}>
             <Section {...sectionProps}>{children}</Section>

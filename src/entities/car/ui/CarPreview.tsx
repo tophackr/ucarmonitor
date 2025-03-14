@@ -1,6 +1,6 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { ListSection } from '@/shared/ui'
 import type { CarMileageProps, CarProps } from '../model/Props'
 import { CarAvatar } from './CarAvatar'
@@ -10,7 +10,7 @@ export const CarPreview = memo(function CarPreview({
     car: { odometerUnits, brand, model },
     children,
     mileage
-}: PropsWithChildren<CarProps & CarMileageProps>) {
+}: PropsWithChildren<CarProps & CarMileageProps>): JSX.Element {
     const t = useTranslations('Car')
     const intlMileage = useIntlCarUnit(mileage, odometerUnits)
 

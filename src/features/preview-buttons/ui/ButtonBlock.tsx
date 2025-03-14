@@ -1,8 +1,9 @@
 import { InlineButtons, Section } from '@telegram-apps/telegram-ui'
+import type { JSX } from 'react'
 import { ActionBlock } from './ActionBlock'
 import { MileageButton } from './mileage/MileageButton'
 
-export function ButtonBlock() {
+export function ButtonBlock(): JSX.Element {
     return (
         <Section>
             <InlineButtons

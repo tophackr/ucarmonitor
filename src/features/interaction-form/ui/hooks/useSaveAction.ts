@@ -4,7 +4,11 @@ import { type IInteraction, useInteractions } from '@/entities/interaction'
 import { generateUniqueId } from '@/shared/lib/id'
 import { removeEmptyValues } from '@/shared/lib/lodash'
 
-export function useSaveAction() {
+interface UseSaveActionReturn {
+    saveCallback: (data: IInteraction) => void
+}
+
+export function useSaveAction(): UseSaveActionReturn {
     const { interactions, setInteractionWithCloud } = useInteractions()
 
     const { car } = useCarContext()

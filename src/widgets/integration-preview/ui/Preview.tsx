@@ -2,7 +2,7 @@
 
 import { List } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { type CategoryProps, InteractionCategory } from '@/entities/interaction'
 import { BaseSection } from './BaseSection'
 import { FuelSection } from './FuelSection'
@@ -11,7 +11,9 @@ import { PartsSection } from './PartsSection'
 import { RepairSection } from './RepairSection'
 import { TiresSection } from './TiresSection'
 
-export const Preview = memo(function Preview({ category }: CategoryProps) {
+export const Preview = memo(function Preview({
+    category
+}: CategoryProps): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
     return (

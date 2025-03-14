@@ -1,5 +1,6 @@
 'use client'
 
+import type { ActionCreatorWithPayload } from '@reduxjs/toolkit'
 import { useCallback } from 'react'
 import { useActions, useAppSelector } from '@/shared/lib/store'
 import type { IInteraction } from '../../../model/Interaction'
@@ -9,7 +10,16 @@ import {
     selectInteractions
 } from '../interaction.slice'
 
-export function useInteractions() {
+interface UseInteractionsReturn {
+    interactions: IInteraction[]
+    setInteractions: ActionCreatorWithPayload<
+        IInteraction[],
+        'interaction/setInteractions'
+    >
+    setInteractionWithCloud: (items: IInteraction[]) => Promise<void>
+}
+
+export function useInteractions(): UseInteractionsReturn {
     const interactions = useAppSelector(selectInteractions)
     const { setInteractions } = useActions(interactionsSliceActions)
 

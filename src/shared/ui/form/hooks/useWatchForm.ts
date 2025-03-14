@@ -11,7 +11,7 @@ interface UseWatchFormProps<T extends FieldValues> {
 export function useWatchForm<T extends FieldValues>({
     watch,
     callback
-}: UseWatchFormProps<T>) {
+}: UseWatchFormProps<T>): void {
     return useEffect(() => {
         const { unsubscribe } = watch(formData => callback(formData as T))
 

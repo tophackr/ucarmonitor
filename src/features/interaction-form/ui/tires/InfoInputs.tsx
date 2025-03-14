@@ -2,12 +2,13 @@
 
 import { Input, Section, Select } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { TiresFormType, TiresType, WheelsType } from '@/entities/interaction'
 import { useTiresForm } from '../hooks/useTiresForm'
 import type { TiresInfoForm } from '../types/TiresForm'
 
-export function InfoInputs() {
+export function InfoInputs(): JSX.Element {
     const t = useTranslations('CarActionForm.tires')
 
     const { register } = useFormContext<TiresInfoForm>()

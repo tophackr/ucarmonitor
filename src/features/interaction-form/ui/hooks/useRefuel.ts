@@ -7,7 +7,15 @@ import { getPercent } from '@/shared/lib/number'
 import { useWatchForm } from '@/shared/ui/form'
 import { getCapacity } from '../../model/getCapacity'
 
-export function useRefuel(fuelCapacity: number = 45) {
+interface UseRefuelReturn {
+    beforeRefuel: number
+    onBeforeChange: (value: number) => void
+    afterRefuel: number
+    onAfterChange: (value: number) => void
+    onFullChange: (value: boolean) => void
+}
+
+export function useRefuel(fuelCapacity: number = 45): UseRefuelReturn {
     const { setValue, watch } = useFormContext<IFuel>()
 
     const [beforeRefuel, setBeforeRefuel] = useState(0)

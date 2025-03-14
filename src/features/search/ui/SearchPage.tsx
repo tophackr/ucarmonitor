@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import { type JSX, useMemo } from 'react'
 import { hasReactNode } from '@/shared/lib/dom'
 import {
     LoadingPlaceholder,
@@ -19,7 +19,7 @@ export function SearchPage<T>({
     nothingTitle,
     nothingDescription,
     ...props
-}: SearchPageProps<T>) {
+}: SearchPageProps<T>): JSX.Element {
     const itemsFiltered = useMemo(
         () => items?.filter(onFilter),
         [items, onFilter]

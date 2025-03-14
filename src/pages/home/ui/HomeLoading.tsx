@@ -1,10 +1,11 @@
+import type { JSX } from 'react'
 import {
     AvatarSkeleton,
     CellSkeleton,
     PulseSkeletonLayout
 } from '@/shared/ui/skeleton'
 
-export function HomeLoading() {
+export function HomeLoading(): JSX.Element {
     return (
         <PulseSkeletonLayout>
             {Array.from({ length: 5 }).map((_, index) => (

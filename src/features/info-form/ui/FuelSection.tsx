@@ -2,12 +2,13 @@
 
 import { Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { CarFuel } from '@/entities/car'
 import { IconInput, IconSelect } from '@/shared/ui/form'
 import type { CarFuelForm } from './types/FormContext'
 
-export function FuelSection() {
+export function FuelSection(): JSX.Element {
     const t = useTranslations('CarInfo')
 
     const {

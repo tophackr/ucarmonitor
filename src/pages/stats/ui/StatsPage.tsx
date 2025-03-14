@@ -6,7 +6,7 @@ import { BackButton } from '@/shared/ui/tma'
 
 export const StatsPage = memo(async function StatsPage({
     params
-}: ParamsProps<StatsCategoryProps>) {
+}: ParamsProps<StatsCategoryProps>): Promise<JSX.Element> {
     const { category } = await params
 
     const components: Record<StatsCategory, () => JSX.Element> = {

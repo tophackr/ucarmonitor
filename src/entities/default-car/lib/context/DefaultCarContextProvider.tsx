@@ -1,6 +1,7 @@
 'use client'
 
 import {
+    type JSX,
     type PropsWithChildren,
     memo,
     useCallback,
@@ -13,7 +14,9 @@ import { pagesRoute } from '@/shared/routes'
 import { DefaultCarContext } from './DefaultCarContext'
 
 export const DefaultCarContextProvider = memo(
-    function DefaultCarContextProvider({ children }: PropsWithChildren) {
+    function DefaultCarContextProvider({
+        children
+    }: PropsWithChildren): JSX.Element {
         const router = useRouter()
 
         const [isInit, setIsInit] = useState(false)

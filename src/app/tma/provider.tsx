@@ -6,7 +6,7 @@ import {
     useSignal
 } from '@telegram-apps/sdk-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { useClientOnce } from '@/shared/lib/dom'
 import { Loader } from '@/shared/ui'
 import { isAppleClient } from '@/shared/ui/tma'
@@ -16,7 +16,9 @@ import { init } from './init'
 import { useDidMount } from './useDidMount'
 import { useTelegramMock } from './useTelegramMock'
 
-const RootInner = memo(function RootInner({ children }: PropsWithChildren) {
+const RootInner = memo(function RootInner({
+    children
+}: PropsWithChildren): JSX.Element {
     const isDev = process.env.NODE_ENV === 'development'
 
     // Mock Telegram environment in development mode if needed.

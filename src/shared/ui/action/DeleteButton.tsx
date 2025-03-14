@@ -7,12 +7,12 @@ import {
 } from '@telegram-apps/telegram-ui'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 
 export const DeleteButton = memo(function DeleteButton({
     className,
     ...props
-}: ButtonCellProps) {
+}: ButtonCellProps): JSX.Element {
     const t = useTranslations('Common')
 
     return (

@@ -1,10 +1,11 @@
 'use client'
 
 import { IconButton } from '@telegram-apps/telegram-ui'
+import type { JSX } from 'react'
 import { useEditValueContext } from '@/entities/edit'
 import { Icon } from '@/shared/ui/icon'
 
-export function EditButton() {
+export function EditButton(): JSX.Element | undefined {
     const { editValue } = useEditValueContext()
 
     return (

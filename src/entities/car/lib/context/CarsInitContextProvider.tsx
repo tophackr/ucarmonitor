@@ -1,12 +1,12 @@
 'use client'
 
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { useLoadingCars } from '../store/useLoadingCars'
 import { CarsInitContext } from './CarsInitContext'
 
 export const CarsInitContextProvider = memo(function CarsInitContextProvider({
     children
-}: PropsWithChildren) {
+}: PropsWithChildren): JSX.Element {
     const { isLoading } = useLoadingCars()
 
     return (

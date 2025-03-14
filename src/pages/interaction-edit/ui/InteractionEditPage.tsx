@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, use } from 'react'
+import { type JSX, memo, use } from 'react'
 import { InteractionForm } from '@/features/interaction-form'
 import {
     type CategoryProps,
@@ -11,7 +11,7 @@ import { BackButton } from '@/shared/ui/tma'
 
 export const InteractionEditPage = memo(function InteractionEditPage({
     params
-}: ParamsProps<CategoryProps>) {
+}: ParamsProps<CategoryProps>): JSX.Element {
     const { category } = use(params)
 
     const { interaction } = useInteractionContext()

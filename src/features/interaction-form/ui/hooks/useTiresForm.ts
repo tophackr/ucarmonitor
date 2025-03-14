@@ -4,7 +4,11 @@ import { type ITires, TiresFormType } from '@/entities/interaction'
 import { useWatchForm } from '@/shared/ui/form'
 import { type TiresInfoForm, type TiresSizeForm } from '../types/TiresForm'
 
-export function useTiresForm() {
+interface UseTiresFormReturn {
+    tiresType: TiresFormType
+}
+
+export function useTiresForm(): UseTiresFormReturn {
     const { watch, setValue } = useFormContext<ITires>()
     const watchFormType = watch('formType')
 

@@ -5,14 +5,14 @@ import type { UseFormWatch } from 'react-hook-form'
 import { useWatchForm } from '@/shared/ui/form'
 import type { CarMileageForm } from '../types/FormContext'
 
-interface UseEngineHoursReturns {
+interface UseEngineHoursReturn {
     engineEnabled: boolean
 }
 
 export function useEngineHours(
     watch: UseFormWatch<CarMileageForm>,
     engineHours: boolean
-): UseEngineHoursReturns {
+): UseEngineHoursReturn {
     const [engineEnabled, setEngineEnabled] = useState<boolean>(engineHours)
 
     const engineCallback = useCallback(

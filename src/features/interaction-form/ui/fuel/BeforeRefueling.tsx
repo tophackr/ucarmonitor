@@ -2,7 +2,7 @@
 
 import { Input, Section, Slider, Text } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
 import { Icon } from '@/shared/ui/icon'
@@ -11,7 +11,7 @@ import type { FuelCapacityProps } from '../types/FuelCapacity'
 
 export const BeforeRefueling = memo(function BeforeRefueling({
     fuelCapacity
-}: FuelCapacityProps) {
+}: FuelCapacityProps): JSX.Element {
     const t = useTranslations('CarActionForm')
 
     const {

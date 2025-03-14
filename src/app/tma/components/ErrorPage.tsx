@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react'
+import { type JSX, memo, useEffect } from 'react'
 
 export const ErrorPage = memo(function ErrorPage({
     error,
@@ -6,7 +6,7 @@ export const ErrorPage = memo(function ErrorPage({
 }: {
     error: Error & { digest?: string }
     reset?: () => void
-}) {
+}): JSX.Element {
     useEffect(() => {
         // Log the error to an error reporting service
         console.error(error)

@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import type { JSX } from 'react'
 
-export function Loader() {
+export function Loader(): JSX.Element {
     return (
         <div className={'flex justify-center items-center min-h-screen'}>
             <Image

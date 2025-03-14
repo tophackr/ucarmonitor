@@ -1,6 +1,6 @@
 'use client'
 
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import {
     CarFuel,
@@ -23,7 +23,7 @@ export const InfoFormProvider = memo(function InfoFormProvider({
     car,
     mileage,
     children
-}: PropsWithChildren<Partial<CarProps & CarMileageProps>>) {
+}: PropsWithChildren<Partial<CarProps & CarMileageProps>>): JSX.Element {
     const methods = useForm<ICar>({
         defaultValues: { ...initialCar, ...car, mileage }
     })

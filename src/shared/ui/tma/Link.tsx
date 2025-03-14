@@ -2,6 +2,7 @@ import { openLink } from '@telegram-apps/sdk-react'
 import clsx from 'clsx'
 import {
     type ComponentProps,
+    type JSX,
     type MouseEventHandler,
     memo,
     useCallback
@@ -15,7 +16,7 @@ export const Link = memo(function Link({
     onClick: propsOnClick,
     href,
     ...props
-}: IntlProps) {
+}: IntlProps): JSX.Element {
     const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
         e => {
             propsOnClick?.(e)

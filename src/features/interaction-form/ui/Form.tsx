@@ -2,7 +2,7 @@
 
 import { List } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import {
     type CategoryProps,
     InteractionCategory,
@@ -20,7 +20,7 @@ import { TiresSection } from './tires/TiresSection'
 export const Form = memo(function Form({
     category,
     interaction
-}: CategoryProps & Partial<InteractionProps>) {
+}: CategoryProps & Partial<InteractionProps>): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
     return (

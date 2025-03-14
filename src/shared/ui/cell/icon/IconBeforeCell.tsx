@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { Icon } from '@/shared/ui/icon'
 import { isAppleClient } from '@/shared/ui/tma'
 import styles from './IconBeforeCell.module.css'
@@ -15,7 +15,7 @@ export const IconBeforeCell = memo(function IconBeforeCell({
     bgColor,
     className,
     ...props
-}: IconBeforeCellProps & LucideIconBeforeCellProps) {
+}: IconBeforeCellProps & LucideIconBeforeCellProps): JSX.Element {
     const isApple = isAppleClient()
 
     return (

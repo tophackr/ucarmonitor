@@ -1,6 +1,6 @@
 import { List, Placeholder, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { type SegmentProps, Segments } from '@/features/preview-segment'
 import { useCarContext } from '@/entities/car'
 import { StatsCategory, statsRoute } from '@/entities/stat'
@@ -8,7 +8,9 @@ import { generateMenu } from '@/shared/lib/link-menu'
 import { LinkCell } from '@/shared/ui/cell'
 import { menuData } from './menuData'
 
-export const Stats = memo(function Stats(segmentProps: SegmentProps) {
+export const Stats = memo(function Stats(
+    segmentProps: SegmentProps
+): JSX.Element {
     const t = useTranslations('StatsCategoryName')
     const { car } = useCarContext()
 

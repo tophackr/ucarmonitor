@@ -2,11 +2,12 @@
 
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useCarContext } from '@/entities/car'
 import { type IFuel, useInteractionContext } from '@/entities/interaction'
 import { toFixedNumber } from '@/shared/lib/number'
 
-export function FuelSection() {
+export function FuelSection(): JSX.Element {
     const t = useTranslations('CarActionForm.fuel')
 
     const { car } = useCarContext()

@@ -2,11 +2,11 @@
 
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { useMemo } from 'react'
+import { type JSX, useMemo } from 'react'
 import { type IParts, useInteractionContext } from '@/entities/interaction'
 import { useMessagesKeys } from '@/shared/i18n'
 
-export function PartsSection() {
+export function PartsSection(): JSX.Element {
     const t = useTranslations('CarActionForm')
 
     const { interaction } = useInteractionContext()

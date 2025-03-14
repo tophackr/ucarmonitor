@@ -1,9 +1,10 @@
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { MainButton } from '@/shared/ui/tma'
 
-export function CarCreateButton() {
+export function CarCreateButton(): JSX.Element {
     const t = useTranslations('Home')
 
     const { disabled, onClick } = useButtonClick<void>({

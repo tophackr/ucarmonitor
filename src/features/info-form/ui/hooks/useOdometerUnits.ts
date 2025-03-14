@@ -6,14 +6,14 @@ import type { CarOdometerUnits } from '@/entities/car'
 import { useWatchForm } from '@/shared/ui/form'
 import type { CarMileageForm } from '../types/FormContext'
 
-interface UseOdometerUnitsReturns {
+interface UseOdometerUnitsReturn {
     unit: CarOdometerUnits
 }
 
 export function useOdometerUnits(
     watch: UseFormWatch<CarMileageForm>,
     odometerUnits: CarOdometerUnits
-): UseOdometerUnitsReturns {
+): UseOdometerUnitsReturn {
     const [unit, setUnit] = useState<CarOdometerUnits>(odometerUnits)
 
     const unitCallback = useCallback(

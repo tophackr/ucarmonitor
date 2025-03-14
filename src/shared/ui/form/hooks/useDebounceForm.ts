@@ -15,7 +15,7 @@ export function useDebounceForm<T extends FieldValues>({
     watch,
     onSubmit,
     debounceTime = 1000
-}: UseDebounceFormProps<T>) {
+}: UseDebounceFormProps<T>): void {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const debouncedSubmit = useCallback(
         debounce((formData: T) => {

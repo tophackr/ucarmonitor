@@ -1,12 +1,12 @@
 import { Badge, Cell } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { useButtonClick } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import type { CarProps } from '../model/Props'
 import { CarAvatar } from './CarAvatar'
 
-export const CarCell = memo(function CarCell({ car }: CarProps) {
+export const CarCell = memo(function CarCell({ car }: CarProps): JSX.Element {
     const t = useTranslations('Car')
 
     const props = useButtonClick({ route: pagesRoute.carId(car.id) })

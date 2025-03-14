@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { type FieldValues, useFormContext } from 'react-hook-form'
 import { useFormError } from '@/shared/ui/form'
 import { MainButton, type MainButtonProps } from '@/shared/ui/tma'
@@ -20,7 +21,7 @@ export function SaveButton<T extends FieldValues>({
     disabled,
     onClick,
     ...props
-}: SaveButtonProps<T> & SaveMainButtonProps) {
+}: SaveButtonProps<T> & SaveMainButtonProps): JSX.Element {
     const t = useTranslations('Common')
 
     const { handleSubmit } = useFormContext<T>()

@@ -2,12 +2,13 @@
 
 import { Cell, List, Progress, Section } from '@telegram-apps/telegram-ui'
 import { useFormatter, useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useCarContext } from '@/entities/car'
 import { type IRepair, useSortedInteractions } from '@/entities/interaction'
 import { getIntlUnit, useMessagesKeys } from '@/shared/i18n'
 import { getPercent } from '@/shared/lib/number'
 
-export function StatsParts() {
+export function StatsParts(): JSX.Element {
     const t = useTranslations('CarActionForm')
     const format = useFormatter()
 

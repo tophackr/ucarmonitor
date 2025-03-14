@@ -2,7 +2,7 @@
 
 import { settingsButton, useSignal } from '@telegram-apps/sdk-react'
 import { IconButton } from '@telegram-apps/telegram-ui'
-import { useCallback, useEffect } from 'react'
+import { type JSX, useCallback, useEffect } from 'react'
 import { usePathname, useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
 import { Icon } from '@/shared/ui/icon'
@@ -18,7 +18,7 @@ function notVisibleOnPage(visible: boolean, pathname: string | null): boolean {
     return !visible && pathname !== pagesRoute.settings
 }
 
-export function SettingsButton() {
+export function SettingsButton(): JSX.Element | false {
     const router = useRouter()
     const pathname = usePathname()
 

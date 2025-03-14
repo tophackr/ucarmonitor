@@ -1,13 +1,19 @@
 'use client'
 
 import { type CellProps, Cell as TGUICell } from '@telegram-apps/telegram-ui'
-import { type MouseEvent as RME, memo, useEffect, useRef } from 'react'
+import {
+    type JSX,
+    type MouseEvent as RME,
+    memo,
+    useEffect,
+    useRef
+} from 'react'
 
 export const CheckCell = memo(function CheckCell({
     children,
     onClick,
     ...props
-}: CellProps) {
+}: CellProps): JSX.Element {
     const ref = useRef<HTMLDivElement>(null)
 
     useEffect(() => {

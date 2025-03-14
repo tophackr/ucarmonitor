@@ -1,5 +1,7 @@
-import { StatsCategory } from '@/entities/stat'
+import { StatsCategory, type StatsCategoryProps } from '@/entities/stat'
 
-export function generateStaticParams() {
+type StaticParams = StatsCategoryProps[]
+
+export function generateStaticParams(): StaticParams {
     return Object.values(StatsCategory).map(category => ({ category }))
 }

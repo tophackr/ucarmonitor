@@ -1,10 +1,10 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { type JSX, useCallback, useState } from 'react'
 import { type SearchForm, SearchPage } from '@/features/search'
 import { CarCell, type ICar, useCars, useCarsInitContext } from '@/entities/car'
 
-export function CarsContent() {
+export function CarsContent(): JSX.Element {
     const { isLoading } = useCarsInitContext()
     const { cars } = useCars()
 

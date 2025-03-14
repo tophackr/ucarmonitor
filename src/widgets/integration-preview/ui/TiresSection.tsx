@@ -1,12 +1,13 @@
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import {
     type ITires,
     TiresFormType,
     useInteractionContext
 } from '@/entities/interaction'
 
-export function TiresSection() {
+export function TiresSection(): JSX.Element {
     const t = useTranslations('CarActionForm.tires')
 
     const { interaction } = useInteractionContext()

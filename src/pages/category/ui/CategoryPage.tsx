@@ -1,13 +1,13 @@
 'use client'
 
-import { memo, use } from 'react'
+import { type JSX, memo, use } from 'react'
 import { useCarContext } from '@/entities/car'
 import type { CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
 
 export const CategoryPage = memo(function CategoryPage({
     params
-}: ParamsProps<CategoryProps>) {
+}: ParamsProps<CategoryProps>): JSX.Element {
     const { category } = use(params)
     const { car } = useCarContext()
 

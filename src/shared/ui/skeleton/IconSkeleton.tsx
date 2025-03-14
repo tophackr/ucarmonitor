@@ -1,11 +1,11 @@
 import clsx from 'clsx'
-import { type HTMLAttributes, memo } from 'react'
+import { type HTMLAttributes, type JSX, memo } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 export const IconSkeleton = memo(function IconSkeleton({
     className,
     ...props
-}: HTMLAttributes<HTMLDivElement>) {
+}: HTMLAttributes<HTMLDivElement>): JSX.Element {
     return (
         <div
             className={twMerge(

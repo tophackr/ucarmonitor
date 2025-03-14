@@ -4,9 +4,12 @@ import {
     Modal as TGUIModal
 } from '@telegram-apps/telegram-ui/dist/components/Overlays/Modal/Modal'
 import { Drawer } from '@xelene/vaul-with-scroll-fix'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 
-export const Modal = memo(function Modal({ children, ...props }: ModalProps) {
+export const Modal = memo(function Modal({
+    children,
+    ...props
+}: ModalProps): JSX.Element {
     return (
         <TGUIModal
             {...props}

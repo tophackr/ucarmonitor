@@ -1,6 +1,6 @@
 'use client'
 
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { useCarContext } from '@/entities/car'
 import {
@@ -16,7 +16,7 @@ export const ActionFormProvider = memo(function ActionFormProvider({
     children,
     category,
     interaction
-}: PropsWithChildren<CategoryProps & Partial<InteractionProps>>) {
+}: PropsWithChildren<CategoryProps & Partial<InteractionProps>>): JSX.Element {
     const { mileage } = useCarContext()
 
     const values: Omit<IInteraction, 'id' | 'carId'> = {

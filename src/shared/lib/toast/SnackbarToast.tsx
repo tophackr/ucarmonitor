@@ -1,4 +1,5 @@
 import { Snackbar } from '@telegram-apps/telegram-ui'
+import type { JSX } from 'react'
 import { toast as sonnerToast } from 'sonner'
 import { callMultiple, hasReactNode } from '@/shared/lib/dom'
 import { Icon } from '@/shared/ui/icon'
@@ -11,7 +12,7 @@ export function SnackbarToast({
     button,
     onClose,
     ...props
-}: ToastProps) {
+}: ToastProps): JSX.Element {
     return (
         <Snackbar
             key={id}

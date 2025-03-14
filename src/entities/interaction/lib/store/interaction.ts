@@ -13,7 +13,7 @@ export async function getInteractions(): Promise<IInteraction[]> {
     return items ? JSON.parse(items) : defaultInteraction
 }
 
-export async function setInteractions(items?: IInteraction[]) {
+export async function setInteractions(items?: IInteraction[]): Promise<void> {
     if (cloudStorage.isSupported()) {
         await cloudStorage.setItem(
             itemName,

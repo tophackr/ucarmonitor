@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useCarContext } from '@/entities/car'
 import { useRouter } from '@/shared/i18n'
 import { ActionButton } from './ActionButton'
@@ -8,7 +9,7 @@ import { ActionModal } from './ActionModal'
 import { ModalContent } from './ModalContent'
 import { useActionButtons } from './hooks/useActionButtons'
 
-export function ActionBlock() {
+export function ActionBlock(): JSX.Element[] {
     const t = useTranslations('CarCategoryName')
     const { car } = useCarContext()
     const router = useRouter()

@@ -1,6 +1,6 @@
 import { Section } from '@telegram-apps/telegram-ui'
 import { useFormatter, useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import type { CarProps } from '@/entities/car/@x/interactions'
 import { NothingPlaceholder } from '@/shared/ui/placeholder'
 import { InteractionCell } from './InteractionCell'
@@ -14,7 +14,7 @@ interface InteractionListProps {
 export const InteractionList = memo(function InteractionList({
     car,
     slice
-}: CarProps & InteractionListProps) {
+}: CarProps & InteractionListProps): JSX.Element {
     const t = useTranslations('Car')
 
     const formatter = useFormatter()

@@ -2,12 +2,12 @@
 
 import { Section, Select } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { useMemo } from 'react'
+import { type JSX, useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { type ITires, TiresFormType } from '@/entities/interaction'
 import { generateArray } from '../../model/generateArray'
 
-export function SizeSelects() {
+export function SizeSelects(): JSX.Element {
     const t = useTranslations('CarActionForm.tires')
 
     const { register, watch } = useFormContext<ITires>()

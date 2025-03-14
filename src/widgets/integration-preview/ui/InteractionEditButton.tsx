@@ -1,8 +1,9 @@
+import type { JSX } from 'react'
 import { EditButton } from '@/entities/edit'
 import { actionsRoute, useInteractionContext } from '@/entities/interaction'
 import { useButtonClick } from '@/shared/lib/dom'
 
-export function InteractionEditButton() {
+export function InteractionEditButton(): JSX.Element {
     const { interaction } = useInteractionContext()
 
     const props = useButtonClick({

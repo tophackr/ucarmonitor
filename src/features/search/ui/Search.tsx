@@ -2,13 +2,16 @@
 
 import { Input, Tappable } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { useCallback } from 'react'
+import { type JSX, useCallback } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDebounceForm } from '@/shared/ui/form'
 import { Icon } from '@/shared/ui/icon'
 import type { SearchForm, SearchProps } from './types/Search'
 
-export function Search({ onSearch, debounceTime = 444 }: SearchProps) {
+export function Search({
+    onSearch,
+    debounceTime = 444
+}: SearchProps): JSX.Element {
     const t = useTranslations('Search')
 
     const { register, reset, watch } = useForm<SearchForm>()

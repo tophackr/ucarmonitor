@@ -2,14 +2,14 @@
 
 import { Placeholder, type PlaceholderProps } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import { memo } from 'react'
+import { type JSX, memo } from 'react'
 import { DuckNotFoundLottie } from '@/shared/ui/lottie'
 
 export const NotFoundPlaceholder = memo(function NotFoundPlaceholder({
     header,
     description,
     ...props
-}: PlaceholderProps) {
+}: PlaceholderProps): JSX.Element {
     const t = useTranslations('Placeholder.NotFound')
 
     return (

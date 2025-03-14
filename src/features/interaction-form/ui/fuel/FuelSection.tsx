@@ -3,6 +3,7 @@
 import { Section } from '@telegram-apps/telegram-ui'
 import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
 import { useCarContext } from '@/entities/car'
 import { isAppleClient } from '@/shared/ui/tma'
 import { AfterRefueling } from './AfterRefueling'
@@ -10,7 +11,7 @@ import { BeforeRefueling } from './BeforeRefueling'
 import { CapacitySwitch } from './CapacitySwitch'
 import { CharacteristicInputs } from './CharacteristicInputs'
 
-export function FuelSection() {
+export function FuelSection(): JSX.Element {
     const t = useTranslations('CarActionForm.fuel')
 
     const { car } = useCarContext()

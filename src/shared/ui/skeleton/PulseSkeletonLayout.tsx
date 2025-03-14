@@ -1,11 +1,16 @@
 import clsx from 'clsx'
-import { type HTMLAttributes, type PropsWithChildren, memo } from 'react'
+import {
+    type HTMLAttributes,
+    type JSX,
+    type PropsWithChildren,
+    memo
+} from 'react'
 
 export const PulseSkeletonLayout = memo(function PulseSkeletonLayout({
     children,
     className,
     ...props
-}: PropsWithChildren<HTMLAttributes<HTMLDivElement>>) {
+}: PropsWithChildren<HTMLAttributes<HTMLDivElement>>): JSX.Element {
     return (
         <div
             role={'status'}

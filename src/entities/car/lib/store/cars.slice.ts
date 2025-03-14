@@ -19,7 +19,7 @@ const carsSlice = createSlice({
         setCars(
             state: WritableDraft<CarsState>,
             action: PayloadAction<ICar[]>
-        ) {
+        ): void {
             state.value = action.payload
         }
     }

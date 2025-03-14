@@ -1,4 +1,5 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
+import type { JSX } from 'react'
 import { ListSection } from '@/shared/ui'
 import {
     AvatarSkeleton,
@@ -6,7 +7,7 @@ import {
     TextSkeleton
 } from '@/shared/ui/skeleton'
 
-export function CarPreviewSkeleton() {
+export function CarPreviewSkeleton(): JSX.Element {
     return (
         <ListSection>
             <PulseSkeletonLayout>

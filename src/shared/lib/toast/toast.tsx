@@ -6,7 +6,7 @@ export function toast({
     duration = 4000,
     description,
     ...props
-}: Omit<ToastProps, 'id'>) {
+}: Omit<ToastProps, 'id'>): string | number {
     if (description instanceof Array) {
         description = description.map((i, index) => <p key={index}>{i}</p>)
     }

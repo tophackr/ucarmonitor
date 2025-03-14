@@ -1,4 +1,4 @@
-import { type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { Toaster } from 'sonner'
 import { DefaultCarContextProvider } from '@/entities/default-car'
 import { I18nProvider } from '@/shared/i18n'
@@ -7,7 +7,7 @@ import { TelegramProvider } from '../tma/provider'
 
 export const Providers = memo(function Providers({
     children
-}: PropsWithChildren) {
+}: PropsWithChildren): JSX.Element {
     return (
         <StoreProvider>
             <TelegramProvider>

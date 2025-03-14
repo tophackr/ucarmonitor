@@ -17,7 +17,7 @@ export async function getCars(): Promise<ICar[]> {
     return items ? JSON.parse(items) : defaultCars
 }
 
-export async function setCars(items?: ICar[]) {
+export async function setCars(items?: ICar[]): Promise<void> {
     if (cloudStorage.isSupported()) {
         await cloudStorage.setItem(
             itemName,

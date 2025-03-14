@@ -3,9 +3,13 @@ import { type FieldValues, useFormContext } from 'react-hook-form'
 import { isCleanedEqual } from '@/shared/lib/lodash'
 import { useWatchForm } from '@/shared/ui/form'
 
+interface UseVisibleSaveButtonReturn {
+    isVisible: boolean
+}
+
 export function useVisibleSaveButton<T extends FieldValues>(
     removeZero?: boolean
-) {
+): UseVisibleSaveButtonReturn {
     const { getValues, watch } = useFormContext<T>()
 
     const [isVisible, setIsVisible] = useState(false)

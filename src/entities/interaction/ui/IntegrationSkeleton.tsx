@@ -1,4 +1,5 @@
 import { List, Section } from '@telegram-apps/telegram-ui'
+import type { JSX } from 'react'
 import {
     CellSkeleton,
     IconSkeleton,
@@ -6,7 +7,7 @@ import {
     TextSkeleton
 } from '@/shared/ui/skeleton'
 
-export function InteractionSkeleton() {
+export function InteractionSkeleton(): JSX.Element {
     return (
         <List>
             <PulseSkeletonLayout>

@@ -1,2 +1,2 @@
-export { generateStaticParams } from './model/staticParams'
+export { generateStaticParams } from './model/generateStaticParams'
 export { CategoryPage } from './ui/CategoryPage'
