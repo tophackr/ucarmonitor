@@ -1,4 +1,5 @@
 import { useFormatter } from 'next-intl'
+import { getIntlUnit } from '../utils/getIntlUnit'
 
 export function useIntlUnit(unit: string, value?: number): string | undefined {
     const format = useFormatter()
@@ -7,8 +8,5 @@ export function useIntlUnit(unit: string, value?: number): string | undefined {
         return undefined
     }
 
-    return format.number(value, {
-        style: 'unit',
-        unit: unit
-    })
+    return getIntlUnit(format, value, unit)
 }

@@ -25,3 +25,4 @@ export type {
     NestedTranslationServer,
     TranslationServer
 } from './types/TranslationServer'
+export { getIntlUnit } from './utils/getIntlUnit'
