@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import type { IFuel } from '@/entities/interaction'
+import { getPercent } from '@/shared/lib/number'
 import { useWatchForm } from '@/shared/ui/form'
 import { getCapacity } from '../../model/getCapacity'
-import { getPercent } from '../../model/getPercent'
 
 export function useRefuel(fuelCapacity: number = 45) {
     const { setValue, watch } = useFormContext<IFuel>()
