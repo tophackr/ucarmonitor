@@ -2,6 +2,10 @@
 
 import { notFound } from 'next/navigation'
 import { type PropsWithChildren, memo, use } from 'react'
+import {
+    InteractionCategory,
+    useSortedInteractions
+} from '@/entities/interaction/@x/car'
 import type { ParamsProps } from '@/shared/lib/dom'
 import type { CarIdProps } from '../../model/Props'
 import { CarContext } from './CarContext'
@@ -19,5 +23,16 @@ export const CarContextProvider = memo(function CarContextProvider({
         notFound()
     }
 
-    return <CarContext.Provider value={{ car }}>{children}</CarContext.Provider>
+    const sortedInteractions = useSortedInteractions()
+    const lastMileage = sortedInteractions.find(
+        i => i.carId === car.id && i.type === InteractionCategory.mileage
+    )
+
+    const mileage = lastMileage ? lastMileage.mileage : car.mileage
+
+    return (
+        <CarContext.Provider value={{ car, mileage }}>
+            {children}
+        </CarContext.Provider>
+    )
 })

@@ -2,7 +2,7 @@
 
 import { List } from '@telegram-apps/telegram-ui'
 import { memo } from 'react'
-import { type CarProps, useCars } from '@/entities/car'
+import { type CarMileageProps, type CarProps, useCars } from '@/entities/car'
 import { DefaultSection } from './DefaultSection'
 import { DeleteCarButton } from './DeleteCarButton'
 import { FuelSection } from './FuelSection'
@@ -11,14 +11,20 @@ import { InfoSection } from './InfoSection'
 import { MileageSection } from './MileageSection'
 import { SaveCarButton } from './SaveCarButton'
 
-export const Form = memo(function Form({ car }: Partial<CarProps>) {
+export const Form = memo(function Form({
+    car,
+    mileage
+}: Partial<CarProps & CarMileageProps>) {
     const { cars } = useCars()
 
     const showDefaultButton = (cars.length > 0 && !car) || cars.length > 1
 
     return (
         <List>
-            <InfoFormProvider car={car}>
+            <InfoFormProvider
+                car={car}
+                mileage={mileage}
+            >
                 {showDefaultButton && <DefaultSection />}
 
                 <div className={'grid md:grid-cols-2 gap-x-4'}>

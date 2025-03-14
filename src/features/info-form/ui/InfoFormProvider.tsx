@@ -4,6 +4,7 @@ import { type PropsWithChildren, memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import {
     CarFuel,
+    type CarMileageProps,
     CarOdometerUnits,
     type CarProps,
     type ICar
@@ -20,10 +21,11 @@ export const initialCar: InitCar = {
 
 export const InfoFormProvider = memo(function InfoFormProvider({
     car,
+    mileage,
     children
-}: PropsWithChildren<Partial<CarProps>>) {
+}: PropsWithChildren<Partial<CarProps & CarMileageProps>>) {
     const methods = useForm<ICar>({
-        defaultValues: { ...initialCar, ...car }
+        defaultValues: { ...initialCar, ...car, mileage }
     })
 
     return <FormProvider {...methods}>{children}</FormProvider>

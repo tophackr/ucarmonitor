@@ -12,13 +12,16 @@ const DynamicInteractionList = dynamic(
 )
 
 export const Info = memo(function Info(segmentProps: SegmentProps) {
-    const { car } = useCarContext()
+    const { car, mileage } = useCarContext()
 
     return (
         <>
             <CarEditButton car={car} />
 
-            <CarPreview car={car}>
+            <CarPreview
+                car={car}
+                mileage={mileage}
+            >
                 <Segments {...segmentProps} />
             </CarPreview>
 

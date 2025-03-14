@@ -5,13 +5,16 @@ import { useCarContext } from '@/entities/car'
 import { BackButton } from '@/shared/ui/tma'
 
 export function CarEditPage() {
-    const { car } = useCarContext()
+    const { car, mileage } = useCarContext()
 
     return (
         <>
             <BackButton />
 
-            <InfoForm car={car} />
+            <InfoForm
+                car={car}
+                mileage={mileage}
+            />
         </>
     )
 }

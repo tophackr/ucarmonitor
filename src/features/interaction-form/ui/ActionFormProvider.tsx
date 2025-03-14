@@ -17,12 +17,12 @@ export const ActionFormProvider = memo(function ActionFormProvider({
     category,
     interaction
 }: PropsWithChildren<CategoryProps & Partial<InteractionProps>>) {
-    const { car } = useCarContext()
+    const { mileage } = useCarContext()
 
     const values: Omit<IInteraction, 'id' | 'carId'> = {
         type: category,
         date: new Date(),
-        mileage: car.mileage
+        mileage: mileage
     }
 
     if (category === InteractionCategory.fuel) {
