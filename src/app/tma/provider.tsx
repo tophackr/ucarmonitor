@@ -39,6 +39,11 @@ const RootInner = memo(function RootInner({
 
     const isDark = useSignal(miniApp.isDark)
 
+    // TODO: temp fix for ios
+    useEffect(() => {
+        postEvent('web_app_request_theme')
+    }, [])
+
     return (
         <AppRoot
             appearance={isDark ? 'dark' : 'light'}
@@ -56,11 +61,6 @@ export const TelegramProvider = memo(function TelegramProvider(
     // the Server Side Rendering. That's why we are showing loader on the server
     // side.
     const didMount = useDidMount()
-
-    // TODO: temp fix for ios
-    useEffect(() => {
-        postEvent('web_app_request_theme')
-    }, [])
 
     return didMount ? (
         <ErrorBoundary fallback={ErrorPage}>
