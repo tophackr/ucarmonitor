@@ -30,7 +30,7 @@ const RootInner = memo(function RootInner({
 
     const lp = retrieveLaunchParams()
     const isApple = isAppleClient(lp)
-    const debug = isDev || lp.platform === 'debug'
+    const debug = true || isDev || lp.platform === 'debug'
 
     // Initialize the library.
     useClientOnce(() => {
