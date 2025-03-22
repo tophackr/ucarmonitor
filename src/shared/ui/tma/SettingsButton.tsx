@@ -1,11 +1,14 @@
 'use client'
 
-import { settingsButton, useSignal } from '@telegram-apps/sdk-react'
-import { IconButton } from '@telegram-apps/telegram-ui'
+import {
+    initDataUser,
+    settingsButton,
+    useSignal
+} from '@telegram-apps/sdk-react'
+import { Avatar } from '@telegram-apps/telegram-ui'
 import { type JSX, useCallback, useEffect } from 'react'
 import { usePathname, useRouter } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
-import { Icon } from '@/shared/ui/icon'
 
 function visibleOnSettingsPage(
     visible: boolean,
@@ -45,14 +48,15 @@ export function SettingsButton(): JSX.Element | false {
         }
     }, [isVisible, pathname])
 
+    const user = initDataUser()
+
     return (
         isVisible && (
-            <IconButton
-                size={'m'}
+            <Avatar
+                src={user?.photoUrl}
+                acronym={user?.firstName.charAt(0)}
                 onClick={onClick}
-            >
-                <Icon name={'Settings'} />
-            </IconButton>
+            />
         )
     )
 }
