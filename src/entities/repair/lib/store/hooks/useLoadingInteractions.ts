@@ -2,7 +2,6 @@
 
 import { useCallback, useState } from 'react'
 import { useEffectOnce } from '@/shared/lib/dom'
-import { defaultRepair } from '../constants/default'
 import { getRepairs } from '../repair'
 import { useRepairs } from './useRepairs'
 
@@ -20,7 +19,7 @@ export function useLoadingRepairs(): UseLoadingInteractionsReturn {
 
         const repairs = await getRepairs()
 
-        setRepairs(defaultRepair) //, repairs)
+        setRepairs(repairs)
 
         setIsLoading(false)
     }, [setRepairs])
