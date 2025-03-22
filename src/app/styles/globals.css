@@ -32,5 +32,5 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .tgui-7707c5d942b7b9af .tgui-0f5050defacbf813 {
-    background: red !important;
+    background: var(--tg-theme-bg-color);
 }
