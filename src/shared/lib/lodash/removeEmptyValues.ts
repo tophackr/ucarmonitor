@@ -1,4 +1,4 @@
-import omitBy from 'lodash.omitby'
+import { deepOmitBy } from './deepOmitBy'
 
 export function removeEmptyValues<T extends object>(
     obj: T,
@@ -10,7 +10,9 @@ export function removeEmptyValues<T extends object>(
         emptyArr.push(0)
     }
 
-    return omitBy(obj, value =>
-        emptyArr.includes(value as string | number | null | undefined)
+    return deepOmitBy(obj, value =>
+        emptyArr.includes(
+            value as unknown as string | number | null | undefined
+        )
     ) as T
 }

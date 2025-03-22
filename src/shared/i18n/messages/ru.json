@@ -248,5 +248,36 @@
   },
   "Stats": {
     "total": "Итого"
+  },
+  "Repair": {
+    "options": {
+      "engine_oil": "Масло в двигателе",
+      "transmission_oil": "Масло в КПП",
+      "oil_filter": "Масляный фильтр",
+      "air_filter": "Воздушный фильтр",
+      "cabin_filter": "Салонный фильтр",
+      "front_brake_pads": "Передние тормозные колодки",
+      "rear_brake_pads": "Задние тормозные колодки",
+      "brake_fluid": "Тормозная жидкость",
+      "front_brake_discs": "Передние тормозные диски",
+      "rear_brake_discs": "Задние тормозные диски",
+      "air_conditioner_refill": "Заправка кондиционера",
+      "spark_plugs": "Свечи зажигания",
+      "coolant": "Охлаждающая жидкость",
+      "alignment": "Сход-развал",
+      "timing_belt": "Ремень ГРМ",
+      "fuel_filter": "Топливный фильтр",
+      "transfer_case_oil": "Масло в раздаточной коробке",
+      "differential_oil": "Масло в редукторе",
+      "car_battery": "АКБ",
+      "power_steering_fluid": "Жидкость ГУР",
+      "clutch": "Сцепление"
+    },
+    "mileage": "Интервал по пробегу",
+    "days": "Календарный интервал",
+    "visible": "Показывать в списке",
+    "errors": {
+      "interval_min": "Интервал не может быть отрицательным"
+    }
   }
 }

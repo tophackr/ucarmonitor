@@ -11,3 +11,7 @@ export interface InteractionIdProps {
 export interface InteractionProps {
     interaction: IInteraction
 }
+
+export interface InteractionsProps {
+    interactions: IInteraction[]
+}

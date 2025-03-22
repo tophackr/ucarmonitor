@@ -3,9 +3,10 @@ import { useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
 import { type SegmentProps, Segments } from '@/features/preview-segment'
 import { useCarContext } from '@/entities/car'
-import { StatsCategory, statsRoute } from '@/entities/stat'
 import { generateMenu } from '@/shared/lib/link-menu'
+import { statsRoute } from '@/shared/routes'
 import { LinkCell } from '@/shared/ui/cell'
+import type { StatsCategory } from './StatsCategory'
 import { menuData } from './menuData'
 
 export const Stats = memo(function Stats(
@@ -15,7 +16,7 @@ export const Stats = memo(function Stats(
     const { car } = useCarContext()
 
     const data = generateMenu(
-        (name: StatsCategory) => statsRoute.build(car.id, name),
+        (name: StatsCategory) => statsRoute[name](car.id),
         t,
         menuData
     )

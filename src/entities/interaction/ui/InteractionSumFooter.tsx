@@ -1,15 +1,11 @@
 import { useTranslations } from 'next-intl'
 import { useIntlCurrency } from '@/shared/i18n'
 import { reduceSumItems } from '@/shared/lib/number'
-import type { IInteraction } from '../model/Interaction'
-
-interface InteractionSumFooterProps {
-    interactions: IInteraction[]
-}
+import type { InteractionsProps } from '../model/Props'
 
 export function InteractionSumFooter({
     interactions
-}: InteractionSumFooterProps): string {
+}: InteractionsProps): string {
     const t = useTranslations('Stats')
 
     const sumAmount = reduceSumItems([...interactions], 'amount')

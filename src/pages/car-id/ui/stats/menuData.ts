@@ -1,5 +1,5 @@
-import { StatsCategory } from '@/entities/stat'
 import type { KeyMenu } from '@/shared/lib/link-menu'
+import { StatsCategory } from './StatsCategory'
 
 enum StatsGroup {
     stats = 'stats',
