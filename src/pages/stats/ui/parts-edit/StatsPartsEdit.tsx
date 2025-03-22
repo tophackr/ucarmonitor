@@ -1,11 +1,12 @@
 'use client'
 
 import { List } from '@telegram-apps/telegram-ui'
+import type { JSX } from 'react'
 import { RepairField, useRepairs } from '@/entities/repair'
 import { PartsEditFormProvider } from './PartsEditFormProvider'
 import { PartsSaveButton } from './PartsSaveButton'
 
-export function StatsPartsEdit() {
+export function StatsPartsEdit(): JSX.Element {
     const { repairs } = useRepairs()
 
     return (

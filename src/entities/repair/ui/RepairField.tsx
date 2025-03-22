@@ -1,9 +1,12 @@
 import { Cell, Input, Section, Switch } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
+import { type JSX, memo } from 'react'
 import { Controller, useFieldArray, useFormContext } from 'react-hook-form'
 import type { RepairProps, RepairsProps } from '../model/Props'
 
-export function RepairField({ repair: { option } }: RepairProps) {
+export const RepairField = memo(function RepairField({
+    repair: { option }
+}: RepairProps): JSX.Element {
     const t = useTranslations('Repair')
 
     const {
@@ -57,4 +60,4 @@ export function RepairField({ repair: { option } }: RepairProps) {
             </Cell>
         </Section>
     )
-}
+})
