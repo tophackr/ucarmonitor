@@ -59,6 +59,8 @@ export const TelegramProvider = memo(function TelegramProvider(
 
     // TODO: temp fix for ios
     useEffect(() => {
+        console.log('web_app_request_theme')
+
         postEvent('web_app_request_theme')
     }, [])
 
