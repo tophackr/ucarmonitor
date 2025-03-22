@@ -1,1 +1,1 @@
-export { CarNewPage as default } from '@/pages/car-new'
+export { CarNewPage as default } from '@/pages/car'

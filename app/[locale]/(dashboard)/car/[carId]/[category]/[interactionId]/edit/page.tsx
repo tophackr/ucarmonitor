@@ -1,1 +1,1 @@
-export { InteractionEditPage as default } from '@/pages/interaction-edit'
+export { InteractionEditPage as default } from '@/pages/interaction'

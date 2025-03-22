@@ -1,1 +1,1 @@
-export { InteractionNewPage as default } from '@/pages/interaction-new'
+export { InteractionNewPage as default } from '@/pages/interaction'
