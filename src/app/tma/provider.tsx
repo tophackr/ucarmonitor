@@ -2,11 +2,12 @@
 
 import {
     miniApp,
+    postEvent,
     retrieveLaunchParams,
     useSignal
 } from '@telegram-apps/sdk-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
-import { type JSX, type PropsWithChildren, memo } from 'react'
+import { type JSX, type PropsWithChildren, memo, useEffect } from 'react'
 import { useClientOnce } from '@/shared/lib/dom'
 import { Loader } from '@/shared/ui'
 import { isAppleClient } from '@/shared/ui/tma'
@@ -55,6 +56,11 @@ export const TelegramProvider = memo(function TelegramProvider(
     // the Server Side Rendering. That's why we are showing loader on the server
     // side.
     const didMount = useDidMount()
+
+    // TODO: temp fix for ios
+    useEffect(() => {
+        postEvent('web_app_request_theme')
+    }, [])
 
     return didMount ? (
         <ErrorBoundary fallback={ErrorPage}>
