@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IFuel } from '@/entities/interaction'
+import type { IFuelInteraction } from '@/entities/interaction'
 import { getPercent } from '@/shared/lib/number'
 import { useWatchForm } from '@/shared/ui/form'
 import { getCapacity } from '../../model/getCapacity'
@@ -16,7 +16,7 @@ interface UseRefuelReturn {
 }
 
 export function useRefuel(fuelCapacity: number = 45): UseRefuelReturn {
-    const { setValue, watch } = useFormContext<IFuel>()
+    const { setValue, watch } = useFormContext<IFuelInteraction>()
 
     const [beforeRefuel, setBeforeRefuel] = useState(0)
     const [afterRefuel, setAfterRefuel] = useState(0)
@@ -67,7 +67,7 @@ export function useRefuel(fuelCapacity: number = 45): UseRefuelReturn {
     }, [watchAfterRefueling, watchCapacityFull, fuelCapacity, setValue])
 
     const onWatchCallback = useCallback(
-        ({ beforeRefueling, afterRefueling }: IFuel) => {
+        ({ beforeRefueling, afterRefueling }: IFuelInteraction) => {
             if (beforeRefuel !== beforeRefueling) {
                 setBeforeRefuel(getPercent(beforeRefueling, fuelCapacity))
             }

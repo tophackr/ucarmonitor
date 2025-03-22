@@ -5,24 +5,24 @@ export { InteractionsInitContextProvider } from './lib/context/InteractionsInitC
 export { useInteractions } from './lib/store/hooks/useInteractions'
 export { useSortedInteractions } from './lib/store/hooks/useSortedInteractions'
 export { interactionsSliceReducer } from './lib/store/interaction.slice'
-export { FuelGrade, type IFuel } from './model/Fuel'
+export { FuelGrade, type IFuelInteraction } from './model/Fuel'
 export {
     InteractionCategory,
     type IBaseInteraction,
     type IInteraction
 } from './model/Interaction'
-export type { IParts } from './model/Parts'
+export type { IPartsInteraction } from './model/Parts'
 export type {
     CategoryProps,
     InteractionIdProps,
     InteractionProps
 } from './model/Props'
-export type { IRepair } from './model/Repair'
+export type { IRepairInteraction } from './model/Repair'
 export {
     TiresFormType,
     TiresType,
     WheelsType,
-    type ITires
+    type ITiresInteraction
 } from './model/Tires'
 export { actionsRoute } from './routes/actions'
 export { InteractionSkeleton } from './ui/IntegrationSkeleton'

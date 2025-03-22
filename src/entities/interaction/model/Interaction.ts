@@ -1,7 +1,7 @@
-import type { IFuel } from './Fuel'
-import type { IParts } from './Parts'
-import type { IRepair } from './Repair'
-import type { ITires } from './Tires'
+import type { IFuelInteraction } from './Fuel'
+import type { IPartsInteraction } from './Parts'
+import type { IRepairInteraction } from './Repair'
+import type { ITiresInteraction } from './Tires'
 
 export interface IBaseInteraction {
     id: string
@@ -15,7 +15,11 @@ export interface IBaseInteraction {
     //files: ?
 }
 
-type SlicedType = IFuel | IRepair | IParts | ITires
+type SlicedType =
+    | IFuelInteraction
+    | IRepairInteraction
+    | IPartsInteraction
+    | ITiresInteraction
 
 export type IInteraction = IBaseInteraction & SlicedType
 

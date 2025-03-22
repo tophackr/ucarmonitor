@@ -1,4 +1,4 @@
-export interface ITires {
+export interface ITiresInteraction {
     formType: TiresFormType
     tiresType?: TiresType | 0
     wheelsType?: WheelsType | 0

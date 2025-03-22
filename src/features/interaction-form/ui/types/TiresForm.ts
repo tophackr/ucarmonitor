@@ -1,4 +1,7 @@
-import type { ITires } from '@/entities/interaction'
+import type { ITiresInteraction } from '@/entities/interaction'
 
-export type TiresSizeForm = Pick<ITires, 'width' | 'height' | 'diameter'>
-export type TiresInfoForm = Omit<ITires, keyof TiresSizeForm>
+export type TiresSizeForm = Pick<
+    ITiresInteraction,
+    'width' | 'height' | 'diameter'
+>
+export type TiresInfoForm = Omit<ITiresInteraction, keyof TiresSizeForm>

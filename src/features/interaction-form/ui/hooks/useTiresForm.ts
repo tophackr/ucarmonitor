@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { type ITires, TiresFormType } from '@/entities/interaction'
+import { type ITiresInteraction, TiresFormType } from '@/entities/interaction'
 import { useWatchForm } from '@/shared/ui/form'
 import { type TiresInfoForm, type TiresSizeForm } from '../types/TiresForm'
 
@@ -9,7 +9,7 @@ interface UseTiresFormReturn {
 }
 
 export function useTiresForm(): UseTiresFormReturn {
-    const { watch, setValue } = useFormContext<ITires>()
+    const { watch, setValue } = useFormContext<ITiresInteraction>()
     const watchFormType = watch('formType')
 
     const isFirstRender = useRef(true)

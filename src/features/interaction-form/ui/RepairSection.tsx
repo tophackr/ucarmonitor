@@ -4,13 +4,13 @@ import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IRepair } from '@/entities/interaction'
+import type { IRepairInteraction } from '@/entities/interaction'
 import { useMessagesKeys } from '@/shared/i18n'
 
 export function RepairSection(): JSX.Element {
     const t = useTranslations('CarActionForm')
 
-    const { register } = useFormContext<IRepair>()
+    const { register } = useFormContext<IRepairInteraction>()
 
     const repairOptionsKeys = useMessagesKeys(
         'CarActionForm',

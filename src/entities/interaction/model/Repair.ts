@@ -1,3 +1,3 @@
-export interface IRepair {
+export interface IRepairInteraction {
     repairList?: string[]
 }

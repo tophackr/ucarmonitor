@@ -4,7 +4,7 @@ import { Input, Section, Slider, Text } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IFuel } from '@/entities/interaction'
+import type { IFuelInteraction } from '@/entities/interaction'
 import { Icon } from '@/shared/ui/icon'
 import { useRefuel } from '../hooks/useRefuel'
 import type { FuelCapacityProps } from '../types/FuelCapacity'
@@ -17,7 +17,7 @@ export const BeforeRefueling = memo(function BeforeRefueling({
     const {
         register,
         formState: { errors }
-    } = useFormContext<IFuel>()
+    } = useFormContext<IFuelInteraction>()
 
     const { beforeRefuel, onBeforeChange } = useRefuel(fuelCapacity)
 

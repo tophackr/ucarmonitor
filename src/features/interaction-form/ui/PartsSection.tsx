@@ -4,13 +4,13 @@ import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IParts } from '@/entities/interaction'
+import type { IPartsInteraction } from '@/entities/interaction'
 import { useMessagesKeys } from '@/shared/i18n'
 
 export function PartsSection(): JSX.Element {
     const t = useTranslations('CarActionForm')
 
-    const { register } = useFormContext<IParts>()
+    const { register } = useFormContext<IPartsInteraction>()
 
     const partsOptionsKeys = useMessagesKeys(
         'CarActionForm',

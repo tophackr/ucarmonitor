@@ -3,14 +3,17 @@
 import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, useMemo } from 'react'
-import { type IRepair, useInteractionContext } from '@/entities/interaction'
+import {
+    type IRepairInteraction,
+    useInteractionContext
+} from '@/entities/interaction'
 import { useMessagesKeys } from '@/shared/i18n'
 
 export function RepairSection(): JSX.Element {
     const t = useTranslations('CarActionForm')
 
     const { interaction } = useInteractionContext()
-    const { repairList } = interaction as IRepair
+    const { repairList } = interaction as IRepairInteraction
 
     const repairOptionsKeys = useMessagesKeys(
         'CarActionForm',

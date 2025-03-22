@@ -1,4 +1,4 @@
-export interface IFuel {
+export interface IFuelInteraction {
     fuelGrade: FuelGrade
     capacity?: number
     price?: number

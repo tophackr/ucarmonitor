@@ -2,7 +2,7 @@ import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import {
-    type ITires,
+    type ITiresInteraction,
     TiresFormType,
     useInteractionContext
 } from '@/entities/interaction'
@@ -20,7 +20,7 @@ export function TiresSection(): JSX.Element {
         width,
         height,
         diameter
-    } = interaction as ITires
+    } = interaction as ITiresInteraction
 
     return (
         <>
