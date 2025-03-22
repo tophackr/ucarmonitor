@@ -1,10 +1,12 @@
+import type { JSX } from 'react'
+
 export interface ISegment {
     key: string
     label: string
+    Component: () => JSX.Element
 }
 
 export interface SegmentProps {
     segments: ISegment[]
-    segment: string
-    setSegment: (segment: string) => void
+    defaultSegment: string
 }

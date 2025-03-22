@@ -1,8 +1,8 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { type JSX, useState } from 'react'
-import { type ISegment } from '@/features/preview-segment'
+import { type JSX } from 'react'
+import { type ISegment, Segments } from '@/features/segment'
 import { pagesRoute } from '@/shared/routes'
 import { BackButton } from '@/shared/ui/tma'
 import { Info } from './info/Info'
@@ -13,29 +13,18 @@ export function CarIdPage(): JSX.Element {
     const t = useTranslations('PreviewSegment')
 
     const segments: ISegment[] = [
-        { key: SegmentKey.info, label: t('info') },
-        { key: SegmentKey.stats, label: t('stats') }
+        { key: SegmentKey.info, label: t('info'), Component: Info },
+        { key: SegmentKey.stats, label: t('stats'), Component: Stats }
     ]
-
-    const [segment, setSegment] = useState<string>(SegmentKey.info)
 
     return (
         <>
             <BackButton route={pagesRoute.home} />
 
-            {segment === SegmentKey.info ? (
-                <Info
-                    segment={segment}
-                    setSegment={setSegment}
-                    segments={segments}
-                />
-            ) : (
-                <Stats
-                    segment={segment}
-                    setSegment={setSegment}
-                    segments={segments}
-                />
-            )}
+            <Segments
+                segments={segments}
+                defaultSegment={SegmentKey.info}
+            />
         </>
     )
 }

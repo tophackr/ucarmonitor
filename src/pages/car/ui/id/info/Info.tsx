@@ -1,8 +1,7 @@
 import { List } from '@telegram-apps/telegram-ui'
 import dynamic from 'next/dynamic'
-import { type JSX, memo } from 'react'
+import { type JSX } from 'react'
 import { PreviewButtons } from '@/features/preview-buttons'
-import { type SegmentProps, Segments } from '@/features/preview-segment'
 import { CarPreview, useCarContext } from '@/entities/car'
 import { CarEditButton } from './CarEditButton'
 
@@ -11,9 +10,7 @@ const DynamicInteractionList = dynamic(
     { ssr: false }
 )
 
-export const Info = memo(function Info(
-    segmentProps: SegmentProps
-): JSX.Element {
+export function Info(): JSX.Element {
     const { car, mileage } = useCarContext()
 
     return (
@@ -23,9 +20,7 @@ export const Info = memo(function Info(
             <CarPreview
                 car={car}
                 mileage={mileage}
-            >
-                <Segments {...segmentProps} />
-            </CarPreview>
+            />
 
             <List>
                 <PreviewButtons />
@@ -37,4 +32,4 @@ export const Info = memo(function Info(
             </List>
         </>
     )
-})
+}
