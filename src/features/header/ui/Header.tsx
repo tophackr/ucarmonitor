@@ -1,38 +1,35 @@
 'use client'
 
-import { themeParams } from '@telegram-apps/sdk-react'
+import { List } from '@telegram-apps/telegram-ui'
 import clsx from 'clsx'
 import type { JSX } from 'react'
 import { usePathname } from '@/shared/i18n'
 import { pagesRoute } from '@/shared/routes'
-import { ListSection } from '@/shared/ui'
-import { SettingsButton } from '@/shared/ui/tma'
+import { SettingsButton, isAppleClient } from '@/shared/ui/tma'
+import { HeaderLayout } from './HeaderLayout'
 import { CarsButton } from './buttons/CarsButton'
 import { EditButton } from './buttons/EditButton'
 
 export function Header(): JSX.Element {
     const pathname = usePathname()
 
-    const isNotSameTheme =
-        themeParams.headerBackgroundColor() !==
-        themeParams.secondaryBackgroundColor()
+    const isApple = isAppleClient()
 
     return (
-        <ListSection>
-            <div
-                className={clsx(
-                    'flex justify-between py-4 bg-header',
-                    isNotSameTheme && 'px-4'
-                )}
-            >
-                <SettingsButton />
+        <List role={'header'}>
+            <HeaderLayout>
+                <div
+                    className={clsx('flex justify-between', !isApple && 'p-4')}
+                >
+                    <SettingsButton />
 
-                <div className={'space-x-2'}>
-                    <EditButton />
+                    <div className={'space-x-2'}>
+                        <EditButton />
 
-                    {pagesRoute.home !== pathname && <CarsButton />}
+                        {pagesRoute.home !== pathname && <CarsButton />}
+                    </div>
                 </div>
-            </div>
-        </ListSection>
+            </HeaderLayout>
+        </List>
     )
 }

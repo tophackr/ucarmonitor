@@ -1,7 +1,6 @@
 import { Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, type PropsWithChildren, memo } from 'react'
-import { ListSection } from '@/shared/ui'
 import type { CarMileageProps, CarProps } from '../model/Props'
 import { CarAvatar } from './CarAvatar'
 import { useIntlCarUnit } from './hooks/useIntlCarUnit'
@@ -15,18 +14,16 @@ export const CarPreview = memo(function CarPreview({
     const intlMileage = useIntlCarUnit(mileage, odometerUnits)
 
     return (
-        <ListSection>
-            <Placeholder
-                header={`${brand} ${model ? model : ''}`}
-                description={`${t('mileage')}: ${intlMileage}`}
-            >
-                {children}
+        <Placeholder
+            header={`${brand} ${model ? model : ''}`}
+            description={`${t('mileage')}: ${intlMileage}`}
+        >
+            {children}
 
-                <CarAvatar
-                    name={brand}
-                    size={96}
-                />
-            </Placeholder>
-        </ListSection>
+            <CarAvatar
+                name={brand}
+                size={96}
+            />
+        </Placeholder>
     )
 })
