@@ -1,9 +1,9 @@
-import type { JSX } from 'react'
+import type { ReactNode } from 'react'
 
 export interface ISegment {
     key: string
     label: string
-    Component: () => JSX.Element
+    Component: ReactNode
 }
 
 export interface SegmentProps {

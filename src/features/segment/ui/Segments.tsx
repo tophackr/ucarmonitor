@@ -19,6 +19,7 @@ export const Segments = memo(function Segments({
                             key={key}
                             onClick={() => setSegment(key)}
                             selected={segment === key}
+                            className={'px-0'}
                         >
                             {label}
                         </SegmentedControl.Item>
@@ -26,7 +27,7 @@ export const Segments = memo(function Segments({
                 </SegmentedControl>
             </Placeholder>
 
-            {SegmentItem && <SegmentItem.Component />}
+            {SegmentItem?.Component}
         </>
     )
 })

@@ -13,8 +13,8 @@ export function CarIdPage(): JSX.Element {
     const t = useTranslations('PreviewSegment')
 
     const segments: ISegment[] = [
-        { key: SegmentKey.info, label: t('info'), Component: Info },
-        { key: SegmentKey.stats, label: t('stats'), Component: Stats }
+        { key: SegmentKey.info, label: t('info'), Component: <Info /> },
+        { key: SegmentKey.stats, label: t('stats'), Component: <Stats /> }
     ]
 
     return (
