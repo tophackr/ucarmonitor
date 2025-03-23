@@ -1,7 +1,6 @@
 'use client'
 
 import { Cell, Progress, Section } from '@telegram-apps/telegram-ui'
-import clsx from 'clsx'
 import { useFormatter, useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
 import { useCarContext } from '@/entities/car/@x/repair'
@@ -10,6 +9,7 @@ import type {
     InteractionsProps
 } from '@/entities/interaction/@x/repair'
 import { getIntlUnit } from '@/shared/i18n'
+import { cx } from '@/shared/lib/dom'
 import type { RepairProps } from '../model/Props'
 import { useRepairDate } from './hooks/useRepairDate'
 import { useRepairMileage } from './hooks/useRepairMileage'
@@ -46,7 +46,7 @@ export const RepairCell = memo(function RepairCell({
                 subtitle={
                     <Progress
                         value={Math.max(mileagePercent, daysPercent)}
-                        className={clsx(
+                        className={cx(
                             inter ? 'bg-hint' : 'bg-destructive',
                             'mt-2'
                         )}

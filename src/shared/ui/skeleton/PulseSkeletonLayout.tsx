@@ -1,10 +1,10 @@
-import clsx from 'clsx'
 import {
     type HTMLAttributes,
     type JSX,
     type PropsWithChildren,
     memo
 } from 'react'
+import { cx } from '@/shared/lib/dom'
 
 export const PulseSkeletonLayout = memo(function PulseSkeletonLayout({
     children,
@@ -14,7 +14,7 @@ export const PulseSkeletonLayout = memo(function PulseSkeletonLayout({
     return (
         <div
             role={'status'}
-            className={clsx('animate-pulse', className)}
+            className={cx('animate-pulse', className)}
             {...props}
         >
             {children}

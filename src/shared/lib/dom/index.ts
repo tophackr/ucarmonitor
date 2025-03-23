@@ -1,4 +1,5 @@
 export { callMultiple } from './callMultiple'
+export { cx } from './cx'
 export { hasReactNode } from './hasReactNode'
 export { useButtonClick } from './hooks/useButtonClick'
 export { useClientOnce } from './hooks/useClientOnce'

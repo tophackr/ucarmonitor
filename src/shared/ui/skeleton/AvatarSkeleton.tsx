@@ -1,7 +1,6 @@
 import { Avatar, type AvatarProps } from '@telegram-apps/telegram-ui'
-import clsx from 'clsx'
 import { type JSX, memo } from 'react'
-import { twMerge } from 'tailwind-merge'
+import { cx } from '@/shared/lib/dom'
 
 export const AvatarSkeleton = memo(function AvatarSkeleton({
     className,
@@ -9,7 +8,7 @@ export const AvatarSkeleton = memo(function AvatarSkeleton({
 }: AvatarProps): JSX.Element {
     return (
         <Avatar
-            className={twMerge(clsx('bg-secondary', className))}
+            className={cx('bg-secondary', className)}
             {...props}
         />
     )

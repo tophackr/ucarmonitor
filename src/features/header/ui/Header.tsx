@@ -1,9 +1,9 @@
 'use client'
 
 import { List } from '@telegram-apps/telegram-ui'
-import clsx from 'clsx'
 import type { JSX } from 'react'
 import { usePathname } from '@/shared/i18n'
+import { cx } from '@/shared/lib/dom'
 import { pagesRoute } from '@/shared/routes'
 import { SettingsButton, isAppleClient } from '@/shared/ui/tma'
 import { HeaderLayout } from './HeaderLayout'
@@ -18,9 +18,7 @@ export function Header(): JSX.Element {
     return (
         <List role={'header'}>
             <HeaderLayout>
-                <div
-                    className={clsx('flex justify-between', !isApple && 'p-4')}
-                >
+                <div className={cx('flex justify-between', !isApple && 'p-4')}>
                     <SettingsButton />
 
                     <div className={'space-x-2'}>

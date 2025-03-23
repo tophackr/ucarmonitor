@@ -5,9 +5,9 @@ import {
     type ButtonCellProps,
     Section
 } from '@telegram-apps/telegram-ui'
-import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
+import { cx } from '@/shared/lib/dom'
 
 export const DeleteButton = memo(function DeleteButton({
     className,
@@ -19,7 +19,7 @@ export const DeleteButton = memo(function DeleteButton({
         <Section>
             <ButtonCell
                 mode={'destructive'}
-                className={clsx('justify-center', className)}
+                className={cx('justify-center', className)}
                 {...props}
             >
                 {t('delete')}

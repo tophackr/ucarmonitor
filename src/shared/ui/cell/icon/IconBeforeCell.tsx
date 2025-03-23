@@ -1,7 +1,7 @@
 'use client'
 
-import clsx from 'clsx'
 import { type JSX, memo } from 'react'
+import { cx } from '@/shared/lib/dom'
 import { Icon } from '@/shared/ui/icon'
 import { isAppleClient } from '@/shared/ui/tma'
 import styles from './IconBeforeCell.module.css'
@@ -21,7 +21,7 @@ export const IconBeforeCell = memo(function IconBeforeCell({
     return (
         <Icon
             name={icon}
-            className={clsx(
+            className={cx(
                 isApple ? styles['apple-icon'] : 'text-hint',
                 className
             )}

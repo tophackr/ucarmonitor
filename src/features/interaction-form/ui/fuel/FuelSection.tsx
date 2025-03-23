@@ -1,10 +1,10 @@
 'use client'
 
 import { Section } from '@telegram-apps/telegram-ui'
-import clsx from 'clsx'
 import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import { useCarContext } from '@/entities/car'
+import { cx } from '@/shared/lib/dom'
 import { isAppleClient } from '@/shared/ui/tma'
 import { AfterRefueling } from './AfterRefueling'
 import { BeforeRefueling } from './BeforeRefueling'
@@ -24,7 +24,7 @@ export function FuelSection(): JSX.Element {
 
             <Section.Header
                 large={true}
-                className={clsx(isApple && '!pb-0 !pt-4 !mb-0')}
+                className={cx(isApple && '!pb-0 !pt-4 !mb-0')}
             >
                 {t('amount_fuel_tank')}
             </Section.Header>

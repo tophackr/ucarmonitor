@@ -1,7 +1,7 @@
 'use client'
 
-import clsx from 'clsx'
 import { type JSX, memo } from 'react'
+import { cx } from '@/shared/lib/dom'
 import type { IMenu } from '@/shared/lib/link-menu'
 import { LinkCell } from '@/shared/ui/cell'
 import { isAppleClient } from '@/shared/ui/tma'
@@ -21,7 +21,7 @@ export const ModalContent = memo(function ModalContent({
             href={href}
             icon={icon}
             bgColor={bgColor}
-            className={clsx(isApple && 'bg-secondary')}
+            className={cx(isApple && 'bg-secondary')}
         >
             {name}
         </LinkCell>

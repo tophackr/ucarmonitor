@@ -1,5 +1,4 @@
 import { openLink } from '@telegram-apps/sdk-react'
-import clsx from 'clsx'
 import {
     type ComponentProps,
     type JSX,
@@ -8,6 +7,7 @@ import {
     useCallback
 } from 'react'
 import { Link as IntlLink } from '@/shared/i18n'
+import { cx } from '@/shared/lib/dom'
 
 type IntlProps = ComponentProps<typeof IntlLink>
 
@@ -50,7 +50,7 @@ export const Link = memo(function Link({
             {...props}
             href={href}
             onClick={onClick}
-            className={clsx(className, 'text-link no-underline')}
+            className={cx('text-link no-underline', className)}
         />
     )
 })
