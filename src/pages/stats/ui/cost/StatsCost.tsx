@@ -1,18 +1,21 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { type ISegment, Segments } from '@/features/segment'
 import { useCarContext } from '@/entities/car'
 import { InteractionCategory, useInteractions } from '@/entities/interaction'
 import { CostData } from './CostData'
+import { useLastDayFilter } from './hooks/useLastDayFilter'
 import { CostKeys } from './types/CostKeys'
 import { calcInteractionData } from './utils/calcInteractionData'
 
-const oneDayInMs = 24 * 60 * 60 * 1000
-
 export function StatsCost() {
+    const t = useTranslations('StatsCostSegment')
+
     const { interactions } = useInteractions()
     const { car } = useCarContext()
+
     const interactionsCarFilter = useMemo(
         () =>
             [...interactions].filter(
@@ -22,75 +25,41 @@ export function StatsCost() {
         [car.id, interactions]
     )
 
-    const now = useMemo(() => new Date(), [])
-    const startDateLastYear = useMemo(() => {
-        const date = new Date(now)
-        date.setFullYear(now.getFullYear() - 1)
-        date.setHours(0, 0, 0, 0)
-        return date
-    }, [now])
-    const endDateLastYear = useMemo(() => {
-        const date = new Date(now)
-        date.setHours(0, 0, 0, 0)
-        return date
-    }, [now])
+    const { last30DaysFilter, last90DaysFilter, lastYearFilter } =
+        useLastDayFilter()
 
     const last30Days = useMemo(
-        () =>
-            interactionsCarFilter.filter(item => {
-                const itemDate = new Date(item.date)
-
-                return (
-                    itemDate >= new Date(now.getTime() - 30 * oneDayInMs) &&
-                    itemDate <= now
-                )
-            }),
-        [interactionsCarFilter, now]
+        () => interactionsCarFilter.filter(last30DaysFilter),
+        [interactionsCarFilter, last30DaysFilter]
     )
-
     const last90Days = useMemo(
-        () =>
-            interactionsCarFilter.filter(item => {
-                const itemDate = new Date(item.date)
-
-                return (
-                    itemDate >= new Date(now.getTime() - 90 * oneDayInMs) &&
-                    itemDate <= now
-                )
-            }),
-        [interactionsCarFilter, now]
+        () => interactionsCarFilter.filter(last90DaysFilter),
+        [interactionsCarFilter, last90DaysFilter]
     )
-    const lastYearData = useMemo(
-        () =>
-            interactionsCarFilter.filter(item => {
-                const itemDate = new Date(item.date)
-
-                return (
-                    itemDate >= startDateLastYear && itemDate < endDateLastYear
-                )
-            }),
-        [endDateLastYear, interactionsCarFilter, startDateLastYear]
+    const lastYear = useMemo(
+        () => interactionsCarFilter.filter(lastYearFilter),
+        [interactionsCarFilter, lastYearFilter]
     )
 
     const data: ISegment[] = [
         {
             key: CostKeys.thirtyDays,
-            label: '30 days',
+            label: t('thirty_days'),
             Component: <CostData {...calcInteractionData(last30Days)} />
         },
         {
             key: CostKeys.ninetyDays,
-            label: '90 days',
+            label: t('ninety_days'),
             Component: <CostData {...calcInteractionData(last90Days)} />
         },
         {
             key: CostKeys.oneYear,
-            label: '1 year',
-            Component: <CostData {...calcInteractionData(lastYearData)} />
+            label: t('one_year'),
+            Component: <CostData {...calcInteractionData(lastYear)} />
         },
         {
             key: CostKeys.allTime,
-            label: 'All time',
+            label: t('all_time'),
             Component: (
                 <CostData {...calcInteractionData(interactionsCarFilter)} />
             )

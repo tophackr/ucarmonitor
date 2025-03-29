@@ -279,5 +279,11 @@
     "errors": {
       "interval_min": "Интервал не может быть отрицательным"
     }
+  },
+  "StatsCostSegment": {
+    "thirty_days": "30 дней",
+    "ninety_days": "90 дней",
+    "one_year": "1 год",
+    "all_time": "Все время"
   }
 }
