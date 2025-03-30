@@ -31,13 +31,13 @@ export async function mockEnv(isDev: boolean) {
     } as const
 
     mockTelegramEnv({
-        onEvent(e) {
-            if (e[0] === 'web_app_request_theme') {
+        onEvent([event]) {
+            if (event === 'web_app_request_theme') {
                 return emitEvent('theme_changed', {
                     theme_params: themeParams
                 })
             }
-            if (e[0] === 'web_app_request_viewport') {
+            if (event === 'web_app_request_viewport') {
                 return emitEvent('viewport_changed', {
                     height: window.innerHeight,
                     width: window.innerWidth,
@@ -45,10 +45,10 @@ export async function mockEnv(isDev: boolean) {
                     is_state_stable: true
                 })
             }
-            if (e[0] === 'web_app_request_content_safe_area') {
+            if (event === 'web_app_request_content_safe_area') {
                 return emitEvent('content_safe_area_changed', noInsets)
             }
-            if (e[0] === 'web_app_request_safe_area') {
+            if (event === 'web_app_request_safe_area') {
                 return emitEvent('safe_area_changed', noInsets)
             }
         },
@@ -68,7 +68,7 @@ export async function mockEnv(isDev: boolean) {
             ]).toString(),
             tgWebAppStartParam: 'debug',
             tgWebAppVersion: '8',
-            tgWebAppPlatform: 'tdesktop'
+            tgWebAppPlatform: 'ios'
         }
     })
 
