@@ -1,4 +1,3 @@
-import { Placeholder } from '@telegram-apps/telegram-ui'
 import { type JSX, type PropsWithChildren, memo } from 'react'
 import { Header } from '@/features/header'
 import { CarsInitContextProvider } from '@/entities/car'
@@ -13,8 +12,6 @@ export const DashboardLayout = memo(function DashboardLayout({
                 <Header />
 
                 {children}
-
-                <Placeholder />
             </EditContextProvider>
         </CarsInitContextProvider>
     )

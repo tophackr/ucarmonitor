@@ -13,6 +13,23 @@ body {
 #app {
     height: 100%;
     overflow-y: scroll;
+    margin-top: calc(
+        var(--tgui--safe_area_inset_top, 0px) +
+            var(--tgui--content_safe_area_inset_top)
+    );
+    margin-bottom: calc(
+        var(--tgui--safe_area_inset_bottom, 0px) +
+            var(--tgui--content_safe_area_inset_bottom)
+    );
+    margin-left: calc(
+        var(--tgui--safe_area_inset_left, 0px) +
+            var(--tgui--content_safe_area_inset_left)
+    );
+    margin-right: calc(
+        var(--tgui--safe_area_inset_right, 0px) +
+            var(--tgui--content_safe_area_inset_right)
+    );
+    padding-bottom: 2rem;
 }
 
 ::-webkit-scrollbar {
