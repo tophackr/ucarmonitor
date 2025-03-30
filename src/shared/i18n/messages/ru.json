@@ -285,5 +285,14 @@
     "ninety_days": "90 дней",
     "one_year": "1 год",
     "all_time": "Все время"
+  },
+  "StatsFuel": {
+    "title": "Средний расход за все время",
+    "description": "{count, plural, one {# заправка} few {# заправки} many {# заправок} other {# заправок}} за {days, plural, one {# день} few {# дня} many {# дней} other {# дней}}",
+    "consumption_per_100": "Расход на 100 {symbol}",
+    "fuel_consumption": "Общий расход топлива",
+    "cost_per_1_mileage": "Стоимость 1 {symbol} пробега",
+    "mileage_per_1_unit": "Пробег на 1 {symbol}",
+    "cost_per_1_unit": "Стоимость 1 {symbol}"
   }
 }
