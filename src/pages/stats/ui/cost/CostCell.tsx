@@ -13,7 +13,7 @@ interface CostCellProps extends TotalCountProps {
 export function CostCell({ title, value, totalCount }: CostCellProps) {
     const t = useTranslations('CarCategoryName')
 
-    const currency = useIntlCurrency(value)
+    const currency = useIntlCurrency().format(value)
 
     return (
         <Cell

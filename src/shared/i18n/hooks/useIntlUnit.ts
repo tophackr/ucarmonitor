@@ -1,12 +1,8 @@
-import { useFormatter } from 'next-intl'
-import { getIntlUnit } from '../utils/getIntlUnit'
+import { useIntlNumber } from './useIntlNumber'
 
-export function useIntlUnit(unit: string, value?: number): string | undefined {
-    const format = useFormatter()
-
-    if (!value && value !== 0) {
-        return undefined
-    }
-
-    return getIntlUnit(format, value, unit)
+export function useIntlUnit(unit: string): Intl.NumberFormat {
+    return useIntlNumber({
+        style: 'unit',
+        unit
+    })
 }

@@ -10,7 +10,7 @@ export function InteractionSumFooter({
 
     const sumAmount = reduceSumItems([...interactions], 'amount')
 
-    const currency = useIntlCurrency(sumAmount)
+    const currency = useIntlCurrency().format(sumAmount)
 
     return `${t('total')}: ${currency}`
 }

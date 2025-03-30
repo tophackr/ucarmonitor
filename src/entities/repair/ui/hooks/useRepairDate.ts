@@ -1,5 +1,4 @@
-import { useFormatter } from 'next-intl'
-import { getIntlUnit } from '@/shared/i18n'
+import { useIntlUnit } from '@/shared/i18n'
 import { getPercent } from '@/shared/lib/number'
 
 interface UseRepairDateReturn {
@@ -8,7 +7,7 @@ interface UseRepairDateReturn {
 }
 
 export function useRepairDate(days?: number, date?: Date): UseRepairDateReturn {
-    const formatter = useFormatter()
+    const intlUnit = useIntlUnit('day')
 
     if (!days || !date) {
         return {
@@ -26,7 +25,7 @@ export function useRepairDate(days?: number, date?: Date): UseRepairDateReturn {
     const nextReplacementDaysOrZero = nextReplacementDays ?? 0
     const nextReplacementDaysFixed = Math.min(days, nextReplacementDaysOrZero)
 
-    const nextDays = getIntlUnit(formatter, nextReplacementDaysFixed, 'day')
+    const nextDays = intlUnit.format(nextReplacementDaysFixed)
     const daysPercent = getPercent(
         nextReplacementDaysFixed ? days - nextReplacementDaysFixed : 0,
         days

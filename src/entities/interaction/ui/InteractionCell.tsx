@@ -17,7 +17,7 @@ export const InteractionCell = memo(function InteractionCell({
 }: InteractionProps & CarProps): JSX.Element {
     const t = useTranslations('CarCategoryName')
 
-    const currency = useIntlCurrency(amount)
+    const currency = useIntlCurrency().format(amount ?? 0)
     const mileageFormat = useIntlCarUnit(mileage, car.odometerUnits)
     const dateTime = useIntlTimeAgo(date)
     const isToday = daysAfterToday(date) + 1 === 0

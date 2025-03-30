@@ -1,6 +1,7 @@
 export { defaultLocale, locales } from './config'
 export { useIntlCurrency } from './hooks/useIntlCurrency'
 export { useIntlDateTime } from './hooks/useIntlDateTime'
+export { useIntlNumber } from './hooks/useIntlNumber'
 export { useIntlTimeAgo } from './hooks/useIntlTimeAgo'
 export { useIntlUnit } from './hooks/useIntlUnit'
 export { useMessagesKeys } from './hooks/useMessageKeys'

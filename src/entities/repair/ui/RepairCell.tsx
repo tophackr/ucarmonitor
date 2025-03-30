@@ -1,14 +1,14 @@
 'use client'
 
 import { Cell, Progress, Section } from '@telegram-apps/telegram-ui'
-import { useFormatter, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
 import { useCarContext } from '@/entities/car/@x/repair'
 import type {
     IRepairInteraction,
     InteractionsProps
 } from '@/entities/interaction/@x/repair'
-import { getIntlUnit } from '@/shared/i18n'
+import { useIntlUnit } from '@/shared/i18n'
 import { cx } from '@/shared/lib/dom'
 import type { RepairProps } from '../model/Props'
 import { useRepairDate } from './hooks/useRepairDate'
@@ -19,9 +19,11 @@ export const RepairCell = memo(function RepairCell({
     interactions
 }: RepairProps & InteractionsProps): JSX.Element | null {
     const t = useTranslations('CarActionForm.repair_work.options')
-    const formatter = useFormatter()
 
     const { car } = useCarContext()
+
+    const intlUnitOdometer = useIntlUnit(car.odometerUnits)
+    const intlUnitDay = useIntlUnit('day')
 
     const inter = interactions.find(i =>
         (i as IRepairInteraction).repairList?.includes(repair.option)
@@ -56,19 +58,11 @@ export const RepairCell = memo(function RepairCell({
                     <>
                         {repair.mileage && (
                             <p>
-                                Каждые{' '}
-                                {getIntlUnit(
-                                    formatter,
-                                    repair.mileage,
-                                    car.odometerUnits
-                                )}
+                                Каждые {intlUnitOdometer.format(repair.mileage)}
                             </p>
                         )}
                         {repair.days && (
-                            <p>
-                                Раз в{' '}
-                                {getIntlUnit(formatter, repair.days, 'day')}
-                            </p>
+                            <p>Раз в {intlUnitDay.format(repair.days)}</p>
                         )}
                     </>
                 }

@@ -20,12 +20,12 @@ export function StatsList(): JSX.Element {
 
     const sumAmount = reduceSumItems(interactionsFilter, 'amount')
 
-    const currency = useIntlCurrency(sumAmount)
+    const currency = useIntlCurrency().format(sumAmount)
 
     return (
         <List>
             <Placeholder description={t('list')}>
-                <LargeTitle>{currency}</LargeTitle>{' '}
+                <LargeTitle>{currency}</LargeTitle>
             </Placeholder>
 
             <InteractionList car={car} />

@@ -1,6 +1,5 @@
-import { useFormatter } from 'next-intl'
 import { useCarContext } from '@/entities/car/@x/repair'
-import { getIntlUnit } from '@/shared/i18n'
+import { useIntlUnit } from '@/shared/i18n'
 import { getPercent } from '@/shared/lib/number'
 
 interface UseRepairMileageReturn {
@@ -12,9 +11,9 @@ export function useRepairMileage(
     repairMileage?: number,
     interactionMileage?: number
 ): UseRepairMileageReturn {
-    const formatter = useFormatter()
-
     const { car, mileage } = useCarContext()
+
+    const intlUnit = useIntlUnit(car.odometerUnits)
 
     if (!repairMileage) {
         return {
@@ -31,11 +30,7 @@ export function useRepairMileage(
         nextReplacementMileageOrZero
     )
 
-    const nextMileage = getIntlUnit(
-        formatter,
-        nextReplacementMileageFixed,
-        car.odometerUnits
-    )
+    const nextMileage = intlUnit.format(nextReplacementMileageFixed)
     const mileagePercent = getPercent(
         nextReplacementMileageFixed
             ? repairMileage - nextReplacementMileageFixed

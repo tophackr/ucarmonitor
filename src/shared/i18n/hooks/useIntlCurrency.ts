@@ -1,16 +1,12 @@
 'use client'
 
-import { useFormatter, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
+import { useIntlNumber } from './useIntlNumber'
 
-export function useIntlCurrency(value?: number): string | undefined {
+export function useIntlCurrency(): Intl.NumberFormat {
     const t = useTranslations('Locale')
-    const format = useFormatter()
 
-    if (!value) {
-        return undefined
-    }
-
-    return format.number(value, {
+    return useIntlNumber({
         style: 'currency',
         currency: t('currency')
     })
