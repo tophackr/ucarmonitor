@@ -14,20 +14,20 @@ body {
     height: 100%;
     overflow-y: scroll;
     margin-top: calc(
-        var(--tgui--safe_area_inset_top, 0px) +
-            var(--tgui--content_safe_area_inset_top)
+        var(--tg-safe-area-inset-top, 0px) +
+            var(--tg-content-safe-area-inset-top)
     );
     margin-bottom: calc(
-        var(--tgui--safe_area_inset_bottom, 0px) +
-            var(--tgui--content_safe_area_inset_bottom)
+        var(--tg-safe-area-inset-bottom, 0px) +
+            var(--tg-content-safe-area-inset-bottom)
     );
     margin-left: calc(
-        var(--tgui--safe_area_inset_left, 0px) +
-            var(--tgui--content_safe_area_inset_left)
+        var(--tg-safe-area-inset-left, 0px) +
+            var(--tg-content-safe-area-inset-left)
     );
     margin-right: calc(
-        var(--tgui--safe_area_inset_right, 0px) +
-            var(--tgui--content_safe_area_inset_right)
+        var(--tg-safe-area-inset-right, 0px) +
+            var(--tg-content-safe-area-inset-right)
     );
     padding-bottom: 2rem;
 }
