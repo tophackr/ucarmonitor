@@ -16,7 +16,7 @@ export function MileageButton(): JSX.Element {
     return (
         <Button
             mode={'bezeled'}
-            className={'col-span-3'}
+            className={'col-span-full'}
             {...props}
         >
             {t('add')}

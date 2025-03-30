@@ -1,9 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@import './color.css';
+@import './font.css';
+@import './text.css';
 
 body {
-    background: var(--tg-theme-secondary-bg-color, #181818);
+    background: var(--tgui--secondary_bg_color, #181818);
     height: 100vh;
     overflow: hidden;
 }
@@ -32,5 +34,5 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .tgui-7707c5d942b7b9af .tgui-0f5050defacbf813 {
-    background: var(--tg-theme-section-bg-color);
+    background: var(--tgui--section_bg_color);
 }

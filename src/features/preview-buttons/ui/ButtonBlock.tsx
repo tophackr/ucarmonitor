@@ -7,7 +7,7 @@ export function ButtonBlock(): JSX.Element {
     return (
         <InlineButtons
             mode={'bezeled'}
-            className={'grid grid-cols-3 p-2'}
+            className={'grid! grid-cols-3'}
         >
             <MileageButton />
 

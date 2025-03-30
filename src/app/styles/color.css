@@ -1,0 +1,22 @@
+@theme inline {
+    --color-base: var(--tgui--bg_color);
+
+    --color-secondary: var(--tgui--secondary_bg_color);
+    --color-section: var(--tgui--section_bg_color);
+    --color-content: var(--tgui--text_color);
+
+    --color-accent: var(--tgui--accent_text_color);
+    --color-destructive: var(--tgui--destructive_text_color);
+    --color-hint: var(--tgui--hint_color);
+    --color-subtitle: var(--tgui--subtitle_text_color);
+    --color-link: var(--tgui--link_color);
+
+    --color-button: var(--tgui--button_color);
+    --color-button-content: var(--tgui--button_text_color);
+
+    --color-header: var(--tgui--header_bg_color);
+    --color-header-content: var(--tgui--section_header_text_color);
+    --color-bottom: var(--tgui--bottom_bar_bg_color);
+
+    --color-separator: var(--tgui--section_separator_color);
+}

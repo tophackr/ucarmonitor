@@ -21,7 +21,7 @@ export function Header(): JSX.Element {
                 <div className={cx('flex justify-between', !isApple && 'p-4')}>
                     <SettingsButton />
 
-                    <div className={'space-x-2'}>
+                    <div className={'flex gap-2'}>
                         <EditButton />
 
                         {pagesRoute.home !== pathname && <CarsButton />}
