@@ -9,7 +9,7 @@ export async function getCars(): Promise<ICar[]> {
     if (!cloudStorage.isSupported()) return defaultCars
 
     const items = await cloudStorage
-        .getItem(itemName, { timeout: 1 /* 0_000 */ })
+        .getItem(itemName, { timeout: 10_000 })
         .catch(error => {
             if (error.name !== 'TimeoutError') throw error
         })
