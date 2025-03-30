@@ -1,13 +1,12 @@
 import { useCallback, useMemo } from 'react'
 import type { IInteraction } from '@/entities/interaction'
+import { oneDayInMs } from '@/shared/model'
 
 interface UseLastDayFilterReturn {
     last30DaysFilter: (item: IInteraction) => boolean
     last90DaysFilter: (item: IInteraction) => boolean
     lastYearFilter: (item: IInteraction) => boolean
 }
-
-const oneDayInMs = 24 * 60 * 60 * 1000
 
 export function useLastDayFilter(): UseLastDayFilterReturn {
     const now = useMemo(() => new Date(), [])
