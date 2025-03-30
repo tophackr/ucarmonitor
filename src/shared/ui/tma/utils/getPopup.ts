@@ -1,11 +1,11 @@
-import { type OpenPopupOptions, openPopup } from '@telegram-apps/sdk-react'
+import { type ShowPopupOptions, showPopup } from '@telegram-apps/sdk-react'
 
 type UsePopupProps = Record<string, () => void>
 
 export async function getPopup(
-    options: OpenPopupOptions,
+    options: ShowPopupOptions,
     callbacks: UsePopupProps
 ): Promise<void | '' | null> {
-    const buttonId = await openPopup(options)
+    const buttonId = await showPopup(options)
     return buttonId && callbacks[buttonId]?.()
 }

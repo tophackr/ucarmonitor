@@ -53,8 +53,8 @@ export function SettingsButton(): JSX.Element | false {
     return (
         isVisible && (
             <Avatar
-                src={user?.photoUrl}
-                acronym={user?.firstName.charAt(0)}
+                src={user?.photo_url}
+                acronym={user?.first_name.charAt(0)}
                 onClick={onClick}
             />
         )

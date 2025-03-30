@@ -1,11 +1,13 @@
 import {
-    $debug,
     backButton,
     initData,
     init as initSDK,
+    isConcurrentCallError,
+    isFunctionNotAvailableError,
     miniApp,
+    setDebug,
     settingsButton,
-    themeParams,
+    targetOrigin,
     viewport
 } from '@telegram-apps/sdk-react'
 
@@ -14,7 +16,8 @@ import {
  */
 export function init(debug: boolean): void {
     // Set @telegram-apps/sdk-react debug mode.
-    $debug.set(debug)
+    setDebug(debug)
+    targetOrigin.set('https://platformer-hq.github.io')
 
     // Initialize special event handlers for Telegram Desktop, Android, iOS, etc.
     // Also, configure the package.
@@ -24,8 +27,10 @@ export function init(debug: boolean): void {
     if (backButton.isSupported()) backButton.mount()
     if (settingsButton.mount.isAvailable()) settingsButton.mount()
 
-    if (!miniApp.isMounted()) miniApp.mount()
-    if (!themeParams.isMounted()) themeParams.mount()
+    if (!miniApp.isMounted())
+        miniApp.mount().catch(error => {
+            if (!isConcurrentCallError(error)) throw error
+        })
 
     initData.restore()
 
@@ -33,13 +38,13 @@ export function init(debug: boolean): void {
         void viewport
             .mount()
             .catch(error => {
-                if (error.type !== 'ERR_ALREADY_MOUNTING') throw error
+                if (!isConcurrentCallError(error)) throw error
             })
             .then(() => {
                 if (!viewport.isCssVarsBound()) viewport.bindCssVars()
             })
             .catch(error => {
-                if (error.type !== 'ERR_NOT_MOUNTED') {
+                if (!isFunctionNotAvailableError(error)) {
                     console.error(
                         'Something went wrong mounting the viewport',
                         error
@@ -47,9 +52,6 @@ export function init(debug: boolean): void {
                 }
             })
     }
-
-    if (!miniApp.isCssVarsBound()) miniApp.bindCssVars()
-    if (!themeParams.isCssVarsBound()) themeParams.bindCssVars()
 
     // Add Eruda if needed.
     if (debug) {

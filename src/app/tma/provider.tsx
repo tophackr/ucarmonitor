@@ -8,14 +8,14 @@ import {
 } from '@telegram-apps/sdk-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
 import { type JSX, type PropsWithChildren, memo, useEffect } from 'react'
-import { useClientOnce } from '@/shared/lib/dom'
+import { useClientOnce, useEffectOnce } from '@/shared/lib/dom'
 import { Loader } from '@/shared/ui'
 import { isAppleClient } from '@/shared/ui/tma'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { ErrorPage } from './components/ErrorPage'
 import { init } from './init'
+import { mockEnv } from './mockEnv'
 import { useDidMount } from './useDidMount'
-import { useTelegramMock } from './useTelegramMock'
 
 const RootInner = memo(function RootInner({
     children
@@ -23,14 +23,13 @@ const RootInner = memo(function RootInner({
     const isDev = process.env.NODE_ENV === 'development'
 
     // Mock Telegram environment in development mode if needed.
-    if (isDev) {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        useTelegramMock()
-    }
+    useClientOnce(() => {
+        mockEnv(isDev)
+    })
 
     const lp = retrieveLaunchParams()
     const isApple = isAppleClient(lp)
-    const debug = isDev || lp.platform === 'debug'
+    const debug = isDev || lp.tgWebAppStartParam === 'debug'
 
     // Initialize the library.
     useClientOnce(() => {
@@ -43,6 +42,10 @@ const RootInner = memo(function RootInner({
     useEffect(() => {
         postEvent('web_app_request_theme')
     }, [])
+
+    useEffectOnce(() => {
+        postEvent('web_app_ready')
+    })
 
     return (
         <AppRoot

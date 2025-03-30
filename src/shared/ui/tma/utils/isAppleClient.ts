@@ -10,5 +10,5 @@ export function isAppleClient(launchParams?: LaunchParams): boolean {
         launchParams = retrieveLaunchParams()
     }
 
-    return ['macos', 'ios'].includes(launchParams.platform)
+    return ['macos', 'ios'].includes(launchParams.tgWebAppPlatform)
 }
