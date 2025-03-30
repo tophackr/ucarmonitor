@@ -2,8 +2,6 @@ import {
     backButton,
     initData,
     init as initSDK,
-    isConcurrentCallError,
-    isFunctionNotAvailableError,
     miniApp,
     setDebug,
     settingsButton,
@@ -11,11 +9,12 @@ import {
     themeParams,
     viewport
 } from '@telegram-apps/sdk-react'
+import { mount } from './mount'
 
 /**
  * Initializes the application and configures its dependencies.
  */
-export function init(debug: boolean): void {
+export async function init(debug: boolean): Promise<void> {
     // Set @telegram-apps/sdk-react debug mode.
     setDebug(debug)
     targetOrigin.set('https://platformer-hq.github.io')
@@ -28,53 +27,9 @@ export function init(debug: boolean): void {
     if (backButton.isSupported()) backButton.mount()
     if (settingsButton.mount.isAvailable()) settingsButton.mount()
 
-    if (!miniApp.isMounted()) {
-        miniApp
-            .mount()
-            .catch(error => {
-                if (!isConcurrentCallError(error)) throw error
-            })
-            .then(() => {
-                if (!miniApp.isCssVarsBound()) miniApp.bindCssVars()
-            })
-            .catch(error => {
-                if (!isFunctionNotAvailableError(error)) throw error
-            })
-    }
-    if (!themeParams.isMounted()) {
-        themeParams
-            .mount()
-            .catch(error => {
-                if (!isConcurrentCallError(error)) throw error
-            })
-            .then(() => {
-                if (!themeParams.isCssVarsBound()) themeParams.bindCssVars()
-            })
-            .catch(error => {
-                if (!isFunctionNotAvailableError(error)) throw error
-            })
-    }
+    await Promise.all([miniApp, themeParams, viewport].map(mount))
 
     initData.restore()
-
-    if (!viewport.isMounted()) {
-        void viewport
-            .mount()
-            .catch(error => {
-                if (!isConcurrentCallError(error)) throw error
-            })
-            .then(() => {
-                if (!viewport.isCssVarsBound()) viewport.bindCssVars()
-            })
-            .catch(error => {
-                if (!isFunctionNotAvailableError(error)) {
-                    console.error(
-                        'Something went wrong mounting the viewport',
-                        error
-                    )
-                }
-            })
-    }
 
     miniApp.ready()
 
