@@ -15,7 +15,7 @@ import {
 /**
  * Initializes the application and configures its dependencies.
  */
-export async function init(debug: boolean): Promise<void> {
+export function init(debug: boolean): void {
     // Set @telegram-apps/sdk-react debug mode.
     setDebug(debug)
     targetOrigin.set('https://platformer-hq.github.io')
@@ -29,44 +29,52 @@ export async function init(debug: boolean): Promise<void> {
     if (settingsButton.mount.isAvailable()) settingsButton.mount()
 
     if (!miniApp.isMounted()) {
-        try {
-            await miniApp.mount()
-        } catch (error) {
-            if (!isConcurrentCallError(error)) throw error
-        }
+        miniApp
+            .mount()
+            .catch(error => {
+                if (!isConcurrentCallError(error)) throw error
+            })
+            .then(() => {
+                if (!miniApp.isCssVarsBound()) miniApp.bindCssVars()
+            })
+            .catch(error => {
+                if (!isFunctionNotAvailableError(error)) throw error
+            })
     }
-
     if (!themeParams.isMounted()) {
-        try {
-            await themeParams.mount()
-        } catch (error) {
-            if (!isConcurrentCallError(error)) throw error
-        }
+        themeParams
+            .mount()
+            .catch(error => {
+                if (!isConcurrentCallError(error)) throw error
+            })
+            .then(() => {
+                if (!themeParams.isCssVarsBound()) themeParams.bindCssVars()
+            })
+            .catch(error => {
+                if (!isFunctionNotAvailableError(error)) throw error
+            })
     }
 
     initData.restore()
 
     if (!viewport.isMounted()) {
-        try {
-            await viewport.mount()
-        } catch (error) {
-            if (!isConcurrentCallError(error)) throw error
-        }
-
-        try {
-            if (!viewport.isCssVarsBound()) viewport.bindCssVars()
-        } catch (error) {
-            if (!isFunctionNotAvailableError(error)) {
-                console.error(
-                    'Something went wrong mounting the viewport',
-                    error
-                )
-            }
-        }
+        void viewport
+            .mount()
+            .catch(error => {
+                if (!isConcurrentCallError(error)) throw error
+            })
+            .then(() => {
+                if (!viewport.isCssVarsBound()) viewport.bindCssVars()
+            })
+            .catch(error => {
+                if (!isFunctionNotAvailableError(error)) {
+                    console.error(
+                        'Something went wrong mounting the viewport',
+                        error
+                    )
+                }
+            })
     }
-
-    if (!miniApp.isCssVarsBound()) miniApp.bindCssVars()
-    if (!themeParams.isCssVarsBound()) themeParams.bindCssVars()
 
     miniApp.ready()
 
