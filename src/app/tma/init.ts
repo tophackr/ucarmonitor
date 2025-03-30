@@ -8,13 +8,14 @@ import {
     setDebug,
     settingsButton,
     targetOrigin,
+    themeParams,
     viewport
 } from '@telegram-apps/sdk-react'
 
 /**
  * Initializes the application and configures its dependencies.
  */
-export function init(debug: boolean): void {
+export async function init(debug: boolean): Promise<void> {
     // Set @telegram-apps/sdk-react debug mode.
     setDebug(debug)
     targetOrigin.set('https://platformer-hq.github.io')
@@ -27,31 +28,47 @@ export function init(debug: boolean): void {
     if (backButton.isSupported()) backButton.mount()
     if (settingsButton.mount.isAvailable()) settingsButton.mount()
 
-    if (!miniApp.isMounted())
-        miniApp.mount().catch(error => {
+    if (!miniApp.isMounted()) {
+        try {
+            await miniApp.mount()
+        } catch (error) {
             if (!isConcurrentCallError(error)) throw error
-        })
+        }
+    }
+
+    if (!themeParams.isMounted()) {
+        try {
+            await themeParams.mount()
+        } catch (error) {
+            if (!isConcurrentCallError(error)) throw error
+        }
+    }
 
     initData.restore()
 
     if (!viewport.isMounted()) {
-        void viewport
-            .mount()
-            .catch(error => {
-                if (!isConcurrentCallError(error)) throw error
-            })
-            .then(() => {
-                if (!viewport.isCssVarsBound()) viewport.bindCssVars()
-            })
-            .catch(error => {
-                if (!isFunctionNotAvailableError(error)) {
-                    console.error(
-                        'Something went wrong mounting the viewport',
-                        error
-                    )
-                }
-            })
+        try {
+            await viewport.mount()
+        } catch (error) {
+            if (!isConcurrentCallError(error)) throw error
+        }
+
+        try {
+            if (!viewport.isCssVarsBound()) viewport.bindCssVars()
+        } catch (error) {
+            if (!isFunctionNotAvailableError(error)) {
+                console.error(
+                    'Something went wrong mounting the viewport',
+                    error
+                )
+            }
+        }
     }
+
+    if (!miniApp.isCssVarsBound()) miniApp.bindCssVars()
+    if (!themeParams.isCssVarsBound()) themeParams.bindCssVars()
+
+    miniApp.ready()
 
     // Add Eruda if needed.
     if (debug) {

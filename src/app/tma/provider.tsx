@@ -8,7 +8,7 @@ import {
 } from '@telegram-apps/sdk-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
 import { type JSX, type PropsWithChildren, memo, useEffect } from 'react'
-import { useClientOnce, useEffectOnce } from '@/shared/lib/dom'
+import { useClientOnce } from '@/shared/lib/dom'
 import { Loader } from '@/shared/ui'
 import { isAppleClient } from '@/shared/ui/tma'
 import { ErrorBoundary } from './components/ErrorBoundary'
@@ -42,10 +42,6 @@ const RootInner = memo(function RootInner({
     useEffect(() => {
         postEvent('web_app_request_theme')
     }, [])
-
-    useEffectOnce(() => {
-        postEvent('web_app_ready')
-    })
 
     return (
         <AppRoot
