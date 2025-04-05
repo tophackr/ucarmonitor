@@ -4,6 +4,7 @@ import {
     init as initSDK,
     isThemeParamsCssVarsBound,
     isViewportCssVarsBound,
+    isViewportMounting,
     miniAppReady,
     mountBackButton,
     mountMiniAppSync,
@@ -62,7 +63,7 @@ export async function init({
         if (!isThemeParamsCssVarsBound()) bindThemeParamsCssVars()
     }
 
-    if (mountViewport.isAvailable()) {
+    if (mountViewport.isAvailable() && !isViewportMounting()) {
         mountViewport().then(() => {
             if (!isViewportCssVarsBound()) bindViewportCssVars()
         })
