@@ -1,4 +1,4 @@
-import { cloudStorage } from '@telegram-apps/sdk-react'
+import { cloudStorage, isTimeoutError } from '@telegram-apps/sdk-react'
 import type { ICar } from '../../model/Car'
 
 export const itemName = 'cars'
@@ -11,7 +11,7 @@ export async function getCars(): Promise<ICar[]> {
     const items = await cloudStorage
         .getItem(itemName, { timeout: 10_000 })
         .catch(error => {
-            if (error.name !== 'TimeoutError') throw error
+            if (!isTimeoutError(error)) throw error
         })
 
     return items ? JSON.parse(items) : defaultCars

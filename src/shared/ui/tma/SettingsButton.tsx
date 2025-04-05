@@ -1,8 +1,11 @@
 'use client'
 
 import {
+    hideSettingsButton,
     initDataUser,
-    settingsButton,
+    isSettingsButtonVisible,
+    onSettingsButtonClick,
+    showSettingsButton,
     useSignal
 } from '@telegram-apps/sdk-react'
 import { Avatar } from '@telegram-apps/telegram-ui'
@@ -25,7 +28,7 @@ export function SettingsButton(): JSX.Element | false {
     const router = useRouter()
     const pathname = usePathname()
 
-    const isVisible = useSignal(settingsButton.isVisible)
+    const isVisible = useSignal(isSettingsButtonVisible)
 
     const onClick = useCallback(
         () => router.push(pagesRoute.settings),
@@ -33,7 +36,7 @@ export function SettingsButton(): JSX.Element | false {
     )
 
     useEffect(() => {
-        const offClick = settingsButton.onClick(onClick)
+        const offClick = onSettingsButtonClick(onClick)
 
         return () => {
             offClick()
@@ -42,9 +45,9 @@ export function SettingsButton(): JSX.Element | false {
 
     useEffect(() => {
         if (visibleOnSettingsPage(isVisible, pathname)) {
-            settingsButton.hide()
+            hideSettingsButton()
         } else if (notVisibleOnPage(isVisible, pathname)) {
-            settingsButton.show()
+            showSettingsButton()
         }
     }, [isVisible, pathname])
 

@@ -1,6 +1,12 @@
 'use client'
 
-import { type MainButtonState, mainButton } from '@telegram-apps/sdk-react'
+import {
+    type MainButtonState,
+    mountMainButton,
+    onMainButtonClick,
+    setMainButtonParams,
+    unmountMainButton
+} from '@telegram-apps/sdk-react'
 import { memo, useEffect } from 'react'
 
 export interface MainButtonProps extends Partial<MainButtonState> {
@@ -13,25 +19,25 @@ export const MainButton = memo(function MainButton({
     ...params
 }: MainButtonProps) {
     useEffect(() => {
-        mainButton.mount()
+        mountMainButton()
 
         return () => {
-            mainButton.setParams({
+            setMainButtonParams({
                 hasShineEffect: false,
                 isEnabled: true,
                 isLoaderVisible: false,
                 isVisible: false
             })
-            mainButton.unmount()
+            unmountMainButton()
         }
     }, [])
 
     useEffect(() => {
-        mainButton.setParams({ isVisible, ...params })
+        setMainButtonParams({ isVisible, ...params })
     }, [isVisible, params])
 
     useEffect(() => {
-        const offClick = mainButton.onClick(onClick)
+        const offClick = onMainButtonClick(onClick)
 
         return () => {
             offClick()

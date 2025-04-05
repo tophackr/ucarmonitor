@@ -1,6 +1,11 @@
 'use client'
 
-import { backButton } from '@telegram-apps/sdk-react'
+import {
+    hideBackButton,
+    isBackButtonVisible,
+    onBackButtonClick,
+    showBackButton
+} from '@telegram-apps/sdk-react'
 import { memo, useCallback, useEffect } from 'react'
 import { useRouter } from '@/shared/i18n'
 
@@ -15,26 +20,26 @@ export const BackButton = memo(function BackButton({
 }: BackButtonProps) {
     const router = useRouter()
 
-    const onBackButtonClick = useCallback(
+    const onClick = useCallback(
         () => (route ? router.push(route) : router.back()),
         [route, router]
     )
 
     useEffect(() => {
-        if (!backButton.isVisible() && !hide) {
-            backButton.show()
-        } else if (backButton.isVisible() && hide) {
-            backButton.hide()
+        if (!isBackButtonVisible() && !hide) {
+            showBackButton()
+        } else if (isBackButtonVisible() && hide) {
+            hideBackButton()
         }
     }, [hide])
 
     useEffect(() => {
-        const offClick = backButton.onClick(onBackButtonClick)
+        const offClick = onBackButtonClick(onClick)
 
         return () => {
             offClick()
         }
-    }, [onBackButtonClick])
+    }, [onClick])
 
     return null
 })

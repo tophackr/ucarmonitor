@@ -1,20 +1,15 @@
 'use client'
 
-import {
-    miniApp,
-    postEvent,
-    retrieveLaunchParams,
-    useSignal
-} from '@telegram-apps/sdk-react'
+import { isMiniAppDark, useSignal } from '@telegram-apps/sdk-react'
 import { AppRoot } from '@telegram-apps/telegram-ui'
-import { type JSX, type PropsWithChildren, memo, useEffect } from 'react'
+import { type JSX, type PropsWithChildren, memo } from 'react'
 import { useClientOnce } from '@/shared/lib/dom'
 import { Loader } from '@/shared/ui'
-import { isAppleClient } from '@/shared/ui/tma'
+import { isAppleClient, useLaunchParams } from '@/shared/ui/tma'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { ErrorPage } from './components/ErrorPage'
 import { init } from './init'
-import { mockEnv } from './mockEnv'
+import { mockEnv } from './mocks/mockEnv'
 import { useDidMount } from './useDidMount'
 
 const RootInner = memo(function RootInner({
@@ -27,21 +22,22 @@ const RootInner = memo(function RootInner({
         mockEnv(isDev)
     })
 
-    const lp = retrieveLaunchParams()
+    const lp = useLaunchParams()
     const isApple = isAppleClient(lp)
-    const debug = isDev || lp.tgWebAppStartParam === 'debug'
+
+    const { tgWebAppPlatform: platform } = lp
+    const debug = isDev || (lp.tgWebAppStartParam || '').includes('debug')
 
     // Initialize the library.
     useClientOnce(() => {
-        init(debug)
+        init({
+            debug,
+            eruda: debug, // && ['ios', 'android'].includes(platform),
+            mockForMacOS: platform === 'macos'
+        })
     })
 
-    const isDark = useSignal(miniApp.isDark)
-
-    // TODO: temp fix for ios
-    useEffect(() => {
-        postEvent('web_app_request_theme')
-    }, [])
+    const isDark = useSignal(isMiniAppDark)
 
     return (
         <AppRoot
