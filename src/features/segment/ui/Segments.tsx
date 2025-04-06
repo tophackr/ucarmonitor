@@ -1,4 +1,4 @@
-import { Placeholder, SegmentedControl } from '@telegram-apps/telegram-ui'
+import { List, Placeholder, SegmentedControl } from '@telegram-apps/telegram-ui'
 import { type JSX, memo, useState } from 'react'
 import { type SegmentProps } from './types/Segment'
 
@@ -12,20 +12,22 @@ export const Segments = memo(function Segments({
 
     return (
         <>
-            <Placeholder>
-                <SegmentedControl>
-                    {segments.map(({ key, label }) => (
-                        <SegmentedControl.Item
-                            key={key}
-                            onClick={() => setSegment(key)}
-                            selected={segment === key}
-                            className={'px-0!'}
-                        >
-                            {label}
-                        </SegmentedControl.Item>
-                    ))}
-                </SegmentedControl>
-            </Placeholder>
+            <List>
+                <Placeholder className={'p-0!'}>
+                    <SegmentedControl>
+                        {segments.map(({ key, label }) => (
+                            <SegmentedControl.Item
+                                key={key}
+                                onClick={() => setSegment(key)}
+                                selected={segment === key}
+                                className={'px-0!'}
+                            >
+                                {label}
+                            </SegmentedControl.Item>
+                        ))}
+                    </SegmentedControl>
+                </Placeholder>
+            </List>
 
             {SegmentItem?.Component}
         </>

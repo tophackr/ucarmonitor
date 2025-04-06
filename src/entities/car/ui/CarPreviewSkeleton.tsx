@@ -4,16 +4,24 @@ import {
     List,
     Placeholder
 } from '@telegram-apps/telegram-ui'
-import type { JSX } from 'react'
+import { type JSX, type ReactNode, memo } from 'react'
 import {
     AvatarSkeleton,
     PulseSkeletonLayout,
     TextSkeleton
 } from '@/shared/ui/skeleton'
 
-export function CarPreviewSkeleton(): JSX.Element {
+interface CarPreviewSkeletonProps {
+    segments: ReactNode
+}
+
+export const CarPreviewSkeleton = memo(function CarPreviewSkeleton({
+    segments
+}: CarPreviewSkeletonProps): JSX.Element {
     return (
-        <PulseSkeletonLayout className={'mt-16'}>
+        <PulseSkeletonLayout>
+            {segments}
+
             <Placeholder
                 header={<TextSkeleton className={'bg-content m-auto'} />}
                 description={<TextSkeleton className={'bg-hint m-auto w-40'} />}
@@ -40,4 +48,4 @@ export function CarPreviewSkeleton(): JSX.Element {
             </List>
         </PulseSkeletonLayout>
     )
-}
+})
