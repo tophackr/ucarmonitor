@@ -1,1 +1,1 @@
-export { StatsParts as default } from '@/pages/stats'
+export { DynamicStatsParts as default } from '@/pages/stats'

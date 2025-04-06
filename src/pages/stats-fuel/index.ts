@@ -1,1 +1,1 @@
-export { StatsFuel } from './ui/StatsFuel'
+export { DynamicStatsFuel } from './ui/DynamicStatsFuel'

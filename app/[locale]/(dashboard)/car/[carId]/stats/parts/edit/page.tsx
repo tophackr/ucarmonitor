@@ -1,1 +1,1 @@
-export { StatsPartsEdit as default } from '@/pages/stats'
+export { DynamicStatsPartsEdit as default } from '@/pages/stats'

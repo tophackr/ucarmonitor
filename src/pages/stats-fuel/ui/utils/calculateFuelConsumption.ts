@@ -17,9 +17,9 @@ export function calculateFuelConsumption(
     const costPerLiter = data.cost / data.fuel
 
     return {
-        fuelPer100km: toFixedNumber(fuelPer100km),
-        costPerKm: toFixedNumber(costPerKm),
-        distancePerLiter: toFixedNumber(distancePerLiter),
-        costPerLiter: toFixedNumber(costPerLiter)
+        fuelPer100km: toFixedNumber(fuelPer100km || 0),
+        costPerKm: toFixedNumber(costPerKm || 0),
+        distancePerLiter: toFixedNumber(distancePerLiter || 0),
+        costPerLiter: toFixedNumber(costPerLiter || 0)
     }
 }

@@ -8,7 +8,7 @@ import {
 export function CarsContentLoading(): JSX.Element {
     return (
         <PulseSkeletonLayout>
-            {Array.from({ length: 5 }).map((_, index) => (
+            {Array.from({ length: 5 }, (_, index) => (
                 <CellSkeleton
                     key={index}
                     before={<AvatarSkeleton size={28} />}

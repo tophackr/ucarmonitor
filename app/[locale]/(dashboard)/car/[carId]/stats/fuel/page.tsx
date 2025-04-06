@@ -1,1 +1,1 @@
-export { StatsFuel as default } from '@/pages/stats-fuel'
+export { DynamicStatsFuel as default } from '@/pages/stats-fuel'

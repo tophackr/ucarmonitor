@@ -88,7 +88,7 @@ export function StatsFuel() {
     return (
         <ListSection>
             <div className={'grid grid-cols-2 justify-around'}>
-                <Text className={'text-center col-span-2 p-4'}>
+                <Text className={'col-span-2 p-4 text-center'}>
                     {t('title')}
                 </Text>
                 <Placeholder
@@ -98,7 +98,7 @@ export function StatsFuel() {
                         </LargeTitle>
                     }
                     description={`${literSymbol} / 100 ${odometerSymbol}`}
-                    className={'py-0'}
+                    className={'py-0!'}
                 />
                 <Placeholder
                     header={
@@ -107,9 +107,9 @@ export function StatsFuel() {
                         </LargeTitle>
                     }
                     description={`${currencySymbol} / ${odometerSymbol}`}
-                    className={'py-0'}
+                    className={'py-0!'}
                 />
-                <Caption className={'text-center text-subtitle col-span-2 p-4'}>
+                <Caption className={'text-subtitle col-span-2 p-4 text-center'}>
                     {t('description', {
                         count: fuelInteractions.length,
                         days: calcDays

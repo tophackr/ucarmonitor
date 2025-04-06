@@ -1,1 +1,1 @@
-export { StatsList as default } from '@/pages/stats'
+export { DynamicStatsList as default } from '@/pages/stats'
