@@ -25,5 +25,4 @@ export {
     type ITiresInteraction
 } from './model/Tires'
 export { actionsRoute } from './routes/actions'
-export { InteractionSkeleton } from './ui/IntegrationSkeleton'
 export { InteractionList } from './ui/InteractionList'

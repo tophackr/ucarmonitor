@@ -7,12 +7,12 @@ import {
     TextSkeleton
 } from '@/shared/ui/skeleton'
 
-export function InteractionSkeleton(): JSX.Element {
+export function FormSkeleton(): JSX.Element {
     return (
         <List>
             <PulseSkeletonLayout>
-                <Section header={<TextSkeleton className={'w-24 mb-2'} />}>
-                    {Array.from({ length: 3 }).map((_, index) => (
+                <Section header={<TextSkeleton className={'mb-2 w-24'} />}>
+                    {Array.from({ length: 3 }, (_, index) => (
                         <CellSkeleton
                             key={index}
                             before={<IconSkeleton />}
