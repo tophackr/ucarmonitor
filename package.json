@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack --experimental-https",
+    "dev": "next dev --turbopack",
+    "dev:https": "next dev --turbopack --experimental-https",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -11,7 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.5.1",
-    "@telegram-apps/sdk-react": "^3.1.8",
+    "@telegram-apps/sdk-react": "^3.1.9",
     "@telegram-apps/telegram-ui": "^2.1.8",
     "@vercel/speed-insights": "^1.2.0",
     "clsx": "^2.1.1",

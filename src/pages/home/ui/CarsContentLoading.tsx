@@ -5,7 +5,7 @@ import {
     PulseSkeletonLayout
 } from '@/shared/ui/skeleton'
 
-export function HomeLoading(): JSX.Element {
+export function CarsContentLoading(): JSX.Element {
     return (
         <PulseSkeletonLayout>
             {Array.from({ length: 5 }).map((_, index) => (

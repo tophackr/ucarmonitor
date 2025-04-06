@@ -1,3 +1,5 @@
+'use client'
+
 import { List, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX } from 'react'

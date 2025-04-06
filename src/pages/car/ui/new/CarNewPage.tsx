@@ -1,13 +1,13 @@
 import type { JSX } from 'react'
-import { InfoForm } from '@/features/info-form'
 import { BackButton } from '@/shared/ui/tma'
+import { DynamicInfoForm } from '../DynamicInfoForm'
 
 export function CarNewPage(): JSX.Element {
     return (
         <>
             <BackButton />
 
-            <InfoForm />
+            <DynamicInfoForm />
         </>
     )
 }

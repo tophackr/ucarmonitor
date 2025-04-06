@@ -1,13 +1,13 @@
 'use client'
 
 import { type JSX, memo, use } from 'react'
-import { InteractionForm } from '@/features/interaction-form'
 import {
     type CategoryProps,
     useInteractionContext
 } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui/tma'
+import { DynamicInteractionForm } from '../DynamicInteractionForm'
 
 export const InteractionEditPage = memo(function InteractionEditPage({
     params
@@ -20,7 +20,7 @@ export const InteractionEditPage = memo(function InteractionEditPage({
         <>
             <BackButton />
 
-            <InteractionForm
+            <DynamicInteractionForm
                 category={category}
                 interaction={interaction}
             />

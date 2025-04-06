@@ -1,8 +1,8 @@
 import { type JSX, memo } from 'react'
-import { InteractionPreview } from '@/widgets/integration-preview'
-import type { CategoryProps } from '@/entities/interaction'
+import { type CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui/tma'
+import { DynamicInteractionPreview } from './DynamicInteractionPreview'
 
 export const InteractionIdPage = memo(async function InteractionIdPage({
     params
@@ -13,7 +13,7 @@ export const InteractionIdPage = memo(async function InteractionIdPage({
         <>
             <BackButton />
 
-            <InteractionPreview category={category} />
+            <DynamicInteractionPreview category={category} />
         </>
     )
 })

@@ -1,8 +1,8 @@
 import { type JSX, memo } from 'react'
-import { InteractionForm } from '@/features/interaction-form'
-import type { CategoryProps } from '@/entities/interaction'
+import { type CategoryProps } from '@/entities/interaction'
 import type { ParamsProps } from '@/shared/lib/dom'
 import { BackButton } from '@/shared/ui/tma'
+import { DynamicInteractionForm } from '../DynamicInteractionForm'
 
 export const InteractionNewPage = memo(async function InteractionNewPage({
     params
@@ -13,7 +13,7 @@ export const InteractionNewPage = memo(async function InteractionNewPage({
         <>
             <BackButton />
 
-            <InteractionForm category={category} />
+            <DynamicInteractionForm category={category} />
         </>
     )
 })

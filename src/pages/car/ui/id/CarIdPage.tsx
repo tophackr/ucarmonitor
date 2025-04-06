@@ -1,16 +1,15 @@
-'use client'
-
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { type JSX } from 'react'
-import { type ISegment, Segments } from '@/features/segment'
+import { type ISegment } from '@/features/segment'
 import { pagesRoute } from '@/shared/routes'
 import { BackButton } from '@/shared/ui/tma'
+import { DynamicSegments } from './DynamicSegments'
 import { Info } from './info/Info'
 import { Stats } from './stats/Stats'
 import { SegmentKey } from './types/SegmentKey'
 
-export function CarIdPage(): JSX.Element {
-    const t = useTranslations('PreviewSegment')
+export async function CarIdPage(): Promise<JSX.Element> {
+    const t = await getTranslations('PreviewSegment')
 
     const segments: ISegment[] = [
         { key: SegmentKey.info, label: t('info'), Component: <Info /> },
@@ -21,7 +20,7 @@ export function CarIdPage(): JSX.Element {
         <>
             <BackButton route={pagesRoute.home} />
 
-            <Segments
+            <DynamicSegments
                 segments={segments}
                 defaultSegment={SegmentKey.info}
             />
