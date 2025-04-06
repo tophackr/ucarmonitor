@@ -19,7 +19,7 @@ body {
     );
     padding-bottom: calc(
         var(--tg-viewport-safe-area-inset-bottom, 0px) +
-            var(--tg-viewport-content-safe-area-inset-bottom) + 2rem
+            var(--tg-viewport-content-safe-area-inset-bottom)
     );
     padding-left: calc(
         var(--tg-viewport-safe-area-inset-left, 0px) +

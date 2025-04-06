@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 import type { JSX } from 'react'
 import { DuckNotFoundLottie } from '@/shared/ui/lottie'
 import { BackButton } from '@/shared/ui/tma'
+import { ReturnBackButton } from './ReturnBackButton'
 import { ReturnHomeButton } from './ReturnHomeButton'
 
 export async function NotFound(): Promise<JSX.Element> {
@@ -12,15 +13,17 @@ export async function NotFound(): Promise<JSX.Element> {
         <>
             <BackButton />
 
-            <List className={'min-h-screen content-center'}>
+            <List className={'flex min-h-screen content-center'}>
                 <Placeholder
                     header={t('title')}
                     description={t('description')}
-                    action={<ReturnHomeButton>{t('button')}</ReturnHomeButton>}
                 >
                     <DuckNotFoundLottie className={'size-36'} />
                 </Placeholder>
             </List>
+
+            <ReturnBackButton text={t('buttons.back')} />
+            <ReturnHomeButton text={t('buttons.home')} />
         </>
     )
 }
