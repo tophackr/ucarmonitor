@@ -9,10 +9,10 @@ export const CellSkeleton = memo(function CellSkeleton(
 ): JSX.Element {
     return (
         <Cell
-            subhead={<TextSkeleton className={'bg-subtitle w-24 mb-1'} />}
+            subhead={<TextSkeleton className={'bg-subtitle mb-1'} />}
             {...props}
         >
-            <TextSkeleton className={'w-48'} />
+            <TextSkeleton long />
         </Cell>
     )
 })

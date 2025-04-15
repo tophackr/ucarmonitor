@@ -14,7 +14,7 @@ export function FuelSkeleton() {
                     {Array.from({ length: 2 }, (_, i) => (
                         <Placeholder
                             key={i}
-                            header={<TextSkeleton className={'mx-auto w-24'} />}
+                            header={<TextSkeleton className={'mx-auto'} />}
                             description={
                                 <TextSkeleton
                                     className={'bg-hint justify-self-center'}
@@ -26,8 +26,9 @@ export function FuelSkeleton() {
 
                     <TextSkeleton
                         className={
-                            'text-caption1 bg-subtitle col-span-2 m-4 w-48 justify-self-center'
+                            'text-caption1 bg-subtitle col-span-2 m-4 justify-self-center'
                         }
+                        long
                     />
                 </div>
 

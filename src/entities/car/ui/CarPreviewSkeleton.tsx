@@ -24,7 +24,12 @@ export const CarPreviewSkeleton = memo(function CarPreviewSkeleton({
 
             <Placeholder
                 header={<TextSkeleton className={'bg-content m-auto'} />}
-                description={<TextSkeleton className={'bg-hint m-auto w-40'} />}
+                description={
+                    <TextSkeleton
+                        className={'bg-hint m-auto'}
+                        long
+                    />
+                }
             >
                 <AvatarSkeleton size={96} />
             </Placeholder>

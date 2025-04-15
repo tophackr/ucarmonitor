@@ -15,7 +15,7 @@ export function FormSkeleton(): JSX.Element {
                     <CellSkeleton before={<IconSkeleton />} />
                 </Section>
 
-                <Section header={<TextSkeleton className={'mt-4 mb-2 w-24'} />}>
+                <Section header={<TextSkeleton className={'mt-4 mb-2'} />}>
                     {Array.from({ length: 4 }, (_, index) => (
                         <CellSkeleton
                             key={index}
@@ -24,7 +24,7 @@ export function FormSkeleton(): JSX.Element {
                     ))}
                 </Section>
 
-                <Section header={<TextSkeleton className={'mt-4 mb-2 w-24'} />}>
+                <Section header={<TextSkeleton className={'mt-4 mb-2'} />}>
                     {Array.from({ length: 2 }, (_, index) => (
                         <CellSkeleton
                             key={index}
@@ -33,7 +33,7 @@ export function FormSkeleton(): JSX.Element {
                     ))}
                 </Section>
 
-                <Section header={<TextSkeleton className={'mt-4 mb-2 w-24'} />}>
+                <Section header={<TextSkeleton className={'mt-4 mb-2'} />}>
                     {Array.from({ length: 3 }, (_, index) => (
                         <CellSkeleton
                             key={index}

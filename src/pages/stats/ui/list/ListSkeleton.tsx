@@ -10,12 +10,17 @@ export function ListSkeleton() {
         <PulseSkeletonLayout>
             <Placeholder
                 header={<TextSkeleton className={'bg-content m-auto'} />}
-                description={<TextSkeleton className={'bg-hint m-auto w-40'} />}
+                description={
+                    <TextSkeleton
+                        className={'bg-hint m-auto'}
+                        long
+                    />
+                }
             />
 
             <List>
                 <Section
-                    header={<TextSkeleton className={'bg-content mb-2 w-24'} />}
+                    header={<TextSkeleton className={'bg-content mb-2'} />}
                     footer={<TextSkeleton className={'bg-subtitle'} />}
                 >
                     {Array.from({ length: 3 }, (_, index) => (
@@ -24,7 +29,7 @@ export function ListSkeleton() {
                 </Section>
 
                 <Section
-                    header={<TextSkeleton className={'bg-content mb-2 w-24'} />}
+                    header={<TextSkeleton className={'bg-content mb-2'} />}
                     footer={<TextSkeleton className={'bg-subtitle'} />}
                 >
                     {Array.from({ length: 2 }, (_, index) => (
