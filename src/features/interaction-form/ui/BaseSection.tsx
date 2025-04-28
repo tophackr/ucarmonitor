@@ -6,9 +6,10 @@ import { type JSX, memo, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { useCarContext } from '@/entities/car'
 import {
-    type IBaseInteraction,
-    InteractionCategory
+    InteractionCategory,
+    type InteractionReqData
 } from '@/entities/interaction'
+import { valueAsStringOrNull } from '@/shared/lib/form'
 import { CheckCell } from '@/shared/ui/cell'
 import { IconInput } from '@/shared/ui/form'
 import { Icon } from '@/shared/ui/icon'
@@ -30,7 +31,7 @@ export const BaseSection = memo(function BaseSection({
         register,
         formState: { errors },
         getValues
-    } = useFormContext<IBaseInteraction>()
+    } = useFormContext<InteractionReqData>()
 
     return (
         <>
@@ -44,7 +45,8 @@ export const BaseSection = memo(function BaseSection({
                     bgColor={'OrangeRed'}
                     placeholder={t('date')}
                     {...register('date', {
-                        required: t('errors.date_required')
+                        required: t('errors.date_required'),
+                        setValueAs: value => new Date(value).toISOString()
                     })}
                 />
                 <IconInput
@@ -96,7 +98,9 @@ export const BaseSection = memo(function BaseSection({
                 <Textarea
                     header={t('description')}
                     placeholder={t('description')}
-                    {...register('description')}
+                    {...register('description', {
+                        setValueAs: valueAsStringOrNull
+                    })}
                 />
                 <FileInput
                     label={t('files')}

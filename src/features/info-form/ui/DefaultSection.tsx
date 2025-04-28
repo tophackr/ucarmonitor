@@ -20,7 +20,7 @@ export function DefaultSection(): JSX.Element {
                 after={
                     <Controller
                         control={control}
-                        name={'default'}
+                        name={'isDefault'}
                         render={({ field: { onChange, onBlur, value } }) => (
                             <Switch
                                 onBlur={onBlur}

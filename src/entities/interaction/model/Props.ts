@@ -1,4 +1,4 @@
-import type { IInteraction, InteractionCategory } from './Interaction'
+import type { InteractionCategory, InteractionResData } from './InteractionDto'
 
 export interface CategoryProps {
     category: InteractionCategory
@@ -9,9 +9,9 @@ export interface InteractionIdProps {
 }
 
 export interface InteractionProps {
-    interaction: IInteraction
+    interaction: InteractionResData
 }
 
 export interface InteractionsProps {
-    interactions: IInteraction[]
+    interactions: InteractionResData[]
 }

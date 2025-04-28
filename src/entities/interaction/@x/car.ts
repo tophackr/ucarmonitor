@@ -1,2 +1,2 @@
-export { useSortedInteractions } from '../lib/store/hooks/useSortedInteractions'
-export { InteractionCategory } from '../model/Interaction'
+export { useFindAllInteractionsQuery } from '../api/interactionApi'
+export { InteractionCategory } from '../model/InteractionDto'

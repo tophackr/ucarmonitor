@@ -14,7 +14,7 @@ const financeData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'MediumPurple'
     },
     {
-        name: InteractionCategory.stateInspection,
+        name: InteractionCategory.state_inspection,
         icon: 'LoaderPinwheel',
         bgColor: 'DodgerBlue'
     },
@@ -24,12 +24,12 @@ const financeData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'Orange'
     },
     {
-        name: InteractionCategory.carPurchase,
+        name: InteractionCategory.car_purchase,
         icon: 'Container',
         bgColor: 'LimeGreen'
     },
     {
-        name: InteractionCategory.loanRepayment,
+        name: InteractionCategory.loan_repayment,
         icon: 'Captions',
         bgColor: 'DeepPink'
     },

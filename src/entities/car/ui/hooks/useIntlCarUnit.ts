@@ -1,5 +1,5 @@
 import { useIntlUnit } from '@/shared/i18n'
-import { CarOdometerUnits } from '../../model/Car'
+import type { OdometerUnits } from '../../model/CarDto'
 
-export const useIntlCarUnit = (value: number, units: CarOdometerUnits) =>
+export const useIntlCarUnit = (value: number, units: OdometerUnits) =>
     useIntlUnit(units).format(value)

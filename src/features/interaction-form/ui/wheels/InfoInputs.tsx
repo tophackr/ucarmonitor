@@ -1,0 +1,100 @@
+'use client'
+
+import { Input, Section, Select } from '@telegram-apps/telegram-ui'
+import { useTranslations } from 'next-intl'
+import type { JSX } from 'react'
+import { Controller, useFormContext } from 'react-hook-form'
+import type { WheelInteractionData } from '@/entities/interaction'
+import { RimType, TireType, WheelType } from '@/entities/interaction'
+import { valueAsStringOrNull } from '@/shared/lib/form'
+import { useWheelForm } from './hooks/useWheelForm'
+
+export function InfoInputs(): JSX.Element {
+    const t = useTranslations('CarActionForm.wheels')
+
+    const { register, control } = useFormContext<WheelInteractionData>()
+
+    const { wheelType } = useWheelForm()
+
+    return (
+        <Section header={t('title')}>
+            <Select {...register('data.wheelType', { required: true })}>
+                <option value={WheelType.tire}>{t('tire')}</option>
+                <option value={WheelType.rim}>{t('rim')}</option>
+            </Select>
+
+            {wheelType === WheelType.tire ? (
+                <Controller
+                    name={'data.tireType'}
+                    control={control}
+                    render={({ field: { value, onChange, onBlur } }) => (
+                        <Select
+                            value={value ?? ''}
+                            onChange={e => {
+                                const value = e.target.value
+                                return onChange(value === '' ? null : value)
+                            }}
+                            onBlur={onBlur}
+                        >
+                            <option
+                                value={''}
+                                disabled
+                            >
+                                {t('seasonality.title')}
+                            </option>
+
+                            {Object.values(TireType).map(type => (
+                                <option
+                                    key={type}
+                                    value={type}
+                                >
+                                    {t(`seasonality.options.${type}`)}
+                                </option>
+                            ))}
+                        </Select>
+                    )}
+                />
+            ) : (
+                <Controller
+                    name={'data.rimType'}
+                    control={control}
+                    render={({ field: { value, onChange, onBlur } }) => (
+                        <Select
+                            value={value ?? ''}
+                            onChange={e => {
+                                const value = e.target.value
+                                return onChange(value === '' ? null : value)
+                            }}
+                            onBlur={onBlur}
+                        >
+                            <option
+                                value={''}
+                                disabled
+                            >
+                                {t('type.title')}
+                            </option>
+
+                            {Object.values(RimType).map(type => (
+                                <option
+                                    key={type}
+                                    value={type}
+                                >
+                                    {t(`type.options.${type}`)}
+                                </option>
+                            ))}
+                        </Select>
+                    )}
+                />
+            )}
+
+            <Input
+                placeholder={t('brand')}
+                {...register('data.brand', { setValueAs: valueAsStringOrNull })}
+            />
+            <Input
+                placeholder={t('model')}
+                {...register('data.model', { setValueAs: valueAsStringOrNull })}
+            />
+        </Section>
+    )
+}

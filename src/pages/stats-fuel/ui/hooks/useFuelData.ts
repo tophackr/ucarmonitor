@@ -1,39 +1,81 @@
 'use client'
 
 import { useMemo } from 'react'
-import type { IBaseInteraction, IFuelInteraction } from '@/entities/interaction'
 import type { FuelData } from '../types/FuelData'
 import { useFuelInteractions } from './useFuelInteractions'
 
-interface UseFuelDataReturn {
-    fuelData: FuelData
+interface GroupedMonths {
+    [month: string]: FuelData
 }
 
-export function useFuelData(): UseFuelDataReturn {
+const initFuelData: FuelData = { distance: 0, fuel: 0, allFuel: 0, cost: 0 }
+
+export function useFuelData(month: true): GroupedMonths
+
+export function useFuelData(month?: false): FuelData
+
+export function useFuelData(month: boolean = false): GroupedMonths | FuelData {
     const interactions = useFuelInteractions()
 
     const fuelData = useMemo(() => {
-        let previousMileage: number = 0
+        if (!interactions.length) {
+            return month ? {} : { ...initFuelData }
+        }
 
-        return interactions.reduce(
-            (acc, interaction) => {
-                const { capacity, amount, mileage } =
-                    interaction as IBaseInteraction & IFuelInteraction
+        let previousMileage: number | null = null
+        const monthsData: Record<string, FuelData> = {}
+        const total: FuelData = { ...initFuelData }
 
-                if (previousMileage === 0) {
-                    previousMileage = mileage
-                } else if (mileage) {
-                    acc.distance += previousMileage - mileage
+        for (let i = interactions.length - 1; i >= 0; i--) {
+            const {
+                date: iDate,
+                amount,
+                mileage,
+                data: { capacity, price }
+            } = interactions[i]
 
-                    if (capacity) acc.fuel += Number(capacity)
-                    if (amount) acc.cost += Number(amount)
+            const fuelToAdd =
+                capacity !== null
+                    ? Number(capacity)
+                    : price !== null && price !== 0
+                      ? Number((amount ?? 0) / price)
+                      : 0
+
+            const distance =
+                previousMileage !== null && mileage !== null
+                    ? mileage - previousMileage
+                    : 0
+
+            if (previousMileage !== null && mileage !== null) {
+                total.distance += distance
+                total.cost += Number(amount ?? 0)
+                total.fuel += fuelToAdd
+            }
+
+            total.allFuel += fuelToAdd
+
+            if (month) {
+                const date = new Date(iDate)
+                const monthKey = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}`
+
+                if (!monthsData[monthKey]) {
+                    monthsData[monthKey] = { ...initFuelData }
                 }
 
-                return acc
-            },
-            { distance: 0, fuel: 0, cost: 0 } as FuelData
-        )
-    }, [interactions])
+                if (previousMileage !== null && mileage !== null) {
+                    monthsData[monthKey].distance += distance
+                    monthsData[monthKey].cost += Number(amount ?? 0)
+                    monthsData[monthKey].fuel += fuelToAdd
+                }
 
-    return { fuelData }
+                monthsData[monthKey].allFuel += fuelToAdd
+            }
+
+            previousMileage = mileage ?? previousMileage
+        }
+
+        return month ? monthsData : total
+    }, [interactions, month])
+
+    return fuelData
 }

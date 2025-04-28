@@ -9,7 +9,7 @@ const parkingData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.tollRoad,
+        name: InteractionCategory.toll_road,
         icon: 'TrafficCone',
         bgColor: 'YellowGreen'
     },
@@ -19,12 +19,12 @@ const parkingData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'Orange'
     },
     {
-        name: InteractionCategory.soberDriver,
+        name: InteractionCategory.sober_driver,
         icon: 'ContactRound',
         bgColor: 'MediumPurple'
     },
     {
-        name: InteractionCategory.alarmSystem,
+        name: InteractionCategory.alarm_system,
         icon: 'Satellite',
         bgColor: 'DeepPink'
     }

@@ -9,7 +9,7 @@ export const ErrorPage = memo(function ErrorPage({
 }): JSX.Element {
     useEffect(() => {
         // Log the error to an error reporting service
-        console.error(error)
+        console.error('ErrorPage', error)
     }, [error])
 
     return (

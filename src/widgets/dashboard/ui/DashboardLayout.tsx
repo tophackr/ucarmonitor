@@ -1,18 +1,18 @@
 import { type JSX, type PropsWithChildren, memo } from 'react'
 import { Header } from '@/features/header'
-import { CarsInitContextProvider } from '@/entities/car'
 import { EditContextProvider } from '@/entities/edit'
+import { UserInitProvider } from '@/entities/user'
 
 export const DashboardLayout = memo(function DashboardLayout({
     children
 }: PropsWithChildren): JSX.Element {
     return (
-        <CarsInitContextProvider>
+        <UserInitProvider>
             <EditContextProvider>
                 <Header />
 
                 {children}
             </EditContextProvider>
-        </CarsInitContextProvider>
+        </UserInitProvider>
     )
 })

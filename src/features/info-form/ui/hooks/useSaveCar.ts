@@ -1,51 +1,36 @@
 import { useCallback } from 'react'
-import { type ICar, useCars } from '@/entities/car'
+import {
+    type CarReqData,
+    type CarResData,
+    useCreateCarMutation,
+    useUpdateCarMutation
+} from '@/entities/car'
 import { useRouter } from '@/shared/i18n'
-import { generateUniqueId } from '@/shared/lib/id'
-import { removeEmptyValues } from '@/shared/lib/lodash'
 import { pagesRoute } from '@/shared/routes'
 
 interface UseSaveCarReturns {
-    saveCallback: (data: ICar) => void
+    saveCallback: (data: CarReqData | CarResData) => void
 }
 
 export function useSaveCar(): UseSaveCarReturns {
-    const { cars, setCarsWithCloud } = useCars()
+    const [createMutation] = useCreateCarMutation()
+    const [updateMutation] = useUpdateCarMutation()
     const router = useRouter()
 
     const saveCallback = useCallback(
-        (data: ICar) => {
-            let structureCar = structuredClone(cars)
-
-            const emptyData = removeEmptyValues(data)
-
-            if (!structureCar.length) {
-                emptyData['default'] = true
-            }
-
-            if (emptyData.default) {
-                structureCar = structureCar.map(car =>
-                    car.default && car.id !== emptyData.id
-                        ? removeEmptyValues({ ...car, default: undefined })
-                        : car
-                )
-            }
-
-            if ('id' in emptyData) {
-                const updatedCars = structureCar.map(car =>
-                    car.id === emptyData.id ? emptyData : car
-                )
-
-                setCarsWithCloud(updatedCars)
-            } else {
-                Object.assign(emptyData, { id: generateUniqueId() })
-
-                setCarsWithCloud([...structureCar, emptyData])
-            }
-
-            router.push(pagesRoute.carId(emptyData.id))
+        (body: CarReqData | CarResData) => {
+            return (
+                'id' in body
+                    ? updateMutation({ carId: body.id, body })
+                    : createMutation({ body })
+            ).then(({ data, error }) => {
+                if (data?.id) {
+                    router.push(pagesRoute.carId(data.id))
+                }
+                if (error) console.error('useSaveCar', error)
+            })
         },
-        [cars, router, setCarsWithCloud]
+        [createMutation, router, updateMutation]
     )
 
     return { saveCallback }

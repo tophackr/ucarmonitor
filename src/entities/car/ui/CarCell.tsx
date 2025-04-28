@@ -14,7 +14,7 @@ export const CarCell = memo(function CarCell({ car }: CarProps): JSX.Element {
     return (
         <Cell
             after={
-                car?.default && <Badge type={'number'}>{t('default')}</Badge>
+                car.isDefault && <Badge type={'number'}>{t('default')}</Badge>
             }
             before={
                 <CarAvatar

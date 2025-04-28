@@ -1,1 +1,2 @@
-export { useCarContext } from './interactions'
+export type { CarIdProps } from '../model/Props'
+export { useCarContext } from './interaction'

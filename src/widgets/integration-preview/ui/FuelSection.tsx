@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import { useCarContext } from '@/entities/car'
 import {
-    type IFuelInteraction,
+    type FuelInteractionData,
+    InteractionCategory,
     useInteractionContext
 } from '@/entities/interaction'
 import { toFixedNumber } from '@/shared/lib/number'
@@ -16,8 +17,14 @@ export function FuelSection(): JSX.Element {
     const { car } = useCarContext()
 
     const { interaction } = useInteractionContext()
-    const { fuelGrade, capacity, price, beforeRefueling, afterRefueling } =
-        interaction as IFuelInteraction
+
+    if (interaction.type !== InteractionCategory.fuel) {
+        throw new Error('Invalid interaction type')
+    }
+
+    const {
+        data: { fuelGrade, capacity, price, beforeRefueling, afterRefueling }
+    } = interaction as unknown as FuelInteractionData
 
     const fuelCapacity = car.fuelCapacity ?? 45
 

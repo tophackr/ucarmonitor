@@ -4,6 +4,7 @@ import { Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import { useFormContext } from 'react-hook-form'
+import { valueAsStringOrNull } from '@/shared/lib/form'
 import { IconInput } from '@/shared/ui/form'
 import type { CarInfoForm } from './types/FormContext'
 
@@ -33,14 +34,18 @@ export function InfoSection(): JSX.Element {
                 bgColor={'LimeGreen'}
                 header={t('model')}
                 placeholder={t('model')}
-                {...register('model')}
+                {...register('model', {
+                    setValueAs: valueAsStringOrNull
+                })}
             />
             <IconInput
                 icon={'Pencil'}
                 bgColor={'SlateGray'}
                 header={t('name')}
                 placeholder={t('name')}
-                {...register('name')}
+                {...register('name', {
+                    setValueAs: valueAsStringOrNull
+                })}
             />
             <IconInput
                 type={'number'}
@@ -49,10 +54,6 @@ export function InfoSection(): JSX.Element {
                 bgColor={'OrangeRed'}
                 header={t('year')}
                 placeholder={t('year')}
-                min={1900}
-                max={2100}
-                minLength={4}
-                maxLength={4}
                 {...register('year', {
                     valueAsNumber: true,
                     min: { value: 1900, message: t('errors.year_min') },

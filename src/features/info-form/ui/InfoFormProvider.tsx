@@ -3,20 +3,18 @@
 import { type JSX, type PropsWithChildren, memo } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 import {
-    CarFuel,
     type CarMileageProps,
-    CarOdometerUnits,
     type CarProps,
-    type ICar
+    type CarReqData,
+    FuelType,
+    OdometerUnits
 } from '@/entities/car'
 
-type InitCar = Partial<Omit<ICar, 'id'>>
-
-export const initialCar: InitCar = {
-    mileage: 0,
-    fuel: CarFuel.Gasoline,
-    odometerUnits: CarOdometerUnits.kilometer,
-    engineHoursEnabled: false
+const initialCar: Partial<CarReqData> = {
+    fuelType: FuelType.gasoline,
+    odometerUnits: OdometerUnits.kilometer,
+    engineHoursEnabled: false,
+    engineHours: null
 }
 
 export const InfoFormProvider = memo(function InfoFormProvider({
@@ -24,8 +22,8 @@ export const InfoFormProvider = memo(function InfoFormProvider({
     mileage,
     children
 }: PropsWithChildren<Partial<CarProps & CarMileageProps>>): JSX.Element {
-    const methods = useForm<ICar>({
-        defaultValues: { ...initialCar, ...car, mileage }
+    const methods = useForm<CarReqData>({
+        defaultValues: { ...initialCar, ...car, mileage: mileage ?? 0 }
     })
 
     return <FormProvider {...methods}>{children}</FormProvider>

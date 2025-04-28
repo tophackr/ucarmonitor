@@ -2,38 +2,47 @@
 
 import { Cell, Multiselectable, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import type { JSX } from 'react'
+import { type JSX, useMemo } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IPartsInteraction } from '@/entities/interaction'
-import { useMessagesKeys } from '@/shared/i18n'
+import { useCarContext } from '@/entities/car'
+import type { PartInteractionData } from '@/entities/interaction'
+import { PartOption, useFindAllPartsQuery } from '@/entities/part'
 
 export function PartsSection(): JSX.Element {
     const t = useTranslations('CarActionForm')
 
-    const { register } = useFormContext<IPartsInteraction>()
+    const { register } = useFormContext<PartInteractionData>()
 
-    const partsOptionsKeys = useMessagesKeys(
-        'CarActionForm',
-        'parts_work',
-        'options'
-    )
+    const { car } = useCarContext()
+    const { data, isLoading, isError, error } = useFindAllPartsQuery({
+        carId: car.id
+    })
+
+    if (isError) console.error('PartsSection', error)
+
+    const partOptions = useMemo(() => Object.values(PartOption), [])
+
+    // todo: loading parts
+    if (isLoading) return <>Loading parts...</>
 
     return (
         <Section header={t('parts_work.title')}>
-            {partsOptionsKeys.map(i => (
+            {data?.map(({ id, option }) => (
                 <Cell
-                    key={i}
+                    key={id}
                     Component={'label'}
                     before={
                         <Multiselectable
-                            value={i}
-                            {...register('partsList', {
+                            value={id}
+                            {...register('data.ids', {
                                 required: t('errors.repair_work_required')
                             })}
                         />
                     }
                 >
-                    {t(`parts_work.options.${i}`)}
+                    {partOptions.includes(option as PartOption)
+                        ? t(`parts_work.options.${option as PartOption}`)
+                        : option}
                 </Cell>
             ))}
         </Section>

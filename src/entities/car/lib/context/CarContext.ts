@@ -1,15 +1,24 @@
 import { createContext } from 'react'
-import { CarFuel, CarOdometerUnits } from '../../model/Car'
+import { FuelType, OdometerUnits } from '../../model/CarDto'
 import type { CarMileageProps, CarProps } from '../../model/Props'
 
 export const CarContext = createContext<CarProps & CarMileageProps>({
     car: {
         id: '',
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+        isDefault: false,
         brand: '',
-        fuel: CarFuel.Gasoline,
+        model: null,
+        name: null,
+        year: null,
+        fuelType: FuelType.gasoline,
+        fuelCapacity: null,
         mileage: 0,
-        odometerUnits: CarOdometerUnits.kilometer,
-        engineHoursEnabled: false
+        odometerUnits: OdometerUnits.kilometer,
+        engineHoursEnabled: false,
+        engineHours: null,
+        userId: ''
     },
     mileage: 0
 })

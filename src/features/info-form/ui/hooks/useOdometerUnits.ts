@@ -2,19 +2,19 @@
 
 import { useCallback, useState } from 'react'
 import type { UseFormWatch } from 'react-hook-form'
-import type { CarOdometerUnits } from '@/entities/car'
+import type { OdometerUnits } from '@/entities/car'
 import { useWatchForm } from '@/shared/ui/form'
 import type { CarMileageForm } from '../types/FormContext'
 
 interface UseOdometerUnitsReturn {
-    unit: CarOdometerUnits
+    unit: OdometerUnits
 }
 
 export function useOdometerUnits(
     watch: UseFormWatch<CarMileageForm>,
-    odometerUnits: CarOdometerUnits
+    odometerUnits: OdometerUnits
 ): UseOdometerUnitsReturn {
-    const [unit, setUnit] = useState<CarOdometerUnits>(odometerUnits)
+    const [unit, setUnit] = useState<OdometerUnits>(odometerUnits)
 
     const unitCallback = useCallback(
         ({ odometerUnits }: CarMileageForm) => {

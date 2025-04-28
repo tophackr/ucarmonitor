@@ -8,14 +8,14 @@ import {
     InteractionCategory,
     type InteractionProps
 } from '@/entities/interaction'
-import { ActionFormProvider } from './ActionFormProvider'
 import { BaseSection } from './BaseSection'
 import { DeleteInteractionButton } from './DeleteInteractionButton'
+import { InteractionFormProvider } from './InteractionFormProvider'
 import { PartsSection } from './PartsSection'
 import { RepairSection } from './RepairSection'
 import { SaveActionButton } from './SaveActionButton'
 import { FuelSection } from './fuel/FuelSection'
-import { TiresSection } from './tires/TiresSection'
+import { WheelsSection } from './wheels/WheelsSection'
 
 export const Form = memo(function Form({
     category,
@@ -25,7 +25,7 @@ export const Form = memo(function Form({
 
     return (
         <List>
-            <ActionFormProvider
+            <InteractionFormProvider
                 category={category}
                 interaction={interaction}
             >
@@ -38,14 +38,14 @@ export const Form = memo(function Form({
                     InteractionCategory.repair
                 ].includes(category) && <RepairSection />}
 
-                {category === InteractionCategory.parts && <PartsSection />}
+                {category === InteractionCategory.part && <PartsSection />}
 
-                {category === InteractionCategory.purchaseTires && (
-                    <TiresSection />
+                {category === InteractionCategory.purchase_wheels && (
+                    <WheelsSection />
                 )}
 
                 <SaveActionButton />
-            </ActionFormProvider>
+            </InteractionFormProvider>
 
             {interaction && (
                 <DeleteInteractionButton

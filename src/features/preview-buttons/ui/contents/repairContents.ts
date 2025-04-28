@@ -9,7 +9,7 @@ const repairData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'MediumPurple'
     },
     {
-        name: InteractionCategory.tireService,
+        name: InteractionCategory.tire_service,
         icon: 'Badge',
         bgColor: 'LimeGreen'
     },
@@ -19,17 +19,17 @@ const repairData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.parts,
+        name: InteractionCategory.part,
         icon: 'PocketKnife',
         bgColor: 'SlateGray'
     },
     {
-        name: InteractionCategory.purchaseTires,
+        name: InteractionCategory.purchase_wheels,
         icon: 'Aperture',
         bgColor: 'Orange'
     },
     {
-        name: InteractionCategory.towTruck,
+        name: InteractionCategory.tow_truck,
         icon: 'Caravan',
         bgColor: 'OrangeRed'
     }

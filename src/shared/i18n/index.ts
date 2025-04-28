@@ -1,4 +1,5 @@
 export { defaultLocale, locales } from './config'
+export { getLocales } from './getLocales'
 export { useIntlCurrency } from './hooks/useIntlCurrency'
 export { useIntlDateTime } from './hooks/useIntlDateTime'
 export { useIntlNumber } from './hooks/useIntlNumber'
@@ -14,6 +15,7 @@ export {
     usePathname,
     useRouter
 } from './routing'
+export { Locale } from './types/Locale'
 export type { LocaleProps } from './types/Locale'
 export type { Translation, TranslationConfig } from './types/Translation'
 export type {

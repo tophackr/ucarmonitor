@@ -2,25 +2,45 @@
 
 import { LargeTitle, List, Placeholder } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
-import type { JSX } from 'react'
+import { type JSX, useMemo } from 'react'
 import { useCarContext } from '@/entities/car'
-import { InteractionList, useInteractions } from '@/entities/interaction'
+import {
+    InteractionCategory,
+    InteractionList,
+    useFindAllInteractionsQuery
+} from '@/entities/interaction'
 import { useIntlCurrency } from '@/shared/i18n'
 import { reduceSumItems } from '@/shared/lib/number'
+import { ListSkeleton } from './ListSkeleton'
 
 export function StatsList(): JSX.Element {
     const t = useTranslations('StatsCategoryName')
 
     const { car } = useCarContext()
-    const { interactions } = useInteractions()
+    const {
+        data: interactions,
+        isLoading,
+        isError,
+        error
+    } = useFindAllInteractionsQuery({
+        carId: car.id
+    })
 
-    const interactionsFilter = [...interactions].filter(
-        inter => inter.carId === car.id
+    if (isError) console.error('StatsList', error)
+
+    const filteredInteractions = useMemo(
+        () =>
+            [...(interactions ?? [])].filter(
+                inter => inter.type !== InteractionCategory.mileage
+            ),
+        [interactions]
     )
 
-    const sumAmount = reduceSumItems(interactionsFilter, 'amount')
+    const sumAmount = reduceSumItems(filteredInteractions, 'amount')
 
     const currency = useIntlCurrency().format(sumAmount)
+
+    if (isLoading) return <ListSkeleton />
 
     return (
         <List>

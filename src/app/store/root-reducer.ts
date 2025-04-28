@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux'
-import { carsSliceReducer } from '@/entities/car'
-import { interactionsSliceReducer } from '@/entities/interaction'
-import { repairsSliceReducer } from '@/entities/repair'
+import { backendApi } from '@/shared/lib/store'
 
 export const rootReducer = combineReducers({
-    carsSlice: carsSliceReducer,
-    interactionsSlice: interactionsSliceReducer,
-    repairsSlice: repairsSliceReducer
+    [backendApi.reducerPath]: backendApi.reducer
 })

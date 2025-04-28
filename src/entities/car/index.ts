@@ -1,10 +1,18 @@
+export {
+    useCreateCarMutation,
+    useDeleteCarMutation,
+    useFindAllCarsQuery,
+    useFindOneCarQuery,
+    useUpdateCarMutation
+} from './api/carApi'
 export { CarContextProvider } from './lib/context/CarContextProvider'
-export { CarsInitContextProvider } from './lib/context/CarsInitContextProvider'
 export { useCarContext } from './lib/context/hooks/useCarContext'
-export { useCarsInitContext } from './lib/context/hooks/useCarsInitContext'
-export { carsSliceReducer } from './lib/store/cars.slice'
-export { useCars } from './lib/store/useCars'
-export { CarFuel, CarOdometerUnits, type ICar } from './model/Car'
+export {
+    FuelType,
+    OdometerUnits,
+    type CarReqData,
+    type CarResData
+} from './model/CarDto'
 export type { CarIdProps, CarMileageProps, CarProps } from './model/Props'
 export { CarCell } from './ui/CarCell'
 export { CarPreview } from './ui/CarPreview'

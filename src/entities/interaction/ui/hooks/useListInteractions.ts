@@ -1,40 +1,44 @@
 import { useMemo } from 'react'
-import { useSortedInteractions } from '../../lib/store/hooks/useSortedInteractions'
-import type { IInteraction } from '../../model/Interaction'
+import { useFindAllInteractionsQuery } from '../../api/interactionApi'
+import type { InteractionResData } from '../../model/InteractionDto'
 
 interface GroupedInteractions {
-    [month: string]: IInteraction[]
+    [month: string]: InteractionResData[]
 }
 
 export function useListInteractions(
     carId: string,
     slice?: number
-): GroupedInteractions | IInteraction[] {
-    const sortedInteractions = useSortedInteractions({ carId })
+): GroupedInteractions | InteractionResData[] {
+    const {
+        data: interactions,
+        isLoading,
+        isError,
+        error
+    } = useFindAllInteractionsQuery({ carId })
 
-    return useMemo(
-        () =>
-            slice
-                ? sortedInteractions.slice(0, slice)
-                : sortedInteractions.reduce<GroupedInteractions>(
-                      (acc, item) => {
-                          const date = new Date(item.date)
-                          const monthKey = `${date.getFullYear()}-${(
-                              date.getMonth() + 1
-                          )
-                              .toString()
-                              .padStart(2, '0')}`
+    if (isError) console.error('useListInteractions', error)
 
-                          if (!acc[monthKey]) {
-                              acc[monthKey] = []
-                          }
+    return useMemo(() => {
+        if (isLoading || !interactions) return []
 
-                          acc[monthKey].push(item)
+        return slice
+            ? interactions.slice(0, slice)
+            : interactions.reduce<GroupedInteractions>((acc, item) => {
+                  const date = new Date(item.date)
+                  const monthKey = `${date.getFullYear()}-${(
+                      date.getMonth() + 1
+                  )
+                      .toString()
+                      .padStart(2, '0')}`
 
-                          return acc
-                      },
-                      {}
-                  ),
-        [sortedInteractions, slice]
-    )
+                  if (!acc[monthKey]) {
+                      acc[monthKey] = []
+                  }
+
+                  acc[monthKey].push(item)
+
+                  return acc
+              }, {})
+    }, [interactions, isLoading, slice])
 }

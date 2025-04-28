@@ -4,7 +4,7 @@ import { Section, Switch } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import type { JSX } from 'react'
 import { Controller, useFormContext } from 'react-hook-form'
-import { CarOdometerUnits } from '@/entities/car'
+import { OdometerUnits } from '@/entities/car'
 import { IconCell } from '@/shared/ui/cell'
 import { IconInput, IconSelect } from '@/shared/ui/form'
 import { useEngineHours } from './hooks/useEngineHours'
@@ -53,7 +53,7 @@ export function MileageSection(): JSX.Element {
                 header={t('odometer.title')}
                 {...register('odometerUnits', { required: true })}
             >
-                {Object.values(CarOdometerUnits).map(fuel => (
+                {Object.values(OdometerUnits).map(fuel => (
                     <option
                         key={fuel}
                         value={fuel}

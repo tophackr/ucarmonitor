@@ -4,20 +4,17 @@ import { Cell, Progress, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
 import { useCarContext } from '@/entities/car/@x/repair'
-import type {
-    IRepairInteraction,
-    InteractionsProps
-} from '@/entities/interaction/@x/repair'
 import { useIntlUnit } from '@/shared/i18n'
 import { cx } from '@/shared/lib/dom'
-import type { RepairProps } from '../model/Props'
+import type { CommonRepairProps } from '../model/Props'
+import type { RepairOption } from '../model/RepairDto'
+import { isRepair } from '../model/isRepair'
 import { useRepairDate } from './hooks/useRepairDate'
 import { useRepairMileage } from './hooks/useRepairMileage'
 
 export const RepairCell = memo(function RepairCell({
-    repair,
-    interactions
-}: RepairProps & InteractionsProps): JSX.Element | null {
+    commonRepair
+}: CommonRepairProps): JSX.Element | null {
     const t = useTranslations('CarActionForm.repair_work.options')
 
     const { car } = useCarContext()
@@ -25,20 +22,16 @@ export const RepairCell = memo(function RepairCell({
     const intlUnitOdometer = useIntlUnit(car.odometerUnits)
     const intlUnitDay = useIntlUnit('day')
 
-    const inter = interactions.find(i =>
-        (i as IRepairInteraction).repairList?.includes(repair.option)
-    )
-
     const { mileage: nextMileage, percent: mileagePercent } = useRepairMileage(
-        repair.mileage,
-        inter?.mileage
+        commonRepair?.mileage,
+        commonRepair?.interaction?.mileage
     )
     const { days: nextDays, percent: daysPercent } = useRepairDate(
-        repair.days,
-        inter?.date
+        commonRepair?.days,
+        commonRepair?.interaction?.date
     )
 
-    if (!repair.mileage && !repair.days) {
+    if (!commonRepair.mileage && !commonRepair.days) {
         return null
     }
 
@@ -49,36 +42,39 @@ export const RepairCell = memo(function RepairCell({
                     <Progress
                         value={Math.max(mileagePercent, daysPercent)}
                         className={cx(
-                            inter ? 'bg-hint' : 'bg-destructive',
+                            commonRepair?.interaction
+                                ? 'bg-hint'
+                                : 'bg-destructive',
                             'mt-2'
                         )}
                     />
                 }
                 description={
                     <>
-                        {repair.mileage && (
+                        {commonRepair.mileage && (
                             <p>
-                                Каждые {intlUnitOdometer.format(repair.mileage)}
+                                Каждые{' '}
+                                {intlUnitOdometer.format(commonRepair.mileage)}
                             </p>
                         )}
-                        {repair.days && (
-                            <p>Раз в {intlUnitDay.format(repair.days)}</p>
+                        {commonRepair.days && (
+                            <p>Раз в {intlUnitDay.format(commonRepair.days)}</p>
                         )}
                     </>
                 }
                 after={
-                    <span className={'text-end w-24'}>
-                        {inter && (
-                            <>
-                                {nextMileage && <p>{nextMileage}</p>}
-                                {nextDays && <p>{nextDays}</p>}
-                            </>
-                        )}
-                    </span>
+                    commonRepair?.interaction && (
+                        <span className={'w-24 text-end'}>
+                            {nextMileage && <p>{nextMileage}</p>}
+                            {nextDays && <p>{nextDays}</p>}
+                        </span>
+                    )
                 }
                 multiline
             >
-                {t(repair.option)}
+                {isRepair(commonRepair.option)
+                    ? t(commonRepair.option as RepairOption)
+                    : commonRepair.option}
             </Cell>
         </Section>
     )

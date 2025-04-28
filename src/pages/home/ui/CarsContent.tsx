@@ -2,16 +2,17 @@
 
 import { type JSX, useCallback, useState } from 'react'
 import { type SearchForm, SearchPage } from '@/features/search'
-import { CarCell, type ICar, useCars, useCarsInitContext } from '@/entities/car'
+import { CarCell, type CarResData, useFindAllCarsQuery } from '@/entities/car'
 
 export function CarsContent(): JSX.Element {
-    const { isLoading } = useCarsInitContext()
-    const { cars } = useCars()
+    const { data: cars, isLoading, isError, error } = useFindAllCarsQuery()
+
+    if (isError) console.error('CarsContent', error)
 
     const [searchValue, setSearchValue] = useState('')
 
     const onFilter = useCallback(
-        ({ brand, model }: ICar) => {
+        ({ brand, model }: CarResData) => {
             const trimmedValue = searchValue.trim()
 
             if (!trimmedValue) return true

@@ -4,33 +4,43 @@ import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, useMemo } from 'react'
 import {
-    type IPartsInteraction,
+    type PartInteractionData,
     useInteractionContext
 } from '@/entities/interaction'
-import { useMessagesKeys } from '@/shared/i18n'
+import { PartOption, useFindAllPartsQuery } from '@/entities/part'
 
-export function PartsSection(): JSX.Element {
+export function PartsSection(): JSX.Element | undefined {
     const t = useTranslations('CarActionForm')
 
     const { interaction } = useInteractionContext()
-    const { partsList } = interaction as IPartsInteraction
+    const {
+        data: { ids }
+    } = interaction as unknown as PartInteractionData
 
-    const partsOptionsKeys = useMessagesKeys(
-        'CarActionForm',
-        'parts_work',
-        'options'
-    )
+    const { data, isLoading, isError, error } = useFindAllPartsQuery({
+        carId: interaction.carId
+    })
 
+    if (isError) console.error('widgets.PartsSection', error)
+
+    const partOptions = useMemo(() => Object.values(PartOption), [])
     const partsListFiltered = useMemo(
-        () => partsOptionsKeys.filter(i => partsList?.includes(i)),
-        [partsList, partsOptionsKeys]
+        () => data?.filter(({ id }) => ids.includes(id)),
+        [data, ids]
     )
 
-    return (
+    // todo: loading parts
+    if (isLoading) return <>Loading parts...</>
+
+    return partsListFiltered?.length ? (
         <Section header={t('parts_work.title')}>
-            {partsListFiltered.map(i => (
-                <Cell key={i}>{t(`parts_work.options.${i}`)}</Cell>
+            {partsListFiltered?.map(({ id, option }) => (
+                <Cell key={id}>
+                    {partOptions.includes(option as PartOption)
+                        ? t(`parts_work.options.${option as PartOption}`)
+                        : option}
+                </Cell>
             ))}
         </Section>
-    )
+    ) : undefined
 }

@@ -8,8 +8,8 @@ interface UseRepairMileageReturn {
 }
 
 export function useRepairMileage(
-    repairMileage?: number,
-    interactionMileage?: number
+    repairMileage?: number | null,
+    interactionMileage?: number | null
 ): UseRepairMileageReturn {
     const { car, mileage } = useCarContext()
 

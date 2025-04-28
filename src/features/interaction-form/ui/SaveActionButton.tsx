@@ -1,19 +1,14 @@
 'use client'
 
 import { type JSX, memo } from 'react'
-import { useCarContext } from '@/entities/car'
 import { useButtonClick } from '@/shared/lib/dom'
-import { pagesRoute } from '@/shared/routes'
 import { SaveButton, useVisibleSaveButton } from '@/shared/ui/action'
-import { useSaveAction } from './hooks/useSaveAction'
+import { useSaveInteraction } from './hooks/useSaveInteraction'
 
 export const SaveActionButton = memo(function SaveActionButton(): JSX.Element {
-    const { car } = useCarContext()
-
-    const { saveCallback } = useSaveAction()
+    const { saveCallback } = useSaveInteraction()
 
     const props = useButtonClick({
-        route: pagesRoute.carId(car.id),
         callback: saveCallback
     })
 

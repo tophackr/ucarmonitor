@@ -1,2 +1,3 @@
-export type { InteractionsProps } from '../model/Props'
-export type { IRepairInteraction } from '../model/Repair'
+export { interactionResSchema } from './../model/InteractionDto'
+export type { RepairInteractionData } from './../model/InteractionDto'
+export { InteractionCategory } from './car'

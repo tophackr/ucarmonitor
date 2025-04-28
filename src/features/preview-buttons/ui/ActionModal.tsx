@@ -1,7 +1,8 @@
-import { Modal as TGUIModal } from '@telegram-apps/telegram-ui'
-import { Icon28Close } from '@telegram-apps/telegram-ui/dist/icons/28/close'
+'use client'
+
 import { type JSX, type PropsWithChildren, type ReactNode, memo } from 'react'
-import { ListSection, Modal } from '@/shared/ui'
+import { ListSection } from '@/shared/ui'
+import { Modal } from '@/shared/ui/modal'
 
 interface SubtaskModalProps {
     trigger: ReactNode
@@ -14,15 +15,7 @@ export const ActionModal = memo(function ActionModal({
     return (
         <Modal
             trigger={<div className={'flex'}>{trigger}</div>}
-            header={
-                <TGUIModal.Header
-                    after={
-                        <TGUIModal.Close>
-                            <Icon28Close />
-                        </TGUIModal.Close>
-                    }
-                />
-            }
+            header={<Modal.Header />}
         >
             <ListSection>{children}</ListSection>
         </Modal>

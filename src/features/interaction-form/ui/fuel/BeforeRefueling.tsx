@@ -4,10 +4,10 @@ import { Input, Section, Slider, Text } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, memo } from 'react'
 import { useFormContext } from 'react-hook-form'
-import type { IFuelInteraction } from '@/entities/interaction'
+import type { FuelInteractionData } from '@/entities/interaction'
 import { Icon } from '@/shared/ui/icon'
-import { useRefuel } from '../hooks/useRefuel'
-import type { FuelCapacityProps } from '../types/FuelCapacity'
+import { useRefuel } from './hooks/useRefuel'
+import type { FuelCapacityProps } from './types/FuelCapacity'
 
 export const BeforeRefueling = memo(function BeforeRefueling({
     fuelCapacity
@@ -17,17 +17,17 @@ export const BeforeRefueling = memo(function BeforeRefueling({
     const {
         register,
         formState: { errors }
-    } = useFormContext<IFuelInteraction>()
+    } = useFormContext<FuelInteractionData>()
 
     const { beforeRefuel, onBeforeChange } = useRefuel(fuelCapacity)
 
     return (
         <Section header={t('fuel.before_refueling')}>
             <Input
-                status={errors.beforeRefueling && 'error'}
+                status={errors.data?.beforeRefueling && 'error'}
                 type={'number'}
                 after={
-                    <Text className={'flex items-center gap-x-1 text-hint'}>
+                    <Text className={'text-hint flex items-center gap-x-1'}>
                         {beforeRefuel}
                         <Icon
                             name={'Percent'}
@@ -35,7 +35,7 @@ export const BeforeRefueling = memo(function BeforeRefueling({
                         />
                     </Text>
                 }
-                {...register('beforeRefueling', {
+                {...register('data.beforeRefueling', {
                     valueAsNumber: true,
                     min: { value: 0, message: t('errors.before_refueling_min') }
                 })}

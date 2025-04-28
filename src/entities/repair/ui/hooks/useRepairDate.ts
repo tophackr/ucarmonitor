@@ -6,7 +6,10 @@ interface UseRepairDateReturn {
     percent: number
 }
 
-export function useRepairDate(days?: number, date?: Date): UseRepairDateReturn {
+export function useRepairDate(
+    days?: number | null,
+    date?: string
+): UseRepairDateReturn {
     const intlUnit = useIntlUnit('day')
 
     if (!days || !date) {

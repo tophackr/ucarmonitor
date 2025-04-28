@@ -20,7 +20,7 @@ export const BaseSection = memo(function BaseSection({
         interaction: { date, mileage, amount, engineHours, description }
     } = useInteractionContext()
 
-    const intlDate = useIntlDateTime(date)
+    const intlDateTime = useIntlDateTime()
 
     return (
         <>
@@ -32,7 +32,7 @@ export const BaseSection = memo(function BaseSection({
                     bgColor={'OrangeRed'}
                     subhead={t('date')}
                 >
-                    {intlDate}
+                    {intlDateTime.format(new Date(date))}
                 </IconCell>
                 <IconCell
                     icon={'Milestone'}

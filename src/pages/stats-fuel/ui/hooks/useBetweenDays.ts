@@ -4,7 +4,7 @@ import { useFuelInteractions } from './useFuelInteractions'
 export function useBetweenDays(): number {
     const interactions = useFuelInteractions()
 
-    if (interactions.length === 0) {
+    if (!interactions.length) {
         return 0
     }
 

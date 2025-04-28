@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from 'react'
-import type { IInteraction } from '@/entities/interaction'
+import type { InteractionResData } from '@/entities/interaction'
 import { oneDayInMs } from '@/shared/model'
 
 interface UseLastDayFilterReturn {
-    last30DaysFilter: (item: IInteraction) => boolean
-    last90DaysFilter: (item: IInteraction) => boolean
-    lastYearFilter: (item: IInteraction) => boolean
+    last30DaysFilter: (item: InteractionResData) => boolean
+    last90DaysFilter: (item: InteractionResData) => boolean
+    lastYearFilter: (item: InteractionResData) => boolean
 }
 
 export function useLastDayFilter(): UseLastDayFilterReturn {
@@ -23,7 +23,7 @@ export function useLastDayFilter(): UseLastDayFilterReturn {
     }, [now])
 
     const last30DaysFilter = useCallback(
-        (item: IInteraction) => {
+        (item: InteractionResData) => {
             const itemDate = new Date(item.date)
 
             return (
@@ -35,7 +35,7 @@ export function useLastDayFilter(): UseLastDayFilterReturn {
     )
 
     const last90DaysFilter = useCallback(
-        (item: IInteraction) => {
+        (item: InteractionResData) => {
             const itemDate = new Date(item.date)
 
             return (
@@ -47,7 +47,7 @@ export function useLastDayFilter(): UseLastDayFilterReturn {
     )
 
     const lastYearFilter = useCallback(
-        (item: IInteraction) => {
+        (item: InteractionResData) => {
             const itemDate = new Date(item.date)
 
             return itemDate >= startDateLastYear && itemDate < endDateLastYear

@@ -4,7 +4,7 @@ import { useIntlDateTime } from './useIntlDateTime'
 
 export function useIntlTimeAgo(value: Date): string {
     const locale = useLocale()
-    const date = useIntlDateTime(value)
+    const dateTime = useIntlDateTime()
 
     const diffInDays = daysAfterToday(value) + 1
 
@@ -15,5 +15,5 @@ export function useIntlTimeAgo(value: Date): string {
         )
     }
 
-    return date
+    return dateTime.format(value)
 }

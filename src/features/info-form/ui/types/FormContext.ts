@@ -1,9 +1,9 @@
-import type { ICar } from '@/entities/car'
+import type { CarReqData } from '@/entities/car'
 
-export type CarInfoForm = Pick<ICar, 'brand' | 'model' | 'name' | 'year'>
-export type CarFuelForm = Pick<ICar, 'fuel' | 'fuelCapacity'>
+export type CarDefaultFrom = Pick<CarReqData, 'isDefault'>
+export type CarInfoForm = Pick<CarReqData, 'brand' | 'model' | 'name' | 'year'>
+export type CarFuelForm = Pick<CarReqData, 'fuelType' | 'fuelCapacity'>
 export type CarMileageForm = Pick<
-    ICar,
+    CarReqData,
     'mileage' | 'odometerUnits' | 'engineHoursEnabled' | 'engineHours'
 >
-export type CarDefaultFrom = Pick<ICar, 'default'>

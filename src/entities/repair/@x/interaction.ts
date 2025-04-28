@@ -1,1 +1,2 @@
-export { useLoadingRepairs } from '../lib/store/hooks/useLoadingInteractions'
+export { repairResSchema } from '../model/RepairDto'
+export type { RepairIdProps } from './../model/Props'

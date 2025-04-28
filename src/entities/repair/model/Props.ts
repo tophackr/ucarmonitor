@@ -1,9 +1,18 @@
-import type { IRepair } from './Repair'
+import type { CommonRepairResData } from './CommonRepairDto'
+import type { RepairResData } from './RepairDto'
+
+export interface RepairIdProps {
+    repairId: string
+}
 
 export interface RepairProps {
-    repair: IRepair
+    repair: RepairResData
+}
+
+export interface CommonRepairProps {
+    commonRepair: CommonRepairResData
 }
 
 export interface RepairsProps {
-    repairs: IRepair[]
+    repairs: RepairResData[]
 }

@@ -1,7 +1,7 @@
-import type { ICar } from './Car'
+import type { CarResData } from './CarDto'
 
 export interface CarProps {
-    car: ICar
+    car: CarResData
 }
 
 export interface CarMileageProps {

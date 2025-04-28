@@ -4,7 +4,7 @@ import { type IMenu, type KeyMenu, generateMenu } from '@/shared/lib/link-menu'
 
 const moreData: KeyMenu<InteractionCategory>[] = [
     {
-        name: InteractionCategory.carPurchases,
+        name: InteractionCategory.car_purchases,
         icon: 'Gift',
         bgColor: 'LimeGreen'
     },
@@ -14,7 +14,7 @@ const moreData: KeyMenu<InteractionCategory>[] = [
         bgColor: 'DodgerBlue'
     },
     {
-        name: InteractionCategory.driverSalary,
+        name: InteractionCategory.driver_salary,
         icon: 'Coins',
         bgColor: 'Orange'
     }

@@ -7,11 +7,11 @@ import type { MouseClickEvent } from '../types/ButtonClickTypes'
 type UseButtonClickProps<T> =
     | {
           route?: string
-          callback?: (data?: T) => void | Promise<void>
+          callback?: (data?: T) => unknown | Promise<unknown>
       }
     | {
           route?: string
-          callback?: (data: T) => void | Promise<void>
+          callback?: (data: T) => unknown | Promise<unknown>
       }
 
 export function useButtonClick<T = MouseEvent>({

@@ -1,8 +1,11 @@
-import type { IInteraction, InteractionCategory } from '@/entities/interaction'
+import type {
+    InteractionCategory,
+    InteractionResData
+} from '@/entities/interaction'
 import type { InteractionDataProps } from '../types/InteractionData'
 
 export function calcInteractionData(
-    interactions: IInteraction[]
+    interactions: InteractionResData[]
 ): InteractionDataProps {
     const categoryCount = interactions.reduce(
         (acc, item) => {

@@ -9,7 +9,7 @@ import { FuelSection } from './FuelSection'
 import { InteractionEditButton } from './InteractionEditButton'
 import { PartsSection } from './PartsSection'
 import { RepairSection } from './RepairSection'
-import { TiresSection } from './TiresSection'
+import { WheelsSection } from './WheelsSection'
 
 export const Preview = memo(function Preview({
     category
@@ -29,9 +29,11 @@ export const Preview = memo(function Preview({
                 InteractionCategory.repair
             ].includes(category) && <RepairSection />}
 
-            {category === InteractionCategory.parts && <PartsSection />}
+            {category === InteractionCategory.part && <PartsSection />}
 
-            {category === InteractionCategory.purchaseTires && <TiresSection />}
+            {category === InteractionCategory.purchase_wheels && (
+                <WheelsSection />
+            )}
         </List>
     )
 })

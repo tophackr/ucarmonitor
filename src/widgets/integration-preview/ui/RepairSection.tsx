@@ -4,33 +4,46 @@ import { Cell, Section } from '@telegram-apps/telegram-ui'
 import { useTranslations } from 'next-intl'
 import { type JSX, useMemo } from 'react'
 import {
-    type IRepairInteraction,
+    type RepairInteractionData,
     useInteractionContext
 } from '@/entities/interaction'
-import { useMessagesKeys } from '@/shared/i18n'
+import {
+    RepairOption,
+    isRepair,
+    useFindAllRepairsQuery
+} from '@/entities/repair'
 
-export function RepairSection(): JSX.Element {
+export function RepairSection(): JSX.Element | undefined {
     const t = useTranslations('CarActionForm')
 
     const { interaction } = useInteractionContext()
-    const { repairList } = interaction as IRepairInteraction
+    const {
+        data: { ids }
+    } = interaction as unknown as RepairInteractionData
 
-    const repairOptionsKeys = useMessagesKeys(
-        'CarActionForm',
-        'repair_work',
-        'options'
-    )
+    const { data, isLoading, isError, error } = useFindAllRepairsQuery({
+        carId: interaction.carId
+    })
+
+    if (isError) console.error('widget.RepairSection', error)
 
     const repairListFiltered = useMemo(
-        () => repairOptionsKeys.filter(i => repairList?.includes(i)),
-        [repairList, repairOptionsKeys]
+        () => data?.filter(({ id }) => ids.includes(id)),
+        [data, ids]
     )
 
-    return (
+    // todo: loading repairs
+    if (isLoading) return <>Loading repairs...</>
+
+    return repairListFiltered?.length ? (
         <Section header={t('repair_work.title')}>
-            {repairListFiltered.map(i => (
-                <Cell key={i}>{t(`repair_work.options.${i}`)}</Cell>
+            {repairListFiltered?.map(({ id, option }) => (
+                <Cell key={id}>
+                    {isRepair(option)
+                        ? t(`repair_work.options.${option as RepairOption}`)
+                        : option}
+                </Cell>
             ))}
         </Section>
-    )
+    ) : undefined
 }

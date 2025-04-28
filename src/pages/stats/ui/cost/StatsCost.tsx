@@ -4,8 +4,12 @@ import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
 import { type ISegment, Segments } from '@/features/segment'
 import { useCarContext } from '@/entities/car'
-import { InteractionCategory, useInteractions } from '@/entities/interaction'
+import {
+    InteractionCategory,
+    useFindAllInteractionsQuery
+} from '@/entities/interaction'
 import { CostData } from './CostData'
+import { CostSkeleton } from './CostSkeleton'
 import { useLastDayFilter } from './hooks/useLastDayFilter'
 import { CostKeys } from './types/CostKeys'
 import { calcInteractionData } from './utils/calcInteractionData'
@@ -13,12 +17,21 @@ import { calcInteractionData } from './utils/calcInteractionData'
 export function StatsCost() {
     const t = useTranslations('StatsCostSegment')
 
-    const { interactions } = useInteractions()
     const { car } = useCarContext()
+    const {
+        data: interactions,
+        isLoading,
+        isError,
+        error
+    } = useFindAllInteractionsQuery({
+        carId: car.id
+    })
+
+    if (isError) console.error('StatsCost', error)
 
     const interactionsCarFilter = useMemo(
         () =>
-            [...interactions].filter(
+            [...(interactions ?? [])].filter(
                 i =>
                     i.carId === car.id && i.type !== InteractionCategory.mileage
             ),
@@ -65,6 +78,8 @@ export function StatsCost() {
             )
         }
     ]
+
+    if (isLoading) return <CostSkeleton />
 
     return (
         <Segments
