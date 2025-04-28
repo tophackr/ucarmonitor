@@ -175,10 +175,10 @@
         "spark_plugs": "Свечи зажигания"
       }
     },
-    "tires": {
-      "tires_n_wheels": "Шины и диски",
-      "tires": "Шины",
-      "wheels": "Диски",
+    "wheels": {
+      "title": "Шины и диски",
+      "tire": "Шины",
+      "rim": "Диски",
       "seasonality": {
         "title": "Сезонность",
         "options": {
@@ -215,28 +215,28 @@
   "CarCategoryName": {
     "mileage": "Пробег",
     "parking": "Парковка",
-    "toll-road": "Платная Дорога",
+    "toll_road": "Платная Дорога",
     "taxi": "Такси и Транспорт",
-    "sober-driver": "Трезвый Водитель",
-    "alarm-system": "Авто Сигнализация",
-    "wash": "Мойка",
+    "sober_driver": "Трезвый Водитель",
+    "alarm_system": "Авто Сигнализация",
     "fuel": "Заправка",
+    "wash": "Мойка",
     "maintenance": "Плановое ТО",
-    "tire-service": "Шиномонтаж",
+    "tire_service": "Шиномонтаж",
     "repair": "Ремонт",
-    "parts": "Запчасти и расходники",
-    "purchase-tires": "Покупка шин и дисков",
-    "tow-truck": "Эвакуатор",
+    "part": "Запчасти и расходники",
+    "purchase_wheels": "Покупка шин и дисков",
+    "tow_truck": "Эвакуатор",
     "insurance": "Страховка",
     "tax": "Налог",
-    "state-inspection": "Гос. Техосмотр",
+    "state_inspection": "Гос. Техосмотр",
     "fine": "Штраф",
-    "car-purchase": "Покупка Автомобиля",
-    "loan-repayment": "Выплата Кредита",
+    "car_purchase": "Покупка Автомобиля",
+    "loan_repayment": "Выплата Кредита",
     "leasing": "Лизинг",
-    "car-purchases": "Покупки для авто",
+    "car_purchases": "Покупки для авто",
     "tuning": "Тюнинг",
-    "driver-salary": "Зарплата Водителю"
+    "driver_salary": "Зарплата Водителю"
   },
   "PreviewSegment": {
     "info": "Информация",
@@ -283,6 +283,16 @@
       "interval_min": "Интервал не может быть отрицательным"
     }
   },
+  "Part": {
+    "options": {
+      "oil": "Масло (двигателя, трансмиссии)",
+      "filter": "Фильтр (воздушный, масляный)",
+      "brake_pads_and_discs": "Тормозные колодки и диски",
+      "coolant": "Охлаждающая жидкость",
+      "windshield_washer": "Омыватель стекол",
+      "spark_plugs": "Свечи зажигания"
+    }
+  },
   "StatsCostSegment": {
     "thirty_days": "30 дней",
     "ninety_days": "90 дней",
@@ -292,10 +302,14 @@
   "StatsFuel": {
     "title": "Средний расход за все время",
     "description": "{count, plural, one {# заправка} few {# заправки} many {# заправок} other {# заправок}} за {days, plural, one {# день} few {# дня} many {# дней} other {# дней}}",
-    "consumption_per_100": "Расход на 100 {symbol}",
+    "consumption_per": "Расход на {value}",
     "fuel_consumption": "Общий расход топлива",
-    "cost_per_1_mileage": "Стоимость 1 {symbol} пробега",
-    "mileage_per_1_unit": "Пробег на 1 {symbol}",
-    "cost_per_1_unit": "Стоимость 1 {symbol}"
+    "cost_per_mileage": "Стоимость {value} пробега",
+    "mileage_per_unit": "Пробег на {value}",
+    "cost_per_unit": "Стоимость {value}"
+  },
+  "PopupUnauthorizedError": {
+    "title": "Время сеанса истекло",
+    "description": "Пожалуйста, закройте приложение и откройте его заново."
   }
 }
