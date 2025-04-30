@@ -8,19 +8,19 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
     const initialHeightRef = useRef<number>(viewportHeight())
     const initialBottomRef = useRef<number>(viewportSafeAreaInsetBottom())
 
-    console.log('initial', initialHeightRef.current, initialBottomRef.current)
-
-    const [fixedHeight, setFixedHeight] = useState(initialHeightRef.current)
     const [fixedBottom, setFixedBottom] = useState(initialBottomRef.current)
+    console.log('initial', initialHeightRef.current, initialBottomRef.current)
 
     useEffect(() => {
         const interval = setInterval(() => {
             const newBottom = viewportSafeAreaInsetBottom()
             const newHeight = viewportHeight()
+            console.log(fixedBottom)
 
-            if (newBottom !== fixedBottom) {
-                setFixedHeight(newHeight)
-                setFixedBottom(newBottom)
+            if (newBottom !== initialBottomRef.current) {
+                initialHeightRef.current = newHeight
+                initialBottomRef.current = newBottom
+                setFixedBottom(fixedBottom)
             }
         }, 500)
 
@@ -29,12 +29,12 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
 
     console.log(
         'fixedHeight',
-        fixedHeight,
+        initialHeightRef.current,
         viewportHeight(),
-        fixedHeight - viewportHeight()
+        initialHeightRef.current - viewportHeight()
     )
 
-    const keyboardOffset = fixedHeight - viewportHeight()
+    const keyboardOffset = initialHeightRef.current - viewportHeight()
 
     return (
         <div style={{ paddingBottom: keyboardOffset > 0 ? keyboardOffset : 0 }}>
