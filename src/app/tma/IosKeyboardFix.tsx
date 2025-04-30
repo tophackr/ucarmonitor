@@ -2,22 +2,27 @@ import {
     viewportHeight,
     viewportSafeAreaInsetBottom
 } from '@telegram-apps/sdk-react'
-import { type PropsWithChildren, useEffect, useState } from 'react'
+import { type PropsWithChildren, useEffect, useRef, useState } from 'react'
 
 export function IosKeyboardFix({ children }: PropsWithChildren) {
-    const [fixedHeight, setFixedHeight] = useState(viewportHeight())
-    const [fixedBottom, setFixedBottom] = useState(
-        viewportSafeAreaInsetBottom()
-    )
+    const initialHeightRef = useRef<number>(viewportHeight())
+    const initialBottomRef = useRef<number>(viewportSafeAreaInsetBottom())
+
+    const [fixedHeight, setFixedHeight] = useState(initialHeightRef.current)
+    const [fixedBottom, setFixedBottom] = useState(initialBottomRef.current)
 
     useEffect(() => {
-        const safeAreaBottom = viewportSafeAreaInsetBottom()
-        console.log('safeAreaBottom', safeAreaBottom, fixedBottom)
+        const interval = setInterval(() => {
+            const newBottom = viewportSafeAreaInsetBottom()
+            const newHeight = viewportHeight()
 
-        if (safeAreaBottom !== fixedBottom) {
-            setFixedHeight(viewportHeight())
-            setFixedBottom(safeAreaBottom)
-        }
+            if (newBottom !== fixedBottom) {
+                setFixedHeight(newHeight)
+                setFixedBottom(newBottom)
+            }
+        }, 500)
+
+        return () => clearInterval(interval)
     }, [fixedBottom])
 
     console.log(
@@ -27,8 +32,10 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
         fixedHeight - viewportHeight()
     )
 
+    const keyboardOffset = fixedHeight - viewportHeight()
+
     return (
-        <div style={{ paddingBottom: fixedHeight - viewportHeight() }}>
+        <div style={{ paddingBottom: keyboardOffset > 0 ? keyboardOffset : 0 }}>
             {children}
         </div>
     )
