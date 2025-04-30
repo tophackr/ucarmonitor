@@ -8,6 +8,8 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
     const initialHeightRef = useRef<number>(viewportHeight())
     const initialBottomRef = useRef<number>(viewportSafeAreaInsetBottom())
 
+    console.log('initial', initialHeightRef.current, initialBottomRef.current)
+
     const [fixedHeight, setFixedHeight] = useState(initialHeightRef.current)
     const [fixedBottom, setFixedBottom] = useState(initialBottomRef.current)
 
