@@ -1,5 +1,4 @@
 import {
-    isFullscreen,
     on,
     viewportHeight,
     viewportSafeAreaInsetTop
@@ -31,9 +30,7 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
     })
 
     const marginBottom =
-        keyboardOffset > 0
-            ? keyboardOffset + keyboardOffset / (isFullscreen() ? 2 : 4)
-            : 0
+        keyboardOffset > 0 ? keyboardOffset + keyboardOffset / 4 : 0
 
     return <div style={{ marginBottom }}>{children}</div>
 }
