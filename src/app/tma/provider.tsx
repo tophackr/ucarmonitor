@@ -45,7 +45,11 @@ const RootInner = memo(function RootInner({
             appearance={isDark ? 'dark' : 'light'}
             platform={isApple ? 'ios' : 'base'}
         >
-            {children}
+            {platform === 'ios' ? (
+                <IosKeyboardFix>{children}</IosKeyboardFix>
+            ) : (
+                children
+            )}
         </AppRoot>
     )
 })
@@ -60,9 +64,7 @@ export const TelegramProvider = memo(function TelegramProvider(
 
     return didMount ? (
         <ErrorBoundary fallback={ErrorPage}>
-            <IosKeyboardFix>
-                <RootInner {...props} />
-            </IosKeyboardFix>
+            <RootInner {...props} />
         </ErrorBoundary>
     ) : (
         <Loader />

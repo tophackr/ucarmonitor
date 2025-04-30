@@ -1,49 +1,39 @@
 import {
+    isFullscreen,
+    on,
     viewportHeight,
     viewportSafeAreaInsetTop
 } from '@telegram-apps/sdk-react'
-import { type PropsWithChildren, useEffect, useRef, useState } from 'react'
+import { type PropsWithChildren, useRef, useState } from 'react'
 
 export function IosKeyboardFix({ children }: PropsWithChildren) {
-    const initialHeight = useRef(viewportHeight())
+    const initialHeight = useRef(0)
+    const initialTop = useRef(viewportSafeAreaInsetTop())
 
     const [currentHeight, setCurrentHeight] = useState(initialHeight.current)
-    const [currentTop, setCurrentTop] = useState(viewportSafeAreaInsetTop())
-    const [keyboardOffset, setKeyboardOffset] = useState(
-        currentHeight - viewportHeight()
-    )
+    const [currentTop, setCurrentTop] = useState(initialTop.current)
+    const [keyboardOffset, setKeyboardOffset] = useState(0)
 
-    useEffect(() => {
-        const newTop = viewportSafeAreaInsetTop()
-        const newHeight = viewportHeight()
-
-        console.log('newBottom', newTop)
-
-        setCurrentTop(prevTop => {
-            if (newTop !== prevTop) {
-                setCurrentHeight(newHeight)
-                return newTop
-            }
-            return prevTop
-        })
-
-        if (newHeight !== currentHeight) {
-            console.log('newHeight', newHeight, currentHeight)
-            setKeyboardOffset(newHeight - viewportHeight())
+    on('viewport_changed', data => {
+        if (initialHeight.current === 0) {
+            initialHeight.current = data.height
+            setCurrentHeight(data.height)
         }
-    }, [currentHeight])
 
-    console.log(
-        'render',
-        currentTop,
-        keyboardOffset,
-        currentHeight,
-        viewportHeight()
-    )
+        setKeyboardOffset(currentHeight - data.height)
+    })
 
-    return (
-        <div style={{ paddingBottom: keyboardOffset > 0 ? keyboardOffset : 0 }}>
-            {children}
-        </div>
-    )
+    on('safe_area_changed', data => {
+        if (currentTop !== data.top) {
+            setCurrentHeight(viewportHeight())
+            setCurrentTop(data.top)
+        }
+    })
+
+    const marginBottom =
+        keyboardOffset > 0
+            ? keyboardOffset + keyboardOffset / (isFullscreen() ? 2 : 4)
+            : 0
+
+    return <div style={{ marginBottom }}>{children}</div>
 }
