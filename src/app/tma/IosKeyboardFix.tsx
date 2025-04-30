@@ -6,33 +6,32 @@ import { type PropsWithChildren, useEffect, useRef, useState } from 'react'
 
 export function IosKeyboardFix({ children }: PropsWithChildren) {
     const initialHeight = useRef(viewportHeight())
-    const initialTop = useRef(viewportSafeAreaInsetTop())
 
     const [currentHeight, setCurrentHeight] = useState(initialHeight.current)
-    const [currentTop, setCurrentTop] = useState(initialTop.current)
+    const [currentTop, setCurrentTop] = useState(viewportSafeAreaInsetTop())
+    const [keyboardOffset, setKeyboardOffset] = useState(
+        currentHeight - viewportHeight()
+    )
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            const newBottom = viewportSafeAreaInsetTop()
-            const newHeight = viewportHeight()
+        const newTop = viewportSafeAreaInsetTop()
+        const newHeight = viewportHeight()
 
-            console.log(
-                'newBottom',
-                newBottom,
-                currentTop,
-                newBottom !== currentTop
-            )
+        console.log('newBottom', newTop)
 
-            if (newBottom !== currentTop) {
-                setCurrentTop(newBottom)
+        setCurrentTop(prevTop => {
+            if (newTop !== prevTop) {
                 setCurrentHeight(newHeight)
+                return newTop
             }
-        }, 500)
+            return prevTop
+        })
 
-        return () => clearInterval(interval)
-    }, [currentTop])
-
-    const keyboardOffset = currentHeight - viewportHeight()
+        if (newHeight !== currentHeight) {
+            console.log('newHeight', newHeight, currentHeight)
+            setKeyboardOffset(newHeight - viewportHeight())
+        }
+    }, [currentHeight])
 
     console.log('render', keyboardOffset, currentHeight, viewportHeight())
 
