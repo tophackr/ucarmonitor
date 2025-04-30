@@ -6,6 +6,7 @@ import { type JSX, type PropsWithChildren, memo } from 'react'
 import { useClientOnce } from '@/shared/lib/dom'
 import { Loader } from '@/shared/ui'
 import { isAppleClient, useLaunchParams } from '@/shared/ui/tma'
+import { IosKeyboardFix } from './IosKeyboardFix'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { ErrorPage } from './components/ErrorPage'
 import { init } from './init'
@@ -59,7 +60,9 @@ export const TelegramProvider = memo(function TelegramProvider(
 
     return didMount ? (
         <ErrorBoundary fallback={ErrorPage}>
-            <RootInner {...props} />
+            <IosKeyboardFix>
+                <RootInner {...props} />
+            </IosKeyboardFix>
         </ErrorBoundary>
     ) : (
         <Loader />
