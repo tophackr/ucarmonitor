@@ -15,7 +15,16 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
         const interval = setInterval(() => {
             const newBottom = viewportSafeAreaInsetBottom()
             const newHeight = viewportHeight()
+
+            // Костыль для вызова useEffect
             console.log(fixedBottom)
+
+            console.log(
+                'bottom',
+                newBottom,
+                initialBottomRef.current,
+                newBottom !== initialBottomRef.current
+            )
 
             if (newBottom !== initialBottomRef.current) {
                 initialHeightRef.current = newHeight
