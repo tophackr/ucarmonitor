@@ -8,7 +8,6 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
     const initialHeight = useRef(viewportHeight())
 
     const [currentHeight, setCurrentHeight] = useState(initialHeight.current)
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [currentTop, setCurrentTop] = useState(viewportSafeAreaInsetTop())
     const [keyboardOffset, setKeyboardOffset] = useState(
         currentHeight - viewportHeight()
@@ -34,7 +33,13 @@ export function IosKeyboardFix({ children }: PropsWithChildren) {
         }
     }, [currentHeight])
 
-    console.log('render', keyboardOffset, currentHeight, viewportHeight())
+    console.log(
+        'render',
+        currentTop,
+        keyboardOffset,
+        currentHeight,
+        viewportHeight()
+    )
 
     return (
         <div style={{ paddingBottom: keyboardOffset > 0 ? keyboardOffset : 0 }}>
